@@ -1,0 +1,83 @@
+\begin{solution}{hard}
+When the waxing machine is stationary, no force is needed in order to maintain equilibrium because all the force vectors cancel out. However, when we are moving the disk at a constant velocity $v$, we are adding an extra component to the rotation. Let us set the rotation in the clockwise direction and velocity $v$ to the right.
+\vspace{3mm}
+
+\noindent Then, if we move into a frame moving $v$ to the right, there is an instantaneous axis of rotation on the disk at a position $A$ located $r = v/\omega$ below the center. We can trace out a center with radius $R-r$ centered around this point where the net force of this circle sums to zero. We now concern ourselves with the crescent-like shaped border.
+\begin{center}
+\begin{asy}
+import graph;
+size(8cm); 
+real labelscalefactor = 0.5; /* changes label-to-point distance */
+pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps); /* default pen style */ 
+pen dotstyle = black; /* point style */ 
+real xmin = -9.067982528030264, xmax = 8.305218827021001, ymin = -4.870667597884927, ymax = 4.235023463205537;  /* image dimensions */
+
+ /* draw figures */
+draw((0,0)--(0,-1)); 
+label("$r$",(-0.3686821419117571,-0.4),SE*labelscalefactor); 
+draw(circle((0,0), 4)); 
+draw(circle((0,-1), 2.9965606939716323)); 
+draw((0,-1)--(3.464101615137755,2)); 
+draw((0,0)--(3.464101615137755,2)); 
+label("$\theta$",(0.5837960025537728,-0.5),2NW*labelscalefactor); 
+draw(shift((0,-1))*xscale(0.613468387817834)*yscale(0.553468387817834)*arc((0,0),1,90,42)); 
+ /* dots and labels */
+dot((0,0),linewidth(4pt) + dotstyle); 
+label("$O$", (0.050408241653076086,0.10761817052157498), NW * labelscalefactor); 
+dot((0,-1),dotstyle); 
+label("$A$", (0,-1.1), SE * labelscalefactor); 
+dot((3.464101615137755,2),dotstyle); 
+label("$B$", (3.517428687507605,2.126871836788498), NE * labelscalefactor); 
+dot((2.2651869670743046,0.9617094578077718),linewidth(4pt) + dotstyle); 
+label("$C$", (2.5,1.0600963149871048), SE * labelscalefactor); 
+clip((xmin,ymin)--(xmin,ymax)--(xmax,ymax)--(xmax,ymin)--cycle); 
+ /* end of picture */
+\end{asy}
+\end{center}
+The distance from $A$ to the rim of the disk at an angle of $\theta$ can be calculated by using the law of cosines 
+\[AB^2 = R^{\prime 2} = r^2 + R^2 - 2Rr\cos \theta \approx R^2 - 2Rr\cos\theta\]
+assuming that $r\ll R$. Now, let us try to find the area of the orange area shown 
+\begin{center}
+\begin{asy}
+import graph; size(8cm);
+real labelscalefactor = 0.5; /* changes label-to-point distance */
+pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps); /* default pen style */
+pen dotstyle = black; /* point style */
+real xmin = -10.020714666667654, xmax = 11.00085897294438, ymin = -5.6560175772682255, ymax = 5.361868606651209; /* image dimensions */
+pen ffvvqq = rgb(1,0.3333333333333333,0);
+/* draw figures */
+draw((0,0)--(0,-1.04));
+draw(shift((0,0))*xscale(5.075544548835668)*yscale(5.075544548835668)*arc((0,0),1,4.437345586072064,32.970457216552056), ffvvqq);
+draw((5.060330780204295,0.39268926918424296)--(3.8584412626434546,0.08649855513162427), ffvvqq);
+draw((0,-1.04)--(3.026269048352852,1.6016127513223635));
+draw((0,-1.04)--(3.8584412626434546,0.08649855513162427));
+draw(shift((0,0))*xscale(5.093944240137459)*yscale(5.093944240137459)*arc((0,0),1,-327.02954278344794,4.437345586072064));
+draw(shift((0,-1.04))*xscale(4.017016589580803)*yscale(4.017016589580803)*arc((0,0),1,-318.88248033587666,16.275529004479697));
+draw((3.026269048352852,1.6016127513223635)--(4.273571053733455,2.772157710218004), ffvvqq);
+draw(shift((0,-1.04))*xscale(4.019523351341954)*yscale(4.019523351341954)*arc((0,0),1,16.275529004479697,41.11751966412335), ffvvqq);
+draw(shift((0,-1.04))*xscale(1.576644833352594)*yscale(1.576644833352594)*arc((0,0),1,16.275529004479697,41.11751966412334));
+label("$d\theta$",(1.4,0.2),SE*labelscalefactor);
+label("$r$",(-0.37046010111476074,-0.4),SE*labelscalefactor);
+label("$\theta$",(0.5837960025537728,-0.5),2NW*labelscalefactor); 
+
+draw(shift((0,-1))*xscale(0.613468387817834)*yscale(0.553468387817834)*arc((0,0),1,90,42)); 
+/* dots and labels */
+dot((0,0),linewidth(4pt) + dotstyle);
+label("$O$", (0.05980602601180136,0.12184184414559193), NE * labelscalefactor);
+dot((0,-1.04),dotstyle);
+label("$A$", (0,-1.2), SE * labelscalefactor);
+clip((xmin,ymin)--(xmin,ymax)--(xmax,ymax)--(xmax,ymin)--cycle);
+/* end of picture */
+\end{asy}
+\end{center}
+We can find that the area $dS$ can be represented by differentials with the differences of the respective sector areas:
+\[dS = \frac{1}{2}(R^{\prime 2} - (R - r)^2)d\theta = \frac{1}{2}(R^2 - 2Rr\cos\theta -R^2 + r^2 + 2Rr)d\theta \approx Rr(1 - \cos\theta)d\theta.\]
+The force of this surface can now be written as 
+\[|d\vec{F}| = A\cdot dS = \frac{\mu mg}{\pi R^2}dS\]
+where $A$ is the ratio of the total frictional force over the total area of the setup (in other words, the "density" of force). We can then write the force in the horizontal x-direction to be 
+\[dF_x = \frac{\mu mg}{\pi R^2}\cos\theta dS = \frac{\mu mg}{\pi R^2}\cos\theta Rr(1 - \cos\theta)d\theta.\]
+We then can find the force as the integral from upper and lower bounds of $2\pi$ and $0$ respectively to get 
+\[F_x = \frac{\mu mgr}{\pi R}\left|\int_{0}^{2\pi}\cos\theta (1 - \cos\theta)d\theta\right| = \frac{\mu mgr}{\pi R}\cdot 2\left(\int_{0}^{\pi}\cos\theta (1 - \cos\theta)d\theta\right).\]
+Upon substituting $v = \omega/r$, we find that 
+\[F_x = \frac{\mu mgv}{\pi \omega R} \cdot 2 \frac{\pi}{2} = \frac{\mu mgv}{\omega R}.\]
+\end{solution}
