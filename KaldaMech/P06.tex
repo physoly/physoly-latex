@@ -1,0 +1,56 @@
+\begin{solution}{hard}
+a) We examine the forces involved in a cross-section of the cylinder. Assuming the block behaves like a point mass, and noting there is a centrifugal force, we create following diagram
+\begin{center}
+\begin{asy}
+import olympiad;
+size(5cm);
+draw(circle((0,0), 1));
+dot((sqrt(2)/2, sqrt(2)/2));
+draw((sqrt(2)/2, sqrt(2)/2)--(0,0), arrow=Arrow(4));
+draw((sqrt(2)/2, sqrt(2)/2)--(1.15, 1.15), arrow=Arrow(4));
+draw((sqrt(2)/2, sqrt(2)/2)--(sqrt(2)/2, 0), arrow=Arrow(4));
+draw((sqrt(2)/2, sqrt(2)/2)--(sqrt(2)/2+0.5, sqrt(2)/2-0.5), dotted, arrow=Arrow(4));
+draw((sqrt(2)/2, sqrt(2)/2)--(sqrt(2)/2-0.5, sqrt(2)/2+0.5), arrow=Arrow(4));
+draw((sqrt(2)/2, sqrt(2)/2)--(sqrt(2)/2, 0), dotted);
+draw((0,0)--(sqrt(2)/2, 0), dotted);
+draw((sqrt(2)/2, sqrt(2)/2)--(sqrt(2)/2+0.5, sqrt(2)/2), dotted);
+
+pair A,B,C,D,E,F, G;
+B = (sqrt(2)/2, sqrt(2)/2);
+A = (sqrt(2)/2-0.5, sqrt(2)/2+0.5);
+C = (sqrt(2)/2, 1.3);
+D = (0, 0);
+E = (sqrt(2)/2, 0);
+F = (sqrt(2)/2+0.3, sqrt(2)/2);
+G = (sqrt(2)/2+0.5, sqrt(2)/2-0.5);
+
+draw(anglemark(G, B, F, 4));
+draw(anglemark(E, D, B, 4));
+
+label("$\theta$", (0.1, -0.05), NE);
+label("$\theta$", (sqrt(2)/2+0.1, sqrt(2)/2+0.05), SE);
+label("N", (0, 0), SW);
+label("$\mu N$", (sqrt(2)/2-0.5, sqrt(2)/2+0.5), NW);
+label("$mg$", (sqrt(2)/2, 0), S);
+label("$m\omega^2 r$", (1.15, 1.15), NE);
+\end{asy}
+\end{center}
+Because the system is in equilibrium we must set the resultant force to be zero in both directions. We assume a tilted coordinate of $\theta$ to perform our calculations on. In the vertical direction we have
+\[0=N+mg\sin\theta-m\omega^2 r\]this in turn implies that the normal force is
+\[N=m\omega^2 r-mg\sin\theta.\]Looking in the horizontal direction we note that
+\[\mu N-mg\cos\theta=0\]\[mg\cos\theta=\mu N\]However, we remember that $\mu N$ is the maximum amount of friction obtained from slipping, thus we have to put a less than or equal sign to obtain
+\[mg\cos\theta\leq\mu N\]substituting in $N$ from our previous calculation we have
+\[mg\cos\theta\leq\mu(m\omega^2 r-mg\sin\theta)\]moving variables to the other side and canceling out $m$ gives
+\[\omega^2 r\geq g(\mu^{-1}\cos\theta+\sin\theta)\]Our goal is to now to find a maximal value of $\mu^{-1}\cos\theta+\sin\theta$ on the interval $[0, 2\pi]$. It is known that a sinusoid $A\cos\theta+B\sin\theta$, can be represented as a single trigonometric function: $$A\cos\theta+B\sin\theta=\sqrt{A^2+B^2}\cdot\cos{(\theta + \phi)}$$
+From these expressions of 1 sinusoid, it is clear the maximum value is $\sqrt{A^2+B^2}$, giving the maximum of $\mu^{-1}\cos\theta+\sin\theta$ as $\sqrt{1+\mu^{-2}}.$ Thus replacing this value in for our final expression gives us
+\[\boxed{\omega^2 r\geq g(\sqrt{\mu^{-2}+1})}\]
+b) In this part we work with cylindrical coordinates. We decompose gravity upon two axes. If we rotate the cylinder by $\alpha$ we have
+\begin{align*}
+g_{z}=g\sin\alpha\\ 
+g_{r,\theta}=g\cos\alpha
+\end{align*}All we do now is plug in $g_{\text{eff}}$ for our two equations. For our radial equation we had
+\[N=m\omega^2 r-mg\sin\theta\]Since the normal force is radial we use $g_{r,\theta}=g\cos\alpha$ we plug in for gravity to get
+\[N=m\omega^2 r-mg\cos\alpha\sin\theta\]In our second equation who have two components of gravity, $F_{\theta}$ and $F_z$, who’s combined modulus must be less than friction or $\mu N$.
+\[\sqrt{F_{\theta}^2+F_r^2}\leq\mu N\]\[\sqrt{(mg\cos\alpha\cos\theta)^2+(mg\sin\alpha)^2}\leq\mu(m\omega^2 r-mg\cos\alpha\sin\theta)\]Taking out $m$ and factoring we have
+\[\boxed{\omega^2 r\geq g\cos\alpha(\sqrt{\cos^2\theta+\tan^2\alpha}+\mu\sin\theta)}\]Again we must maximize our right hand equation. Inevitably, there is no neat trick to maximize this apart from differentiating and setting the result to zero.
+\end{solution}
