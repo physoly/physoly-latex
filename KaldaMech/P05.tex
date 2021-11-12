@@ -1,0 +1,104 @@
+\begin{solution}{normal}
+In the frame of the plane, the free body diagram of the block is
+\begin{center}
+    \begin{asy}
+    size(5cm);
+    dot((0,0));
+draw((0,0)--(-1,0.5), arrow=Arrow(4));
+label("$F_f$", (-1, 0.5), NW);
+draw((0,0)--(-1,0), arrow=Arrow(4));
+label("$ma$", (-1, 0), W);
+draw((0,0)--(0,-0.75), arrow=Arrow(4));
+label("$mg$", (0,-0.75), S);
+draw((0,0)--(0.5,0.5), arrow=Arrow(4));
+label("$N$", (0.5,0.5), NE);
+label("$\alpha$", (-0.3, 0.12), SE);
+    \end{asy}
+\end{center}
+Analyzing the forces involved, we see that for the block to remain still, we must have
+\begin{align*}
+F_f=mg\sin\alpha-ma\cos\alpha\\
+N=mg\cos\alpha + ma\sin\alpha
+\end{align*}Because the normal force must be greater than zero, we have that
+\begin{align*}
+N>0\implies g\cos\alpha + a\sin\alpha &> 0\\
+g+a\tan\alpha &> 0
+\end{align*}We also have that, since the frictional force must be less than or equal to $\mu N$ that
+\[f\leq\mu N\implies \frac{g\sin\alpha-a\cos\alpha}{g\cos\alpha+a\sin\alpha}\leq\mu\]If friction acts in the opposite direction, we then have
+$$-\frac{g\sin\alpha-a\cos\alpha}{g\cos\alpha+a\sin\alpha}\leq\mu$$
+Therefore:
+$$\boxed{\frac{|g\sin\alpha-a\cos\alpha|}{g\cos\alpha+a\sin\alpha}\leq\mu}$$
+but only if $g+a\tan\alpha > 0$.
+\tcbline
+\textbf{Solution 2:} Here are two extreme scenarios that can happen. First, the plane can have a large acceleration and the block is just about to slip upwards. Second, the plane can have an acceleration just low enough such that it prevents the block from slipping downwards. Let us first focus on the first scenario.
+\begin{center}
+\begin{asy}    
+import graph; size(8cm); 
+real labelscalefactor = 0.5; /* changes label-to-point distance */
+pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps); /* default pen style */ 
+pen dotstyle = black; /* point style */ 
+real xmin = -9.873849401848743, xmax = 10.34597482922314, ymin = -4.902471408686772, ymax = 5.6951996247039745;  /* image dimensions */
+
+ /* draw figures */
+draw((6,-2)--(-4,3)); 
+draw((6,-2)--(4,-2)); 
+draw((0,1)--(0,-1),EndArrow(6)); 
+draw((0,-1)--(-4,-1),EndArrow(6)); 
+draw((0,1)--(1.5,4),EndArrow(6)); 
+draw((1.5,4)--(4,3),EndArrow(6)); 
+draw((-4,-1)--(4,3), linetype("2 2")); 
+label("$\mu N$",(2.5713932900829275,4.150167457286181),SE*labelscalefactor); 
+label("$N$",(0.2065015671505436,2.819915863136715),SE*labelscalefactor); 
+label("$mg$",(0.1030375542722518,0.17419324810611054),SE*labelscalefactor); 
+label("$ma$",(-2.261854168660132,-0.6969360529700459),SE*labelscalefactor); 
+draw(shift((6,-2))*xscale(1.2728588954640063)*yscale(1.2728588954640063)*arc((0,0),1,153.434948822922,180)); 
+draw(shift((0,1))*xscale(0.8368516664389005)*yscale(0.8368516664389005)*arc((0,0),1,26.565051177077983,63.43494882292201)); 
+draw(shift((0,1))*xscale(0.4983831431667102)*yscale(0.4983831431667102)*arc((0,0),1,206.565051177078,270)); 
+label("$\alpha$",(4.389403802087198,-1.4812309579465584),SE*labelscalefactor); 
+label("$\theta$",(0.590796472127056,2.162642613573726),SE*labelscalefactor); 
+label("$\beta$",(-0.5620882428024813,0.5437075798142956),SE*labelscalefactor); 
+ /* dots and labels */
+
+clip((xmin,ymin)--(xmin,ymax)--(xmax,ymax)--(xmax,ymin)--cycle); 
+\end{asy}
+\end{center}
+Similar to problem 4, let us consider the four forces geometrically as a whole instead of via components. Moving into an accelerated reference frame, we introduce our fictitious force $f=ma$. The $mg$ and $ma$ vectors combine to give a single ``effective" force. The normal and maximum static friction force combine to give us our second ``effective'' force. Now the problem becomes a static equilibrium problem when there are only two forces. This is a trivial case - they have to point in opposite directions. Geometrically, this occurs when:
+$$\beta = \theta+\alpha$$The angle $\theta$ is given by:
+$$\tan\theta = \frac{N\mu}{N} = \mu$$and the angle $\beta$ relates $ma$ and $mg$ through:
+$$\tan\beta = \frac{ma}{mg} \implies \tan(\tan^{-1}\mu+\alpha) = \frac{a}{g}$$Solving for $\mu$ gives:
+$$\mu_\text{max} = \tan\left(\tan^{-1}\left(\frac{a}{g}\right)-\alpha\right)$$Now let's consider the case where friction is at a minimum and it is at a verge of slipping downwards.
+\begin{center}
+\begin{asy}  
+import graph; size(8cm); 
+real labelscalefactor = 0.5; /* changes label-to-point distance */
+pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps); /* default pen style */ 
+pen dotstyle = black; /* point style */ 
+real xmin = -5.40742889785599, xmax = 12.97422949402754, ymin = -4.309904789474737, ymax = 5.324341604516851;  /* image dimensions */
+
+ /* draw figures */
+draw((6,-2)--(0,4)); 
+draw((6,-2)--(4,-2)); 
+draw((3,1)--(3,-2), EndArrow(6)); 
+draw((3,-2)--(2,-2), EndArrow(6)); 
+draw((3,1)--(5,3), EndArrow(6)); 
+draw((5,3)--(4,4), EndArrow(6)); 
+draw((2,-2)--(4,4), linetype("2 2")); 
+label("$\mu N$",(4.482118307133979,3.861274434314328),SE*labelscalefactor); 
+label("$N$",(4.038701109084157,1.9666736790105423),SE*labelscalefactor); 
+label("$mg$",(3.0846822890375702,-0.4519655830793963),SE*labelscalefactor); 
+label("$ma$",(2.3322167408318117,-2.1047024121741876),SE*labelscalefactor); 
+draw(shift((6,-2))*xscale(0.7402807984236277)*yscale(0.7402807984236277)*arc((0,0),1,135,180)); 
+label("$\alpha$",(4.912098620394413,-1.4328581727047603),SE*labelscalefactor); 
+label("$\beta$",(2.681575745355914,0.8-0.97801473018103717),SE*labelscalefactor); 
+label("$\theta$",(3.326546215246564,1.993547448589319),SE*labelscalefactor); 
+draw(shift((3,1))*xscale(0.686264862515759)*yscale(0.686264862515759)*arc((0,0),1,45,71.56505117707796)); 
+draw(shift((3,1))*xscale(1.0049973879462677)*yscale(1.0049973879462677)*arc((0,0),1,251.565051177078,270)); 
+ /* dots and labels */
+clip((xmin,ymin)--(xmin,ymax)--(xmax,ymax)--(xmax,ymin)--cycle); 
+\end{asy}
+\end{center}
+Again, we pair the forces up as before. This time, the condition for equilibrium is:
+$$\beta=\alpha-\theta$$The value for $\theta$ remains constant so we can solve for $\mu$ to be:
+$$\mu_\text{min} = \tan\left(\alpha - \tan^{-1}\left(\frac{a}{g}\right)\right)$$Therefore, we have:
+$$\boxed{\tan\left(\alpha - \tan^{-1}\left(\frac{a}{g}\right)\right) < \mu < \tan\left(\tan^{-1}\left(\frac{a}{g}\right)-\alpha\right)}$$While the answers for these two solutions are very different, they are actually equivalent!
+\end{solution}
