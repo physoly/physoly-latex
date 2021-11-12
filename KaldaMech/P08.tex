@@ -1,0 +1,32 @@
+\begin{solution}{hard}
+\textbf{a)} Let the point where the rope meets the cylinder be $A$, and the two points where friction band meets the cylinder be $B$ and $C$. Let $D$ be the point diagonally opposite $A$.
+\vspace{2mm}
+
+\textbf{\textcolor[HTML]{3D85C6}{Claim.}} $D$ is the instantaneous centre of rotation (ICOR).
+\begin{center}
+\begin{asy}
+size(5cm);
+draw(circle((0,0), 1));
+dot((0,1));
+label("A", (0,1), N);
+dot ((0,-1));
+label("D", (0,-1), S);
+draw((-sqrt(2)/2, sqrt(2)/2)--(sqrt(2)/2, sqrt(2)/2));
+draw((-sqrt(2)/2-0.09, sqrt(2)/2-0.1)--(sqrt(2)/2+0.09, sqrt(2)/2-0.1));
+label("B", (-sqrt(2)/2-0.09, sqrt(2)/2-0.1), NW);
+label("C", (sqrt(2)/2+0.09, sqrt(2)/2-0.1), NE);
+\end{asy}
+\end{center}
+\begin{proof} Let us assume a contradictory case. Let $D^*$ be the ICOR. Since the velocity of point $A$ is perpendicular to $AD$, $D^*$ must lie somewhere on $AD$. The velocities of $B$ and $C$ are perpendicular to $DB$ and $DC$ (due to definition of ICOR), and the friction forces are anti-parallel to these. The only forces acting on the cylinder is the tension $T$ due to the rope, and the two friction forces. As the cylinder is in equilibrium, by setting torque to be $0$ about the point where the two friction vectors intersect, we see that the tension vector must also pass through it. However, due to symmetry, the point of intersection must lie on $AD$ and thus it must be $A$ itself.
+Thus, $\angle ABD^* = \angle ACD^* = 90^{\circ}$. Therefore this means that $ABCD^*$ is cyclic, which implies $D^* \equiv D$.
+\end{proof}
+\vspace{3mm}
+
+Now let the angular velocity about $D$ be $\omega$. The velocity of $A$  is
+$$v =\omega \times 2R$$
+and the velocity at the centre is:
+$$\boxed{v_\text{center}= \omega \times R = \frac{v}{2}}$$
+\vspace{2mm}
+
+\textbf{b)} Dividing the floor into various infinitesimally thin strips like in $a)$, we can conclude that the ICOR is still $D$ and the answer remains the same.
+\end{solution}
