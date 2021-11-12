@@ -1,0 +1,16 @@
+\begin{solution}{normal}
+Initially the force on the container is given by the total force of gravity that is acting on the hemispherical container, or in other words
+\[F_{\text{bef}} = Mg + \rho gV = Mg + \frac{2}{3}\pi\rho gR^2\]When the water leaks out, the containers weight no longer acts on the surface. This means the new pressure is equal to pressure of the water times the area of the base of the hemispherical container. The water pressure is the same on all places of the container so $P=\rho gR\cdot \pi R^2$.From force balancing, we have
+$$(\rho g R)\pi R^2=Mg+\frac{2}{3}\pi\rho gR^3 \implies \boxed{M=\frac{1}{3}\pi\rho R^3}$$
+\tcbline
+\textbf{Solution 2:} Let us slice up the dome into very thing rings of thickness $dl$. We can assume that pressure is also constant on these rings. Let a ring be located a height $h$ above the dome. We then see that the pressure is
+\[P(h) = \rho g(R - h)\]Let the radius of the ring be $r$ and let the endpoint of the ring make an angle $\alpha$ with the center of the dome. That then means that $r = R\cos\alpha$ and has a thickness $dl = Rd\alpha$. That layer is then then has an area
+\[dS = 2\pi R^2\cos\alpha d\alpha\]Due to the curvature of the hemisphere, all the buoyant forces directed on the hemisphere will cancel out except for the buoyant force directed at the top. We then see that
+\[dF = P(h)dS\sin\alpha\implies dF = \rho g (R-R\sin\alpha)\cdot 2\pi R^2\cos\alpha\sin\alpha d\alpha\]We now see that the net force of the water on the container is
+\[dF = \int dF = 2\pi\rho gR^3\int_{0}^{\pi/2} (1-\sin\alpha)\cos\alpha d\alpha\]Taking this integral then gives us
+\[F = 2\pi\rho gR^3\left(\frac{\sin^2\alpha}{2} - \frac{\sin^3\alpha}{3}\right)\implies F = \frac{1}{3}\pi\rho g R^3\]For the forces to balance out, this force must equal to the weight of the container which means that
+\[Mg = \boxed{\frac{1}{3}\pi\rho g R^3}\]
+\tcbline 
+\textbf{Solution 3:} Assume that the bell is placed in a cylindrical container which has a radius and height of both $R$. The container's mass will become negligible when we fill the cylinder with water. Because the inside and outside pressures on the hemisphere are equal at all points (because of Pascal's law), the water's equilibrium won't be affected if the hemisphere is removed and the pressure of the water on the table will not change either. This means that the pressure of the water we poured into the cylindrical container acts exactly like the hemisphere so the hemisphere's mass is equal to the mass of the poured water. This means the mass is then,
+\[M = \rho\left(\pi R^3 - \frac{2}{3}\pi R^3\right) = \boxed{\frac{1}{3}\pi\rho R^3}\]
+\end{solution}
