@@ -1,0 +1,90 @@
+\begin{solution}{normal}
+Let's just tackle part B straight away. Part A follows the same reasoning and can be derived through part B. The normal force is given by:
+
+$$N=mg\cos\alpha-F\sin\theta$$
+While adding forces in the direction along the plane gives (assuming maximum friction):
+$$F\cos\theta+mg\sin\alpha-\mu N=0$$
+Substituting our expression for $N$ we can write $F$ in terms of all our variables:
+$$F=\frac{mg(\mu \cos\alpha- \sin\alpha)}{\cos\theta+\mu \sin\theta}$$We can determine when $F$ is at a minimum when the denominator is at a maximum. Taking the derivative of $\cos\theta + \mu\sin\theta$ and setting it to zero gives the minimum $F$ when $\tan\theta = \mu$.
+\begin{center}
+\begin{asy}
+import olympiad;
+size(5cm);
+draw((0,0)--(4/3, 0), blue);
+draw((0,1)--(4/3, 0), blue);
+draw((0,0)--(0.48,0.64), blue);
+draw((0,0)--(0, 1), blue);
+
+dot((0,0), red);
+dot((0,1), red);
+dot((4/3,0), red);
+dot((0.48,0.64),red);
+
+pair A,B, C,D;
+B = (0,0);
+A = (0,1);
+C = (4/3,0);
+D = (0.48,0.64);
+
+label("$\mu$", (1/2,0), 2S);
+label("$\sqrt{\mu^2 + 1}$", (5/6,3/4), 2S);
+label("$1$", (0,1/2), 1W);
+draw(anglemark(B,A,C,4));
+label("$\theta$",A,4*dir(270+aTan((5/9)/1)/2));
+
+draw(anglemark(C,B,D,4));
+label("$\theta$",B,4*dir(15+aTan((5/9)/1)/2));
+\end{asy}
+\end{center}
+Using the large triangle, we can see that in this particular set-up, we have $\tan\theta = \mu$. Using the two smaller triangles, we can express the hypotenuse as $\cos\theta + \mu\sin\theta$, the hypotenuse of the expression above which happens to be $\sqrt{\mu^2+1}$ as well. Therefore, for the minimum force we can re-write it as:
+
+$$\boxed{F_\text{min}=\frac{mg(\mu \cos\alpha- \sin\alpha)}{\sqrt{\mu^2+1}}}$$
+which is equivalent (though not obviously) the same as the given answer. If we replace $\alpha=0$ we get:
+
+$$F_\text{min} = mg \cdot \frac{\mu}{\sqrt{\mu^2+1}}$$
+
+In the solution given above, we tried to find the maximum value of $\cos\theta+\mu \sin\theta$ by taking the derivative, then substituting it back in with a clever triangle. However, we can trivialize this step if we know that given:
+$$f(x)=A\cos x+B\sin x$$the maximum value for $f(x)$ is:
+$$\sqrt{A^2+B^2}$$which will give the intended result of$$\sqrt{1+\mu^2}$$
+
+\tcbline
+\textbf{Solution 2:} There are four forces: The gravitational force, the normal force, the applied force, and the friction force. We can break this up into two forces. Let
+$$\vec{F}_1=\vec{N}+\vec{f}$$and let
+$$\vec{F_2} = \vec{F} + m\vec{g}$$
+The angle $F_1$ makes with the perpendicular is $\theta = \tan^{-1}(\mu)$
+\begin{center}
+\begin{asy}
+import graph;
+size(8cm); 
+real labelscalefactor = 0.5; /* changes label-to-point distance */
+pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps); /* default pen style */ 
+pen dotstyle = black; /* point style */ 
+real xmin = -9.922742378906744, xmax = 9.390042121331888, ymin = -4.3853898879763165, ymax = 5.736880935613672;  /* image dimensions */
+
+ /* draw figures */
+draw((2,-2)--(-3,3)); 
+draw((2,-2)--(1,-2)); 
+draw((-1,1)--(0,2), linetype("2 2"),EndArrow(6)); 
+draw((-1,1)--(-1,-2.4),  linetype("2 2"),EndArrow(6)); 
+draw((0,2)--(-2,4),  linetype("4 4"),EndArrow(6)); 
+draw((-1,1)--(-2,4),EndArrow(6)); 
+draw((-1,-2.4)--(0,-2),  linetype("2 2"),EndArrow(6)); 
+draw((-1,1)--(0,-2),EndArrow(6)); 
+draw(shift((2,-2))*xscale(0.6615200786464106)*yscale(0.6615200786464106)*arc((0,0),1,135,180)); 
+label("$\alpha$",(1.1,-1.5),SE*labelscalefactor); 
+label("$N$",(-0.5628183119051274,1.5),SE*labelscalefactor); 
+label("$\mu N$",(-0.943991690199311,3.48),SE*labelscalefactor); 
+label("$F$",(-0.6475235070816127,-2.25),SE*labelscalefactor); 
+label("$mg$",(-1.6216332516111926,-0.3901281821520958),SE*labelscalefactor); 
+ /* dots and labels */
+clip((xmin,ymin)--(xmin,ymax)--(xmax,ymax)--(xmax,ymin)--cycle); 
+ /* end of picture */
+\end{asy}
+\end{center}
+Secondly, $F_2$ must also fall upon the same line as $F_1$. In order for $F$ to be drawn such that it meets this requirement \textit{and} $F$ is at a minimum, we want $F$ to be perpendicular to the ray $F_1$ makes. Doing some angle tracing gives us $\phi=\theta-\alpha$ as the angle between $mg$ and the ray formed by $F_1$.
+\vspace{2mm}
+
+Separating $\vec{F}_2$ into its components gives:
+$$\boxed{F = mg\sin\phi = mg\sin\left( \tan^{-1}(\mu)-\alpha\right)}$$
+This is equivalent to the answer given above.
+\end{solution}
