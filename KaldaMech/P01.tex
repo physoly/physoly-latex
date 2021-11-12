@@ -1,0 +1,56 @@
+\begin{solution}{hard}
+The hardest thing about this problem, as Kalda noted, was drawing a diagram. Here we provide a diagram for us to work with. Let O be the center of the hoop and A the center of the revolving shaft.
+\begin{center}
+\begin{asy}
+import olympiad;
+size(10cm);
+label("N", (1.38, 1.3), NE);
+label("$\mu N$", (0.25, 1.15), NW);
+label("O", (0,0), W);
+label("A", (0.2, 0.2), N);
+label("$mg$", (0.7868, -4.3), S);
+label("$\theta$", (0.7868, 0.5), SW);
+label("$\alpha$", (-0.05, -0.6), SE);
+label("$\beta$", (0.7, -2.3), N);
+
+draw(circle((0,0), 1), linewidth(1.5pt));
+filldraw(circle((0.2, 0.2), 0.72), gray(0.9));
+dot((0,0));
+dot((0.2,0.2));
+draw((0.25, -0.954)--(0.7868, -3), linewidth(1.5pt));
+filldraw(circle((0.7868,-3), 0.1), black);
+draw((0.7868,-3)--(0.7868,-4.3), arrow=Arrow(4));
+draw((0,0)--(0,-3), dashed);
+draw((0,0)--(0.7868, -3));
+draw((0.2,0.2)--(0.7868,-3), dotted);
+draw((0.7868, 0.6172)--(0.7868, -3), dashed);
+draw((0, 0)--(0.7868, 0.6172));
+draw((0.7868, 0.6172)--(0.25, 1.15), arrow=Arrow(4));
+draw((0.7868, 0.6172)--(1.38, 1.3), arrow=Arrow(4));
+draw((0.7868, 0.6172)--(0.7868, 1.8), arrow=Arrow(4));
+label("Q", (0.7868, 1.8), N);
+
+pair A,B,C,D,E,F,G, H;
+B = (0.7868, -3);
+A = (0,0);
+C = (0.2, 0.2);
+D = (0, -3);
+E = (0.7868, 2.1);
+F = (-0.5, 1.9);
+G = (0.7868, 0.6172);
+H = (0.7868, -3);
+markscalefactor=0.05;
+draw(anglemark(E, G, F, 4));
+draw(anglemark(A, G, H, 4));
+markscalefactor=0.1;
+draw(anglemark(D, A, B, 4));
+draw(anglemark(G, H, A, 4));
+\end{asy}
+\end{center}
+Let $Q$ be the vector sum of the friction and normal forces\footnote{The frictional force is not constant throughout the entire process of slipping however it is maximum (or $\mu N$) when the shaft is at equilibrium angle.},
+\[Q=\sqrt{\mu^2N^2+N^2}=N\sqrt{\mu^2+1}\]because the system is in equilibrium, then the frictional force, $\mu N$, must be equal to $mg\sin\theta$. We also know by simple trigonometry that $\mu N=Q\sin\theta$. Therefore, because the sum of forces are zero we have,
+\[\mu N=mg\sin\theta=N\sqrt{\mu^2+1}\sin\theta.\]We must now establish this relation in terms of $\beta$. One may look towards a torque analysis, however a more elegant mathematical approach is by the law of sines. We know by law of sines that
+\[\frac{\sin\beta}{r}=\frac{\sin\theta}{r+\ell}\implies\sin\theta=\frac{(r+\ell)\sin\beta}{r}\]Substituting this in for $\sin\theta$ we find
+\[\mu N=N\sqrt{\mu^2+1}\frac{(r+\ell)\sin\beta}{r}\]\[\sin\beta= \frac{r\mu}{(r+\ell)\sqrt{\mu^2+1}} \implies\boxed{\beta= \sin^{-1}\left(\frac{r\mu}{(r+\ell)\sqrt{\mu^2+1}}\right)}\]
+
+\end{solution}
