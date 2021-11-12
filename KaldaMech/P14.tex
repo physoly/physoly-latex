@@ -1,0 +1,53 @@
+\begin{solution}{hard}
+\textbf{a)} Let us draw the free body diagram:
+\begin{center}
+\begin{asy}
+size(6cm);
+import olympiad;
+draw((0,0)--(0.5,-2));
+draw((0,0)--(0,-2), dotted);
+label("$r$", (0.25, -2), S);
+draw((0.5,-2)--(0,-2), dotted);
+label("$\theta$", (0.05,-0.6));
+dot((0.5,-2));
+draw((0.5,-2)--(1.2,-2), arrow=Arrow(4));
+label("$m\omega^2R$", (1.2,-1.85));
+draw((0.5,-2)--(0.5,-2.5), arrow=Arrow(4));
+label("$mg$", (0.32,-2.5));
+label("$\ell$", (0.45,-1.2));
+draw(anglemark((0,-2), (0,0), (0.5,-2)));
+\end{asy}
+\end{center}
+
+We note by analysis of torques that in order for there to be a restoring torque, we must have:
+\[mgr>m\omega^2 r\ell\cos\theta\]We use the small angle approximation $\cos\theta=1$ to then yield
+\[g>\omega^2\ell\]Thus
+\[\boxed{\omega^2<\frac{g}{\ell}}\]
+
+\textbf{b)} Let the angles produced by the rods be $\varphi_1$ and $\varphi_2$ respectively. We then have the potential energy to be 
+\[V=-mgl\cos\varphi_1-mgl(\cos\varphi_1+\cos\varphi_2)\]
+Using the small angle approximation $\cos\varphi=1-\frac{\varphi^2}{2}$ gives us 
+\[V=-mgl\left(1-\frac{\varphi_1^2}{2}\right)-mgl\left(1-\frac{\varphi_1^2}{2}+1-\frac{\varphi_2^2}{2}\right).\]
+According to idea 19, we can remove all constants or non-quadratic terms
+\begin{align*}
+V_g = mgl\left(\varphi_1^2+\frac{\varphi_2^2}{2}\right) 
+\end{align*}
+
+Finding the potential energy produced by the centrigal force will have a similar approach.
+\[V=\frac{1}{2}m(l\sin\varphi_1\omega^2)^2+\frac{1}{2}m(l(\sin\varphi_1+\sin\varphi_2)\omega)^2\]
+Using the small angle approximation $\sin\theta=\theta$ we have
+\[V=\frac{1}{2}m(l\varphi_1\omega^2)^2+\frac{1}{2}m(l(\varphi_1+\varphi_2)\omega)^2\]
+\[V_c=\frac{1}{2}m\omega^2l^2(2\varphi_1^2+2\varphi_1\varphi_2+\varphi_2^2)\]
+The total potential energy is then 
+\[V = V_g + V_c = mgl\left(\varphi_1^2+\frac{\varphi_2^2}{2}\right) + \frac{1}{2}m\omega^2l^2(2\varphi_1^2+2\varphi_1\varphi_2+\varphi_2^2)\]
+Rearranging this, gives us the quadratic
+\[V = (mgl - m\omega^2 l^2)\varphi_1^2 + (m\omega^2 l^2)\varphi_1\varphi_2 + \frac{1}{2}(mgl - m\omega^2 l^2)\varphi_2^2\]
+The equilibrium $\varphi_1 = \varphi_2 = 0$ is stable if it corresponds to the potential energy minimum, i.e, if the polynomial yields positive values for any departure from the equilibrium point; this condition leads to two inequalities. First, upon considering $\varphi_2 = 0$ (with $\varphi_2 \neq 0$) we conclude that the multiplier of $\varphi_1^2$ (or $mgl - m\omega^2 l^2$) has to be positive. Second, for any $\varphi_2 \neq 0$, the polynomial should be strictly positive, i.e. if we equate this expression to zero and consider it as a quadratic equation for $\varphi_1$, there should be no real-valued roots, which means that the discriminant should be negative. Thus, by looking at our discriminant we find that 
+\[
+(m\omega^2 l^2)^2 - 4(mgl - m\omega^2 l^2)\cdot \frac{1}{2}(mgl - m\omega^2 l^2) < 0\]
+\[
+m\omega^2 l^2 < \sqrt{2}(mgl - m\omega^2 l^2)\]
+\[
+\left(\frac{1}{\sqrt{2}} + 1\right)m\omega^2 l^2 < mgl\]
+\[\boxed{\omega^2 < \frac{(2 - \sqrt{2})g}{l}}\]
+\end{solution}
