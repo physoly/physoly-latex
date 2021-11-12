@@ -1,0 +1,28 @@
+\begin{solution}{normal}
+Since $H\ll L$, the curvature of the rope is very small which means that we can approximate the section that is above the ground as a straight line. Furthermore, the angle between the tangent to the rope and horizon remains everywhere small. Now, consider the following diagram assuming that the mass density of the rope is $\lambda$:
+\begin{center}
+\begin{asy}
+size(10cm);
+draw((0,0) -- (2, 0));
+draw((0, 0) -- (-0.5, 1));
+dot((-0.25, 0.5));
+draw((-0.25, 0.5) -- (-0.25, 0.1), arrow=Arrow(4));
+label("$mg$", (-0.25, 0.1), W);
+label("$H$", (-0.5, 0.5), W);
+label("$\ell$", (-0.25, 0), S);
+draw((-0.5, 1) -- (-0.5, 0) -- (0, 0), dashed);
+draw((-0.55, 1.1) -- (-0.75, 1.5), arrow=Arrow(4));
+label("$F$", (-0.75, 1.5), W);
+draw((1, 0) -- (1, 0.25), arrow=Arrow(4));
+label("$N$", (1, 0.25), N);
+label("$\lambda (L - \ell) g$", (0.9, -0.25), S);
+draw((0.9, 0) -- (0.9, -0.25), arrow=Arrow(4));
+draw((1.8, -0.1) -- (2.2, -0.1), arrow=Arrow(4));
+label("$f$", (2.2, -0.1), E);
+\end{asy}
+\end{center}
+The mass of the rope that is on the ground is given by $\lambda (L - \ell)$ where $\ell$ represents the horizontal part of the rope that is above the ground (as shown in the picture). Since the angle is small, we can assume that $\ell$ approximately represents the total length of the part of the rope that is above the ground. Since the weight of this section of the rope balances the normal force $N$, this then means that the frictional force $f = \mu N = \mu \lambda (L - \ell) g$. By using a torque balance, we can then write that 
+\[\lambda \ell g \frac{\ell}{2} = fH = \mu \lambda (L - \ell) gH.\]
+Cancelling factors then yields a quadratic which has a solution of 
+\[\frac{\ell^2}{2} = \mu (L - \ell) H\implies \ell = \sqrt{2HL\mu + \mu^2 H^2} - \mu H \approx \sqrt{2HL\mu} - \mu H \approx 7.2\;\mathrm{m}.\]
+\end{solution}
