@@ -1,0 +1,58 @@
+\begin{solution}{normal}\blfootnote{The same problem was presented in the book \textit{Problems in Physics} by SS Krotov.}
+\begin{center}
+\begin{asy}
+import olympiad;
+size(5cm);
+draw((1.8,0)--(4.2,0), linewidth(1.5pt));
+pair A,B,C,D,M;
+A = (2,0.0001);
+B = (4,0.0001);
+C = (2.5,-1.732/2);
+D = (3.5, -1.732/2);
+label("A", A+(0.1,0),SE);
+label("B", B-(0.1,0),SW);
+label("C", C,NE);
+label("D", D,NW);
+dot(A);
+dot(B);
+dot(C);
+dot(D);
+draw(A--C, linewidth(1pt));
+draw(C--D, linewidth(1pt));
+draw(D--B, linewidth(1pt));
+M = (3,-1.732);
+label("M",M,S);
+draw(M--C,dotted);
+draw(M--D,dotted);
+draw(C--(C-(0,0.3)), arrow = Arrow(4));
+label("mg", C-(0,0.3), S);
+pair X = D+(1.732/2 * 0.3, -0.5*0.3);
+draw(D--X, arrow = Arrow(4));
+label("F", X, SE);
+\end{asy}
+\end{center}
+Due to symmetry of the system and by the fact that $AB-CD = CD = AC = BD$, we see that $$\angle CAB = \angle DBA = 60^{\circ}$$
+such that $AC \cos \angle CAB = \frac{AC}{2}$. Now consider the net torque acting on rod $CD$ about the meeting point of extended $AC$ and $DB$, which we call $M$. The tension forces due to rods $AC$ and $DB$ pass through $M$ and exert no torque. The only torques are due to $mg$ and $F$. The torque due to $mg$ is
+$$mg\ell \sin 30^{\circ} = \frac{mg\ell}{2}$$
+where $\ell \equiv MC = MD = CD$. For the minimum value of $F$, it must point perpendicular to $MB$ and its value must be $$\frac{mg\ell}{2\ell} = \boxed{\frac{mg}{2}}$$
+
+\tcbline
+
+By using symmetry, we can determine angle $\angle C = \angle D = 120^\circ$ of the isosceles trapezoid. We will use fact 20 cited in the handout which in brief states that if a mass-less rod is freely hinged at both ends, the force at the hinge must point along the rod. This is the only way for the torque to be zero.
+
+Therefore, the rod $AC$ must provide an upwards force of $mg$. By using the given angle above and breaking the force up into its components, we can see that the horizontal force is $mg\tan 30^\circ$. This must also be the horizontal force the rod exerts on hinge $D$ due to Newton's third law. Therefore, we know that the vertical forces $BD$ and $F$ exerts on $D$ has to sum up to zero and their horizontal forces have to sum up to $mg/2$. Therefore, we have:
+
+$$F\cos\theta + T\sin 30^\circ = mg\tan 30^\circ$$and
+$$F\sin\theta = T\cos 30^\circ$$
+Combining them together to remove $T$ gives:
+
+\begin{align*}
+F\left(\cos\theta + \frac{\sin\theta}{\sqrt{3}}\right) = mg/2
+\end{align*}
+You can minimize $F$ by taking the derivative or you can recognize that the second part of the left hand side reaches a maximum of
+$$\sqrt{1^2+\left(\frac{1}{\sqrt{3}}\right)^2}=\frac{2}{\sqrt{3}}$$so the minimum $F$ is achieved when this value is reached or:
+\begin{align*}
+F\left(\frac{2}{\sqrt{3}}\right) &= \frac{mg}{\sqrt{3}} \\
+F &= \frac{mg}{2}
+\end{align*}
+\end{solution}
