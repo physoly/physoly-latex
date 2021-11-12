@@ -1,0 +1,48 @@
+\begin{solution}{normal}
+\begin{center}
+\begin{asy}
+/* Geogebra to Asymptote conversion, documentation at artofproblemsolving.com/Wiki go to User:Azjps/geogebra */
+import graph; size(5cm);
+real labelscalefactor = 0.5; /* changes label-to-point distance */
+pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps); /* default pen style */
+pen dotstyle = black; /* point style */
+real xmin = -4.23213963380496, xmax = 7.371171204866221, ymin = -1.6441239198422954, ymax = 4.437435927619134; /* image dimensions */
+
+/* draw figures */
+draw((0,0)--(3,0), linetype("2 2"));
+draw((3,0)--(3,4), linetype("2 2"));
+draw((3,4)--(0,0), linetype("2 2"));
+draw((0,0)--(2,0),EndArrow(6));
+draw((2,0)--(2,2.7), EndArrow(6));
+label("$\ell$",(1.37,2.6),SE*labelscalefactor);
+label("$\mu N$",(0.823,0.4),SE*labelscalefactor);
+label("$N$",(1.6,1.43),SE*labelscalefactor);
+label("$h$",(3.15,2.22),SE*labelscalefactor);
+label("$\sqrt{\ell^2-h^2}$",(1.2,-0.1),SE*labelscalefactor);
+/* dots and labels */
+dot((0,0),dotstyle);
+label("$A$", (0,0), SW * labelscalefactor);
+dot((3,0),dotstyle);
+label("$B$", (3,0), NE * labelscalefactor);
+dot((3,4),dotstyle);
+label("$C$", (3,4), NE * labelscalefactor);
+clip((xmin,ymin)--(xmin,ymax)--(xmax,ymax)--(xmax,ymin)--cycle);
+/* end of picture */
+\end{asy}
+\end{center}
+Consider what happens when the applied force approaches infinity. To maintain equilibrium, the friction force between the rod and the board must also increase. This friction force will also approach infinity. When dealing with large forces, we can ignore constant forces such as the weight of both the board and the rod.
+\vspace{2mm}
+
+As a result, since the weight of the rod is negligible we can pretend it's a mass-less rod. We also know that the forces at the ends of a massless rod will always point along the rod. For example, the force exerted on the rod by the board must point along the rod as well. The angle of this force is solely dependent on the friction coefficient $\mu_1$. Therefore:
+$$\tan\alpha < \frac{\mu_1 N}{N} \implies \boxed{\mu_1>\frac{\sqrt{\ell^2-h^2}}{h}}$$
+\tcbline
+\textbf{Solution 2:} We want that when the board is on the verge of slipping then the rod should exert a larger force on the board (the rod should be pulled towards the board and not away from it). Consider the torque on the rod about the hinge point. We want that it should be clockwise when the block is on the verge of slipping.
+\vspace{2mm}
+
+Let the sum of normal reaction and friction force on the rod be $f$ (the normal points upwards and the friction points to the right). When the block is on the verge of slipping, the resultant makes an angle $\tan^{-1} \mu$ from the normal. We have:
+$$\tau = mg\sin \alpha\frac{l}{2} + f \sin (\tan^{-1} \mu - \alpha)$$
+considering clockwise torque to be positive. As the applied force on the block increases, $f$ also increases without bounds and because we want the torque to be clockwise no matter how much force we apply, the $mg$ term can be neglected. So
+$$f \sin(\tan^{-1}\mu-\alpha) \ge 0$$
+Since both $\tan^{-1}\mu$ and $\alpha$ are less than $90^{\circ}$, we can conclude that
+$$\boxed{\tan^{-1} \mu \ge \alpha \implies \mu \ge \frac{\sqrt{l^2-h^2}}{h}}$$
+\end{solution}
