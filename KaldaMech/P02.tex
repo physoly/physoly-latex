@@ -1,0 +1,83 @@
+\begin{solution}{normal}
+\begin{center}
+    \begin{asy}
+import graph; size(12cm); 
+real labelscalefactor = 0.5; /* changes label-to-point distance */
+pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps); /* default pen style */ 
+pen dotstyle = black; /* point style */ 
+real xmin = -7.566096294358613, xmax = 6.869147016796496, ymin = -0.8693496783388176, ymax = 6.696490565885025;  /* image dimensions */
+pen ffvvqq = rgb(1,0.3333333333333333,0); 
+ /* draw figures */
+draw((-5,0)--(3,0)); 
+draw((3,0)--(-5,4)); 
+draw(circle((0,4), 2.23606797749979)); 
+draw((0,4)--(-0.009320934697475278,1.7639514495037534)); 
+draw((-2,3)--(0,4)); 
+draw((-1,2)--(0,4)); 
+draw(shift((3,0))*xscale(0.9535784511475561)*yscale(0.9535784511475561)*arc((0,0),1,153.434948822922,180), ffvvqq); 
+draw(shift((0,4))*xscale(0.4611107238128826)*yscale(0.4611107238128826)*arc((0,0),1,206.565051177078,269.7611647895884), blue); 
+label("$\alpha$",(-0.24,3.25),SE*labelscalefactor,ffvvqq); 
+label("$\alpha$",(1.761941049984308,0.3),SE*labelscalefactor,ffvvqq); 
+label("$\theta$",(-0.4962037369946345,3.6),SE*labelscalefactor,blue); 
+draw(shift((0,4))*xscale(0.7311759653127755)*yscale(0.7311759653127755)*arc((0,0),1,243.434948822922,269.7611647895884), ffvvqq); 
+draw((-0.5067558154384617,0)--(-2,3), linetype("2 2")); 
+draw(shift((-0.5067558154384617,0))*xscale(0.40220982874738304)*yscale(0.40220982874738304)*arc((0,0),1,116.46173696957645,180), blue); 
+label("$\theta$",(-1,0.4),SE*labelscalefactor,blue); 
+label("$R$",(-1.2,3.8),SE*labelscalefactor); 
+ /* dots and labels */
+dot((3,0),dotstyle); 
+label("$B$", (3.038742541687355,0.10144153849325147), NE * labelscalefactor); 
+clip((xmin,ymin)--(xmin,ymax)--(xmax,ymax)--(xmax,ymin)--cycle); 
+    \end{asy}
+\end{center}
+Let the angle formed from the mass, the center of the cylinder $O$, and the vertical be $\theta$. By summing forces on the mass, we get
+\[
+mg \sin{\theta} - \mu mg\cos{\theta} = 0 \implies \mu = \tan{\theta}.
+\]This is unsurprising, as it is the typical condition for an object to not slip. You can verify yourself that the effective angle of the incline is equal to the angle the normal force makes with the vertical, $\theta$. Next, we sum up the torques with respect to the contact point between the ramp and the cylinder. The moment arm for the cylinder is $R\sin\alpha$ and the moment arm for the block is $R\sin\theta-R\sin\alpha$. Therefore, we can write the torque balance equation as:
+\[
+(M+m)g\sin{\alpha} = mg \sin{\theta} 
+\]Because $\tan{\theta} = \mu$, we have a right triangle that can be constructed:
+
+\begin{center}
+\begin{asy}
+import olympiad;
+size(5cm);
+draw((0,0)--(4/3, 0), blue);
+draw((0,1)--(4/3, 0), blue);
+draw((0,0)--(0, 1), blue);
+
+dot((0,0), red);
+dot((0,1), red);
+dot((4/3,0), red);
+pair A,B, C;
+B = (0,0);
+A = (0,1);
+C = (4/3,0);
+
+label("$\mu$", (1/2,0), 2S);
+label("$\sqrt{\mu^2 + 1}$", (5/6,3/4), 2S);
+label("$1$", (0,1/2), 1W);
+draw(anglemark(B,A,C,4));
+label("$\theta$",A,4*dir(270+aTan((5/9)/1)/2));
+\end{asy}
+\end{center}
+Therefore, $\sin{\theta} = \frac{\mu}{\sqrt{\mu^2 + 1}}$. Substituting this result into our equation of sum of torques at point P gives us
+\[(M+m)g\sin\alpha=mg\frac{\mu}{\sqrt{\mu^2+1}}\]
+which implies the answer is $$\boxed{\alpha = \arcsin{\Big(\frac{m}{M+m} \frac{\mu}{\sqrt{\mu^2 + 1}}\Big)}}$$.
+\tcbline
+\textbf{Solution 2:} First, consider just the block in the cylinder. If the surface the block is on makes an angle $\mu=\tan\theta$ with the horizontal, then it will be on the verge of slipping. During static equilibrium, a tiny disturbance will not affect the total energy. We can represent the rotation in two steps. First, we purely translate the center of the cylinder by a distance $Rd\theta$. Then, we purely rotate the cylinder about the center by an angle $d\theta$. We can sum up the change in potential energy in these two steps and sum it to zero.
+\vspace{2mm}
+
+By translating the cylinder a downwards distance of $Rd\theta$ along the ramp, we are changing the potential energy by:
+$$dU_\text{cylinder} = -(M+m)g(Rd\theta)(\sin\alpha)$$
+Next up, we rotate the cylinder counterclockwise by an angle $d\theta$. This will cause the block to rise and increase its potential energy by:
+$$dU_\text{block} = mgR\sin\theta d\theta$$
+We know that the total energy change will be zero (since $\frac{dU}{d\theta}=0$ at a local minimum) so we have:
+\begin{align*}
+0 &= -(M+m)gR\sin\alpha d\theta + mgR\sin\theta d\theta\\
+(M+m)\sin\alpha &= m\sin\theta \\
+\sin\alpha &= \frac{m\sin\theta}{M+m}
+\end{align*}
+We can determine $\sin\theta$ by using the fact that $\tan\theta=\mu$ which gives us:
+$$\boxed{\alpha = \sin^{-1}\left(\frac{m\mu}{(M+m)\sqrt{\mu^2+1}}\right)}$$
+\end{solution}
