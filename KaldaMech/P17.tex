@@ -1,0 +1,26 @@
+\newpage
+\begin{solution}{hard}
+The main idea is that the block slowly moves down the slope. This is because since the block moves back and forth in a very short period, it is never able to gain significant horizontal velocity. With this information let us create a freebody diagram of the block where we treat the block as a point mass
+\begin{center}
+\begin{asy}
+size(5cm);
+dot((1,1));
+draw((1.6,1)--(1.6, 1.7), arrow=Arrow(4));
+label("$f_y$", (1.6, 2.7/2), E);
+draw((1,1)--(1.6, 1), arrow=Arrow(4));
+label("$f_x$", (2.6/2,1), S);
+draw((1,1)--(1,0.3), arrow=Arrow(4));
+label("$w$", (1,1.3/2), E);
+draw((1,0.3)--(0.3,0.3), arrow=Arrow(4));
+label("$v$", (1.3/2, 0.3), S);
+draw((1,1)--(0.3,0.3), dotted);
+draw((1,1)--(1.6,1.7), dotted);
+\end{asy}
+\end{center}
+The object will have a friction force directed up the plane:
+$$f_y = mg\sin\alpha$$
+such that it maintains a constant velocity down the plane. The horizontal friction force is $f_x$ though we won't notice any horizontal motion. The key thing to realize is that the direction of the friction force is anti-parallel to the direction of velocity. Therefore we have:
+$$\frac{f_y}{f_x} = \frac{w}{v}$$where $f_x$ is given by:
+$$f_y^2 + f_x^2 = (\mu N)^2 = (\mu mg\cos\alpha)^2 \implies f_x = mg\sqrt{\mu^2\cos^2\alpha - \sin^2\alpha}$$and the entire block will be undergoing kinetic friction the entire time. Therefore:
+$$w = v\cdot\frac{\sin\alpha}{\sqrt{\mu^2\cos^2\alpha - \sin^2\alpha}} = \boxed{\frac{v}{\sqrt{\mu^2 \cot^2\alpha -1}}}$$
+\end{solution}
