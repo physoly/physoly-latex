@@ -1,0 +1,50 @@
+\begin{solution}{normal}
+Conceptually, what would happen is that if the block is extremely light and the square cross section is given a tiny push, there will have a restoring torque causing it to be in stable equilibrium. However, at a certain density, the equilibrium position will not be when the sides of the square are parallel to the water. In fact, the new equilibrium position will be rotated a tiny angle $\theta$ where $\theta \ll 1$.
+\begin{center}
+\begin{asy}
+import graph; usepackage("amsmath"); size(15cm); 
+real labelscalefactor = 0.5; /* changes label-to-point distance */
+pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps); /* default pen style */ 
+pen dotstyle = black; /* point style */ 
+real xmin = -5.054395977008128, xmax = 15.870649393362335, ymin = -0.1867438469842467, ymax = 10.780549669503818;  /* image dimensions */
+
+ /* draw figures */
+draw((0,9)--(1,1)); 
+draw((1,1)--(9,2)); 
+draw((9,2)--(8,10)); 
+draw((8,10)--(0,9)); 
+draw((0.6923076923076923,3.4615384615384617)--(8.692307692307692,4.461538461538462)); 
+draw((2,4)--(2,5.5),EndArrow(6)); 
+draw((5.153846153846155,2.7692307692307696)--(5.153846153846155,5.581634633833158),EndArrow(6)); 
+draw((7.5,4)--(7.5,2.5),EndArrow(6)); 
+label("$y$",(0.16156927978743263,2.459478995906179),SE*labelscalefactor); 
+draw((0.32637179742311356,3.3917004736960483)--(0.6326160883442775,0.9417461463267368),  linetype("2 2")); 
+draw((0.5,5)--(8.5,6), linewidth(0.8) + dotted); 
+draw((4.3076923076923075,9.538461538461538)--(5.281255756003041,1.5351569695003802), linewidth(0.8) + dotted); 
+draw((8.345657878972593,10.055993905090869)--(9.344761226049638,2.0631671284745168),  linetype("2 2")); 
+label("$\ell$",(9.079187299470165,6.3),SE*labelscalefactor); 
+draw(shift((5,4))*xscale(1.5)*yscale(1.5)*arc((0,0),1,180,187.12501634890177)); 
+label("$\theta$",(2.8077921226778493,4),SE*labelscalefactor); 
+draw((-1.37298603150193,4.021768632849356)--(11.236541357003642,3.9722062110886016)); 
+ /* dots and labels */
+dot((4.8076923076923075,5.538461538461538),linewidth(4pt) + dotstyle); 
+label("$O$", (4.872763705280197,5.656360927490566), NE * labelscalefactor); 
+clip((xmin,ymin)--(xmin,ymax)--(xmax,ymax)--(xmax,ymin)--cycle); 
+ /* end of picture */
+\end{asy}
+\end{center}
+We can represent the submerged portion as three separate masses. The long horizontal line that extends past the square is the water level. Therefore, we can recognize that the submerged part represents a trapezoid. This can be perfectly represented as a rectangle that has the same area as the trapezoid. However, if we try to balance torques with this setup, we will fail because there are certain edge effects that are not covered. Therefore, we need to add a triangle of density $\rho$ an identical triangle with density $-\rho_o$ to make it resemble its original shape.
+\vspace{2mm}
+
+Let the width of the square be $\ell$ and the height of the rectangle be $y$. Balancing forces we have:
+$$\rho_o \ell^2 g = \rho_w \ell y g \implies \frac{y}{\ell} = \frac{\rho_o}{\rho_w}$$
+Let us now balance torques around the center of mass at $O$. In an equilibrium position, the torques will sum to zero. The torque from the buoyant force from the rectangle is:$$\tau_1 = \rho_w g\left( \ell y\right) \left(\frac{1}{2}(\ell-y)\right) \sin\theta$$where $\theta$ is the angle the bottom of the beam makes with the horizontal. The triangular parts will also provide a torque from the buoyant force. Note that the buoyant force caused by the negative mass triangle will be negative and point in the other direction. The torque of each is:
+$$\tau_2 = \rho_w g \left(\frac{1}{2}(\ell/2)^2\sin\theta\right)\left(\frac{2}{3}(\ell/2)\right)$$where $\frac{2}{3}(\ell/2)$ is the perpendicular distance from the center of mass of the triangle to the center of mass of the square. Notice that since $\theta \ll 1$ we can sum torques and set it to zero:
+\begin{align*}
+0 &= \tau_1 - 2\tau_2 \\
+\frac{\ell^3}{12} &= \frac{\ell y(\ell-y)}{2} \\
+\frac{\ell^2}{6} &=y(\ell-y)
+\end{align*}From earlier, let's substitute $\frac{y}{\ell}=\frac{\rho_o}{\rho_w} \equiv f$ and we'll get:
+$$\frac{\ell^2}{6} = \ell^2 f(1-f) \implies f^2 -f + 1/6 = 0$$Using the quadratic formula we get:
+$$f =\frac{\rho_o}{\rho_w} = \boxed{\frac{1}{2}\left(1-3^{-1/2}\right)}$$
+\end{solution}
