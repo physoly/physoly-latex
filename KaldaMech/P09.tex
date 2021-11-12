@@ -1,0 +1,62 @@
+\begin{solution}{normal}
+We shall use a property in geometry. Thales's theorem states that if A, B, and C are distinct points on a circle where the line $AC$ is a diameter, then the angle $\angle ABC$ is a right angle.
+\begin{center}
+\begin{asy}
+import graph; size(8cm); 
+real labelscalefactor = 0.5;
+pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps); /* default pen style */ 
+pen dotstyle = black; /* point style */ 
+real xmin = -5.2824091003930445, xmax = 5.600007360267558, ymin = -0.761082590475042, ymax = 4.9426400720203105;  /* image dimensions */
+
+draw(circle((-0.125,2.25), 2.25),  linetype("2 2")); 
+draw((-2,1)--(0,0)--(2,3));
+draw((0,0)--(0,4.5), linetype("2 2")); 
+draw((-2,1)--(2,3),linetype("2 2")); 
+draw((-2,1)--(1.75,1), linetype("2 2")); 
+draw((-1.18,4.24)--(0,0),linetype("2 2")); 
+ /* dots and labels */
+dot((-2,1),dotstyle); 
+label("$A$", (-1.97,1.08), NE * labelscalefactor); 
+dot((2,3),dotstyle); 
+label("$C$", (2.03,3.08), NE * labelscalefactor); 
+dot((0,0),dotstyle); 
+label("$B$", (0.0315,-0.05), S * labelscalefactor); 
+dot((0,1),linewidth(4pt) + dotstyle); 
+label("$D$", (0.0315,1.0606), NE * labelscalefactor); 
+dot((0,2),linewidth(4pt) + dotstyle); 
+label("$O$", (0.0315,2.0629), NE * labelscalefactor); 
+dot((-0.49,1.75),linewidth(4pt) + dotstyle); 
+label("$E$", (-0.462,1.82), NE * labelscalefactor); 
+clip((xmin,ymin)--(xmin,ymax)--(xmax,ymax)--(xmax,ymin)--cycle); 
+\end{asy}
+\end{center}
+Therefore if we draw a circle where the corners of the two pillars form the ends of the diameter $AC$, the outline of the circle gives the possible locations the mass can be located as. Let the location of the mass be $B$. We wish to minimize the height of $B$ which so happens to be at the very bottom of the circle. Let $\angle EBD=\alpha$ such that $\angle ABE = 45^\circ$. Doing some angle tracing, we can verify that
+$$\angle BAD=45^\circ-\alpha$$
+Now since $OA$ and $OB$ are both the radius, that means $OAB$ is an isosceles triangle where:
+$$\angle OAB = \angle ABO \implies 45^\circ-\alpha+\angle OAD = 45^\circ+\alpha \implies \angle OAD=2\alpha$$This angle relates the horizontal distance of the two pillars and the vertical distance of the two pillars through:
+$$\tan OAD = \boxed{\tan(2\alpha) = \frac{h}{a}}$$
+\tcbline
+\textbf{Solution 2:} Let $y$ be the vertical distance between the mass and the top of the left pillar. Then let $b$ and $c$ be the horizontal distances between the mass and the left and right pillars, respectively, such that $a=b+c$. Doing basic angle tracing, we can see that:
+$$b = \frac{y}{\tan(45-\alpha)}$$and
+
+$$c = (h+y)\tan(45-\alpha)$$Adding them together and letting $\beta \equiv 45 - \alpha$ yields:
+
+\begin{align*}
+a &= b + c \\
+a &= \frac{y}{\tan(\beta)} + (h+y)\tan(\beta) \\
+a\tan(\beta) &= y + (h+y)\tan^2(\beta) \\
+a\tan(\beta) - h\tan^2(\beta) &= y + y\tan^2(\beta) \\
+\frac{\tan(\beta)(a-h\tan(\beta))}{1+\tan^2(\beta)} &= y
+\end{align*}Doing a quick sanity check, this yields the correct answer of $y=a/2$ when $\beta = 45^\circ$ and $h=0$
+
+We can simplify this further with a few trig identities. You can verify that the above expression is equivalent to
+
+$$ y = \frac{1}{2}a\sin(90-2\alpha) - \frac{h}{2}\tan(45-\alpha) $$From the energy approach, the system will be in static equilibrium if no work is needed to rotate the system by a differential amount (change in potential energy is zero). This occurs when the gravitational potential energy is at a minimum or $y$ is minimized. Taking the derivative with respect to $\alpha$ we get:
+
+\begin{align*}
+\frac{dy}{d\alpha} &= \frac{1}{2}a\cos(90-2\alpha)(-2) - (2h\sin(45-\alpha))(\cos(45-\alpha)(-1) \\
+0 &= -a\cos(90-2\alpha) + h\sin(90-2\alpha) \\
+\frac{a}{h} &= \tan(90-2\alpha)
+\end{align*}But since $\tan(90-2\alpha) = \cot(2\alpha)$, we can rewrite this to get:
+$$\tan(2\alpha) = \frac{h}{a}$$
+\end{solution}
