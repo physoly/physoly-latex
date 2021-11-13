@@ -1,0 +1,28 @@
+\begin{solution}{normal}
+Let the normal force on the cylinder be $N_1$, the normal force on the wedge be $N_2$, and the normal force between the cylinder and wedge be $N$. If the cylinder moves downwards with an acceleration $a_1$ and the wedge moves upwards with an acceleration $a_2$, we find from geometry that we have a constraint equation of 
+\begin{align*}
+Na_1\cos (180 - \alpha) + Na_2 \cos\alpha = 0\\
+-a_1 + a_2 = 0 \implies a_1 = a_2
+\end{align*}
+To find the acceleration, we use lagrangian formalism. Let the cylinder move down by a small amount $\xi$, the wedge will then move upwards $\xi$ meaning that the change in potential energy will become
+\[
+\Pi(\xi) = (m - M)g\sin\alpha \xi
+\]Differentiating this with respect to $\xi$ gives us
+\[
+\Pi'(\xi) = (m - M)g\sin\alpha.
+\]The kinetic energy of the system in this case will then be given by
+\[K = \frac{1}{2}(m + M)\dot\xi^2 
+\]which implies that $\mathcal{M} = m + M.$ This lets the acceleration become
+\[
+a = \frac{m - M}{m + M}g\sin\alpha.
+\] Projecting Newton's laws onto the cylinder gives us the equation
+\[mg\sin\alpha - N\cos\alpha = ma\]
+Substituting our value of accceleration gives us 
+\[mg\sin\alpha - N\cos\alpha = m\frac{m - M}{m + M}g\sin\alpha\]
+rearranging variables gives us 
+\begin{align*}
+mg\sin\alpha\left(1 - \frac{m -M}{m + M}\right) = N\cos\alpha\\
+\boxed{N = 2\frac{Mm}{m + M}g\tan\alpha}
+\end{align*}
+\blfootnote{This problem was found in the book ’Aptitude Test Problems in Physics’ by S.S. Krotov though in that problem, only velocity was asked for.}
+\end{solution}
