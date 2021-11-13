@@ -1,0 +1,15 @@
+\begin{solution}{normal}
+Consider the time when the angle between the line joining the edge to the rod makes an angle $\theta$, with the vertical. We want that the normal should always be positive (outwards).
+The velocity of the rod at this time, $\nu$, can be calculated using energy conservation $\frac{1}{2} m \nu^2 = \frac{1}{2}mv^2 + mgR(1-\cos \theta)$.
+Setting total forces along the line joining the rod to the edge to $0$, we get that
+\begin{align*}
+\frac{m\nu^2}{R} + N &= mg \cos \theta \\
+N &= mg \cos \theta - \frac{2\cdot \dfrac{1}{2}m\nu^2}{R}\\
+&= mg \cos \theta - \dfrac{mv^2 + 2mgR(1-\cos \theta)}{R} \\
+0 &\le 3mg \cos \theta - \frac{mv^2 + 2mgR}{R} \\
+\cos \theta &\ge\frac{1}{3}\left(2+\frac{v^2}{gR}\right)
+\end{align*}
+for all values of $\theta$ that can be achieved. The maximum value of $\theta$ will be alpha, so 
+\[\cos \alpha\ge\frac{1}{3}\left(2+\frac{v^2}{gR}\right)
+\] is a necessary and sufficient condition.
+\end{solution}
