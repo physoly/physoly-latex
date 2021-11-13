@@ -1,0 +1,38 @@
+\begin{solution}{normal}
+\begin{center}
+\begin{asy}
+ /* Geogebra to Asymptote conversion, documentation at artofproblemsolving.com/Wiki go to User:Azjps/geogebra */
+import graph; size(10cm);
+real labelscalefactor = 1; /* changes label-to-point distance */
+real xmin = -15.32, xmax = 23.08, ymin = -5.97, ymax = 11.53; /* image dimensions */
+pen qqwuqq = rgb(0,0.39215686274509803,0);
+
+draw(arc((6.06217782649107,-2.5),0.6,0,71.45835838231673)--(6.06217782649107,-2.5)--cycle);
+/* draw figures */
+draw(circle((1.14,-0.55), 1.9604081207748552));
+draw(circle((4.78,2.47), 2.79624450386687));
+draw((1.18,-2.51)--(-6.06217782649107,-2.5));
+draw((1.18,-2.51)--(6.06217782649107,-2.5));
+draw((6.06217782649107,-2.5)--(7.4205037888728,1.5498244372109937));
+draw((7.4205037888728,1.5498244372109937)--(8.660254037844386,6));
+draw((6.06217782649107,-2.5)--(9.526279441628825,-2.5));
+label("$2\alpha$", (6, -2.5), 4NE);
+/* end of picture */   
+\end{asy}
+\end{center}
+We tilt the plane by an angle $2\alpha$. This makes the effective gravity in this scenario become 
+\[g_{\text{eff}} = mg\sin\alpha\cos\alpha\]
+Since the wedge is weightless, the normal force between the wedge of both blocks have to be equal otherwise, the wedge will experience an infinite acceleration. Setting these two forces equal to each other in the horizontal direction gives us 
+\[F_g\sin\alpha\cos (2\alpha) = F_g\sin\alpha\]
+\[\cos 2\alpha = \frac{m}{M}\]
+The lower ball will then 'climb up' if 
+\[m < M\cos 2\alpha\]
+\tcbline
+\textbf{Solution 2:} Since the wedge is weightless, the normal force between the wedge of both blocks have to be equal otherwise, the wedge will experience an infinite acceleration. Therefore, setting the forces of inertia and weight at the point when both balls make contact, produces the equation
+\[mg\cos\alpha + ma\sin\alpha = Mg\cos\alpha + Ma\sin\alpha\]We also note, that by trigonometry, after contact the smaller mass must have the ratio of the translational fictitious force to the weight of the ball must be greater than $\tan\alpha$ for the ball to slide up the ramp
+\[\frac{ma}{mg}>\tan\alpha\implies a>g\tan\alpha.\]We now go to the first equation and solve for acceleration. Moving variables to the same side results in
+\[a\sin\alpha(m+M) = g\cos\alpha(M-m)\implies a = \frac{g\cos\alpha(M-m)}{\sin\alpha(m+M)}\]Substituting our minimum value of acceleration yields
+\[\frac{g\cos\alpha(M-m)}{\sin\alpha(m+M)} > g\tan\alpha\]Solving this inequality yields
+\[\boxed{m < M\cos 2\alpha}\]
+\blfootnote{This problem was found in the book 'Aptitude Test Problems in Physics' by S.S. Krotov.}
+\end{solution}
