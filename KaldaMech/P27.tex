@@ -1,0 +1,28 @@
+\begin{solution}{normal}
+Let us call $\xi$ a generalised coordinate if the entire state of a system can be described by this single number.\blfootnote{This problem is from the 1971 IPhO Problem 1. Refer to \url{https://www.jyu.fi/tdk/kastdk/olympiads/problems.html\#71prob} for a solution without lagrangian formalism.} Say we need to find the acceleration $\ddot\xi$ of coordinate $\xi$. If we can express the potential energy $\Pi$ of the system as a function $\Pi\left(\xi\right)$ of $\xi$ and the kinetic energy in the form $K=\mathcal{M}\dot\xi^2/2$ where coefficient $\mathcal{M}$ is a combination of masses of the bodies (and perhaps of moments of inertia), then
+\[\ddot\xi=-\Pi'\left(\xi\right)/\mathcal{M}.\]Let us take the wedge's displacement as the coordinate $\xi$; if the displacement of the block along the surface of the wedge is $\eta$, then the center of mass from rest is
+\[\eta(m_1\cos\alpha_1+m_2\cos\alpha_2)=(M+m_1+m_2)\xi.\]We then find that
+\[\eta=\frac{(M+m_1+m_2)\xi}{(m_1\cos\alpha_1+m_2\cos\alpha_2)}\]We note that if we substitute this expression everywhere, we will get an extremely contrived answer. Thus, let us substitute this expressions with more sightful variable. Let
+\[\varrho\equiv\frac{M+m_1+m_2}{m_1\cos\alpha_1+m_2\cos\alpha_2}.\]The potential energy as a function of $\xi$ is given by
+\[\Pi \left(\xi\right)=m_1 g\eta\sin\alpha_1-m_2 g\eta\sin\alpha_2\]It is given that $\ddot{\xi}=\frac{\Pi' \left(\xi\right)}{\mathcal{M}}$. Thus by differentiating $\Pi\left(\xi\right)$ we get
+\[\Pi\left(\xi\right)= \varrho(m_1\sin\alpha_1-m_2\sin\alpha_2).\]Finding $\mathcal{M}$ will be a bit harder. The kinetic energy of the block is given as the sum of the horizontal and vertical energies or
+\begin{align*}
+K&=\frac{1}{2}M\dot{\xi}^2+\frac{1}{2}m_1(\dot{\xi}-\dot{\eta}\cos\alpha_1)^2+\frac{1}{2}m_1(\dot{\eta}\sin\alpha_1)^2+\frac{1}{2}m_2(\dot{\xi}-\dot{\eta}\cos\alpha_2)^2+\frac{1}{2}m_2(\dot{\eta}\sin\alpha_2)^2\\
+&=\frac{1}{2}M\dot{\xi}^2+\frac{1}{2}m_2(\dot{\xi}^2-2\dot\eta\dot\xi\cos\alpha_2+\dot\eta^2)+ \frac{1}{2}m_1(\dot{xi}^2-2\dot\eta\dot\xi\cos\alpha_1+\dot\eta^2)
+\end{align*}We have that $\eta=\varrho\xi\implies\dot\eta=\varrho\dot\xi$. Thus, by substituting this into our expression for kinetic energy we have
+\begin{align*}
+K &=\frac{1}{2}M\dot{\xi}^2+\frac{1}{2}m_2(\dot{\xi}^2-2\dot\eta\dot\xi\cos\alpha_2+\varrho\dot\eta^2)+ \frac{1}{2}m_1(\dot{xi}^2-2\dot\eta\dot\xi\cos\alpha_1+\dot\eta^2) \\
+&=\frac{1}{2}M\dot\xi^2+\frac{1}{2}m_2(\dot\xi^2-2\varrho\dot\xi^2\cos\alpha_2+\varrho\dot\xi^2) +\frac{1}{2}m_1(\dot\xi^2-2\varrho\dot\xi^2\cos\alpha_1+\varrho\dot\xi^2)\\
+\mathcal{M}&=M+m_2(1-2\varrho\cos\alpha_2+\varrho^2)+m_1(1-2\varrho\cos\alpha_1+\varrho^2)
+\end{align*}Now we apply our Lagrangian Formalism Identity,
+\begin{align*}
+&\ddot\xi=\frac{\Pi'\left(\xi\right)}{\mathcal{M}}=\dfrac{\varrho(m_1\sin\alpha_1-m_2\sin\alpha_2)}{M+m_2(1-2\varrho\cos\alpha_2+\varrho^2)+m_1(1-2\varrho\cos\alpha_1+\varrho^2)}\\
+&=\dfrac{\varrho(m_1\sin\alpha_1-m_2\sin\alpha_2)}{(M+m_1+m_2)-2\varrho(m_1\cos\alpha_1+m_2\cos\alpha_2)+\varrho^2(m_1+m_2)}\\
+&=\dfrac{\varrho(m_1\sin\alpha_1-m_2\sin\alpha_2)}{(M+m_1+m_2)-2\dfrac{M+m_1+m_2}{m_1\cos\alpha_1+m_2\cos\alpha_2}(m_1\cos\alpha_1+m_2\cos\alpha_2)+\varrho^2(m_1+m_2)}\\
+&=\dfrac{\varrho(m_1\sin\alpha_1-m_2\sin\alpha_2)}{\varrho^2(m_1+m_2)-(M+m_1+m_2)}
+=\dfrac{\dfrac{M+m_1+m_2}{m_1\cos\alpha_1+m_2\cos\alpha_2}(m_1\sin\alpha_1-m_2\sin\alpha_2)}{\left(\dfrac{M+m_1+m_2}{m_1\cos\alpha_1+m_2\cos\alpha_2}\right)^2(m_1+m_2)-(M+m_1+m_2)}\\
+&=\dfrac{\left(\dfrac{M+m_1+m_2}{m_1\cos\alpha_1+m_2\cos\alpha_2}(m_1\sin\alpha_1-m_2\sin\alpha_2)\right)}{\left(\dfrac{(M+m_1+m_2)^2(m_1+m_2)-(M+m_1+m_2)(m_1\cos\alpha_1+m_2\cos\alpha_2)}{(m_1\cos\alpha_1+m_2\cos\alpha_2)^2}\right)}\\
+&\boxed{a_0 = \frac{(m_1\cos\alpha_1 + m_2\cos\alpha_2)(m_1\sin\alpha_1 - m_2\sin\alpha_2)}{(m_1+m_2+M)(m_1+m_2) - (m_1\cos\alpha_1+m_2\cos\alpha_2)^2}}
+\end{align*}
+This is extremely long, yes, but to do well at the International Olympiad, you must be familiar and not scared to bash it all out.
+\end{solution}
