@@ -1,0 +1,45 @@
+\begin{solution}{hard}
+\definecolor{crimsonglory}{rgb}{0.75, 0.0, 0.2}
+Let the centre of mass of the system be $C$ and the point where the right string and the rod meet be $A$. Let the required tension be $T$.
+
+\textbf{\textcolor{crimsonglory}{Claim.}} $A$ must have no acceleration.
+\begin{center}
+\noindent\rule{8cm}{0.4pt}
+\end{center}
+\textit{Proof:} Acceleration of $A$ cannot be downwards as the string is inextensible. If the acceleration of $A$ is upwards, then the string will slack and $T$ will be 0, so the acceleration of the centre of mass will be downwards and it there would be no torque and hence no rotation implying that A has acceleration downwards. This results in a contradiction. So the only case left is that $A$ has zero acceleration.
+\begin{center}
+\noindent\rule{8cm}{0.4pt}
+\end{center}
+\vspace{5mm}
+
+Due to this, $a = \alpha \times AC$, where $a$ and $\alpha$ are the linear acceleration of $C$ and the angular acceleration of the rod about $A$ respectively.
+Also, the distance $AC = l+\frac{Ml}{M+m} = \frac{(m+2M)l}{M+m}$. The acceleration of the centre of the mass can be calculated from Newton's second law, 
+\[(M+m)g - T = (M+m)a \implies a = g - \frac{T}{M+m}\], where $a$ is positive downwards.
+The torque on the rod about $A$ is, 
+\[
+\tau = (M+m)g\times AC = I \alpha = (m+4M)l^2\frac{a}{AC} \implies a= \frac{(m+2M)^2}{(M+m)(m+4M)}g\]
+Substituting this in the previous equation, we get that $\boxed{T = \frac{Mmg}{m+4M}}$
+\tcbline
+\textbf{Solution 2:} Let the acceleration of the mass $m$ right after the second string is cut be $a$, it then follows the acceleration of the second mass $M$ right after is given by $2a$. If the normal force produced from the first mass is $N_1$ and the normal force produced from the second mass is $N_2$ then our two $F=ma$ equations are
+\begin{align*}
+mg - N_1 &= ma\\
+Mg - N_2 &= M(2a)
+\end{align*}We also have our equation of torque to be
+\[mg\ell + Mg(2\ell) = I\alpha = (m\ell^2 + 4M\ell^2)\alpha\]Lastly, by Newton's third law the tension is given by
+\[T = N_1 + N_2\]We now can solve this problem given four equations and four unknowns. We first manipulate the torque equation.
+\begin{align*}
+mg\ell + 2Mg\ell^2 &= (m\ell^2 + 4M\ell^2)\frac{a}{\ell}\\
+mg + 2Mg &= (m + 4M)a\\
+a &= \frac{m + 2M}{m + 4M}g
+\end{align*}We now go back to our first two $F=ma$ equations. We substitute our first equation to get
+\[mg - N_1 = ma \implies N_1 = mg - m\left(\frac{m+2M}{m + 4M}g\right) \]our second equation gives us
+\[Mg - N_2 = M(2a) \implies N_2 = Mg - 2M\left(\frac{m + 2M}{m + 4M}g\right).\]Our equation for Newton's third law then gives us
+\begin{align*}
+T &= mg - m\left(\frac{m+2M}{m + 4M}g\right) + Mg - 2M\left(\frac{m + 2M}{m + 4M}g\right)\\
+&= (m + M)g - (m + 2M)\frac{m + 2M}{m + 4M}g\\
+&= \frac{(m + M)(m + 4M) - (m + 2M)^2}{m + 4M}\\
+&= \frac{m^2 + 4Mm + Mm - m^2 - 2Mm - 2Mm - 4M^2 + 4M^2}{m + 4M}\\
+T &= \boxed{\frac{Mm}{m + 4M}g}
+\end{align*}
+\blfootnote{This problem was found in the book ’Aptitude Test Problems in Physics’ by S.S. Krotov though in that problem, only velocity was asked for.}
+\end{solution}
