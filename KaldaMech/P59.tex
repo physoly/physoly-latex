@@ -1,0 +1,22 @@
+\begin{solution}{normal}
+Two forces act on the rod in the vertical direction, it's weight and the force of friction, where at its maximum is $\mu N_1$. As the weight increases, we must have $N_1$ increase as well. Let us look at the limiting case where $W_\text{rod} \to \infty$. The normal and friction forces acting on the cylinder will be so large that the mass of the cylinder will be negligible, thus we can ignore the force $mg$. This allows us to effectively turn gravity off.
+\vspace{2mm}
+
+Let us now rotate the setup by an angle $\alpha/2$ such that it is completely symmetrical  along its vertical axis. It is clear that the horizontal forces will cancel each other out.
+\begin{center}
+    \begin{asy}
+    size(5cm);
+draw(circle((0,0),3));
+draw((-2.62,-1.47)--(-0.59,-0.33),EndArrow);
+draw((-2.62,-1.47)--(-0.59,-5.07),EndArrow);
+
+draw((2.62,-1.47)--(0.59,-0.33),EndArrow);
+draw((2.62,-1.47)--(0.59,-5.07),EndArrow);
+    \end{asy}
+\end{center}
+
+Now we just have to balance out vertical forces. Due to symmetry, the y-component of each friction force cancels out with the y-component of each normal force. For the left side, we have:
+$$N_1\sin(\alpha/2)=\mu_1 N_1\cos(\alpha/2) \implies \boxed{\mu_1 > \tan(\alpha/2)}$$
+We have the inequality since the force balance equation gives the maximum friction. Similarly for the other side:
+$$\boxed{\mu_1 > \tan(\alpha/2)}$$
+\end{solution}
