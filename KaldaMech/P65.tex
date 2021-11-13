@@ -1,0 +1,56 @@
+\begin{solution}{hard}
+Denote the horizontal accelerations of the three masses from right to left as $a_1$, $a_2$, and $a_3$ as shown in the diagram below. Let the vertical acceleration of the top mass be $a_y$.
+\begin{center}
+\begin{asy}
+size(8cm);
+draw((-1,0)--(0,1)--(1,0));
+filldraw(circle((0,1),0.15),gray);
+filldraw(circle((1,0),0.15),gray);
+filldraw(circle((-1,0),0.15),gray);
+
+draw(Label("$F_1$", Relative(1), dir(-45)),(1,0)--(1.5,-0.5),EndArrow);
+draw(Label("$a_1$", Relative(1), dir(90)),(1,0)--(1.5,0),dashed,EndArrow);
+
+draw(Label("$F_1$", Relative(1), dir(135)),(0,1)--(-0.5,1.5),EndArrow);
+draw(Label("$a_2$", Relative(1), dir(135)),(0,1)--(-0.5,1),dashed,EndArrow);
+draw(Label("$a_y$", Relative(1), dir(-90)),(0,1)--(0,0.5),dashed,EndArrow);
+draw(Label("$F_2$", Relative(1), dir(45)),(0,1)--(0.5,1.5),EndArrow);
+draw(Label("$F_2$", Relative(1), dir(-135)),(-1,0)--(-1.5,-0.5),EndArrow);
+draw(Label("$a_3$", Relative(1), dir(95)),(-1,0)--(-1.5,-0),dashed,EndArrow);
+\end{asy}
+\end{center}
+There is no external force in the horizontal direction, therefore:
+$$ma_2+ma_3=4ma_1 \implies a_2+a_3=4a_1$$
+It can be shown as in the first solution that the component of acceleration of the top mass along the left rod must be the same as the component of acceleration of the left mass along the left rod. This means:
+$$a_2\cos 45^\circ+a_y\sin 45^\circ = a_3\cos45^\circ \implies a_y+a_y=a_3$$The same is true along the right rod, giving:
+$$a_y-a_2=a_1$$Solving these three equations, we get:
+\begin{align*}
+a_y &= 2a_1 \\
+a_2 &= a_1 \\
+a_3 &= 3a_1
+\end{align*}Using Newton's Second Law on the rightmost mass, we have:
+$$F_1\cos45^\circ = (4m)a_1$$For the left mass,
+$$F_2\cos45^\circ = ma_3 =m(3a_1)$$For the top mass in the vertical direction. We get:
+$$mg-\left(F_1\cos45^\circ+F_2\cos45^\circ\right)=ma_y=m(2a_1)$$Substituting in $F_1$ and $F_2$ from above gives:
+$$mg-7ma_1=2ma_1 \implies \boxed{a_1=\frac{g}{9}}$$
+\tcbline
+\textbf{Solution 2:} The top mass has 3 forces acting on it, a force $F_2$ exerted by the rod on left (compressive),
+$F_1$ exerted by the rod on right (compressive), and the force of gravity $mg$. The $4m$ mass has only horizontal acceleration. Therefore:
+$$4mg+\frac{F_1}{\sqrt2} = N$$
+Now, in the non inertial reference frame of the top mass, the $4m$ mass has only a tangential acceleration since the rod that separates them is fixed in length. As a result, we get the force balance:
+$$\sum F_\text{radial} = \sum F_\text{inertial} + \sum F_\text{pseudo}$$
+The inertial force acting on $4m$ in the radial direction is simply:
+$$\frac{N-4mg}{\sqrt{2}}-F_1$$
+By switching into an accelerated reference frame where the top mass is at rest, we need to apply a pseudo-force which acts in the opposite direction of the top mass's net force. The acceleration of the top mass in the radial direction is:
+$$a=\frac{F}{m}=\frac{1}{m}\left(\frac{mg}{\sqrt{2}}+F_1\right)$$
+Thus, the radial component of the pseudo-force must point in the opposite direction. The pseudo-force the rightmost mass experiences is thus:
+$$\sum F_\text{pseudo}= \frac{-\frac{mg}{m}\cdot 4m}{\sqrt2} -\frac{F_1}{m}\cdot 4m=\frac{-4mg}{\sqrt{2}}-4F_1$$
+Thus, we have:
+$$
+0 = \left (\frac{N-4mg}{\sqrt2}-F_1  \right )+\left ( \frac{-4mg}{\sqrt{2}}-4F_1\right )
+$$
+Substituting in $N$ gives 
+$$F_1=\frac{4\sqrt2 mg}{9}$$
+Therefore,
+$$a_1=\frac{F_1}{\sqrt2\cdot 4m}=\boxed{\frac{g}{9}}$$
+\end{solution}
