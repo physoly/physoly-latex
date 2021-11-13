@@ -1,0 +1,24 @@
+\begin{solution}{hard}
+When the pulley is let go, one side of the rope will go up a distance $\xi$ while the other side will go down a distance $\xi$. The change in potential energy of this is the categorized as 
+\[\Pi(\xi) = -\rho g(L - 2l - \pi R)\xi \implies -\Pi'(\xi) = \rho g(L - 2l - \pi R)\]
+The kinetic energy of the system will then be 
+\[K = \frac{1}{2}m\dot\xi^2 + \frac{1}{2}\rho L\dot\xi^2\]
+This implies that the effective mass, $\mathcal{M}$, is $\mathcal{M} = m + \rho L$. We then get the acceleration of the system to be 
+\[a \equiv \frac{\rho g(L - 2l - \pi R)}{m + \rho L}\]
+Now, we write for the displacement of parts of the system times their mass divided by the total effective mass of the system $\mathcal{M}$. Differentiating that with respect to $\xi$ will give us our accelerations in the $x$ and $y$ direction. In the $x$ direction, we have
+\begin{align*}
+x &= \frac{2R\xi\rho}{m + \rho L}\\
+a_x &= \frac{2R\rho a}{m + \rho L}
+\end{align*}
+In the $y$ direction, we have 
+\begin{align*}
+y &= \frac{(L - 2l -\pi R)\rho\xi}{m + \rho L}\\
+a_y &= \frac{(L - 2l - \pi R)\rho a}{m + \rho L}
+\end{align*}
+By $F=ma$, we have the direction of force in the $x$ and $y$ direction to then be 
+\[\boxed{F_x = 2R\rho a}\]
+\begin{align*}
+F_y - (m+\rho L)g = -\rho a (L - \pi R - 2l)\\
+\boxed{\therefore F_y = -\rho a(L-\pi R - 2l) + (m + \rho L)g}
+\end{align*}
+\end{solution}
