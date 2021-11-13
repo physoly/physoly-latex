@@ -1,0 +1,50 @@
+\begin{solution}{normal}
+We use idea 51 and list out all the possible combinations of objects moving together. Let us label the surface between the top two masses as $S_1$ and the surface between the bottom two as $S_2$. We have a few options:
+\begin{itemize}
+    \item $S_1$ static, $S_2$ static
+    \item $S_1$ kinetic, $S_2$ static
+    \item $S_1$ static, $S_2$ kinetic
+    \item $S_1$ kinetic, $S_2$ kinetic 
+\end{itemize}
+(1) Let us look at the first case. If this is the case, then we have:
+$$F=3ma \implies a=\frac{F}{3m}$$
+To analyze the conditions for this to occur, we must look at the friction forces. The second block experiences two friction forces from two surfaces. Both forces $f_1$ and $f_2$ have to satisfy $f_1 < mg\mu$ and $f_2 < 2mg\mu$. Since the first condition is harder to meet (and if met, the second one is also met), we will look at the first surface. The top-most block experiences two forces, a force of tension with magnitude $F/2$ and a friction force $-f_1$. Combined together, these forces give the bottom block the acceleration calculated above. We have:
+$$m\left(\frac{F}{3m}\right)=\frac{F}{2}-f_1 \implies f_1 = \frac{F}{6}$$
+Using the inequality $f_1 < mg\mu$ we get the condition:
+$$\frac{F}{6} < mg\mu \implies \frac{F}{mg\mu} < 6$$
+\vspace{3mm}
+
+(2) Now let's look at the second case where the bottom two blocks stay together but the top two blocks slide against each other. We wish to balance forces on the bottom two blocks together, but we need to be careful of which direction the friction force points. The top block and the bottom two blocks are both being pulled by a string but since the top block is lighter, it will be pulled faster. As a result, the kinetic friction the top two blocks experiences points directly to the right. Balancing forces, we have:
+$$(2m)a=\frac{F}{2}+mg\mu \implies a = \frac{F}{4m}+\frac{1}{2}g\mu$$
+\vspace{3mm}
+
+The conditions that has to be met in order for this to take place is: $f_1 = mg\mu$ and $f_2<2mg\mu$. For the second to be satisfied, we can balance forces for the bottommost block. Balancing forces, we have:
+$$m\left(\frac{F}{4m}+\frac{1}{2}g\mu\right)=\frac{F}{2}-f_2 \implies f_2 =\frac{F}{4}-\frac{1}{2}mg\mu$$
+Using the condition $f_2 < mg\mu$, we get:
+$$\frac{F}{mg\mu} < 10$$
+For the first condition to be met, we must have $\frac{F}{mg\mu}>6$, if this was not the case, then all three blocks would start sliding together. We can prove this by balancing forces on the middle block. We have:
+$$m\left(\frac{F}{4}+\frac{mg\mu}{2}\right)=f_1+f_2 \implies \frac{F}{4}-f_1+\frac{mg\mu}{2} < mg\mu$$
+Setting $f_1=mg\mu$ and isolating for $F$ does indeed give us:
+$$\frac{F}{mg\mu}>6$$
+\vspace{3mm}
+
+(3) This is impossible. If the friction is strong enough such that the top two blocks can move together, then it must be so that the friction is strong enough the bottom two blocks can move together. This is because the normal force between the bottom two blocks will always be stronger than the normal force between the upper two blocks.
+\vspace{3mm}
+
+(4) This is an easy case. Balancing forces directly on the second block, we get:
+$$ma=f_1+f_2=mg\mu+2mg\mu \implies a=3g\mu$$
+This is the case when the applied force crosses the upper boundary set above, which was $\frac{F}{mg\mu}<10$. Therefore, complete slipping occurs when $$\frac{F}{mg\mu} > 10$$
+\vspace{3mm}
+
+Finally, we can summarize our results:
+$$
+\boxed{
+a=
+\begin{cases}
+\frac{F}{3m} & \frac{F}{mg\mu} < 6 \\
+\frac{F}{4m}+\frac{g\mu}{2} & 6<\frac{F}{mg\mu}<10 \\
+3g\mu & \frac{F}{mg\mu} > 10
+\end{cases}
+}
+$$
+\end{solution}
