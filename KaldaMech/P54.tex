@@ -1,0 +1,12 @@
+\begin{solution}{hard}
+Consider a control volume that encloses the wave front and moves with it, as shown in figure. To an observer traveling with the wave front, the liquid to the right appears to be moving toward the wave front with speed $u$ and the liquid to the left appears to be moving away from the wave front with speed $u-v$. The observer would think the control volume that encloses the wave front is stationary i.e. a steady flow process.
+The continuity relation gives$$uH = (u-v)(H+h)\implies v = u \frac{h}{H+h}$$Also we can say$$ P_{2,avg}A_2-P_{1,avg}A_1 = \dot{m}(-V_2)-\dot{m}(-V_1)$$$$\implies \frac{\rho g(H+h)^2}{2} - \frac{\rho g H^2 }{2} = \rho c_0y(-u + v) - \rho u H(-u)$$$$\implies g \left(1+\frac{h}{2H}\right) h = vu$$Combining the two equations gives
+$$u^2 = gH\left(1+\frac{h}{H}\right) \left(1+\frac{h}{2H}\right)$$As $h \ll H$,
+$$u= \boxed{\sqrt{gH}}$$
+\tcbline
+\textbf{A Generalization:} For any given height $h$, the dispersion relationship is:
+$$\omega^2 = gk \tanh(kh)$$where $\omega$ is the angular frequency and $k$ is the wavenumber (number of wavelengths per unit distance). For small values, we have $\tanh(kh)=kh$ or:
+$$\omega^2 = gk^2h \implies \omega=k\sqrt{gh}$$The speed the waves will be travelling at, or the phase velocity, will be:
+$$\boxed{v=\frac{\omega}{k}=\sqrt{gh}}$$For large values of $h$, we have $\tanh(kh)=1$ or:
+$$\omega^2=gk \implies v = \sqrt{\frac{g}{k}}$$This tells us that waves with higher wavenumbers (e.g. tsunamis) travel faster than waves with lower wavenumbers.
+\end{solution}
