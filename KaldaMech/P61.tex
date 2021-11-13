@@ -1,0 +1,16 @@
+\begin{solution}{normal}
+Similar to problem 16, we want:
+$$\rho gh(\pi R^2) = mg + V\rho g$$
+except this time:
+\begin{align*}
+V &= \frac{2}{3}\pi R^3 - \pi H^2\left(R-\frac{H}{3}\right) \\
+&= \frac{2}{3}\pi R^3 - \pi (R-h)^2\left(\frac{2R+h}{3}\right) \\
+&= \frac{2}{3}\pi R^3 - \frac{\pi}{3} (2R^3+R^2h-4R^2h-\cancel{2Rh^2}+\cancel{2Rh^2}+h^3) \\
+&= \pi R^2h - \frac{\pi}{3}h^3
+\end{align*}
+Plugging this in gives:
+$$\cancel{\rho gh(\pi R^2)} = mg +  \cancel{\pi R^2h\rho g} - \frac{\pi}{3}h^3\rho g$$
+or:
+$$mg = \frac{\pi}{3}h^3\rho g \implies \boxed{h = \sqrt[3]{\frac{3m}{\pi \rho}}}$$
+Verifying, if we plug $m=\frac{\pi}{3}\rho R^3$, we do indeed get $h=R$.
+\end{solution}
