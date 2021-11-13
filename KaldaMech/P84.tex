@@ -1,0 +1,20 @@
+\begin{solution}{normal}
+Before we solve the problem, let us build some intuition for what is happening. As the wagon accelerates, the new equilibrium position will start oscillating around a new equilibrium angle $\theta$. This angle is very small and therefore we can assume it undergoes small angle oscillations with an amplitude of $\theta$. Every time it gets back to its vertical position, it will be stationary. We want it such that after it travels a distance $L$, the load is in this position.
+\vspace{3mm}
+
+We propose that at the moment the wagon starts decelerating, the load must also be in the vertical direction and motionless. This is because as soon as it starts decelerating, there will be a new equilibrium angle of $-\theta$. If we want the magnitude of the amplitudes to stay the same, we need the position of the load to be vertical as it starts decelerating.
+\vspace{3mm}
+
+With this intuition, it is not difficult to solve the problem as we only need to focus on one half of the journey. In the time $t$ it takes to travel a distance $L/2$, the load must have undergone $N$ full oscillations. This can be rewritten as:
+$$t=NT$$
+where $T=2\pi\sqrt{\frac{\ell}{\sqrt{g^2+a^2}}}$ is the period of oscillations. However, since $a \ll g$, we can ignore the second order term and rewrite the period with the standard equation: $T=2\pi\sqrt{\frac{\ell}{g}}$
+\vspace{3mm} 
+
+The time it takes to travel half the length can be determined using simple kinematics. We have:
+$$\frac{L}{2} = \frac{1}{2}at^2 \implies t = \sqrt{\frac{L}{a}}$$
+\vspace{3mm}
+
+Using the condition we stated, we can link the two times together:
+$$\sqrt{\frac{L}{a}} = 2\pi N\sqrt{\frac{\ell}{g}} \implies \boxed{a = \frac{Lg}{N^24\pi^2\ell}}$$
+for all positive integers $N$ provided that $a \ll g$.
+\end{solution}
