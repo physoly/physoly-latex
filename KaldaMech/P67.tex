@@ -1,0 +1,51 @@
+\begin{solution}{normal}
+\begin{center}
+\begin{asy}
+import olympiad;
+size(5cm);
+draw(arc((0,0),(1,0), (-1,0)));
+draw((1,0)--(-1,0));
+pair A,B,C,D;
+A = (3.1610980056834	,	-0.086367809191);
+B = (-2.4770577190321	,	1.965753050762);
+C = (3.5031181490091	,	0.8533248115948);
+D = (-2.1350375757064	,	2.9054456715488);
+
+pair P,L, CM;
+P = (0.34202014332567, 0.93969262078591);
+L=(0,1.06417777248);
+CM = L+P/2;
+draw((0,0)--P, dotted);
+draw((0,0)--(0,1),dotted);
+label("P", P, NE);
+dot(P);
+
+markscalefactor=0.1;
+draw(anglemark(P, (0,0), L, 4));
+
+label("$\theta$",(0,0.4), NE);
+label("O", (0,0), S);
+\end{asy}
+\end{center}
+
+Let the point at where the object slips of the hemisphere be $P$. We then have by energy conservation that 
+\[
+\frac{1}{2}mv^2 = mgR(1 - \cos\theta)
+\] This implies that $v^2$ is 
+\[
+v^2 = 2gR(1- \cos\theta)
+\] At any point on the circle we have the Newton’s third law pair of 
+\[
+F_g = F_c +F_N
+\] However at the point where the object loses contact, the normal force becomes zero. This implies that
+\[
+mg\cos\theta = \frac{mv^2}{R}
+\]
+Taking out $m$ from both sides and substituting $v^2$ gives us
+\begin{align*}
+g\cos\theta &= \frac{2gR(1- \cos\theta)}{R}\\
+2 - 2\cos\theta &= \cos\theta\\
+\cos\theta &= \frac{2}{3}
+\end{align*}
+We know that $\cos\theta = \frac{h}{R}$, thus the height at which the object loses contact is $\boxed{h = \frac{2}{3}R}$
+\end{solution}
