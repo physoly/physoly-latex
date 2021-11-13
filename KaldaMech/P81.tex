@@ -1,0 +1,21 @@
+\begin{solution}{hard} First, let us notice that the period of oscillations $T=0.01 \text{ s}$ is extremely small, so any deviation in the velocity caused by friction can be ignored if we only focus on the average velocity. We assume that the block travels at a constant velocity $u$ rightwards in the positive direction. Let us examine the movement qualitatively.
+\vspace{3mm}
+
+As the board starts moving rightwards, it is important to note that the velocity of the block relative to the board is rightwards, so the friction force $mg\mu_1$ points leftwards. This goes on for a time $t_1$ until the velocity of the board matches the velocity of the block and overtakes it. This goes on for a time $t_2$ where the board reaches a maximum and starts to slow down all the way until it has a velocity of $u$ again. During this time period, the friction force points to the right with a magnitude $mg\mu_2$. Finally, for a time $t_3=t_1$, the board is still moving towards the right but the friction force points towards the left. The total duration is $t_1+t_2+t_3=T/2$.
+\vspace{3mm}
+
+Finally, the board starts travelling in the leftwards direction. The friction force here is a constant $mg\mu_1$ directed towards the left and lasts for a time $t_4=T/2$
+\vspace{3mm}
+
+Now let's do the math. Let's work with the assumption we made that the block has a roughly constant average velocity. If this was not the case, then friction forces would either speed it up or slow it down until the motion is roughly constant. As a result, the total change in momentum, or impulse is zero. We have:
+$$(-mg\mu_1)t_1+(mg\mu_2)t_2+(-mg\mu_1)t_3+(-mg\mu_1)t_4=0$$
+Letting $t_1=t_3$ we get:
+$$\mu_2t_2=\mu_1t_4+2\mu_1t_1$$
+Having $2t_1+t_2=t_4$ then we have:
+$$\mu_2(t_4-2t_1)=\mu_1t_4+2\mu_2t_1 \implies (\mu_2-\mu_1)t_4=4\mu_1t_1$$
+or:
+$$t_1 = \frac{(\mu_2-\mu_1)t_4}{2(\mu_2+\mu_1)}$$
+Since $t_4=0.005 \text{ s}$ we get:
+$$t_1 = \frac{t_4}{8}$$
+this is an eighth of half a period and corresponds to the time where the board has the same velocity as the block. I put this through a visual program and determined this corresponds to $0.64 \text{ m/s}$. To one significant digit, , the average velocity of the board is $\boxed{v=0.6 \text{ m/s}}$
+\end{solution}
