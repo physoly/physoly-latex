@@ -1,0 +1,51 @@
+\begin{solution}{hard}
+\definecolor{crimsonglory}{rgb}{0.75, 0.0, 0.2}
+Energy conservation gives:
+$$\frac{1}{2}v^2=\frac{1}{2}g\ell(1-\sin\theta)$$
+where $\theta$ is the angle the rod makes with the ground at the point of maximum extension of the string. We are restricted to a total vertical length of $2\ell$ so we have:
+$$H=2\ell\sin\theta \implies \sin\theta = \frac{H}{2\ell}$$
+Applying this to our energy conservation expression gives:
+$$v^2 = g\ell(1-H/2\ell) \implies \boxed{v=\sqrt{g(\ell-H/2)}}$$
+Now, we use idea 44 and notice that horizontal acceleration of the centre must be zero; this follows from the Newton’s 2nd law for the horizontal motion (there are no horizontal forces at that moment). Further, notice that the vertical coordinate of the centre of mass is arithmetic average of the coordinates of the endpoints,
+\[x_O = \frac{1}{2}(x_A + x_B)\]
+Noting that $x_B$ must be constant, taking the time derivatives gives us 
+\begin{align*}
+\dot{x_O} = \frac{1}{2}\dot{x}_A\\
+\ddot{x_O} = \frac{1}{2}\ddot{x}_A
+\end{align*}
+Hence, the acceleration of O can be found as half of the vertical acceleration of the rod’s upper end A; this is the radial, i.e. centripetal component of the acceleration of point A on its circular motion around the hanging point. From here, we know from the common formula, that 
+\[a = \frac{v^2}{\ell}\]
+substituting our expression for $v^2$ from part a) gives us 
+\[a = \frac{g\ell(1-H/2\ell)}{\ell} \implies a = g(1 - H/2\ell).\]
+At point $x_O$, the acceleration is then given by $\boxed{\frac{g}{2}\left(1 - \frac{H}{2\ell}\right)}$.
+\tcbline
+\textbf{Solution 2:} First, we make the following claim:
+\vspace{2mm}
+
+\textbf{\textcolor[HTML]{3D85C6}{Claim.}} At any position the potential energy lost is converted into $E_\text{rotational}+E_\text{translational}$.
+i.e. $$\Delta U = \frac{1}{2}I_{CM}\omega ^2+\frac{1}{2}mv_{CM}^2$$
+Coincidentally for this system $\Delta U $ reaches its maxima and $\omega$ becomes $0$ at the same time. 
+When the thread becomes vertical, the angle made by the rod with the ground, $\beta$ is minimum $\implies \omega=0$.
+\begin{proof} If $\alpha$ is the angle made by the thread with the vertical, 
+$$l\cos\alpha + l\sin\beta=H$$
+$$\sin\beta=\frac{H-l\cos\alpha}{l}$$
+$\left | \alpha \right |$ is always acute here so $\cos\alpha\ $ reaches its maxima and $\beta$ reaches its minimum at $\alpha=0$.
+At the same instant, $y_{CM}=\frac{l\sin\beta}{2}$ reaches its minima.
+\end{proof}
+When the thread is vertical:
+$$y_{CM}=\frac{H-l}{2}$$
+Initially:
+$$y_{CM}=\frac{H}{4}$$
+$$\therefore v_{max}=\sqrt{2g\left ( \frac{H}{4} -\frac{(H-l)}{2}\right )}=\sqrt{g\left ( l-\frac{H}{2} \right )}$$
+At this instant, let the angular acceleration of the rod be $\alpha$ (into the plane) and COM's acceleration $a$ (upwards)
+$$\frac{ml^2}{12}\alpha=(T-N)\frac{l}{2}\cos\beta$$
+$$T+N-mg=ma$$
+The bottom most point must have $0$ vertical acceleration:
+$$\alpha\frac{l}{2}\cos\beta=a$$
+The point connected to thread must have vertical acceleration $=\frac{v^2}{l}$
+$$\alpha\frac{l}{2}\cos\beta+a=\frac{v^2}{l}=g\left ( 1-\frac{H}{2l} \right )$$
+Also, $\sin\beta=\frac{H-l}{l}$
+Solving gives:
+$$a=\frac{g}{2}\left ( 1-\frac{H}{2l} \right )$$
+$$T=\frac{mg}{4}\left(3+\frac{l}{6H}-\frac{H}{2l}\right)$$
+\end{solution}
