@@ -1,0 +1,12 @@
+\begin{solution}{hard}
+Let us first consider the case of the triangular prism. We shall do this by looking at the force caused by the shockwave at a particular moment. The force exerted at any particular point is:
+$$F=S(p_1-p_0)$$
+where $S$ is the cross sectional area at that point. We shall assume that the shock-wave passes through the object extremely quickly so throughout the entire process the object is stationary and only moves with the momentum imparted after it has passed. The impulse is thus:
+$$J=\int S(p_1-p_0) dt$$
+where $dt=dx/c_s$ and the area of the cross section varies with $x$ as $S=c(\frac{-b}{a}x+b)$. Plugging this in, we can determine the change in momentum as:
+$$J=m\Delta v=\frac{c(p_1-p_0)}{c_s} \int_0^a \left(\frac{-b}{a}x+b\right) dx \implies \Delta v = \frac{p_1-p_0}{mc_s}\left(\frac{abc}{2}\right)$$
+Note however that the volume of the triangular prism is also $V=\frac{1}{2}abc$. We can therefore generalize this result to any arbitrary shape. As before, the impulse is given by:
+$$m\Delta v=\frac{p_1-p_0}{c_s}\int S(x) dx$$
+where $\displaystyle \int S(x) dx$ gives the volume. Therefore, the change in velocity for any shape, including the triangular prism above after a shock-wave passes through is:
+$$\boxed{\Delta v = \frac{V(p_1-p_0)}{mc_s}}$$
+\end{solution}
