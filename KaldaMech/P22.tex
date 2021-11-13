@@ -1,0 +1,39 @@
+\begin{solution}{normal}
+Consider a vertical plane parallel to the free hanging portion of the string. 
+\begin{center}
+\begin{asy}
+import graph; size(8cm);
+real labelscalefactor = 0.5; /* changes label-to-point distance */
+pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps); /* default pen style */
+pen dotstyle = black; /* point style */
+real xmin = -4.773372331294487, xmax = 6.660264590692777, ymin = -0.8080629936799328, ymax = 5.184566884291457; /* image dimensions */
+
+/* draw figures */
+draw((-1,1)--(-2,3)--(2,5)--(3,3));
+draw((-1,1)--(3,3));
+draw((1.5,3.5)--(1.5,0));
+draw((1.5,3.5)--(2,2.5));
+draw((-1,1)--(0,1), linetype("2 2"));
+draw(shift((-1,1))*xscale(0.5)*yscale(0.5)*arc((0,0),1,0,26.565051177077994));
+draw(shift((1.5,3.5))*xscale(0.3253809639500407)*yscale(0.3253809639500407)*arc((0,0),1,270,296.565051177078));
+label("$\frac{\pi R}{2}$",(1.7792383023590328,3.3),SE*labelscalefactor);
+label("$L$",(1.3,1.8),SE*labelscalefactor);
+label("$\alpha$",(-0.48575848554926304,1.2),SE*labelscalefactor);
+label("$\alpha$",(1.5,3.1),SE*labelscalefactor);
+label("$\ell$",(1.2944788422162978,2.9),SE*labelscalefactor);
+/* dots and labels */
+dot((1.5,3.5),linewidth(4pt) + dotstyle);
+label("$P$", (1.5368585722876653,3.5631300693312764), NE * labelscalefactor);
+dot((1.5,2.25),linewidth(4pt) + dotstyle);
+label("$Q$", (1.5368585722876653,2.2), SE * labelscalefactor);
+clip((xmin,ymin)--(xmin,ymax)--(xmax,ymax)--(xmax,ymin)--cycle);
+/* end of picture */
+\end{asy}
+\end{center}
+Move this plane until it contacts the point in which the cylinder and the string first meet. Call this point $Q$, which is where we unfold half of the cylinder into a rectangle where the width is $\pi R$. The angle between $PQ$ and the width of the rectangle is $\alpha$ so we have:
+$$PQ = \frac{\pi R}{2\cos\alpha}$$and thus:
+$$\boxed{\ell = L - \frac{\pi R}{2\cos\alpha}}$$When the weight oscillates, the trace of the string still stays straight on the unfolded cylinder. Therefore the length of the hanging string
+(and thus the weight’s potential energy) do not depend in any oscillatory state on whether the surface of the cylinder is truly
+cylindrical or is unfolded into a planar vertical surface. Therefore the period of oscillations is still
+$$\boxed{T=2\pi\sqrt{L/g}}$$
+\end{solution}
