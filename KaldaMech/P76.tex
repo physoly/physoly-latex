@@ -1,0 +1,128 @@
+\begin{solution}{normal}
+First, we make the following claim:
+\begin{center}
+\begin{asy}
+size(4cm);
+defaultpen(fontsize(10pt));
+
+real wall_th = 0.1, wall_h = 1.1, wall_w = 0.7;
+fill((-wall_th, -wall_th)--(-wall_th, wall_h)--(0, wall_h)--(0, 0)--(wall_w, 0)--(wall_w, -wall_th)--cycle, gray(0.8));
+draw((0, wall_h)--(0, 0)--(wall_w, 0));
+
+real ladder_w = 0.5, ladder_h = 0.8;
+draw((0, ladder_h)--(ladder_w, 0));
+
+draw("$\varphi$", arc((ladder_w, 0), 0.08, 180 - aTan(ladder_h/ladder_w), 180));
+\end{asy}
+\end{center}
+\definecolor{crimsonglory}{rgb}{0.75, 0.0, 0.2}
+\textbf{\textcolor[HTML]{3D85C6}{Claim.}} The horizontal component of acceleration in the rod becomes zero at $\sin{\varphi_c} = \frac{2}{3}$.
+\begin{center}
+\noindent\rule{8cm}{0.4pt}
+\end{center}
+\begin{proof} Define a coordinate system with origin at the initial position of the lowest point of the rod. At any instant of time, the coordinates of the centre of mass of the system is $\text{P}_{\text{C},\varphi}(\frac{L}{2} \cos{\varphi}, \frac{L}{2} \sin{\varphi})$ when the rod makes an angle $\varphi$ with the horizontal. This means that the locus of the centre of mass is a circle of radius $\frac{L}{2}$\footnote{In fact, it is the quarter of this circle, since the motion is constrained in the first quadrant.}. Since we have
+$$\omega = \frac{v_x}{L \sin{\varphi}} = \frac{\sqrt{gL \sin^{2}{\varphi}{(1-\sin{\varphi})}}}{L \sin{\varphi}} = \sqrt{\frac{g}{L}(1-\sin{\varphi})}$$
+Differentiating gives
+$$\alpha = \ddot{\varphi} = \sqrt{\frac{g}{L}} \times \frac{1}{2\sqrt{1-\sin{\varphi}}} \times -\cos{\varphi} \times \dot{\varphi} = -\frac{g}{2L} \cos{\varphi}$$
+This is the angular acceleration of the centre of mass on its circular orbit. Now, for the top-most point, we have $$a_x = {\omega}^2 \frac{L}{2} \cos{\varphi} - \alpha \frac{L}{2} \sin{\varphi}$$
+Substituting the values of $\omega$ and $\alpha$ found above, we have $$a_x = g\cos{\varphi}(1-\frac{3}{2} \sin{\varphi})$$ which is clearly zero at $\sin{\varphi_c} = \frac{2}{3}$, and we are done. 
+\end{proof}
+\begin{proof} Let $\varphi$ be the angle made by the rod with the horizontal. From conserving energy between $t=0$ and the moment the top-most point leaves contact, we get $$mg\frac{L}{2} + 0 = {\frac{1}{2} m {{v_x}^2}}  + \frac{1}{2} m {v_y}^2 + mg\frac{L}{2} \sin{\varphi}$$
+$$\Rightarrow v_x = \sqrt{gL \sin^{2}{\varphi}{(1-\sin{\varphi})}}$$ Also by definition, $$\dot{\varphi} = \omega = \frac{v_x \sin{\varphi} + v_y \cos{\varphi}}{L}$$ and by constraint relation, $v_y = v_x \cot{\varphi}$. Substituting constraint relation in $\omega$, we get $$\omega = \frac{v_x}{L \sin{\varphi}}$$ Now, for $a_x$, we differentiate $v_x$ with time: 
+\begin{align*}
+a_x &= \sqrt{gL} \cdot {\frac{\sin{\varphi} \cos{\varphi} (2-3\sin{\varphi})}{2\sqrt{\sin^{2}{\varphi}{(1-\sin{\varphi})}}}} \cdot \dot{\varphi} \\
+&= \sqrt{gL} \cdot {\frac{\sin{\varphi} \cos{\varphi} (2-3\sin{\varphi})}{2\sqrt{\sin^{2}{\varphi}{(1-\sin{\varphi})}}}} \cdot \frac{\sqrt{gL \sin^{2}{\varphi}{(1-\sin{\varphi})}}}{L \sin{\varphi}} \\
+&= \frac{g{\cos{\varphi}}}{2}{ (2-3\sin{\varphi})}
+\end{align*}
+Clearly,  $a_x=0$ at $\sin{\varphi_c} = \frac{2}{3}$ and we are done.
+\end{proof}
+Now, from the claim, we have that at $\sin{\varphi_c} = \frac{2}{3}$, $a_x=0$. At this moment, the horizontal component of the system's acceleration is zero (or the horizontal velocity of the system is maximised). Thus there is no horizontal force on the rod at this moment. Then, if tension exists, every point on the rod would be accelerating towards each other, and their x-distance would decrease. But the y-distance is also decreasing, which is a contradiction. Hence, the tension in the rod must be zero at this moment. 
+
+\tcbline
+
+\textbf{Solution 2:} Let $\varphi$ be the angle between the rod and the horizontal surface. $y$ is the vertical position of the upper mass, and $y$ the horizontal position of the lower mass.
+\begin{align*}
+x &= r \cos \varphi  \\
+\dot{x} &= - r \sin \varphi \dot{\varphi} \\
+\ddot{x} &= - r \sin \varphi \ddot{\varphi} - r \cos \varphi  \dot{\varphi}^2 \\
+y &= r \sin \varphi \\
+\dot{y} &= r \cos \varphi \dot{\varphi} \\
+\ddot{y} &= r \cos \varphi \ddot{\varphi} - r \sin \varphi \dot{\varphi}^2
+\end{align*}By conservation of energy,
+\begin{align*}
+\frac{1}{2} m \dot{x}^2 + \frac{1}{2} m \dot{y}^2 + mg\frac{r}{2} \sin \varphi &= mg\frac{r}{2} \\
+\frac{1}{2} m r^2 \dot{\varphi}^2 + mg\frac{r}{2} \sin \varphi &= mg\frac{r}{2}
+\end{align*}Taking the derivative with respect to time,
+$$
+\frac{d}{dt} \left[ \frac{1}{2} m r^2 \dot{\varphi}^2 + mg\frac{r}{2} \sin \varphi \right] = \frac{d}{dt} \left[ mg\frac{r}{2} \right] $$$$ \ddot{\varphi} = - \frac{g}{2r} \cos \varphi  $$We may also find with the energy equation that
+$$ \dot{\varphi}^2 =  \frac{g}{r} (1 - \sin \varphi) $$When the top-most point loses contact with the wall, there is no horizontal force acting on the rod, so the horizontal acceleration of the rod must be $0$. We solve for $\varphi_c$ such that this happens.
+\begin{align*} 
+0 &= \ddot{x} \\
+&= - r \sin \varphi_c \ddot{\varphi_c} - r \cos \varphi_c  \dot{\varphi_c}^2 \\
+&= -r \sin \varphi_c \left( - \frac{g}{2r} \cos \varphi_c \right) - r \cos \varphi_c \left( \frac{g}{r} (1 - \sin \varphi_c) \right) \\
+&= \frac{g \cos \varphi_c}{2} (3 \sin \varphi_c - 2)
+\end{align*}Hence, we have$$\boxed{\sin \varphi_c = \frac{2}{3}}$$
+\tcbline
+\textbf{\textcolor{crimsonglory}{Fun Fact:}} Any arbitrary point on the rod undergoes an elliptical motion.
+\begin{center}
+\noindent\rule{8cm}{0.4pt}
+\end{center}
+\textit{Proof:} At any moment, consider a point at a distance $r$ along the rod from its bottom-most point. The coordinates of this point are simply $$\text{P}_{\text{r},\varphi}((L-r)\cos{\varphi},r\sin{\varphi})$$ or $$\cos{\varphi} = \frac{x}{L-r}$$ $$\sin{\varphi} = \frac{y}{r}$$ Thus the locus of this point is \begin{align*} 
+{\left( \frac{x}{L-r} \right) }^2 + {\left( \frac{y}{r} \right)}^2 = 1 \end{align*} which is an ellipse that degenerates to a circle at $L-r = r \Rightarrow r = \frac{L}{2}$, or the centre of mass of the rod.
+\tcbline 
+\textbf{Solution 3:} \textbf{\textcolor[HTML]{3D85C6}{Claim 1.}} The center of mass of the rod moves on a path defined by a circle of radius $R\equiv \ell/2$.
+\begin{center}
+    \begin{asy}
+    size(6cm);
+defaultpen(fontsize(10pt));
+
+real wall_th = 0.1, wall_h = 1.3, wall_w = 1.2;
+fill((-wall_th, -wall_th)--(-wall_th, wall_h)--(0, wall_h)--(0, 0)--(wall_w, 0)--(wall_w, -wall_th)--cycle, gray(0.8));
+draw((0, wall_h)--(0, 0)--(wall_w, 0));
+
+dot((0.6*cos(30), -0.6*sin(30)));
+draw((1.2*cos(30), 0) -- (0, -1.2*sin(30)));
+dot((-0.6*cos(60), -0.6*sin(60)));
+draw((-1.2*cos(60), 0) -- (0, -1.2*sin(60)));
+dot((0.6*cos(45), 0.6*sin(45)));
+draw((1.2*cos(45), 0) -- (0, 1.2*sin(45)));
+
+draw(arc((0,0), r=0.6, angle1=90, angle2=0), dashed);
+    \end{asy}
+\end{center}
+\begin{proof}
+Consider the coordinates of the center of mass of the rod given by $(\ell/2 \cos\varphi, \ell/2\sin\varphi)$. In other words, we can write in polar coordinates the position of the center of mass as 
+\[\cos\varphi = \frac{2x}{\ell},\text{ and } \sin\varphi = \frac{2y}{\ell}.\]
+This tells us the path follows a circle given by 
+\[\left(\frac{2}{\ell}x\right)^2 + \left(\frac{2}{\ell}y\right)^2 = 1.\]
+\end{proof}
+\textbf{\textcolor[HTML]{3D85C6}{Claim 2.}} The problem can now be transformed to a point mass sliding down a circle of radius $R$ which both depart at the same critical angle $\varphi_c$.
+\begin{center}
+    \begin{asy}
+    size(8cm);
+    import olympiad;
+draw(arc((0,0), r=0.6, angle1=180, angle2=0));
+filldraw(circle((0, 0.65), 0.05));
+draw((0, 0) -- (0.6*cos(45), 0.6*sin(45)), dashed);
+fill((-1.2, 0) -- (1.2, 0) -- (1.2, -0.1) -- (-1.2, -0.1) -- cycle, gray(0.8));
+draw((-1.2, 0) -- (1.2, 0));
+markscalefactor=0.01;
+draw(anglemark((1.2, 0),(0,0),(0.6*cos(45), 0.6*sin(45))));
+label("$\varphi$", (0.1, 0), NE);
+    \end{asy}
+\end{center}
+\begin{proof}
+To prove that this transformation is true, we must prove that all the same fundamental forces are the same in both setups. In the problem setup of a point sliding down a circle, we note that there are three fundamental forces which are: the normal force; the centripetal force; and, the gravitational force. 
+\vspace{2mm}
+
+\noindent The most obvious force that exists in both setups is the gravitational force which are both of equal magnitude $F = mg$. Second, since both masses travel in a circular path, they both experience a centripetal force given by magnitude of $F = mv^2/R$. Lastly, in both setups a normal force that is perpendicular to the surface of the circle at a certain point in time must exist. In both cases, this exists as the normal force is vectorially summed up $\vec{N} = N_x\hat{i} + N_y\hat{j}$ such that it is opposite to the centripetal force. The nornal force from the left wall decreases as time passes (when the mass slides down) such that the direction of the normal force is perpendicular to the differential surface. Hence, the transformation is proved.
+\end{proof}
+Now that we have proved both claims, we are now ready to solve the problem (also Kalda problem 67). Let us first conserve energy:
+\[mgR = mgR\sin\varphi_c + \frac{1}{2}mv^2\implies v^2 = 2gR (1 - \sin\varphi_c).\]
+At any point on the circle we have the Newton’s third law pair of
+\[F_g = F_N + F_c\]
+however at the point where the object loses contact, the normal force becomes zero. This implies that
+\[mg\sin\varphi_c = \frac{mv^2}{R} \implies mgR\sin\varphi_c = 2mg(1 - \sin\varphi_c).\]
+Upon resimplication, we yield that 
+\[\sin\varphi_c = \frac{2}{3}.\]
+\end{solution}
