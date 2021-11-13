@@ -1,0 +1,47 @@
+\begin{solution}{normal}
+The centre of mass of the entire system is initially at rest. The walls of the hoop are frictionless, which means that there is no net impulse throughout the motion in the horizontal direction. The impulse due to gravity only pulls the centre of mass downwards after the motion has started, and not in the horizontal direction. In fact, the hoop first moves rightwards, and after some time, leftwards. When the block has made an angle of $\varphi$ as in the problem, let it have a velocity of
+$$\vec{v}_{b} = v_x \hat{i} - v_y \hat{j}$$
+
+in the ground frame. Since the momentum is conserved in the horizontal direction, we have
+$$M v_0 = mv_x $$
+where $v_0$ is the speed of the hoop's central point (directed leftward). Now, since the mechanical energy of the system is conserved, we have
+$$2 mg r = mgr (1-\cos{\varphi}) + \frac{1}{2} M {v_0}^2 + \frac{1}{2} m {v_b}^2$$$$\implies mgr(1+ \cos{\varphi}) = \frac{1}{2} M {v_0}^2 + \frac{1}{2} m {v_b}^2$$
+Also, one can notice in the hoop's frame of reference that
+$$\tan{\varphi} = \frac{v_y}{v_x + v_0}$$
+Now we solve these three equations:
+$$\frac{1}{2} M {v_1}^2 + \frac{1}{2} m {(\frac{M}{m} \sqrt{1+\tan^2{\varphi} {(1+\frac{m}{M})}^2})}^2 = mgR(1+\cos{\varphi})$$
+Isolating for $v_1$:
+\begin{align*}
+v_1 &= \sqrt{\frac{2mgR(1+\cos{\varphi})}{M(1+\frac{M}{m} \tan^2{\varphi} {(1+\frac{m}{M})}^2)}}  \\
+&= \sqrt{\frac{2m^2gR(1+\cos{\varphi})\cos^2{\varphi}}{Mm \cos^2{\varphi} + M^2 + m^2 \sin^2{\varphi}+ 2Mm \sin^2{\varphi}}} \\ 
+&= \sqrt\frac{2m^2\cos^2\varphi (1+\cos\varphi)gR}{(M+m)(M+m\sin^2\varphi)} \\
+&=\boxed{m \cos{\varphi} \sqrt\frac{2gR(1+\cos\varphi)}{(M+m)(M+m\sin^2\varphi)}}
+\end{align*}Now, for the acceleration of the hoop, we use Newton's second law of motion in the non-inertial frame of the hoop. For this, let the acceleration of the hoop's centre at the moment be $a_0$, directed leftwards. At this moment, suppose the acceleration of the block in the ground frame $\vec{a}_b = a_c \hat{r} + a_t \hat{\theta}$. In the frame of the hoop in the $\hat{r}$ direction, the block's radial acceleration is simply$$a_{{b,h}_r} = a_c - a_0 \sin{\varphi}$$By Newton's second law on the hoop in the horizontal direction, we have$$N \sin{\varphi} = M a_0$$where $N$ is the normal force exerted by the block on the hoop. In the frame of the hoop, force balancing on the block in the radial direction yields the equation$$N- mg\cos{\varphi} = m a_{{b,h}_r} = m \frac{{(v_b+v_0 \cos{\varphi})}^2}{R}$$
+From these equations, we have
+\begin{align*}
+a_0 &= \frac{\sin{\varphi}}{M} \Biggl(\frac{2m^3 \ \cos^2{\varphi} (1+\cos{\varphi})}{(M+m)(M+m\sin^2{\varphi})} \Biggl(\frac{M^2}{m^2} (\tan^2{\varphi} {\left(1+\frac{m}{M}\right)}^2 \\
+&+ \cos^2{\varphi} + 2\frac{M}{m} \cos{\varphi} \sqrt{1+\tan^2{\varphi} {\left(1+\frac{m}{M}\right)}^2}\Biggr) +mg\cos{\varphi}\Biggr)
+\end{align*}
+which on simplifying gives
+$$\boxed{a = \frac{mg\sin 2\phi}{M+m\sin^2\phi}\left ( \frac{1}{2}+\frac{(M+m)(1+\cos\phi)}{\cos\phi (M+m\sin^2\phi)} \right )}$$
+\tcbline
+Let $v_1$ be the velocity of of the block relative to the hoop, and it will be directed tangent to the hoop. Let $v_2$ represent the velocity of the hoop relative to the ground.
+Conservation of linear horizontal momentum gives us:
+$$m(v_{1}\cos \phi -v_{2})=Mv_{2}$$
+because the net force on the system is zero. Conservation of energy gives us:
+$$\frac{1}{2}Mv_{2}^2+\frac{1}{2}m(v_{1}^2+v_{2}^2+2v_{1}v_2 \cos(\pi-\phi))=mgR(1+\cos\phi)$$
+Solving, we have:
+$$v_{1}=\sqrt\frac{2(M+m)gR(1+\cos\phi)}{M+m\sin^2\phi}$$
+$$\boxed{v_2 = m \cos{\varphi} \sqrt\frac{2gR(1+\cos\varphi)}{(M+m)(M+m\sin^2\varphi)}}$$
+Now, in the hoop's frame the block does circular motion and thus the only radial component of acceleration is
+$$a_{r}=\frac{v_1 ^2}{R}$$
+Let the hoop's acceleration be $a_2$ (directed horizontally backwards). Therefore in ground frame the net radial acceleration of the block is:
+$$=a_r -a_2 \sin \phi$$
+Applying Newton's second law on both gives:
+$$N\sin \phi=Ma_2$$
+where $N$ is exerted by hoop on block towards the centre. Finally,
+$$N-mg\cos\phi=m(a_r -a_2 \sin \phi)=m(\frac{v_1 ^2}{R}-a_2 \sin \phi)$$
+Solving gives\footnote{Note that the two solutions provided in the text essentially use the same idea. Both the solutions have been provided to show that working in the relative frame of the hoop is a much more convenient way to obtain the answers.}
+$$\boxed{a_2=\frac{mg\sin 2\phi}{M+m\sin^2\phi}\left ( \frac{1}{2}+\frac{(M+m)(1+\cos\phi)}{\cos\phi (M+m\sin^2\phi)} \right )}$$
+\blfootnote{This problem was found in the book ’Aptitude Test Problems in Physics’ by S.S. Krotov though in that problem, only velocity was asked for.}
+\end{solution}
