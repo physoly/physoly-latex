@@ -1,0 +1,25 @@
+\begin{solution}{normal}
+If the coefficient of friction $\mu$ surpasses a certain value then the block will start rolling without slipping, and in turn, will roll with a different total acceleration. This means that before finding the acceleration of the ball, we must find this coefficient of friction and break the acceleration into two cases.
+\vspace{2mm}
+
+The coefficient of friction can be found from considering the boundary case of static friction.
+From
+$$ma=mg\sin\theta-F_s$$and
+$$I\alpha=F_sr$$we get
+$$a=g\sin\theta-\frac{F_s}{m}$$and
+$$\alpha=\frac{F_sr}{I}$$With static friction there is no slipping thus we combine using $a=\alpha{r}$ to get
+$$F_s=\frac{mI\sin\theta}{I+mr^2}$$Since $F_s\leq{F_{s,max}}=\mu mg\cos\theta$, the angle where the "rimless wheel" stops rolling without slipping can be found as
+$$\frac{mI\sin\theta}{I+mr^2}=\mu mg\cos\theta\implies \tan\theta=\mu\frac{I+mr^2}{I}$$The moment of inertia of a ball about it's central axis is $\frac{2}{5}mr^2$, so by substituting this we find
+\[\mu=\frac{I}{I+mr^2}\tan\theta\implies\mu=\frac{\frac{2}{5}mr^2}{\frac{2}{5}mr^2+mr^2}\tan\theta=\frac{2}{7}\tan\theta.\]Now, we have two cases:
+\vspace{2mm}
+
+\textbf{Case 1.} $\mu>\frac{2}{7}\tan\theta$. The ball will start rolling without slipping down the ramp. We know that
+\[mg\sin\theta-f=ma\]Newton’s second law of rotation gives
+\[-fr=I_{\text{cm}}\alpha\implies f=\frac{-I_{\text{cm}}\alpha}{R}\]Substituting $I=\frac{2}{5}mr^2$ into this result for our equation gives us
+\[f=\frac{-\left(\frac{2}{5}mr^2\right)(-a_{\text{cm}}/r)}{r}=\frac{2}{5}ma\]Taking this result back to our first equation
+\[mg\sin\theta-\frac{2}{5}ma=ma\]\[a=\frac{5}{7}g\sin\theta\]
+\vspace{3mm}
+
+\textbf{Case 2.} $\mu<\frac{2}{7}\tan\theta$. The ball will simply slide down the ramp in this case, so we have
+\[mg\sin\theta-\mu mg\cos\theta=ma\]\[a=g\sin\theta-\mu g\cos\theta.\]
+\end{solution}
