@@ -1,0 +1,33 @@
+\begin{solution}{normal}
+First, let us use a little bit of lagrangian formalism to make the problem slightly easier. Let $\xi$ be the displacement along the slanted surface. The kinetic energy is given by
+\[
+K = \frac{1}{2}I\omega^2 + \frac{1}{2}(M + m)\dot\xi^2
+\]We know by the basic formula $v=\omega r$, that $\omega = \frac{\dot\xi}{R}$, thus
+\[
+K = \frac{1}{2}MR^2\left(\frac{\dot\xi}{R}\right)^2 + \frac{1}{2}(M + m)\dot\xi^2 
+\]Moving around variables gives us
+\[
+K = M\dot\xi^2 + \frac{1}{2}m\dot\xi^2
+\]From here we find that $\mathcal{M}$ is given by
+\[
+K = \frac{1}{2}(2M)\dot\xi^2 + \frac{1}{2}m\dot\xi^2\implies \mathcal{M} = 2M + m
+\]The potential energy at a small displacement $\xi$ is given by
+\[
+\Pi (\xi) = (M + m)g\sin\alpha\xi\implies \Pi' (\xi) = (M + m)g\sin\alpha
+\]Therefore, we get that the acceleration is given by
+\[a = \frac{\Pi' (\xi)}{\mathcal{M}} = \frac{(M + m)g\sin\alpha}{2M + m}
+\]Substituting in $m = M/2$ and $\alpha = 45^{\circ}$ given in the problem gives us
+\[
+a = \frac{3g}{5\sqrt 2} 
+\]Having found the acceleration $a$, we now move into the non-inertial frame. With a geometrical argument, we see that by law of sines
+\[
+\frac{\sin (\alpha - \beta)}{ma} = \frac{\sin (90 + \beta)}{mg}
+\]Rearranging gives us
+\[\frac{a}{g} = \frac{\sin (\alpha - \beta)}{\cos\beta} = \sin\alpha - \cos\alpha\tan\beta
+\]Substituting our value for $a$ gives us
+\[
+\frac{3}{5\sqrt 2} = \frac{\sqrt 2}{2} - \frac{\sqrt 2}{2}\tan\beta
+\]\[
+\tan\beta= \frac{2}{5}\implies \boxed{\beta = \arctan\frac{2}{5}}
+\]
+\end{solution}
