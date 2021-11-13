@@ -1,0 +1,18 @@
+\begin{solution}{hard}
+Label the three scenarios from left to right as $A$, $B$, and $C$.
+
+The period is proportional to $T^2 \propto \frac{I}{\ell_\text{cm}}$. Since all the hangers have the center period, this ratio must be the same for all three situations. If the moment of inertia about the center is $I_0$ then we have:
+$$
+\frac{I_0+M\ell_a^2}{\ell_a}=\frac{I_0+M\ell_b^2}{\ell_b}=\frac{I_0+M\ell_c^2}{\ell_c}
+$$
+Due to symmetry, the center of mass must lie on the vertical line passing through the position of the pin at $A$ and $B$. This gives us:
+$$\ell_a+\ell_b=0.1$$
+Looking at the first pair of this three-way equality, we see that it is a quadratic. We do not have to invoke the quadratic formula here! From inspection we see that the trivial solution is $\ell_a=\ell_b$. However, there is another solution if this condition isn't satisfied! However, if $\ell_a \neq \ell_b$, then we can see that either $\ell_a=\ell_c$ or $\ell_b=\ell_c$ per the same reasoning. Or in short, at least two of $\ell_a$, $\ell_b$, or $\ell_c$ are the same.
+
+However, since the center of mass can't lie outside the clothes hanger, we know that $\ell_a \neq \ell_c$ and $\ell_b \neq \ell_c$ so we must have $\boxed{\ell_a=\ell_b=0.05 \text{ m}}$
+
+We can now determine the third length to be $\ell_c=\sqrt{0.21^2+0.05^2}=0.216 \text{ m}$ Using the first and third pair of the three-way equality, we can solve for $I_0$ to be:
+$$I_0 = M(\ell_c + \ell_a)\ell_a\ell_c$$
+thus, plugging it into the formula for period gives:
+$$T=2\pi\sqrt{\frac{M(\ell_c + \ell_a)\ell_a\ell_c+M\ell_a^2}{Mg\ell_a}}=\boxed{1.03 \text{ s}}$$
+\end{solution}
