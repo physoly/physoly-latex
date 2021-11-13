@@ -1,0 +1,13 @@
+\begin{solution}{hard}
+Note that the velocity vector in the picture is drawn wrong, it should be normal to the board.
+\vspace{2mm}
+
+Since the board is flat, we wish to move into a reference frame where the velocity of the board is parallel to its surface. We also want the stream lines of the water to be nice, so we don’t want a vertical component of the water’s velocity in the new reference frame. Thus, a reference frame moving with velocity $v/\cos\alpha$ to the left will used, where the board’s velocity is parallel to its surface (thus can be ignored) and the water is flowing horizontally.
+\vspace{2mm}
+
+The setup now is very similar to that of problem 53. The water is flowing to a wall with velocity $v/\cos\alpha$ to the right, and Bernoulli’s equation along the stream line near the surface (constant pressure, no significant change in height) tells us that the water will be directed with the same speed of $v/\cos\alpha$ and along the surface of the board.
+\vspace{2mm}
+
+Now that we have the velocity of the water in the frame of the board, we shift back to the lab frame. Adding the velocity vectors of equal magnitudes of $v/\cos\alpha$ with one horizontally to the left and one at an angle $\alpha$ from the vertical gives
+$$ \vec{u} = -\left(\frac{v}{\cos{\alpha}} + v \tan{\alpha}\right)\  \hat{i} + v\ \hat{j} \Rightarrow u = v \sqrt{1+\left(\frac{1+\sin{\alpha}}{\cos{\alpha}}\right)}$$ $$ \Rightarrow u = \frac{v}{\cos{\alpha}}\sqrt{2(1+\sin{\alpha})}   = \boxed{\frac{2v}{\cos{\alpha}} \cos\left(\frac\pi 4-\frac\alpha2\right)}$$
+\end{solution}
