@@ -1,0 +1,30 @@
+\begin{solution}{normal}\textbf{a)} We can draw an analogy with thermodynamics. Since the process is slow, and there are no external work being done, we can say that the process is adiabatic, that is:
+$$TV^{\gamma-1}=\text{constant}$$Here,
+$$\gamma = \frac{1+2}{1} = 3$$since there is only one degree of freedom. Therefore, when the distance doubles, the volume doubles and $V^{\gamma-1}$ will quadruple. As a result, $T$ will decrease by a factor of four. However, since $T\propto v^2$, the speed must decrease by a factor of two. Therefore,
+$$v=\boxed{5\text{ m/s}}$$
+\textbf{b)} The average force corresponds with the pressure. We have:
+$$PV^\gamma=\text{constant}$$Since the $V^\gamma$ term increases by a factor of eight, pressure, and thus the average force will decrease by a factor of eight.
+\tcbline
+\textbf{Solution 2:} We can analyze the adiabatic invariant of the system. Let us draw a phase diagram of the entire system.
+\begin{center}
+\begin{asy}
+import graph;
+size(5cm);
+
+draw((0, 0)--(1.5,0), Arrow(TeXHead));
+label("$x$",(1.5,0),S);
+draw((0,-1.5)--(0,1.5), Arrows(TeXHead));
+label("$p(x)$",(0,1.5),E);
+
+draw((0, 0.75) -- (1, 0.75) -- (1, -0.75) -- (0, -0.75), red);
+label("$mv$", (1, 0.4), E);
+label("$L$", (0.4, 1.02));
+\end{asy}
+\end{center}
+From here, we see that the adiabatic invariant of the system is given by
+\[I = 2mvL\]where $v$ and $L$ can change. Thus, the initial adiabatic invariant, $I_0$, is given by $2mv_0 L$, and the final adiabatic invariant, $I_f$, is given by $2mv(2L) = 4mvL$. This means that
+\begin{align*}
+I_0 = I_f \implies 2mv_0 L &= 4mvL\\
+v &=\frac{1}{2}v_0 = \boxed{5\;\mathrm{m/s}}
+\end{align*}
+\end{solution}
