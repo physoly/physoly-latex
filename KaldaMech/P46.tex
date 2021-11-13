@@ -1,0 +1,17 @@
+\begin{solution}{normal}
+We use the idea that if a body collides with something, then its angular momentum is conserved with respect to the point of impact. Upon impact with the ball, the rotation is reversed. When the ball hits the sweet spot of the bat, the hand-held end
+of the bat should come to halt without receiving any impulse from the hand. Let us use this information to try to solve this problem. Let $x$ be the distance from the center of rotation to the center of percussion. The angular momentum with respect to the impact point before collision will then be
+$$L_i=mv\left(x-\frac{\ell}{2}\right)-I_0\omega$$where $v=\omega\frac{\ell}{2}$ and $I_0=\frac{1}{12}m\ell^2$. After the impact, the bat turns backwards with an angular velocity $\omega'$, thus the angular momentum after is
+$$L_a=mv'\left(x-\frac{\ell}{2}\right)-I_0\omega'$$where $v'=\omega'\frac{\ell}{2}$. We also remember that the bat should come to a halt without recieving any impulse from the hand which means that the angular momentum with respect to the center of rotation after is actually $0$. This means that
+$$L_a=mv'\left(x-\frac{\ell}{2}\right)-I_0\omega'=0.$$This intuitively makes sense because $\omega'$ will have to be zero after collision. Setting up our angular momentum equations $L_i=L_a$ gives us
+$$L_i=mv\left(x-\frac{\ell}{2}\right)-I_0\omega=0$$$$m\left(\frac{\omega\ell}{2}\right)\left(x-\frac{\ell}{2}\right)=\frac{1}{12}m\ell^2\omega$$$$x-\frac{\ell}{2}=\frac{\ell}{6}\implies\boxed{x=\frac{2\ell}{3}}$$
+\tcbline 
+\textbf{Solution 2.} Consider the angular impulse on the bat which is given as 
+\[\mathcal{I}_{\theta} = \int \vec{\tau} (t)\; dt = \Delta \vec{L}.\]
+If the ball hits the bat with a force $F$ a distance $x$ away from the bat, we write 
+\[\mathcal{I}_{\theta} = \int F x\; dt = I_{\text{hinge}} \omega\implies \int F\; dt = \frac{I_{\text{hinge}} \omega}{x}.\]
+Now, consider the impulse obtained by the bat. We can write that 
+\[\mathcal{I} = \int F\; dt + \int R\; dt = Mv_{\text{cm}}\]
+where $v_{\text{cm}} = \omega \frac{\ell}{2}$ where $\ell$ is the length of the bat and $R$ is the force that the hand holding the bat exerts. When the ball hits the sweet spot, we note that $\int R\; dt = 0$ since there is no stinging feeling on the hand and that 
+\[\frac{I_{\text{hinge}} \omega}{x} = M\omega \frac{\ell}{2}\implies x = \frac{2\cdot \frac{1}{3}M\ell^2 \omega}{M \ell} = \frac{2}{3}\ell.\]
+\end{solution}
