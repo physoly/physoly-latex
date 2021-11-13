@@ -1,0 +1,53 @@
+\begin{solution}{normal}
+\begin{center}
+\begin{asy}
+size(10cm);
+draw(arc((0,0),(1,0), (-1,0)));
+draw((1,0)--(-1,0));
+pair A,B,C,D;
+A = (3.1610980056834	,	-0.086367809191);
+B = (-2.4770577190321	,	1.965753050762);
+C = (3.5031181490091	,	0.8533248115948);
+D = (-2.1350375757064	,	2.9054456715488);
+draw(A--B);
+draw(B--D);
+draw(C--D);
+draw(C--A);
+pair P,L, CM;
+P = (0.34202014332567, 0.93969262078591);
+L=(0,1.06417777248);
+CM = L+P/2;
+draw((0,0)--P, dotted);
+draw((0,0)--(0,1.7),dotted);
+draw(L--CM, dotted);
+label("C", CM, E);
+dot(CM);
+label("P", P, NE);
+dot(P);
+label("L", L, NW);
+dot(L);
+markscalefactor=0.1;
+draw(anglemark(P, (0,0), L, 4));
+markscalefactor=0.05;
+
+draw(anglemark(CM, L, (0,2), 4));
+
+label("$\theta$",(0,0.4), NE);
+label("$\theta$",L+(-0.05,0.2), NE);
+label("O", (0,0), S);
+\end{asy}
+\end{center}
+Here $P$ is the point of contact of the plank with the hemisphere after turning through $\theta$ and $L$ is the original contact point. $C$ is the centre of mass of the plank.
+\vspace{2mm}
+
+To solve the problem, let us turn the plank through an angle of $\theta$ and consider the torques at that moment. First of all, we see that
+$$\angle POL = 90^{\circ} - \angle OLP = \theta$$
+We want $C$ to generate a clockwise torque about $P$, so the distance between $C$ and $OL$ must be greater than the distance between $P$ and $OL$. This means
+$$\frac{h}{2} \sin \theta <R \sin \theta \implies \boxed {R>\frac{h}{2}}$$
+
+\tcbline
+If the initial position was stable, then slight deviations would cause the center of mass to be higher. Therefore, we want:
+$$c\cos\theta+R\theta\sin\theta+\frac{h}{2}\cos\theta > R+ \frac{h}{2}$$Using $\cos\theta \approx 1- \frac{\theta^2}{2}$ and $\sin\theta \approx \theta$, we can rewrite the above inequality as:
+$$R\left(1-\frac{\theta^2}{2}\right)+R\theta(\theta)+\frac{h}{2}\left(1-\frac{\theta^2}{2}\right) > R + \frac{h}{2}$$Simplifying, we see that the angle $\theta$ cancels out and we are left with:
+$$\boxed{R > \frac{h}{2}}$$
+\end{solution}
