@@ -1,0 +1,24 @@
+\begin{solution}{normal}
+Immediately after the first collision, the center of mass of both dumbbells are at rest. Then, the velocities of the colliding balls reverse direction and the non-colliding balls’ velocities don’t change. Both dumbbells act like pendula and complete half an oscillation period, after which the second collision occurs – analogous to the first one where the dumbells expand outwards and hit each other. After that they separate and move a distance $L$ to create SHM.
+\vspace{3mm}
+
+Thus, let us create three times $t_1$, $t_2$, and $t_3$ summing all the individual time components results in the total time $t$ for SHM.
+\vspace{3mm}
+
+\textbf{Calculating $t_1$:} $t_1$ is the time when the dumbells' first hit each other when they are first initially separated a distance $L$. Both dumbells move at an initial velocity $v_0$, thus the time when both of them hit at the same time is equivalent to when one of the dumbbells travels a distance $L/2$. Therefore, using $v=d/t$, we get
+\[
+t_1 = \frac{L}{2v_0}
+\]
+\textbf{Calculating $t_2$:} After the collision, the velocity of the colliding balls reverse direction and the non-colliding ball's velocities don't change. This results in the spring to fully compress, the time for the spring to do so and then expand again to the second collision is $t_2$. Both dumbbells will act like an oscillator and complete half an oscillation period during time $t_2$. Both dumbells will move towards each other and compress the dumbell to half its length making the spring constant two times larger before recoil. Therefore, the oscillation period is given by
+\[
+\omega =\sqrt{\frac{2k}{m}}\implies t_2 = \pi\sqrt{\frac{m}{2k}}
+\]
+\textbf{Calculating $t_3$:} The last time, $t_3$ is simply the time for both dumbbells to move outwards a distance $L$. This is the same as $t_1$ or $\frac{L}{2v_0}$.
+\vspace{3mm}
+
+Thus, the total time is
+\[
+t = t_1 + t_2 + t_3 = \frac{L}{2v_0} + \pi\sqrt{\frac{m}{2k}} + \frac{L}{2v_0} = \boxed{\frac{L}{v_0} + \pi\sqrt{\frac{m}{2k}}}
+\]
+
+\end{solution}
