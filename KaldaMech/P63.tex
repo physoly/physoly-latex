@@ -1,0 +1,16 @@
+\begin{solution}{normal}
+First, let us move into an accelerated reference frame such that $M$ is stationary. The acceleration of $M$ is:
+$$Ma=T-T\sin\alpha \implies a_M = T\left(\frac{1-\sin\alpha}{M}\right)$$
+Thus, $m$ will have a fictitious force acting towards the right. The actual gravitational force and the fictitious force combine together to give us the effective gravity.
+
+Now keep in mind that even in this accelerated reference frame, $m$ is not stationary. It is actually moving in the direction parallel to the rope holding it and due to conservation of rope, the acceleration of $m$ in this frame is $a_m=a_M$. Balancing forces, we get:
+$$mg_\text{eff}-T=ma_M$$
+Substituting in $g_\text{eff}=\frac{mg}{\cos\alpha}$ and $a_M$, we get:
+$$\frac{mg}{\cos\alpha}-T=T\left(\frac{m}{M}\right)(1-\sin\alpha)$$
+We can solve for $T$ to be:
+$$T = \frac{mg}{\cos\alpha} \cdot \frac{1}{1+(m/M)(1-\sin\alpha)}$$
+The ratio of the fictitious force and the gravitational force form a right angle, such that:
+$$\tan\alpha = \frac{a_M}{g} = \frac{T}{mg}(1-\sin\alpha)$$
+Substituting in $T$, cancelling out $\cos\alpha$ on both sides, and solving for $m/M$ (the algebra takes some time), we get:
+$$\boxed{\frac{m}{M}}=\frac{\sin\alpha}{(1-\sin\alpha)^2}$$
+\end{solution}
