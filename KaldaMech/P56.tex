@@ -1,0 +1,92 @@
+\begin{solution}{normal}
+\textbf{a)} Let the normal force from the floor on the ladder be $N$. Then, at the cutoff case, the friction force takes on it's maximum, so the friction from the floor is $\mu N$.
+
+\begin{center}
+\begin{asy}
+size(4cm);
+defaultpen(fontsize(10pt));
+
+real wall_th = 0.1, wall_h = 1.1, wall_w = 0.7;
+fill((-wall_th, -wall_th)--(-wall_th, wall_h)--(0, wall_h)--(0, 0)--(wall_w, 0)--(wall_w, -wall_th)--cycle, gray(0.8));
+draw((0, wall_h)--(0, 0)--(wall_w, 0));
+
+real ladder_w = 0.5, ladder_h = 0.8;
+draw((0, ladder_h)--(ladder_w, 0));
+
+draw("$\theta$", arc((ladder_w, 0), 0.08, 180 - aTan(ladder_h/ladder_w), 180));
+
+real N = 1/5, mu = 0.8, eps = 0.02;
+draw(Label("$N_2$", Relative(1), dir(0)), shift(ladder_w, 0)*((0, 0)--(0, N)), rgb(0, 0.4, 0), Arrow(TeXHead));
+draw(Label("$\mu N$", Relative(1), dir(-90)), shift(ladder_w, -eps)*((0, 0)--(-mu*N, 0)), rgb(0, 0.4, 0), Arrow(TeXHead));
+draw(Label("$N_1$", Relative(1), dir(90)), shift(0, ladder_h)*((0, 0)--(mu*N, 0)), rgb(0, 0.4, 0), Arrow(TeXHead));
+
+real mg = N+mu^2*N;
+draw(Label("$mg$", Relative(1), dir(190)), shift(ladder_w/2, ladder_h/2)*((0, 0)--(0, -mg)), rgb(0, 0.3, 0.6), Arrow(TeXHead));
+\end{asy}
+\end{center}
+
+Since the ladder is in equilibrium, we have three equations. These is the equation of equilibrium of force in the horizontal and vertical direction and as well as torques. Looking quickly at the vertical forces, we can see easily that $N_2=mg$. Then by looking at the horizontal forces, we see that $N_1=\mu N$. Therefore, there is only one equation of torque remaining.
+\vspace{3mm}
+
+\noindent We first have to find the pivot point of the ladder. Generally, the pivot point of the system is located where there are more forces. Thus, by looking at the ladder, we see that the pivot point of the system is the bottom of the ladder. Balancing the torques due to gravity and $N_1$, we have
+$$N_1\ell\sin\theta=mg(\ell/2)\cos\theta\implies N_1=\frac{mg}{2\tan\theta}$$This is also the value of the frictional force $F$ as we have found before. Thus, by using $F\geq\mu{mg}$ we find
+$$\frac{mg}{2\tan\theta}\leq\mu{mg}\implies \boxed{\tan\theta\geq\frac{1}{2\mu}}$$
+
+\textbf{b)} Drawing a freebody diagram gives us the following diagram
+\begin{center}
+\begin{asy}
+size(4cm);
+defaultpen(fontsize(10pt));
+
+real wall_th = 0.1, wall_h = 1.1, wall_w = 0.7;
+fill((-wall_th, -wall_th)--(-wall_th, wall_h)--(0, wall_h)--(0, 0)--(wall_w, 0)--(wall_w, -wall_th)--cycle, gray(0.8));
+draw((0, wall_h)--(0, 0)--(wall_w, 0));
+
+real ladder_w = 0.5, ladder_h = 0.8;
+draw((0, ladder_h)--(ladder_w, 0));
+
+draw("$\theta$", arc((ladder_w, 0), 0.08, 180 - aTan(ladder_h/ladder_w), 180));
+
+real N = 1/5, mu = 0.8, eps = 0.02;
+draw(Label("$N$", Relative(1), dir(0)), shift(ladder_w, 0)*((0, 0)--(0, N)), rgb(0, 0.4, 0), Arrow(TeXHead));
+draw(Label("$\mu N$", Relative(1), dir(90)), shift(0, ladder_h)*((0, 0)--(mu*N, 0)), rgb(0, 0.4, 0), Arrow(TeXHead));
+draw(Label("$\mu N$", Relative(1), dir(180)), shift(-eps, ladder_h)*((0, 0)--(0, mu^2*N)), rgb(0, 0.4, 0), Arrow(TeXHead));
+
+real mg = N+mu^2*N;
+draw(Label("$mg$", Relative(1), dir(190)), shift(ladder_w/2, ladder_h/2)*((0, 0)--(0, -mg)), rgb(0, 0.3, 0.6), Arrow(TeXHead));
+\end{asy}
+\end{center}
+We see that from force balance that there is not an opposite force to oppose the force of $\mu N$ from the wall. This means that it is impossible for the ladder to stay still in this case.
+\tcbline
+There is an easier way to solve part a. Let us project the gravitational force vector $mg$ and the normal force from the wall $N_1$ such that they meet at a point above the middle of the ladder. At this location, the torque caused by these two forces is zero. In order to be in static equilibrium, the force from the ground must also intersect this point. The slope the force from the ground makes with the horizontal is $2\tan\theta$.
+
+\begin{center}
+\begin{asy}
+size(4cm);
+defaultpen(fontsize(10pt));
+
+real wall_th = 0.1, wall_h = 1.1, wall_w = 0.7;
+fill((-wall_th, -wall_th)--(-wall_th, wall_h)--(0, wall_h)--(0, 0)--(wall_w, 0)--(wall_w, -wall_th)--cycle, gray(0.8));
+draw((0, wall_h)--(0, 0)--(wall_w, 0));
+
+real ladder_w = 0.5, ladder_h = 0.8;
+draw((0, ladder_h)--(ladder_w, 0));
+
+draw("$\theta$", arc((ladder_w, 0), 0.08, 180 - aTan(ladder_h/ladder_w), 180));
+
+real N = 1/5, mu = 0.8, eps = 0.02;
+draw(Label("$N_1$", Relative(1), dir(90)), shift(0, ladder_h)*((0, 0)--(mu*N, 0)), rgb(0, 0.4, 0), Arrow(TeXHead));
+draw(shift(0, ladder_h)*((mu*N, 0)--(ladder_w/2, 0)), dashed);
+
+draw(Label("$f_\text{ground}$", Relative(1), dir(0)), shift(ladder_w, -eps)*((0, 0)--(-ladder_w/4, ladder_h/2)), rgb(0, 0.4, 0), Arrow(TeXHead));
+draw(shift(ladder_w, -eps)*((-ladder_w/4, ladder_h/2)--(-ladder_w/2, ladder_h)), dashed);
+
+real mg = N+mu^2*N;
+draw(Label("$mg$", Relative(1), dir(190)), shift(ladder_w/2, ladder_h/2)*((0, 0)--(0, -mg)), rgb(0, 0.3, 0.6), Arrow(TeXHead));
+draw(shift(ladder_w/2, ladder_h/2)*((0, ladder_h/2)--(0,0)),dashed);
+\end{asy}
+\end{center}
+Since the force from the ground is consisted of both the normal force $N_2$ and the friction force $f_s$, we have:
+$$2\tan\theta=\frac{N_2}{f_s}$$Combining this with $f_s \le \mu N_2$ gives:
+$$\boxed{\tan\theta \ge \frac{1}{2\mu}}$$
+\end{solution}
