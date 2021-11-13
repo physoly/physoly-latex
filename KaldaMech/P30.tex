@@ -1,0 +1,28 @@
+\begin{solution}{normal}
+\blfootnote{This problem was found in the book 'Aptitude Test Problems in Physics by S.S. Krotov.}First, we choose a frame that we will work from in this problem. To cancel out as many variables as possible, we should work in the frame of the large block when it is set into motion. 
+\vspace{2mm}
+
+From reference of the bottom of the circular cavity, the initial potential energy of the small block at the top is $mgr$. When it gets to the bottom of the circular cavity, it gains a kinetic energy of $\frac{1}{2}mv^2$. By conservation of energy we get
+\[\frac{1}{2}mv^2=mgr\implies v=\sqrt{2gr}.\]
+When the small block is at the bottom of the cavity, it will move backwards with a velocity $v_1$ in the reference frame of the big block, while the big block itslef moves with a velocity $v_2$ forwards. Thus, conservation of momentum and energy gives us
+\begin{align*}
+Mv_1-mv_2=m\sqrt{2gr}\\
+\frac{1}{2}Mv_1^2+\frac{1}{2}mv_2^2=mgr
+\end{align*}
+From our conservation of momentum equation we have
+\[v_2=\frac{M}{m}v_1-\sqrt{2gr}\]
+Thus by substituting $v_2$ back into our conservation of momentum equation we result in 
+\begin{align*}
+\frac{1}{2}Mv_1^2+\frac{1}{2}m\left(\frac{M}{m}v_1-\sqrt{2gr}\right)^2=mgr\\
+\frac{1}{2}Mv_1^2+\frac{1}{2}m\left(\frac{M^2}{m^2}v_1^2+2gr-\frac{2M}{m}v_1\sqrt{2gr}\right)=mgr
+\end{align*}
+Expanding $\frac{1}{2}m$ inside gives
+\[\frac{1}{2}Mv_1^2+\frac{1}{2}\frac{M^2}{m}v_1^2+mgr-Mv_1\sqrt{2gr}=mgr\]
+Taking away $mgr$ from both sides and dividing both sides by $Mv_1$ gives us
+\[\frac{1}{2}v_1+\frac{M}{2m}v_1-\sqrt{2gr}=0\]
+Factoring and taking $\sqrt{2gr}$ to the other side gives us
+\begin{align*}
+v_1\left(\frac{M+m}{2m}\right)=\sqrt{2gr}\\
+\boxed{v_1=2\frac{m}{M+m}\sqrt{2gr}}
+\end{align*}
+\end{solution}
