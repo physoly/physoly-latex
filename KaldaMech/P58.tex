@@ -1,0 +1,13 @@
+\begin{solution}{normal}
+The key insight is noting if the net vertical forces of the normal and friction forces were directed downwards then the stopper would be blocked. Let us then try to calculate the vertical components of forces that are involved. Let the normal force directed on the wedge be $N$. We then know that the vertical component of the normal force is clearly either $N\cos\alpha$ or $N\sin\alpha.$ We can figure the component by chasing angles around, but an easier way is to imagine $\alpha\to 0.$ In this case, the horizontal component of the normal force also goes to zero, which is the behavior of a sine function, so the horizontal component is $N\sin\alpha.$ This in turn means that the vertical component of force involved is $N\cos\alpha$.
+\vspace{3mm}
+
+We now try to find the vertical component of friction involved. The friction force directed downwards on the direction of the wedge is $\mu N$ (because $N$ is already perpendicular, you do not have to manipulate it with trigonometric functions). This means that the vertical component of friction is $\mu N\sin\alpha$. 
+\vspace{3mm}
+
+We now equate these, with an inequality where the vertical component of the normal force greater than the friction force for the wedge to pass through.
+\begin{align*}
+N\cos\alpha > \mu N \sin\alpha\\
+\boxed{\mu < \cot\alpha}
+\end{align*}
+\end{solution}
