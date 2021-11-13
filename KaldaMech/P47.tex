@@ -1,0 +1,35 @@
+\begin{solution}{normal}
+Let $f$ be the frictional force created by the floor. We then have two equations
+\begin{align*}
+&F-f=m\ddot x\\
+&fR - F(R-a) = I \ddot\theta
+\end{align*}We first find the force created by friction. Noting that the YoYo rolls without slipping. We use the relation $\ddot x = r\ddot\theta$. Substituting this into the second equation gives us
+\[
+fR- F(R - a) = \frac{1}{2}mR^2\frac{\ddot x}{R}\implies fR- F(R - a) = \frac{1}{2}R(m\ddot x)
+\]Substituting in our first equation gives us
+\[
+fR - F(R - a) = \frac{1}{2}R(F -f)
+\]Rearranging and simplifying gives us
+\[
+\frac{3}{2}fR = \frac{3}{2}FR + Fa
+\]This tells us
+\[
+f = F + \frac{2}{3}\frac{Fa}{R}.
+\]Now substituting our relation for friction into our first equation gives us
+\begin{align*}
+F - \left(F + \frac{2}{3}\frac{Fa}{R}\right) = m\ddot x\\
+\boxed{|a|= \frac{2}{3}\frac{Fa}{mR}}
+\end{align*}
+
+\tcbline 
+
+By Parallel axis theorem we see that 
+\[I' = I_0 + m\ell^2 \implies I' = \frac{1}{2}MR^2 + MR^2 = \frac{3}{2}MR^2\]
+The torque produced by the string is given by 
+\[\tau = Fa = I\alpha\implies Fa = \frac{3}{2}MR^2\left(\frac{a_r}{R}\right)\]
+Simplifying gives 
+\begin{align*}
+Fa &= \frac{3}{2}MRa_r\\
+a_r &= \boxed{\frac{2}{3}\frac{Fa}{MR}}
+\end{align*}
+\end{solution}
