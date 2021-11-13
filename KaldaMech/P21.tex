@@ -1,0 +1,82 @@
+\newpage
+\begin{solution}{normal}
+We assume the condition $\mu > \tan\alpha$ is met so for any angle $\phi$, the pencil will not slide down. However, it is able to roll. For an object to just start rolling, the force of gravity needs to form a vertical line. Let us first look at the simple case where $\phi=0$
+\begin{center}
+\begin{asy}
+import graph; size(10cm); 
+real labelscalefactor = 0.5; /* changes label-to-point distance */
+pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps); /* default pen style */ 
+pen dotstyle = black; /* point style */ 
+real xmin = -5.217993125683599, xmax = 7.496578240118243, ymin = -4.021742993758998, ymax = 2.6422538405099076;  /* image dimensions */
+
+ /* draw figures */
+draw((-1.7320508075688772,1)--(-1.7320508075688772,-1)--(0,-2)--(1.7320508075688772,-1)--(1.7320508075688772,1)--(0,2)); 
+draw((0,2)--(-1.7320508075688772,1)); 
+draw((-2.598076211353316,-3.5)--(4.3301270189221945,0.5),linetype("2 2")); 
+draw((-2.598076211353316,-3.5)--(4.330127018922193,-3.5), linetype("2 2")); 
+draw((0,0)--(0,-2),  linetype("2 2")); 
+label("$mg\sin\alpha$",(-1,0.25),SE*labelscalefactor); 
+draw((0,0)--(-0.6928203230275509,-0.4), EndArrow(6)); 
+draw((-0.6928203230275509,-0.4)--(0,-1.6), EndArrow(6)); 
+label("$mg\cos\alpha$",(-1.3,-1),SE*labelscalefactor); 
+draw(shift((-2.598076211353316,-3.5))*xscale(0.8660254037844388)*yscale(0.8660254037844388)*arc((0,0),1,0,30)); 
+label("$\alpha$",(-1.7140505782367477,-3.1),SE*labelscalefactor); 
+draw(shift((0,0))*xscale(0.24542593798123064)*yscale(0.24542593798123064)*arc((0,0),1,210,270)); 
+label("$60^\circ$",(-0.4,-0.25),SE*labelscalefactor); 
+ /* dots and labels */
+dot((0,0),dotstyle); 
+clip((xmin,ymin)--(xmin,ymax)--(xmax,ymax)--(xmax,ymin)--cycle); 
+ /* end of picture */
+\end{asy}
+\end{center}
+We break up the gravitational force into two components. One component is perpendicular to the plane $mg\cos\alpha$, and the other is along the plane and perpendicular to the pencil $mg\sin\alpha$. For rolling to begin, the sum of these two components need to lie on top of an edge, which is satisfied when:
+$$\tan 30^\circ = \frac{mg_\perp}{mg_\text{normal}}=\frac{mg\sin\alpha}{mg\cos\alpha}$$
+When $\phi \neq 0$, we perform a similar task however the pencil will no longer be rolling directly down the ramp but rather at an angle.
+\begin{center}
+\begin{asy}
+import graph; size(8cm); 
+real labelscalefactor = 0.5; /* changes label-to-point distance */
+pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps); /* default pen style */ 
+pen dotstyle = black; /* point style */ 
+real xmin = -4.68226219285119, xmax = 3.567558724783691, ymin = -1.6704470641585645, ymax = 2.6534722325842774;  /* image dimensions */
+pen ttqqqq = rgb(0.2,0,0); 
+
+draw((-0.34641016151377546,0.2)--(-0.34641016151377546,0)--(-0.1732050807568877,-0.1)--(0,0)--(0,0.2)--(-0.17320508075688756,0.3)--cycle, white); 
+ /* draw figures */
+draw((-0.34641016151377546,0.2)--(-0.34641016151377546,0),  ttqqqq); 
+draw((-0.34641016151377546,0)--(-0.1732050807568877,-0.1), ttqqqq); 
+draw((-0.1732050807568877,-0.1)--(0,0), ttqqqq); 
+draw((0,0)--(0,0.2), ttqqqq); 
+draw((0,0.2)--(-0.17320508075688756,0.3), ttqqqq); 
+draw((-0.17320508075688756,0.3)--(-0.34641016151377546,0.2),  ttqqqq); 
+draw((-0.34641016151377546,0)--(-1.7320508075688772,0.8)--(-1.7320508075688772,1)--(-1.5588457268119895,1.1)--(-0.17320508075688756,0.3)--(-0.34641016151377546,0.2)); 
+draw((-1.5,2)--(-2.5,-1)); 
+draw((0,-1)--(1,2)); 
+draw((-1.5,2)--(1,2)); 
+draw((0,-1)--(1,-0.5)); 
+draw((1,-0.5)--(1,2)); 
+draw((0,-1)--(-2.5,-1)); 
+draw((-1.7197081593808734,1.0071260312538568)--(-0.34641016151377546,0.2)); 
+draw((-0.34641016151377546,0)--(-0.8,0), linetype("2 2")); 
+draw(shift((-0.34641016151377546,0.006911347862408629))*xscale(0.19937866870338272)*yscale(0.19937866870338272)*arc((0,0),1,151.7202936196602,181.93880143038325)); 
+label("$\phi$",(-0.7,0.17),SE*labelscalefactor); 
+draw((-1,0.6)--(-1,-0.4),  red,EndArrow(6)); 
+draw((-1,0.6)--(-1.6,0), red,EndArrow(6)); 
+draw((-1.6,0)--(-1,-0.4),  red,EndArrow(6)); 
+label("$mg\sin\alpha$",(-1,-0.1),SE*labelscalefactor,red); 
+label("$mg\sin\alpha\sin\phi$",(-2.1,-0.3),SE*labelscalefactor,red); 
+label("$mg\sin\alpha\cos\phi$",(-2.3,0.4),SE*labelscalefactor,red); 
+draw(shift((-1.0069311648216455,0.5882068544392433))*xscale(0.26962454483047543)*yscale(0.26962454483047543)*arc((0,0),1,224.26941085945563,271.49135494354033), red); 
+label("$\phi$",(-1.1845311020410791,0.35),SE*labelscalefactor,red); 
+draw(shift((0,-1))*xscale(0.2831346736684579)*yscale(0.2831346736684579)*arc((0,0),1,26.56505117707799,71.56505117707799)); 
+label("$\alpha$",(0.17234733835939478,-0.6),SE*labelscalefactor); 
+ /* dots and labels */
+clip((xmin,ymin)--(xmin,ymax)--(xmax,ymax)--(xmax,ymin)--cycle); 
+ /* end of picture */
+\end{asy}
+\end{center}
+We break up the gravitational force into three components. One component is perpendicular to the plane $mg\cos\alpha$, the second is along the plane and perpendicular to the pencil $mg\sin\alpha\cos\phi$, and the third is along the plane and parallel to the pencil $mg\sin\alpha\sin\phi$. We note that the parallel component does not contribute to whether or not the pencil will roll down. Again, the sum of the first two components need to lie on top of an edge, which is satisfied when:
+$$\tan 30^\circ = \frac{mg_\perp}{mg_\text{normal}}=\frac{mg\sin\alpha\cos\phi}{mg\cos\alpha} \implies \boxed{\tan\alpha\cos\phi < \tan 30^\circ}$$
+
+\blfootnote{This problem was found in the book `Aptitude Test Problems in Physics’ by S.S. Krotov.}
+\end{solution}
