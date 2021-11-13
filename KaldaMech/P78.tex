@@ -1,0 +1,18 @@
+\begin{solution}{hard}
+\textbf{a)} The main difference between the two parts is that in the first part the friction does not act for the whole time during which the ball is in contact. Once pure rolling is achieved friction becomes zero.
+Also because this is an elastic collision and the floor's mass is much greater than the mass of the mall, $v_y$ is reversed after the collision. So, $v_y = \sqrt{2gh}$. This is the same in the two cases.
+The impulse due to the normal force is 
+\[\int N \,dt = m(\sqrt{2gh} - (-\sqrt{2gh} )) = 2m \sqrt{2gh}\]
+Let the friction force (as a function of time) be $f \, (- \hat i)$, final velocity in the $x-$ direction be $v_x$ and the angular velocity be $\omega$. Because the point of contact is at rest, $v_x=\omega R$.
+The impulse due to friction is then,
+$$J=\int f \,dt = m(v_0-v_x)$$
+The angular impulse due to friction is 
+\[\int fR \,dt = \frac{2}{5} M R^2 \omega \implies \int f \,dt = \frac{2}{5} Mv_x\]
+Solving the above two equations gives $$\boxed{v_x = \frac{5}{7}v_0} \ \boxed{\omega = \frac{5v_0}{7R}}$$
+
+\textbf{b)} Here the friction acts for the entire time while the ball is in contact with the floor. Also $f = \mu N$ for the entire time.
+The impulse due to friction
+$$J = \int \mu N \,dt = m(v_0-v_x) \implies \boxed{v_x = v_0-2\mu v_y}$$
+Finally, the angular impulse due to friction is
+$$\int \mu NR \,dt = \frac{2}{5}MR^2\omega \implies \boxed{\omega = \frac{5\mu \sqrt{2gh}}{R}}$$
+\end{solution}
