@@ -1,0 +1,32 @@
+begin{solution}{hard}
+Between successive images, the time difference $\Delta t$ is constant. Therefore, the velocity and consequently momentum is directly proportional to the distance between successive images. Let us assume the time differences is $\Delta t=0.01 \text{ s}$.
+\begin{center}
+\includegraphics[width=\linewidth]{collision.png}
+\end{center}
+Therefore, we can list the following linear momenta (starting from top left going counterclockwise)
+\begin{align*}
+\text{a: } & p_x = 1.61m_a \\
+& p_y = 1.61m_a \\
+\text{b: } & p_x =0.482m_b \\
+& p_y = 1.58m_b \\
+\text{c: } & p_x = 3.26m_c \\
+ & p_y = 1.96m_c \\
+\text{d: } & p_x= 4.35m_d \\
+& p_y = 1.85m_d
+\end{align*}These results were measured by averaging the distance between consecutive points. It is clear that the second ball has to come from the right. If it came from the bottom left, it is impossible to increase the system's horizontal momentum. Therefore, we really only have two options.
+\vspace{2mm}
+
+1) Second ball comes from top right. Again, there are two options. Let us select $m_a=m_c$ and $m_b=m_d$. In this case, we have:
+$$1.61m_a-4.35m_d=3.26m_a-0.482m_d \implies m_a = -0.43m_d$$Clearly this doesn't work. Let us now select $m_a=m_b$ and $m_c=m_d$
+$$1.61m_a-4.35m_d=-0.482m_a+3.26m_d \implies m_a = 0.275m_d$$$$1.61m_a+1.85m_d=1.58m_a+1.96m_d \implies m_a = 0.273m_d$$
+This could work, though let us look at the second case before deciding.
+\vspace{2mm}
+
+2) Second ball comes from bottom right. Again, there are two options. Let us select $m_a=m_d$ and $m_b=m_c$. In this case, we have:
+$$1.61m_a-3.26m_c=4.35m_a-0.482m_c \implies m_a=-0.99m_c$$Clearly this doesn't work. Finally, we must have $m_a=m_b$. In this case, we have:
+$$1.61m_a-3.26m_c=-0.482m_a+4.35m_c \implies m_a=0.275m_c$$$$1.61m_a-1.96m_c=1.58m_a-1.85m_c \implies m_a=0.273m_c$$
+This gives a mass ratio of $\boxed{m_c/m_a = 3.6}$.
+\vspace{2mm}
+
+Now, notice that this mass ratio makes both coming from the top right and coming from the bottom right possible. However, notice that coming from the bottom right to the top right, the ball will pick up momentum. Due to Newton's third law, the ball coming from the top left must lose momentum, which is indeed the case. If the ball instead came from the top right, both balls would be losing momentum, violating Newton's third law. Therefore, the ball came from $\boxed{\text{the bottom right}}$
+\end{solution}
