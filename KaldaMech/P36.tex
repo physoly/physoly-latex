@@ -1,0 +1,55 @@
+\begin{solution}{normal}
+\textbf{a)}  Denote the first ball with a final speed $v_1$ and the other two balls with final speed $v_2$.
+\begin{center}
+\begin{asy}
+size(6cm);
+defaultpen(fontsize(10pt));
+
+real circledist = 6;
+draw(shift(-circledist, 0)*unitcircle);
+draw("$v$", (-circledist + 1, 0)--(-circledist + 4, 0), dir(90), Arrow(TeXHead), Margins);
+
+draw(unitcircle, dashed);
+draw(shift(2*dir(45))*unitcircle);
+draw(shift(2*dir(-45))*unitcircle);
+
+real eps = 0.3, eps2 = 0.7;
+draw((3+eps)*dir(45) -- 5*dir(45), Arrow(TeXHead));
+draw((3+eps)*dir(45) -- ((3+eps)*dir(45) + sqrt(2)*dir(0)), dashed);
+draw((3+eps)*dir(-45) -- 5*dir(-45), Arrow(TeXHead));
+draw((3+eps)*dir(-45) -- ((3+eps)*dir(-45) + sqrt(2)*dir(0)), dashed);
+draw("$30^\circ$", arc((3+eps)*dir(45), eps2, 0, 45), dir(22.5));
+draw("$30^\circ$", arc((3+eps)*dir(-45), eps2, 0, -45), dir(-22.5));
+\end{asy}
+\end{center}
+In this problem, we're given an elastic collision, so we know that both momentum and energy are conserved. Conservation of momentum gives
+\[
+    v_1 + \frac{\sqrt{3}}{2} v_2 + \frac{\sqrt{3}}{2} v_2 = v
+    \implies v_1 + \sqrt 3 v_2 = v,
+\]and conservation of energy gives
+\[
+    2\left(\frac{1}{2} m v_2^2\right) + \frac{1}{2} m v_1^2 = \frac{1}{2} m v^2
+    \implies 2 v_2^2 + v_1^2 = v^2.
+\]
+This gives us two equations. Our goal is to find $v_1$, thus we first rearrange our conservation of momentum equation to get $v_2$ in terms of $v_1$ and then substitute back in to get $v_1$.
+\[
+v_1=v-\sqrt 3v_2
+\]putting this in to our conservation of energy equation gives us
+\[
+2(v - \sqrt 3v_2)^2 + v_1^2 = v^2.
+\]Expanding this equation out gives us
+\[
+2v_2^2 + 3v_2^2 - 2\sqrt 3v_2v + v^2 = v^2
+\]
+Taking out $v^2$ from both sides, and then dividing by $v_2$ on both sides gets us the equation
+\[2v_2 + 3v_2 -2\sqrt 3v = 0\implies 5v_2 = 2\sqrt 3v\implies v_2 = \frac{2\sqrt 3}{5}v
+\]Substituting $v_2$ back into our conservation of momentum equation gives us 
+\[v_1 = v - \sqrt 3\frac{2\sqrt 3}{5}v\implies\boxed{|v_1| = \frac{1}{5}v.}
+\]
+\textbf{b)} Suppose the moving ball first strikes the lower ball. Let the x-direction point in the line joining their centers. Therefore, $v_{1,x}= v\cos30^\circ$ and the perpendicular component of velocity is $v_{1,y} = v\sin30^\circ$. Note that the impulse acts along line joining their center, therefore the perpendicular component of its velocity is unchanged. Conservation of momentum gives:
+$$v_{1,x}=v_1'+v_2'$$Conservation of energy:
+$$v_{1,x}^2+v_{1,y}^2=v_1'^2+v_{1,y}^2+v_2'^2 \implies v_{1,x}^2=v_1'^2+v_2'^2$$Notice that in the x-direction, this gives the same behavior as a head-on collision between two identical balls. Therefore, the velocity of the moving ball becomes zero along the x-direction. Now the moving ball will strike the upper ball with a speed $v\cos30^\circ$.
+
+This second collision is identical to the first. The component of velocity along the line joining their centers is $(v\cos 30^\circ)\sin 30^\circ$ and the component of velocity perpendicular to this line is $(v\cos 30^\circ)\sin 30^\circ$. Again, only the component of velocity perpendicular to this line will survive at the end so the final answer is:
+$$\boxed{v_f=v\sin^230^\circ=\frac{v}{4}}$$
+\end{solution}
