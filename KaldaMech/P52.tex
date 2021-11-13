@@ -1,0 +1,24 @@
+\begin{solution}{normal}
+Using method 6, we find that the kinetic energy of the system is 
+\[
+K = \frac{1}{2}(m + \alpha\rho_0 V)
+\]  where the constant $\alpha$ is a number that characterizes the geometry of the body that correspond to the extent of the region of the liquid that will move (compared to the volume of the body itself). This expression is obtained by noticing that the characteristic speed of the liquid around the body is v, and the characteristic size of the region where the liquid moves (the speed is not much smaller than $v$) is estimated as the size of the body itself.  If a body is acted on by a force $F$, then the power produced by this force is 
+\[P = F v = \frac{dK}{dt} = va(m + \alpha\rho_0 V ).
+\] Thus
+\[
+F = a_0 (m + \alpha\rho_0 V).
+\]
+We also know by Archimedes principle that,
+\[F = \rho Vg - \rho_0 Vg
+\]Thus, by equating these two forces to each other, we get 
+\[a_0(m + \alpha\rho_0 V) = \rho Vg - \rho_0 Vg.
+\] We know that $m = \rho V$ so,
+\[a_0(\rho V + \alpha\rho_0 V) = \rho Vg - \rho_0 Vg\implies a_0(\rho + \alpha\rho_0 ) = \rho g - \rho_0 g
+\]Dividing by $a_0$ on both sides, and subtracting $\rho$ gives us 
+\[\alpha\rho_0 = \frac{\rho g - \rho_0 g}{a_0} - \rho\implies \alpha = \frac{1}{\rho_0}\left(\frac{\rho g - \rho_0 g}{a_0} - \rho\right)
+\] Substituting known relations gives us $\alpha = 0.5$. For the rising bubble, the effective mass is exactly the same, however this time, the mass $dm$ of the bubble is negligibly small. Thus, we have the equation 
+\[F = a_0(dm + \alpha\rho_0 V) = \rho V g - dm g
+\]
+Taking $dm\approx 0$ gives us 
+\[a_0\alpha\rho_0 = \rho_0 g\implies a = \frac{g}{\alpha} = \boxed{2.0 g}\]
+\end{solution}
