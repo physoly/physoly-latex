@@ -1,0 +1,44 @@
+\begin{solution}{hard}
+\textbf{Solution 1.} Let the acceleration of mass $m$ along the incline be $a$ and acceleration of mass $M$ in downward direction be$\ a_1$.
+Since length of string remains constant therefore we have
+\begin{equation*}
+    a\sin\alpha=a_1
+\end{equation*}
+Writing the force equations for both masses gives us 
+\begin{equation*}
+    T\sin\alpha+mg\sin\alpha=ma
+\end{equation*}
+\begin{equation*}
+    mg-T=ma_1
+\end{equation*}
+Solving the three equations we get $\boxed{a_1=g\sin^2\alpha\frac{M+m}{m+Msin^2\alpha}}$
+\tcbline 
+\noindent \textbf{Solution 2.} In this problem it serves just fine to treat the angle that the mass leans back with respect to the vertical as $\varphi = 0$ since we only care about the acceleration of the mass at the [i]instant[/i] that it is released. Let the vertical generalized coordinate $\xi$ of the mass $M$ be directed vertically downwards as shown in the diagram below:
+\begin{center}
+    \begin{asy}
+    size(8cm);
+    import olympiad;
+draw((0, 0) -- (2.3, 1.15));
+draw((0, 0) -- (1, 0), dashed);
+draw(anglemark((1, 0), (0, 0), (2, 1)));
+draw((1.9, 1) -- (1.9, 0.9), linewidth(10));
+draw((1.9, 0.9) -- (1.9, 0.3));
+label("$M$", (1.9, 0.3), 5E);
+label("$m$", (1.9, 1), 2N);
+filldraw(circle((1.9, 0.3), 0.1), black);
+draw((1.9, 0.2) -- (1.9, 0), arrow=Arrow(4));
+label("$\xi$", (1.9, 0), S);
+draw((1.9, 1) -- (1.6, 0.85), arrow=Arrow(4));
+label("$\frac{\xi}{\sin\alpha}$", (1.6, 0.85), NW);
+label("$\alpha$", (0.23, 0), NE);
+    \end{asy}
+\end{center}
+Consider the kinetic energy of the system given by 
+\[K = \frac{1}{2}M\dot{\xi}^2 + \frac{1}{2}m \left(\frac{\dot{\xi}}{\sin\alpha}\right)^2 = \frac{1}{2}\left(\frac{m}{\sin\alpha} + M\right)^2 \dot{\xi}^2 = \frac{1}{2}\mathcal{M}\dot{\xi}^2\]
+where $\mathcal{M}$ is the effective mass given by 
+\[\mathcal{M} = \frac{m}{\sin\alpha} + M.\]
+Similarly, we can write the potential energy $\Pi (\xi)$ as (since both masses go down by a distance $\xi$)
+\[\Pi = - (M + m)g \xi\implies \Pi^{\prime} (\xi) = -(M + m)g.\]
+By method 6, we note that the acceleration $\ddot{\xi}$ can then be written as 
+\[\ddot{\xi} = -\frac{\Pi' (\xi)}{\mathcal{M}} = g \frac{m + M}{m + M\sin^2\alpha}\sin^2\alpha.\]
+\end{solution}
