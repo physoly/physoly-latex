@@ -1,0 +1,40 @@
+\begin{solution}{normal}
+Consider the reference frame moving with velocity $v$ to the right. This frame is easier to work with because here the end of the rod on the ground is at rest. Let's call this end $A$. Let $t=0$ correspond to the time when the rod is vertical. At time $t$, the distance between $A$ and the vertical wall is $d=vt$. Let the angle between the rod and horizontal wall be
+$$\theta = \frac{\pi}{2}-\alpha$$
+such that
+$$\cos \theta = \frac{vt}{2l}$$
+Differentiating with respect to time gives
+$$\dot \theta \sin \theta= \frac{v}{2l} \implies \dot \theta = \frac{v}{2l \sin \theta}$$
+
+The velocity of the sphere is
+$$\dot \theta (2l-x) = \frac{v(2l-x)}{2l \sin \theta}$$
+perpendicular to the rod. Therefore, the $x-$ component of the velocity
+$$v_x = \frac{v(2l-x)\sin \theta}{2l \sin \theta} = \frac{v(2l-x)}{2l }$$
+is constant, implying that $a_x = 0$. Now the centripetal acceleration of the sphere
+$$a_c= \dot \theta^2 (2l-x) = \frac{v^2(2l-x)}{4l^2 \sin^2 \theta}$$
+which is pointed towards $A$. We know that the acceleration is entirely in $y$, as $a_x = 0$. As a result:
+\begin{align*}
+a \sin \theta &= \frac{v^2(2l-x)}{4l^2 \sin^2 \theta} \\
+a &= \frac{v^2(2l-x)}{4l^2 \sin^3 \theta} \\
+  &=\frac{v^2(2l-x)}{4l^2 \cos^3 \alpha}  \\
+ &= \frac{v^2}{2l \cos^3 \alpha}(\frac{x}{2l}-1)
+\end{align*}
+which is pointed in negative $y$ direction. By Newton's second law, we have:
+$$N = mg - ma \implies \boxed{N=m(g-\frac{v^2(2l-x)}{\sqrt2 l^2})}$$
+\tcbline
+\textbf{Solution 2:} We solve it for the general case. Let the place where both walls meet be the origin then we can write the coordinates of sphere as
+$$X= x_1-x\sin\alpha$$
+$$Y= y_1-x\cos\alpha$$
+Now differentiating $Y$ with respect to time we get
+$$ v_y=v\tan\alpha-v\tan\alpha\left(\frac{x}{2\ell}\right)$$
+Now again differentiating it with respect to time we get
+$$a_y=\omega v\sec^2\alpha\left(\frac{x}{2\ell}-1\right)$$
+Also we have
+$$\omega=\frac{v}{2\ell\cos\alpha}$$
+Substituting it we get $$a_y=\frac{v^2}{2\ell}{\sec^3\alpha}\left(\frac{x}{2\ell}-1\right)$$
+Now using Newton’s law in $y$ direction we get
+$$4mg-N=ma_y$$
+Solving we get
+$$N=m\left(g-v^2\frac{(2\ell-x)}{l^2\sqrt2}\right)$$
+Note that $a_x=0$. Since $\displaystyle v_x=v\left(1-\frac{x}{2l}\right)$ is constant, therefore the rod/sphere will apply no force on each other in the horizontal direction.
+\end{solution}
