@@ -1,0 +1,64 @@
+\begin{solution}{hard}
+\begin{center}
+    \begin{asy}
+    /* Geogebra to Asymptote conversion, documentation at artofproblemsolving.com/Wiki go to User:Azjps/geogebra */
+import graph; size(10cm);
+real labelscalefactor = 0.5; /* changes label-to-point distance */
+pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps); /* default pen style */
+pen dotstyle = black; /* point style */
+real xmin = -19.2, xmax = 19.2, ymin = -9.16, ymax = 9.16; /* image dimensions */
+pen zzttqq = rgb(0.6,0.2,0); pen qqwuqq = rgb(0,0.39215686274509803,0);
+
+filldraw((-4.330127018922193,-0.5)--(-4.330127018922193,-3.5)--(-9.526279441628825,-3.5)--(-9.526279441628825,-0.5)--cycle, gray(0.8));
+draw((0.8660254037844388,-0.5)--(0.8660254037844386,-3.5)--(6.06217782649107,-3.5)--(6.06217782649107,-0.5)--cycle);
+draw(arc((-6.928203230275509,-2),0.6,180,227.22341007114423)--(-6.928203230275509,-2)--cycle, qqwuqq);
+draw(arc((-1.7320508075688772,1),0.6,-179.05144115063317,-134.16834724231848)--(-1.7320508075688772,1)--cycle, qqwuqq);
+/* draw figures */
+draw(circle((-1.7320508075688772,1), 3));
+label("$\sqrt{2}v/2$",(-3.2,0.1),2S*labelscalefactor);
+label("$\sqrt{2}v/2$",(-7.76,-2.52),SE*labelscalefactor);
+label("$v$",(-8.7,-1.02),4S*labelscalefactor);
+draw((-4.330127018922193,-0.5)--(-4.330127018922193,-3.5), zzttqq);
+draw((-4.330127018922193,-3.5)--(-9.526279441628825,-3.5), zzttqq);
+draw((-9.526279441628825,-3.5)--(-9.526279441628825,-0.5), zzttqq);
+draw((-9.526279441628825,-0.5)--(-4.330127018922193,-0.5), zzttqq);
+draw((0.8660254037844388,-0.5)--(0.8660254037844386,-3.5), zzttqq);
+draw((0.8660254037844386,-3.5)--(6.06217782649107,-3.5), zzttqq);
+draw((6.06217782649107,-3.5)--(6.06217782649107,-0.5), zzttqq);
+draw((6.06217782649107,-0.5)--(0.8660254037844388,-0.5), zzttqq);
+draw((-1.7320508075688772,1)--(-2.82,-0.12),EndArrow(4));
+draw((-1.7320508075688772,1)--(-2.94,0.98),EndArrow(4));
+draw((-1.7320508075688772,1)--(-1.72,-0.14),EndArrow(4));
+draw((-6.928203230275509,-2)--(-8.660254037844386,-2),EndArrow(4));
+draw((-6.928203230275509,-2)--(-8.02,-3.18), EndArrow(4));
+/* end of picture */
+    \end{asy}
+\end{center}
+Let us denote the horizontal velocity of the block as $v$. When the distance between the block and the step is $\sqrt{2}r$, the cylinder pushes on the block at an angle of $45^\circ$. By trigonometry, we see that the cylinder would have to push on the block with a velocity of $\sqrt{2}v/2$ for the block to move horizontally with a velocity $v$. Now it is easy to see that velocity of cylinder is just
+\[\vec{v_{c}} = -\frac{v_b}{2} \hat{i} - \frac{v_b}{2} \hat{j}\]where $v_b$ is the speed of the block (directed towards the negative x-axis). By energy conservation
+\begin{align*}
+{mg}\left(r-\frac{r}{\sqrt{2}}\right) &= \frac{1}{2} m {v_b}^2 + \frac{1}{2} m {v_c}^2
+\end{align*}
+Also project Newton’s 2nd law onto the axis that passes through the top corner of the step and the cylinder’s centre: this axis is perpendicular both to the normal force between the block and the cylinder and to the cylinder’s tangential acceleration.
+\[\frac{mg}{\sqrt{2}} = N + \frac{m{v_c}^2}{r}\implies mg\frac{\sqrt{2}}{2} -N = m\frac{(\sqrt{2}v/2)^2}{r}\]
+where $N$ is the normal force by the wall. Now, we solve these systems of equations for $N$. In our first equation, we have 
+\begin{align*}
+mgr\left(\frac{2-\sqrt{2}}{2}\right)&= \frac{1}{2}mv^2 + \frac{1}{2}m\left(\frac{\sqrt{2}v}{2}\right)^2\\
+&=\frac{3}{2}m\left(\frac{\sqrt{2}v}{2}\right)^2
+\end{align*}
+Taking out common factors from both sides gives us 
+\[gr(\sqrt{2}-2) = 3\left(\frac{\sqrt{2}v}{2}\right)^2\implies \frac{g(2-\sqrt{2})}{3} = \frac{(\sqrt{2}v/2)^2}{r}.\]
+Substituting this result into our conservation of energy equation gives us 
+\[mg\frac{\sqrt{2}}{2} -N = m\frac{g(2-\sqrt{2})}{3}\]
+Solving for $N$ gives us the result 
+\[N = \left(\frac{\sqrt{2}}{2} - \frac{2-\sqrt{2}}{3}\right)mg = \boxed{\left(\frac{5\sqrt{2} - 4}{6}\right)mg}.\]
+Let the normal force from the other block be $Q$. From here we can project Newton's Second Law onto the cylinder and block on the horizontal direction (and noting that the aceleration of the cylinder is half that of the block because it's horizontal velocity is half that of the blocks velocity) gives us
+\begin{align*}
+m(a/2) &= N\sin\theta - Q\sin\theta\\
+ma &= Q\sin\theta
+\end{align*}
+where $\theta$ is the angle the normal force makes with respect to the vertical. Substituting the second equation into the first gives us 
+\[\frac{1}{2}Q\sin\theta = N\sin\theta - Q\sin\theta\implies \frac{3}{2}Q = N\]
+Therefore the ratio between the two normal forces are $\frac{Q}{N} = \frac{2}{3}$. As mentioned in the hint, the ratios of the normals is fixed, hence they blow up at the same instant. (only differing by a constant factor) which means that they would give $0$ at the same values.
+\blfootnote{This problem was found in the book 'Aptitude Test Problems in Physics by S.S. Krotov.}
+\end{solution}
