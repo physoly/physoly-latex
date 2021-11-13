@@ -1,0 +1,31 @@
+\begin{solution}{normal}
+Let us observe what happens to the work done at small changes of $da$ and $dh$.
+\begin{center}
+\begin{asy}
+size(5cm);
+draw((0,0)--(-4/3, 0), blue);
+draw((0,1)--(-4/3, 0), blue);
+draw((0,0)--(0, 1), blue);
+
+dot((0,0), red);
+dot((0,1), red);
+dot((-4/3,0), red);
+pair A,B, C;
+B = (0,0);
+A = (0,1);
+C = (-4/3,0);
+
+label("$da$", (-1/2,0), S);
+label("$dl$", (-5/6,3/4), 2S);
+label("$dh$", (0,1/2), 1E);
+draw(anglemark(B, C, A ,4));
+label("$\phi$",C+0.2, NE);
+\end{asy}
+\end{center}
+
+The work due to friction will be
+\[W_f=\mu mg\cos\phi dl\]Since $dl\cos\phi=da$ then
+\[W_f=\mu mg da\]Integrating all of these small work variables from 0 to $a$ gives us the work produced by friction as
+\[W_f=\mu mga\]The work produced by gravity is $mgh$ thus the total work $W_{\text{tot}}$ is
+\[W_{\text{tot}}=mgh+\mu mga=\boxed{mg(h+\mu a)}\]
+\end{solution}
