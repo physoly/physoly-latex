@@ -1,0 +1,109 @@
+\begin{solution}{normal}
+Let the friction force directed on the block to the right be $f_1$, the friction force directed on to the block on the left be $f_2$, and let the tension directed from the string be $T$. Drawing a freebody diagram results in 4 equations. (The two small blocks have the same accelerations because they are connected by the same string).
+\begin{align}
+F - f_1 &= Ma_1\\
+f_1 - T &= ma_2\\
+f_2 &= Ma_3\\
+T - f_2 &= ma_2
+\end{align}
+We consider four options: all the bodies move together, the rightmost block moves separately, all three components move separately, or the left block moves separately.
+\vspace{2mm}
+
+\textbf{Case 1:} (all the bodies move together, $a_1 = a_2 = a_3$)
+\vspace{2mm}
+
+Since all the bodies move together, then they move at the same acceleration. This means that our equations are now
+\begin{align}
+F - f_1 &= Ma\\
+f_1 - T &= ma\\
+f_2 &= Ma\\
+T - f_2 &= ma
+\end{align}
+Substituting equation (3) into equation (4) gives us 
+\begin{align*}
+T - Ma &= ma\\
+T = (m + M)a
+\end{align*}
+Substituting our result for tension into equation (2) gives us 
+\begin{align*}
+f_1 - (m + M)a &= ma\\
+f_1 = (2m + M)a
+\end{align*}
+Taking this result and now substituting into equation (1) gives us 
+\begin{align*}
+F - (2m + M)a = Ma\\
+F = 2(m + M)a\\
+\boxed{a = \frac{F}{2(m + M)}}
+\end{align*}
+From equation (1), we note that 
+\[F - Ma = f_1 \leq\mu mg\]
+Plugging in our equation for acceleration gives us 
+\begin{align*}
+F - M \frac{F}{2(m + M)} \leq \mu mg\\
+F\left(1 - \frac{1}{2(m + M)}\right) \leq \mu mg\\
+F\left(\frac{M + 2m}{2(m + M)}\right) \leq \mu mg\\
+\boxed{F \leq 2\mu mg \frac{m +M}{m + 2M}}
+\end{align*}
+
+\textbf{Case 2:} (The rightmost block moves separately, $a_2 = a_3$, $f_2 = \mu mg$)
+\vspace{2mm}
+
+In this case, we have our equations to be 
+\begin{align}
+F - \mu mg &= Ma_1\\
+\mu mg - T &= ma_2\\
+f_2 &= Ma_2\\
+T - f_2 &= ma_2
+\end{align}
+From this, we find that 
+\begin{align*}
+\boxed{a_1 = \frac{F - \mu mg}{M}}\\
+\boxed{a_2 = \frac{\mu mg}{M + 2m}}
+\end{align*}
+For the block to move, we must have 
+\begin{align*}
+Ma_2 \leq \mu mg\\
+\frac{\mu mMg}{M + 2m} \leq \mu mg\\
+\frac{M}{M + 2m} \leq 1
+\end{align*}
+This works, since both the denominator is greater than the numerator. Thus, we can continue with our calculations and find that from case 1, we have that if the force is 
+\[F \leq 2\mu mg \frac{m +M}{m + 2M}\]
+then our acceleration would be
+\[\boxed{a = \frac{F}{2(m + M)}}\]
+if the force does not satisfy that constraint, then we have the accelerations to be the results we found before. 
+\vspace{2mm}
+
+\textbf{Case 3:} (all three components move separately, $a_1 \neq a_2 \neq a_3$)
+\vspace{2mm}
+
+If $a_1\neq a_2 \neq a_3$, then that implies that the $f_1 = \mu mg$ and $f_2 = \mu mg$. Looking at our systems of equations 
+\begin{align}
+F - f_1 &= Ma_1\\
+f_1 - T &= ma_2\\
+f_2 &= Ma_3\\
+T - f_2 &= ma_2
+\end{align}
+We find that $a_2 = 0$ which is impossible.
+\vspace{2mm}
+
+\textbf{Case 4:} (the left block moves separately, $a_1 = a_2$, $f_2 = \mu mg$)
+Our systems of equation would then be 
+\begin{align}
+F - f_1 &= Ma_1\\
+f_1 - T &= ma_1\\
+\mu mg &= Ma_3\\
+T - \mu mg &= ma_1
+\end{align}
+Solving these equations gives us 
+\[a_1 = \frac{F - \mu mg}{M + 2m}\]
+Substituting back into equation (1) gives us 
+\begin{align*}
+F - f_1 = M\frac{F - \mu mg}{M + 2m}\\
+F - M\frac{F - \mu mg}{M + 2m} \leq \mu mg
+\end{align*}
+Multiplying across gives us
+\[(M + 2m)F - M(F -\mu mg) \leq \mu mg (M + 2m)\]
+Solving this inequality gives us
+\[F \leq \mu mg\]
+which is impossible because that would then imply that $a_1 \leq 0$.
+\end{solution}
