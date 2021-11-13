@@ -1,0 +1,23 @@
+\begin{solution}{normal}
+At a small incremental time $dt$, the mass $dm$ that is poured onto the conveyor belt is given by
+\[
+dm = \mu dt
+\]This implies that the change in momentum $dp$ is given by ($v$ is the velocity of the conveyor belt that is pulling the sand up)
+\[
+dp = dm v = \mu v dt.
+\]By Newton's second law, the amount of force that is directed upwards on the crane is given by
+\[
+F_{\text{up}} = \frac{dp}{dt} = \frac{\mu v dt}{dt} = \mu v.
+\]We note that there is a force of gravity that is directed downwards. The total mass of all the sand grains on the conveyor belt with length $\ell$ is given by $m = \frac{\mu}{v}\ell$\footnote{$m=\sigma L$ where $\sigma v = \mu$.} thus, the force that is directed downwards is given by
+\[F_{\text{down}} = mg\sin\alpha = \frac{\mu}{v}\ell\sin\alpha
+\]This gives us the total force to bring sand grains up on a conveyor belt as
+\[F = \mu v + \frac{\mu}{v}\ell\sin\alpha.
+\]Minimizing this function by differentiating with respect to $v$ gives us
+\[
+\mu - \frac{\mu}{v^2}\ell\sin\alpha\implies v = \sqrt{g\ell\sin\alpha}.
+\]Substituting this expression back into our expression for force gives us
+\[
+F_{\text{min}} = \mu\sqrt{g\ell\sin\alpha} + \frac{\mu}{\sqrt{g\ell\sin\alpha}}\ell\sin\alpha = 2\mu\sqrt{g\ell\sin\alpha}
+\]The minimum torque is then given by
+\[\tau = F_{\text{min}}\cdot R = \boxed{2\mu R\sqrt{g\ell\sin\alpha}}\]
+\end{solution}
