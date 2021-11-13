@@ -1,0 +1,33 @@
+\begin{solution}{normal}We use idea 55, and visualise the motion using a graph, particularly let us plot the $x-t$ graph of each bead on the same plane. For simplifications, let us consider the collision of just two beads. Since they have the same mass, the elastic collision will cause them to swap velocities. The below graph shows the interaction between a blue and green particle. Even though each individual bead exhibits a zig-zag behaviour, together it appears as if it is two straight lines intersecting, with the intersection point representing the point of collision.
+\begin{center}
+    
+\begin{asy}
+import graph; size(8cm); 
+real labelscalefactor = 0.5; /* changes label-to-point distance */
+pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps); /* default pen style */ 
+pen dotstyle = black; /* point style */ 
+real xmin = -11.411002441113911, xmax = 10.009777786318363, ymin = -5.5553793334809445, ymax = 5.671740127826788;  /* image dimensions */
+pen qqwuqq = rgb(0,0.39215686274509803,0); 
+ /* draw figures */
+draw((-5.196152422706632,-1)--(-2.598076211353316,0.5), blue,EndArrow(6)); 
+draw((-2.598076211353316,0.5)--(0.8660254037844384,-4.5),  blue,EndArrow(6)); 
+draw((-5.196152422706632,4)--(-2.598076211353316,0.5), qqwuqq,EndArrow(6)); 
+draw((-2.598076211353316,0.5)--(2.598076211353316,3.5),  qqwuqq,EndArrow(6)); 
+draw((-5.196152422706632,-4.5)--(-5.196152422706632,5),EndArrow(6)); 
+draw((-5.196152422706632,-4.5)--(4.330127018922193,-4.5),EndArrow(6)); 
+label("$x$",(-5.0223486890727065,5.421204686570269),SE*labelscalefactor); 
+label("$t$",(4.1848287771043235,-3.770314314528251),SE*labelscalefactor); 
+ /* dots and labels */
+dot((-2.598076211353316,0.5),dotstyle); 
+clip((xmin,ymin)--(xmin,ymax)--(xmax,ymax)--(xmax,ymin)--cycle); 
+ /* end of picture */
+\end{asy}
+
+
+
+\end{center}
+
+Since we have all the $n$ lines intersecting with another line at exactly one point, and no three lines intersect at a point (the probability that more than two beads will collide at the same time is negligibly small), we have the number of intersections (collisions) in the graph as
+$$\binom{n}{2} = \boxed{\frac{{n}{(n-1)}}{2}}$$
+
+\end{solution}
