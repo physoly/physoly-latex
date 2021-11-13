@@ -1,0 +1,27 @@
+\begin{solution}{hard}
+Let the velocity of the stick be $v_1$, the velocity of the box be $v_2$, $m$ be the mass of the mass on the stick, $M$ be the mass of the box, and $\alpha$ be the angle $v_1$ makes with the weight of the mass $mg$. Because $v_2$ is purely horizontal, we can easily see that\footnote{This problem came in the book 'Aptitude Test Problems in Physics' by S.S. Krotov.}
+\[v_1\sin\alpha = v_2\]
+Next, we use conservation of energy. Comparing initial to final, we get
+\begin{align*}
+mgL&= \frac{1}{2}mv_1^2 + \frac{1}{2}Mv_2^2 + mgL\sin\alpha\\
+mgL(1 - \sin\alpha)&= v_1^2\left(\frac{m}{2} + \frac{M}{2}\sin^2\alpha\right)\\
+v_1^2=&= \frac{2mgL(1 - \sin\alpha)}{m + M\sin^2\alpha}
+\end{align*}
+We now use idea 40. $v_1$ and $v_2$ are at maximum, thus $\vec{N}$ and $\vec{F} = 0$. From our first and third relation, we also have that 
+\[\frac{dv_2}{dt} = 0 = \sqrt{\frac{2mgL(1 - \sin\alpha)\sin^2\alpha}{m + M\sin^2\alpha}}.\]
+Using Newton's Second Law on the block, we have the following $F=ma$ equation,
+\[Ma_0\sin\alpha - N = \frac{Mv_1^2}{L}\cos\alpha.\]
+Using idea 40, $\vec{N} = 0$ at the moment of leaving contact, and thus, 
+\[a_0\sin\alpha = \frac{v_1^2}{L}\cos\alpha.\]
+Substituting in $v_1$ and simplifying gives 
+\[a_0 = \frac{2mgL(1 - \sin\alpha)\cos\alpha}{\sin\alpha(m + M\sin^2\alpha)}\]
+which is equal to $g\cos\alpha$ as gravity is the only force causing the  acceleration and $N = F = 0$). This means that 
+\begin{align*}
+g\cos\alpha&= \frac{2mgL(1 - \sin\alpha)\cos\alpha}{\sin\alpha(m + M\sin^2\alpha)}\\
+2m(1 - \sin\alpha)&= m\sin\alpha + M\sin^3\alpha\\
+m(2 - 3\sin\alpha)&= M\sin^3\alpha\\
+ \frac{M}{m}&= \frac{2 - 3\sin\alpha}{\sin^3\alpha}
+\end{align*}
+For $\alpha = \frac{\pi}{6}$, this means that $\boxed{\frac{M}{m} = 4}$. Using this information from what we found, simplifies our expression for $v_2$ into 
+\[v_2 = \sqrt{\frac{2mgL(1 - \sin\alpha)\sin^2\alpha}{m + 4m\sin^2\alpha}} = \sqrt{gL\times \frac{1}{2}\times\frac{1}{4}} = \boxed{\sqrt{\frac{gL}{8}}}.\]
+\end{solution}
