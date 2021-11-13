@@ -1,0 +1,91 @@
+\begin{solution}{normal}
+Assume the water surface pressure uniform. In the rotating frame of the water, every water element is at rest. So in this rotating frame, the hydrostatics equation is$$\vec{F} + \vec{F}_{\text{centrifugal}} - \vec{\nabla} P = 0$$where $\vec{F} = -\rho g \hat{j}$ is the force on the body per unit volume, $\vec{F}_{\text{centrifugal}}$ the centrifugal force, and $- \vec{\nabla} P$ is the force due to the pressure gradient.
+\begin{center}
+\hspace{4em}
+\begin{asy}
+import graph;
+size(10cm); 
+real labelscalefactor = 0.5; /* changes label-to-point distance */
+pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps); /* default pen style */ 
+pen dotstyle = black; /* point style */ 
+real xmin = -1.0677692311141869, xmax = 4, ymin = -1.2587115300623306, ymax = 0.9619427617015781;  /* image dimensions */
+
+ /* draw figures */
+real parabola1 (real x) {return x^2/2/0.5;} 
+draw(shift((0,0.25))*rotate(0)*graph(parabola1,-3,3)); /* parabola construction */
+draw((0,1)--(0,-1), linetype("2 2")); 
+draw((1.2,-0.4)--(0.8,0.4),EndArrow(6)); 
+draw((1.2,-0.4)--(1.2,-1.2), EndArrow(6)); 
+draw((1.2,-0.4)--(1.8,-0.4), EndArrow(6)); 
+label("$-\vec{\nabla}P$",(1.0104163055295856,0.1659760211390613),SE*labelscalefactor); 
+label("$\vec{F}_c$",(1.4,-0.2),SE*labelscalefactor); 
+label("$\vec{F}=-\rho g \hat{j}$",(1.2303137319106705,-0.7569737402914056),SE*labelscalefactor); 
+label("$\vec{R}$",(0.5799128933187296,-0.7),SE*labelscalefactor); 
+draw((0,-0.4)--(1.2,-0.4),  linetype("2 2"),EndArrow(6)); 
+draw((0,-1)--(1.2,-0.4), linetype("2 2"),EndArrow(6)); 
+label("$\vec{x}$",(0.47460990040384404,-0.2304587757169782),SE*labelscalefactor); draw(shift((0,0.9))*rotate(0)*xscale(0.10437759946869621)*yscale(0.029911256590888294)*unitcircle,linetype("2 2")); 
+draw((0.035919890681460606,0.8372879118687089)--(0.09913820101098883,0.8516557096708743),EndArrow(6)); 
+label("$\omega$",(0.05,0.80),SE*labelscalefactor); 
+ /* dots and labels */
+clip((xmin,ymin)--(xmin,ymax)--(xmax,ymax)--(xmax,ymin)--cycle); 
+\end{asy}
+\end{center}
+Clearly, by definition we have $\vec{F}_{\text{centrifugal}} = -\rho\vec{\omega} \times (\vec{\omega} \times \vec{R})$, hence the hydrostatic equation becomes$$\vec{\nabla} P = - \rho g \hat{j} + \rho \omega^2 x \hat{i}$$$$\Rightarrow \frac{\partial{P}}{\partial{x}} = \rho \omega^2 x  \ \ \ ; \ \ \frac{\partial{P}}{\partial{y}} = -\rho g$$Integrating, we have$$P = \frac{\rho \omega^2 x^2}{2} - \rho g y$$And assuming the surface pressure constant, this yields$$\frac{\rho \omega^2 x^2}{2} = \rho g y \Rightarrow y = \frac{{\omega}^2}{2g} x^2$$Thus the cross sectional surface of the rotating water is a parabola with this equation
+Hence substituting $x=R$ gives the relative height near the edges of the vessel, which is just$$\Delta{h} = \boxed{\frac{{\omega}^2}{2g} R^2}$$
+\tcbline
+\textbf{Solution 2:} Consider a water particle on the surface. In the rotating frame, it experiences three forces, a gravitational force downwards, a centrifugal force outwards, and a normal force perpendicular to the surface.
+\begin{center}
+\begin{asy}
+import graph; usepackage("amsmath"); size(8cm); 
+real labelscalefactor = 0.5; /* changes label-to-point distance */
+pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps); /* default pen style */ 
+pen dotstyle = black; /* point style */ 
+real xmin = -2.3, xmax = 2.3, ymin = -0.6303276899786796, ymax = 1.8007701906158518;  /* image dimensions */
+
+ /* draw figures */
+draw((-0.004788462906506731,1.5657454104578188)--(-0.004788462906506731,-0.4342545895421811),  linetype("2 2")); draw(shift((-0.010691339830682305,1.477332350856711))*rotate(0)*xscale(0.10437759946867764)*yscale(0.02991125659088297)*unitcircle,  linetype("2 2")); 
+draw((0.04126556059680052,1.4520399521327993)--(0.10448387092632873,1.4664077499349646), EndArrow(6)); 
+label("$\omega$",(0.030417105307975936,1.45),SE*labelscalefactor); 
+real f1 (real x) {return 0.3*x^(2);} 
+draw(graph(f1,-2.1804603169924706,2.4108271552649447)); 
+draw((1.40372705181681,0.5911348908006938)--(0.8069949759983192,1.2137966803862708),EndArrow(6)); 
+draw((1.40372705181681,0.5911348908006938)--(1.3998783666087462,-0.005988000295837015),EndArrow(6)); 
+draw((1.40372705181681,0.5911348908006938)--(2.070516955987754,0.6014744900836987),EndArrow(6)); 
+label("$m\omega^2r$",(1.6714929410231147,0.85),SE*labelscalefactor); 
+label("$mg$",(1.4273659571977222,0.32922698255723726),SE*labelscalefactor); 
+label("$N$",(1.1,1.1),SE*labelscalefactor); 
+ /* dots and labels */
+dot((1.40372705181681,0.5911348908006938),dotstyle); 
+clip((xmin,ymin)--(xmin,ymax)--(xmax,ymax)--(xmax,ymin)--cycle); 
+ /* end of picture */
+\end{asy}
+\end{center}
+
+The three forces must sum up to zero. If we add them geometrically, they form a closed right angle triangle
+\begin{center}
+\begin{asy}
+import graph; usepackage("amsmath"); size(5cm); 
+real labelscalefactor = 0.5; /* changes label-to-point distance */
+pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps); /* default pen style */ 
+pen dotstyle = black; /* point style */ 
+real xmin = -9.090168863933378, xmax = 6.292596815605005, ymin = -3.029927271486699, ymax = 5.03253105616609;  /* image dimensions */
+
+ /* draw figures */
+draw((-5,3)--(0,3), EndArrow(6)); 
+draw((0,3)--(0,0), EndArrow(6)); 
+draw((0,0)--(-5,3),EndArrow(6)); 
+draw(shift((-5,3))*xscale(1.2159249686603875)*yscale(1.2159249686603875)*arc((0,0),1,-30.963756532073518,0)); 
+label("$m\omega^2r$",(-2.5,3.5),SE*labelscalefactor); 
+label("$mg$",(0.08551592737021871,1.9739694590648924),SE*labelscalefactor); 
+label("$N$",(-2.6806831641257185,1.4),SE*labelscalefactor); 
+label("$\theta$",(-3.760175492514377,2.8),SE*labelscalefactor); 
+ /* dots and labels */
+clip((xmin,ymin)--(xmin,ymax)--(xmax,ymax)--(xmax,ymin)--cycle); 
+ /* end of picture */
+\end{asy}
+\end{center}
+where $\tan\theta=\frac{g}{\omega^2 r}$
+Since the normal force is perpendicular to the surface, the slope of the surface at this point is:
+$$\frac{dh}{dr}=\cot\theta = \frac{\omega^2r}{g}$$Integrating, from $0$ to $R$, we get:
+$$\boxed{\Delta h = \frac{\omega^2R^2}{2g}}$$
+\end{solution}
