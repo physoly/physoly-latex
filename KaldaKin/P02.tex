@@ -1,0 +1,101 @@
+\begin{solution}{normal}
+Moving into the frame of the red plane, we see the blue plane with a diagonally directed velocity.
+\begin{center}
+\begin{asy}
+ /* Geogebra to Asymptote conversion, documentation at artofproblemsolving.com/Wiki go to User:Azjps/geogebra */
+import graph; size(8cm); 
+real labelscalefactor = 0.5; /* changes label-to-point distance */
+pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps); /* default pen style */ 
+pen dotstyle = black; /* point style */ 
+real xmin = -2.744593121270204, xmax = 9.64611762025217, ymin = -1.0531402599365374, ymax = 4.9972945173565835;  /* image dimensions */
+
+ /* draw figures */
+draw((0,4)--(2,2.5), EndArrow(6)); 
+draw((2,2.5)--(4.476387051188148,0.6278641863742978), linetype("2 2")); 
+draw((4.476387051188148,0.6278641863742978)--(4,0)); 
+draw((0,4)--(4,4), linetype("2 2")); 
+draw((4,4)--(4,0),  linetype("2 2")); 
+label("$d$",(4.247825513565522,0.3138136569372799),SE*labelscalefactor); 
+label("$800$",(1.8747507955254183,3.972324458025408),SE*labelscalefactor); 
+label("$600$",(4.030444623363375,2.615162262224711),SE*labelscalefactor); 
+label("$5$",(3.776833584794204,0.7764822325982088),SE*labelscalefactor); 
+label("$1000$",(1.6301972940480032,2.4521265945731003),SE*labelscalefactor); 
+ /* dots and labels */
+clip((xmin,ymin)--(xmin,ymax)--(xmax,ymax)--(xmax,ymin)--cycle); 
+ /* end of picture */
+\end{asy}
+\end{center}
+The closest approach would be when the faster plane's path makes a perpendicular line with the slower plane. This turns out into a geometry problem where we have two similar right triangles. We can break up the velocity of the blue plane into components (since the displacement is in the same direction as velocity, this is also the components of its displacement). The top triangle is a $3-4-5$ right triangle so the bottom right triangle must also be a $3-4-5$ right triangle. \vspace{3mm}
+
+Now all we need to know now is to determine how far away the blue plane is when it is directly overhead the red plane. The time it takes to reach this point is:
+$$t = \frac{20 \text{ km}}{800 \text{ km/h}} = 0.025 \text{ h}$$
+and the vertical distance it travels during this time is:
+$$\Delta y = (600 \text{ km/h})(0.025 \text{ h}) = 15 \text{ km/h}$$
+meaning the vertical separation is $5 \text{ km/h}$. Therefore:
+$$d=\boxed{4 \text{ km}}$$
+\tcbline
+\textbf{Solution 2:}
+Let us work in the lab frame this time, but break the velocities of the two planes into a direction perpendicular and towards the other plane. We only need to worry about this radial component. Originally, the two planes will be nearing each other but will eventually get farther apart. The point at which this happens is when the radial component of their velocities are directed in the same direction and have the same magnitude. If we measured their radial acceleration at this point, it would be zero.
+
+\begin{center}
+\begin{asy}
+ /* Geogebra to Asymptote conversion, documentation at artofproblemsolving.com/Wiki go to User:Azjps/geogebra */
+import graph; size(8cm); 
+real labelscalefactor = 0.5; /* changes label-to-point distance */
+pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps); /* default pen style */ 
+pen dotstyle = black; /* point style */ 
+real xmin = -3.3631774855799748, xmax = 6.743021595105224, ymin = -0.6826369978117012, ymax = 4.252261383692498;  /* image dimensions */
+
+ /* draw figures */
+draw((0,0)--(0,1.5),EndArrow(6)); 
+draw((2,3)--(4,3), EndArrow(6)); 
+draw((2.620515863303529,3.930773794955293)--(4,3), EndArrow(6)); 
+draw((0,1.5)--(0,3)); 
+draw((0,3)--(2,3)); 
+label("$y$",(-0.2603970660713607,1.6217500550774057),SE*labelscalefactor); 
+label("$600$",(-0.3638230800549812,0.7426289362166278),SE*labelscalefactor); 
+label("$800$",(2.7832827740180415,2.8850249401630614),SE*labelscalefactor); 
+draw((2.620515863303529,3.930773794955293)--(0,0)); 
+draw((0,0)--(0.7056961167133551,1.0585441750700326),EndArrow(6)); 
+draw((0.7056961167133551,1.0585441750700326)--(0,1.5),EndArrow(6)); 
+draw(shift((0,1.5))*xscale(0.1781745741131946)*yscale(0.1781745741131946)*arc((0,0),1,270,327.971516976892)); 
+draw(shift((2,3))*xscale(0.2384299931617635)*yscale(0.2384299931617635)*arc((0,0),1,0,56.309932474020215)); 
+label("$x$",(0.9437772395950775,3.1544893957029018),SE*labelscalefactor); 
+label("$\alpha$",(2.229214841962932,3.1509775475495154),SE*labelscalefactor); 
+label("$\alpha$",(0.042493403452099204,1.2597590061347325),SE*labelscalefactor); 
+draw((2,3)--(2.613261398423678,3.919892097635517),EndArrow(6)); 
+ /* dots and labels */
+clip((xmin,ymin)--(xmin,ymax)--(xmax,ymax)--(xmax,ymin)--cycle); 
+ /* end of picture */
+\end{asy}
+\end{center}
+Thus, we must have:
+$$600\sin\alpha=800\cos\alpha \implies \tan\alpha = \frac{4}{3}$$
+Due to similar triangles, we must also have:
+$$\frac{4}{3} = \frac{y}{x}$$
+Let $t=0$ be when the fast plane is directly above the slow plane. The vertical separation at this point is $5 \text{ km}$. Therefore, we have $x=800t$ and $y=5-600t$
+We want:
+$$\frac{5-600t}{800t}=\frac{4}{3}$$
+Solving for $t$ and plugging it into $x$ and $y$ can give you the separation, which turns out to be $\boxed{4 \text{ km}}$.
+\tcbline
+\textbf{Solution 3:}
+We can use generalized coordinates. The distance between the two planes is:
+$$\vec{d} = (20-800t)\hat{x}+(-20+600t)\hat{y} = \vec{s} + \vec{v}t$$
+where $\vec{s} \equiv 20\hat{x}-20\hat{y}$ and $\vec{v}\equiv -800\hat{x}+600\hat{y}$, which represents the relative velocity. As with before, we want the relative velocity to be perpendicular to the displacement $\vec{d}$. One way of doing it is maximizing the dot product:
+$$|\vec{d} \times \vec{v}| = |\vec{s}\times\vec{v} + \vec{v}\times\vec{v}t| = |\vec{s}\times\vec{v}|$$
+At the maximum, this cross product has to be equal to $|\vec{d}||\vec{v}|$. Therefore, all we need is to evaluate:
+$$|\vec{d}| = \frac{|\vec{s}\times\vec{v}|}{|\vec{v}|} = \boxed{4 \text{ km}}$$
+\tcbline
+\textbf{Solution 4:}
+Here's a standard calculus method. The distance between the two planes after a time $t$ is:
+$$d^2 = (20-800t)^2+(20-600t)^2$$
+$d$ is maximized when $d^2$ is maximized or when:
+\begin{align*}
+\frac{d}{dt} \left((20-800t)^2+(20-600t)^2\right) &= 2(20-800t)(-800)+2(20-600t)(-600)\\
+0 &= 4(20-800t)+3(20-600t) \\
+0 &= 80-3200t+60-1800t \\
+t &= 7/250
+\end{align*}
+Plugging in $t=7/250$ into the distance formula gives:
+$$d=\boxed{4 \text{ km}}$$
+\end{solution}
