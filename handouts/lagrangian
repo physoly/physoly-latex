@@ -372,7 +372,7 @@ The laser beam makes an angle of $\phi$ with a radial line at point P, which is 
 \end{problem}
 
 \begin{problem}[Krotov, Kalda]
-Two slippery ($\mu = 0$) wedge-shaped inclined surfaces with equal tilt angles α are positioned such that their sides are parallel, the inclines are facing each other and there is a little gap in between (see fig.). On top of the surfaces are positioned a cylinder and a wedge-shaped block, whereas they are resting one against the other and one of the block’s sides is horizontal. The masses are, respectively, m and M. What accelerations will the cylinder and the block move with? Find the reaction force between them.
+Two slippery ($\mu = 0$) wedge-shaped inclined surfaces with equal tilt angles $\alpha$ are positioned such that their sides are parallel, the inclines are facing each other and there is a little gap in between (see fig.). On top of the surfaces are positioned a cylinder and a wedge-shaped block, whereas they are resting one against the other and one of the block’s sides is horizontal. The masses are, respectively, $m$ and $M$. What accelerations will the cylinder and the block move with? Find the reaction force between them.
 \begin{center}
     \includegraphics[width=6cm]{wedgecylinder.jpg}
 \end{center}
@@ -452,7 +452,7 @@ when the system is in equilibrium.
 If we consider a virtual displacement $\delta \vec{r}_i$ of a system in equilibrium, we require by the principle of virtual work that 
 \[\sum_{i} \vec{F}_i \cdot \delta \vec{r}_i = 0.\]
 \end{theorem}
-In D'Alembert's work, he considered when a system was accelerating. When an object is accelerating, we add in an "inertial force" equal to $−ma$, then the virtual displacement of the particle would again have zero dot product with $F=ma$. This gives
+In D'Alembert's work, he considered when a system was accelerating. When an object is accelerating, we add in an "inertial force" equal to $-ma$, then the virtual displacement of the particle would again have zero dot product with $F=ma$. This gives
 \[(F(q(t)) - ma) \cdot \delta q(t) = 0.\]
 Similar to the proof\ref{proof:1} of the Euler-Lagrange equations, we once again use variational analysis in this system. Let us consider a small displacement $\varpesilon$, it is then written that 
 \[q_{\varepsilon} = q(t) + \varepsilon \delta q (t).\]
