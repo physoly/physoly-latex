@@ -1,0 +1,22 @@
+\begin{solution}{normal}
+\textbf{(a)} Since the process is adiabatic, we have:
+$$T_0^\gamma P_0^{1-\gamma}=T_1^\gamma P_1^{1-\gamma} \implies T_1 = \left(\frac{P_{0}}{P_{1}}\right)^{\frac{1-\gamma}{\gamma}} T_{0}$$Solving, we get $T_1=279.2 \text{ K}$.
+\vspace{2mm}
+
+\textbf{(b)} We know from the ideal gas law that:
+$$\Delta \rho = \frac{M}{R}\left(\frac{P_1}{T_1}-\frac{P_0}{T_0}\right)$$Since the change is linear, we have $\rho_1=\rho_0-\alpha h \implies \Delta \rho = -\alpha h$. The change in pressure is given by:
+$$-\Delta P /g = \int_0^h (\rho_0-\alpha h) dh = \rho_0 h - \frac{1}{2}\alpha h^2 \implies -\alpha h = -\frac{2\Delta P}{gh}-2\rho_0$$Therefore, we have:
+$$-\frac{2\Delta P}{gh}-2\rho = \frac{M}{R}\left(\frac{P_1}{T_1}-\frac{P_0}{T_0}\right)$$Solving this, we get $h=1440 \text{ m}$. Alternatively, we can write down the first line as:
+$$\frac{P}{\rho T}=\text{constant}$$and go from there.
+\vspace{2mm}
+
+\textbf{(c)} If there was no rain, the temperature would be given by:
+$$T_2'=\left(\frac{P_0}{P_2}\right)^\frac{1-\gamma}{\gamma}T_0=264.4 \text{ K}.$$However, there is also condensation, which is an exothermic process and the condensation of the water vapor releases heat into the atmosphere. This is given by:
+$$\frac{m_\text{air}}{M}c_V\Delta T = m_\text{water}L_V\implies \Delta T = \frac{m_\text{water}}{m_\text{air}}\frac{ML_V}{R\left(\frac{\gamma}{\gamma-1}\right)}=6.1 \text{ K}$$Therefore,
+$$T_2=T_2'+\Delta T=270.7 \text{ K}.$$
+\textbf{(d)} Given a certain unit area, $2000 \text{ kg}$ of moist air can travel up the mountain ridge in $1500 \text{ s}$, so the rate at which water condenses is:
+$$r=\frac{2000\cdot \frac{2.45}{1000}}{1500}=0.00327 \,\mathrm{ kg/(s\cdot m^2)}$$The height of the water column after $t=3 \text{ hours}$ is hus:
+$$\frac{rt}{\rho}=3.5 \text{ cm}$$
+\textbf{(e)} We use the same relationship:
+$$T_3=\left(\frac{P_3}{P_2}\right)^\frac{1-\gamma}{\gamma}T_2=300 \text{ K}$$
+\end{solution}

@@ -1,0 +1,86 @@
+\begin{solution}{hard}
+Draw a right trapezoid as follows:
+\vspace{3mm}
+
+We decompose $\vec{v}$ into parallel and perpendicular components, $\vec{v} = \vec{v_x} + \vec{v_y}$; let us mark points $A, B$ and $C$ so that
+$AB = \vec{v_x}$ and $BC = \vec{v_y}$ (then, $AC = \vec{v}$). \vspace{3mm}
+
+Next we mark points $D, E$ and $F$ so that $CD = \vec{v'_y} = \vec{v_y}$, $DE = -\vec{v_x}$, and $EF = 2\vec{u_x}$; then, $CF = \vec{v_y'} - \vec{v_x} + 2\vec{u_x} \equiv \vec{v'}$ and $AF = 2\vec{v_y} + 2\vec{u_x} \equiv 2\vec{u}$. \vspace{3mm}
+
+Due to the problem conditions, $\angle ACF = 90^{\circ}$.
+\begin{center}
+    \begin{asy}
+        size(8.5cm);
+        import olympiad;
+        pair A, B, C, D, E, F;
+        A = (0, 0);
+        B = (-1, 0);
+        C = (-1, 1);
+        D = (-1, 2);
+        E = (1, 2);
+        F = (0.5, 1);
+        
+        draw(A -- B -- C -- D -- E -- F -- cycle);
+        draw(C -- F);
+        draw(A -- C -- E, dotted);
+        markscalefactor = 0.02;
+        draw(anglemark(A, C, F));
+        label("$\alpha$", (-0.93, 1.03), 4SE);
+        draw(anglemark(F, A, C));
+        label("$\alpha$", A, 5N);
+        draw(anglemark(C, F, A));
+        label("$\beta$", (0.4, 0.97), 2SW);
+        markscalefactor = 0.01;
+        draw(rightanglemark(C, B, A));
+        label("A", A, SE);
+        label("B", B, SW);
+        label("C", C, W);
+        label("D", D, NW);
+        label("E", E, NE);
+        label("F", F, SE);
+        label("$-\vec{v_x}$", (D+ E)/2, N);
+        label("$\vec{v_y'} = \vec{v_y}$", (C + D)/2, W);
+        label("$\vec{v_y}$", (B + C)/2, W);
+        label("$\vec{v_x}$", (B + A)/2, S);
+        label("$2\vec{v_y} + 2\vec{u_x} = 2\vec{u}$", (0.9, 1), E);
+        draw(F -- (0.5, 2), dotted);
+        markscalefactor = 0.01;
+        draw(rightanglemark(E, (0.5, 2), F));
+        label("$2\vec{u_x}$", ((0.5, 2) + E)/2, N);
+    \end{asy}
+\end{center}
+We now can see that $\Delta ACF$ is an isoceles triangle containing the lengths provided in the figure below. \vspace{3mm}
+
+Let us also mark point $G$ as the centre of $AF$; then, $FC$ is both the median of the right trapezoid $ABDF$ (and hence, parallel to $AB$ and the $x-$axis), and the median of the triangle $ACF$.
+\begin{center}
+    \begin{asy}
+        size(7cm);
+        import olympiad;
+        pair A, B, C, D, E, F;
+        A = (0, 0);
+        B = (-1, 0);
+        C = (-1, 1);
+        D = (-1, 2);
+        E = (1, 2);
+        F = (0.3, 1.2);
+        
+        draw(A -- C -- F -- cycle);
+        markscalefactor = 0.02;
+        draw(anglemark(A, C, F));
+        label("$\alpha$", (-0.93, 1.03), 5SE);
+        draw(anglemark(F, A, C));
+        label("$\alpha$", A, 7NNW);
+        draw(anglemark(C, F, A));
+        label("$\beta$", (0.4, 0.95), 2SW);
+        label("A", A, SE);
+        label("C", C, W);
+        label("F", F, NE);
+        label("$\vec{v}$", (A+C)/2, SW);
+        label("$\vec{u}$", (C+F)/2, N);
+        label("$\vec{u}$", (A+F)/2, SE);
+    \end{asy}
+\end{center}
+By splitting $\Delta ACF$ into it's median, we find, 
+\[u\cos\alpha = \frac{v}{2}\implies u = \boxed{\frac{v}{2\cos\alpha}}.\]
+For this to also happen, we see that $\beta = \boxed{180 - 2\alpha}$ because $\Delta ACF$ is an isoceles triangle.
+\end{solution}

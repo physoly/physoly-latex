@@ -1,0 +1,50 @@
+\begin{solution}{normal}
+\begin{center}
+    \begin{asy}
+        unitsize(7mm);
+        pair A = (0.67,-0.05);
+        real a = 17.4*pi/180;
+        pair B = (21.1,-0.25);
+        pair M = ((21.1+0.67)/2,-0.175);
+        real b = 12.3*pi/180;
+        for(int i=0; i<17; ++i){
+        	filldraw(box((i*1.328,0),(i*1.328+0.664,-0.35)),gray(0.5),invisible);
+        }
+        filldraw(box((0.6,0),(4.3,-0.15)),red,invisible);
+        filldraw(box((17.5,-0.35),(21.1,-0.2)),red,invisible);
+        filldraw(A--A+(19.4*cos(a),-19.4*sin(a))--A+(19.5*cos(a+1.5*pi/180),-19.5*sin(a+1.5*pi/180))--A+(0,-0.05)--cycle);
+        filldraw(B--B+(-16.7*cos(b),-16.7*sin(b))--B+(-16.6*cos(b+1.5*pi/180),-16.6*sin(b+1.5*pi/180))--B+(0,-0.05)--cycle);
+        draw((9.45,-3)--(9.45,-0.35/2));
+        dot(A+(0,-0.125));
+        dot(B+(0,0.075));
+        dot(M);
+        dot((9.45,-0.35/2));
+        label("$A$",A+(0,-0.125),N*2);
+        label("$B$",B+(0,0.075),N*2);
+        label("$M$",M,N*2);
+        draw("$vt$",M+(0,1.3)--A+(0,-0.125)+(0,1.3),Arrows,Bars);
+        draw((9.45,-3)--M);
+        draw("$ut$",(9.45,-3)+4*(0.1,-0.04)--M+4*(0.1,-0.04),blue,Arrows,Bars);
+        draw(arc((9.45,-3),1,90,63));
+        label("$\alpha$",(9.45,-3)+(0.3,1.3));
+        label("$C$",(9.45,-0.35/2),N*2);
+        label("$P$",(9.45,-3.8));
+    \end{asy}
+\end{center}
+
+Consider the diagram above, where $A$ is the engine of the left train, $B$ is the engine of the right train, $M$ is the midpoint of $AB$, $P$ is the intersection of the smoke trails, and $C$ is that intersection projected onto line $AB$.\vspace{3mm}
+
+Since both trains travel at $v=50\;\text{km/h}$, $M$ is where the two trains met. In the time it took the trains to travel from $M$ to $A$ and $B$, the wind caused the smoke to drift from point $M$ to point $P$.\vspace{3mm}
+
+Let us set an arbitrary scale of $1\;\text{cm}=100\;\text{km}$.\vspace{3mm}
+
+Measuring\blfootnote{Don't worry if you didn't set the same scale or measure the same distances as us; however, the ratios of your distances and the final answer should still remain (approximately) the same}, we find that
+\begin{align*}
+|AB|&=15.8\;\text{cm}\\
+|AM|&=7.9\;\text{cm}=vt\\
+t&=15.8\;\text{h}\\
+|PM|&=2.3\;\text{cm}=ut\\
+u&=14.55\;\text{km/h}\approx15\;\text{km/h}\approx\boxed{4.2\;\text{m/s}}\\
+\alpha&\approx\boxed{27^\circ}
+\end{align*}
+\end{solution}

@@ -1,0 +1,76 @@
+\begin{solution}{normal}
+\textbf{(a)} Let us analyze each step in the cycle:
+\vspace{3mm}
+
+\noindent $\text{I}$. This is an isobaric process (or in other words, constant pressure). This is because no thermodynamic parameter is changing in the piston apart from the change in volume from $5\to 1$. Fresh air comes into the valve and fills the cylinder. 
+\vspace{3mm}
+
+\noindent $\text{II}$. For process $1\to 2$, we have a reversible adiabatic process. Both parameters of pressure and volume are changing and the air is being compressed adiabatically.
+\vspace{3mm}
+
+\noindent $\text{III}$. For process $2\to 3$, we have an isothermal process. This is because the combustion spark into the valve is only for a very short time so we essentially have a constant volume. We then have heat absorbed from a series of reservoirs of temperatures $T_2$ and $T_3$. 
+\vspace{3mm}
+
+\noindent $\text{IV}$. Now the gas is disposed of and the pressure and volume again change adiabatically from $3\to 4$. This process then repeats once again periodically through an isothermal process of $4\to 1$.
+\vspace{3mm}
+
+\noindent We can now draw the thermodynamic cycle. 
+\begin{center}
+    \begin{asy}
+    unitsize(2cm);
+import graph;
+draw((-0.5, 0)--(-0.5, 4), arrow=Arrow(TeXHead), linewidth(1));
+draw((-0.5, 0)--(4.5, 0), arrow=Arrow(TeXHead), linewidth(1));
+label("$V$", (4.5, 0), SE);
+label("$P$", (-0.5, 4), NW);
+draw((0.5, 0.5) -- (3.5, 0.5), linewidth(1));
+draw((0.5, 0.5) -- (2, 0.5), arrow=Arrow(8), linewidth(1));
+draw((3.5, 0.5)..(2, 0.75)..(0.5, 1.5), linewidth(1));
+draw((3.5, 0.5)..(2, 0.75)..(0.75, 1.33), arrow=Arrow(8));
+draw((0.5, 1.5) -- (0.5, 3.5), linewidth(1));
+draw((0.5, 1.5) -- (0.5, 2.5), arrow=Arrow(8));
+draw((0.5, 3.5)..(2, 2)..(3.5, 1.25), linewidth(1));
+draw((0.5, 3.5)..(2, 2)..(2.5, 1.7), arrow=Arrow(8));
+draw((3.5, 1.25) -- (3.5, 0.5), linewidth(1));
+draw((3.5, 1.25) -- (3.5, 0.87), arrow=Arrow(8));
+
+label("5", (0.5, 0.5), S);
+label("1", (3.5, 0.5), E);
+label("2", (0.5, 1.5), S);
+label("3", (0.5, 3.5), N);
+label("4", (3.5, 1.25), E);
+
+draw((0.5, 0) -- (0.5, 0.1));
+draw((3.5, 0) -- (3.5, 0.1));
+
+label("$V_2 = V_3$", (0.5, 0), S);
+label("$V_1 = V_4$", (3.5, 0), S);
+
+draw((-0.3, 2) -- (0.2, 2), arrow=Arrow(8));
+label("$Q_1$", (0, 2), N);
+draw((3.7, 0.9) -- (4.2, 0.9), arrow=Arrow(8));
+label("$Q_2$", (4.2, 0.9), N);
+    \end{asy}
+\end{center}
+
+\vspace{5mm}
+
+\noindent \textbf{(b)} The heat out of the isotherm on $2\to 3$ is given by 
+\[Q_1 = C_V (T_3 - T_2)\]
+while the heat out of the isotherm on $4\to 1$ is given by 
+\[Q_2 = C_V (T_3 - T_1).\]
+Since efficiency is given by 
+\[\eta = \frac{W}{Q_2} = 1 - \frac{Q_1}{Q_2}\]
+we find that 
+\[\eta = 1 - \frac{T_4 - T_1}{T_3 - T_2}.\]
+On an adiabat, $TV^{\gamma - 1}$ is constant or in other words,
+\[T_1 V_1 ^{\gamma - 1} = T_2 V_2 ^{\gamma - 1}, \quad T_4 V_1^{\gamma  -1} = T_3 V_2^{\gamma - 1}\]
+which implies that 
+\[(T_4 - T_1) V_1^{\gamma - 1} = (T_3 - T_2)V_2^{\gamma -1}\implies \frac{T_4 - T_1}{T_3 - T_2} = \left(\frac{V_2}{V_1}\right)^{\gamma - 1}.\]
+Hence: 
+\[\eta = 1 - \frac{1}{\left(V_2/V_1\right)^{\gamma - 1}} = \boxed{1 - k^{1 - \gamma}}.\]
+\vspace{3mm}
+
+\noindent \textbf{Remark}: This problem is essentially resemblant of the Otto cycle, a four-stroke cycle in internal combustine engines that is found in cars, electrical generators, etc.
+
+\end{solution}

@@ -1,0 +1,15 @@
+\begin{solution}{easy}
+Let $d$ denote the common distance of separation between adjacent cars (it's the same for all lanes) \vspace{3mm}
+
+The flow rate (in $\text{cars/s}$) of the cars entering lane $A$ is equal to $\dfrac{v_A}{d}$ \vspace{3mm}
+
+The flow rate (in $\text{cars/s}$) of the cars entering lane $B$ is equal to $\dfrac{v_B}{d}$ \vspace{3mm}
+
+Note that $v_A=3\;\text{km/h}$ and $v_B=5\;\text{km/h}$ \vspace{3mm}
+
+By idea 39, the flow rate (in $\text{cars/s}$) of the cars entering lane $C$ must be $$\dfrac{v_A}{d}+\dfrac{v_B}{d}$$
+
+This means that the velocity of the cars in lane $C$ is simply $$v_A+v_B=8\;\text{km/h}$$
+
+Thus, our final answer is $$\dfrac{1\;\text{km}}{3\;\text{km/h}}+\dfrac{2\;\text{km}}{8\;\text{km/h}}=0.583\;\text{h}=\boxed{35\;\text{min}}$$
+\end{solution}

@@ -1,0 +1,24 @@
+\begin{solution}{normal}
+We consider the boat in the frame of reference of the air. Since we have the wind measurements, we can find the displacement of the boat in the frame of reference of the air. We'll be taking south and east as positive. \vspace{3mm}
+
+During the first segment we have the wind blowing east, so in the frame of reference of the air, the boat is displaced east by $$x_1 = 60v_1t_1$$. \vspace{3mm}
+
+The 60 is there for a unit conversion of the time to seconds. \vspace{3mm}
+
+We do the same for the second leg, however we must account for the fact that the wind blows southeast, so there is both a southern displacement and an eastern displacement.
+$$x_2 = 60v_2\cos(\pi/4)t_2 = 30\sqrt{2}v_2t_2$$
+$$y_2 = 60v_2\sin(\pi/4)t_2=30\sqrt{2}v_2t_2$$
+
+Similarly for the last leg, we have that
+$$x_3 = 60v_3 \cos(3\pi/4)t_3 = -30\sqrt{2}v_3t_3$$
+$$y_3 = 60v_3\cos(3\pi4)t_3 = 30\sqrt{2}v_3t_3$$
+
+The total southern displacement is
+$$y = 30\sqrt{2}v_2t_2+30\sqrt{2}v_3t_3 \approx 955 \, \mathrm{m}$$
+
+The total eastern displacement is 
+$$x = 60v_1t_1+30\sqrt{2}v_2t_2-30\sqrt{2}v_3t_3 \approx 3018 \, \mathrm{m}$$
+
+Since the displacement in the lab frame is south 4000 m, we can find the displacement caused by the wind (in the lab frame) as $4000-y$ south and $-x$ east. From there we just divide by the total time to find the wind speed as it's constant, so
+$$v_\text{wind} = \dfrac{\sqrt{(4000-y)^2 + (-x)^2}}{60(t_1 + t_2 +t_3)} = \dfrac{\sqrt{3045^2 + 3018^2}}{60} \approx \boxed{12 \, \mathrm{m/s}}$$
+\end{solution}

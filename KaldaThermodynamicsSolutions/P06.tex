@@ -1,0 +1,31 @@
+\begin{solution}{normal}
+According to Stefan-Boltzmann's Law, the power per unit area emitted from the surface of a blackbody at temperature $T$ is $\sigma T^4$. 
+
+The total power emitted from the sun, considered a blackbody for the sake of the problem, is therefore,
+$$P_\odot=\sigma T_\odot^4 (4\pi R_\odot^2)$$
+
+Due to the inverse square law, the solar flux stays constant through any closed surface. The portion of energy that reaches the satellite is given by the ratio between the cross-sectional area of the satellite and the area of an imaginary sphere centered around the Sun with a radius of $L$ ($R_\oplus$ is the radius of the satellite)
+$$
+\gamma=
+\frac{\pi R_\oplus^2}{4\pi L^2}=
+\left(\frac{R_\oplus}{2L}\right)^2$$
+
+According to Prevost's theory of exchange, in order to maintain thermal equilibrium, any object must emit the same energy as it receives. If this was not true, then it would continuously lose or gain energy until it is at equilibrium. Now let the emissivity and absorptivity factors of the satellite be $\epsilon$ and $a$. Since we know that these two parameters essentially have the same value at a particular wavelength, we have
+$$P_\text{in} = P_\text{out}$$
+By Stefan-Boltzmann Law, we have 
+\[P_{\text{output}}=4\pi R_\oplus^2\sigma T^4\]
+Equating $P_{\text{in}}$ to $P_{\text{out}}$ gives us
+\begin{align*}
+P_\text{output} &= P_\odot \gamma_\text{eff}\\
+\epsilon_ \times 4\pi R_\oplus^2\sigma T^4 &= 
+a \times \sigma T_\odot^4 (4\pi R_\odot^2)\left(\frac{R_\oplus}{2L}\right)^2 \\
+\cancel\epsilon_ \times 4\pi R_\oplus^2\sigma T^4 &= 
+\cancel a \times \sigma T_\odot^4 (4\pi R_\odot^2)\left(\frac{R_\oplus}{2L}\right)^2 \\
+ T^4 &= 
+ T_\odot^4 (R_\odot^2)\left(\frac{1}{2L}\right)^2 \\
+ T^4 &= \frac{T_\odot^4 R_\odot^2}{4L^2}  \\
+ T &= T_\odot \sqrt{\left(\frac{R_\odot}{2L}\right)}\\
+\end{align*}
+Plugging in our given constants gives us $\approx\boxed{290\;\mathrm{K}}$.
+
+\end{solution}

@@ -1,0 +1,93 @@
+\begin{solution}{normal}
+\begin{center}
+    \begin{asy}
+        unitsize(3cm);
+        real a = 40*pi/180;
+        filldraw((-1.5,0)--(0,1.5*sin(a))--(0.03*sin(a),1.5*sin(a)-0.03*cos(a))--(-1.5+0.03*sin(a),-0.03*cos(a))--cycle,white);
+        filldraw((1.5,0)--(-0.8,2.3*sin(a))--(-0.8-0.03*sin(a),2.3*sin(a)-0.03*cos(a))--(1.5-0.03*sin(a),-0.03*cos(a))--cycle,white);
+        filldraw((-2,0)--(2,0)--(2,-0.05)--(-2,-0.05)--cycle);
+        draw(arc((-1.5,0),0.3,0,27));
+        draw(arc((1.5,0),0.3,180,153));
+        label("$\alpha$",(-1.1,0.1));
+        label("$\alpha$",(1.1,0.1));
+        filldraw(circle((-0.75,1.49),0.03));
+        label("$A$",(-0.9,1.49));
+        filldraw(circle((-0.1,0.94),0.03));
+        label("$B$",(-0.23,0.94));
+        draw("$x$",(-0.75,0.85)--(-0.1,0.85),Arrows,Bars,PenMargins);
+    \end{asy}
+\end{center}
+
+In the reference frame of ball A, ball B accelerates to the left with
+$$a_B=2g\sin\alpha\cos\alpha$$
+
+We can find that the initial length $|AB|$ is
+$$\dfrac{g\left(t_1^2-t_2^2\right)\sin\alpha}{2}$$
+
+Therefore,
+$$x=\dfrac{g\left(t_1^2-t_2^2\right)\sin\alpha\cos\alpha}{2}$$
+
+Since there is no relative acceleration in the y-direction, we need
+\begin{align*}
+\dfrac{a_Bt^2}{2}&=x\\
+gt^2\sin\alpha\cos\alpha&=\dfrac{g\left(t_1^2-t_2^2\right)\sin\alpha\cos\alpha}{2}\\
+t&=\boxed{\sqrt{\dfrac{t_1^2-t_2^2}{2}}}
+\end{align*}
+\tcbline
+
+\textbf{Solution 2:} Each ball will accelerate with the same acceleration down their platform, meaning that they will travel the same distance in the same timeframe. \vspace{3mm}
+
+Let $x$ be the distance traveled by the individual balls and $k$ be the distance between the two balls. Let the height of the ball at point $A$ be $h_1$ and the height of the ball at point $B$ be $h_2$. \vspace{3mm}
+
+If you draw a diagram you will find that there is a triangle formed by the position of the two balls and the intersection of the planks. The lengths of the triangle are $x, x - \dfrac{h_1 - h_2}{\sin{\alpha}}, k$.
+
+\begin{center}
+    \begin{asy}
+        unitsize(4cm);
+        real a = 40*pi/180;
+        filldraw((-1.5,0)--(0,1.5*sin(a))--(0.03*sin(a),1.5*sin(a)-0.03*cos(a))--(-1.5+0.03*sin(a),-0.03*cos(a))--cycle,white);
+        filldraw((1.5,0)--(-0.8,2.3*sin(a))--(-0.8-0.03*sin(a),2.3*sin(a)-0.03*cos(a))--(1.5-0.03*sin(a),-0.03*cos(a))--cycle,white);
+        filldraw((-2,0)--(2,0)--(2,-0.05)--(-2,-0.05)--cycle);
+        draw(arc((-1.5,0),0.3,0,27));
+        draw(arc((1.5,0),0.3,180,153));
+        label("$\alpha$",(-1.1,0.1));
+        label("$\alpha$",(1.1,0.1));
+        filldraw(circle((-0.44,1.29),0.03));
+        label("$A$",(-0.33,1.35));
+        filldraw(circle((-0.41,0.74),0.03));
+        label("$B$",(-0.53,0.74));
+        filldraw(circle((-0.01,1.5*sin(a)-0.02),0.02));
+        label("$O$",(-0.01,0.85));
+        pair A = (-0.44,1.29);
+        pair B = (-0.41,0.74);
+        pair O = (-0.01,1.5*sin(a)-0.02);
+        draw(A--B--O--cycle);
+        label("$x$",(B+O)/2+(0.05,-0.08));
+        label("$k$",(A+B)/2+(-0.07,0));
+        label("$\displaystyle{\frac{h_1-h_2}{\sin\alpha}-x}$",(A+O)/2+(0.3,0.1));
+    \end{asy}
+\end{center}
+
+By the Law of Cosines, we have
+\[k^2 = x^2 + \left(\frac{h_1 - h_2}{\sin{\alpha}}-x\right)^2 - 2x\left(\frac{h_1 - h_2}{\sin{\alpha}}-x\right) \cos(2\alpha)\]
+
+Let $\beta = \dfrac{h_1 - h_2}{\sin{\alpha}}\;$ for simplicity.\vspace{3mm}
+
+Simplifying the expression, we get that
+\[k(x) = \sqrt{2x^2(1+\cos\left(2\alpha\right)) - 2x\beta (1+\cos\left(2\alpha\right)) + \beta^2}\]
+
+After taking the derivative of the quadratic and setting it equal to zero, we get that
+$$x_m = -\dfrac{B}{2A}=\dfrac{\beta}{2}$$
+
+Using acceleration along the ramp we can also find that
+\begin{align*}
+\dfrac{h_1}{\sin\alpha}&=\dfrac{gt_1^2\sin\alpha}{2}\;\;\;\;\;\;\;\;\; \dfrac{h_2}{\sin\alpha}=\dfrac{gt_2^2\sin\alpha}{2}\\
+x_m&=\dfrac{gt_m^2\sin\alpha}{2}=\dfrac{h_1-h_2}{2\sin\alpha}
+\end{align*}
+Plugging in everything we find that
+\begin{align*}
+t_m&=\sqrt{\dfrac{h_1-h_2}{g\sin^2\alpha}}\\
+&=\sqrt{\dfrac{\dfrac{gt_1^2\sin^2\alpha}{2}-\dfrac{gt_2^2\sin^2\alpha}{2}}{g\sin^2\alpha}}\\
+&=\boxed{\sqrt{\dfrac{t_1^2-t_2^2}{2}}}
+\end{align*}
+\end{solution}

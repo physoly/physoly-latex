@@ -1,0 +1,12 @@
+\begin{solution}{normal}
+We consider the changes in energy along the three interfaces. Consider moving the edge inwards by a distance $a \ll L$ where $L$ is the length of the boundary. Between the solid and the gas, the initial contact area is $(1-r)aL$ and the final contact area is $aL$ so the change in energy is:
+$$\Delta E_1 = \sigma_{sg}rAL$$
+Between the solid and the liquid, the initial contact area is $raL$ and the final contact area is $0$, so the change in energy is:
+$$\Delta E_2 = -\sigma_{s\ell}rAL$$
+Between the liquid and the gas, the initial contact area is $aL\cos\alpha+(1-r)aL$, and the final contact area is $0$, so the change in energy is:
+$$\Delta E_3 = -\sigma_{g\ell}aL\cos\alpha-\sigma_{g\ell}(1-r)aL$$
+At equilibrium $\frac{dU}{da}=0$, or: $$\Delta E_1+\Delta E_2 + \Delta E_3=0 \implies r\left(\sigma_{sg}-\sigma_{s\ell}\right)=\sigma_{g\ell}\cos\alpha+\sigma_{g\ell}(1-r)$$
+Letting $\sigma_{sg}-\sigma_{s\ell}=\sigma_{g\ell}\cos\alpha_0$ gives:
+$$r\sigma_{g\ell}\cos\alpha_0=\sigma_{g\ell}\cos\alpha+\sigma_{g\ell}(1-r)\implies \cos\alpha = r\cos\alpha_0 - (1-r).$$
+Letting $\alpha_0=110^\circ$ and $r=0.006$ gives: $\boxed{\alpha=174.9^\circ \approx 175^\circ}$.
+\end{solution}

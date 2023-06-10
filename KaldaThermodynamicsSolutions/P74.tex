@@ -1,0 +1,34 @@
+\begin{solution}{normal}
+\textbf{A-i)} The buoyant force is going to be: $$F=\rho_\text{air}V_\text{balloon}g$$
+where $\rho_\text{air}=\frac{PM_A}{RT}$ from the ideal gas law. Applying the ideal gas law to inside the balloon gives:
+$$RT = \frac{(P+\Delta P)V}{n}$$
+Therefore, the buoyant force is:
+$$\frac{P}{P+\Delta P}nM_Ag$$
+\vspace{3mm}
+
+\noindent \textbf{A-ii)} We know that $\rho = \frac{PM_{A}}{RT} \implies \rho = \frac{PM_Az_0}{RT_0(z_0-z)}$. The differential change in pressure for a differential change in height $\mathrm{d}z$ is $$\mathrm{d}P = -\rho g\mathrm{d}z \implies \mathrm{d}P = -\frac {PM_Az_0g}{RT_0(z_0-z)} \mathrm{d}z.$$
+This means that by integrating,
+$$\int_{P_0}^P \frac{\mathrm{d}P}{P} = -\frac {M_Az_0g}{RT_0} \int_0^z \frac{\mathrm{d}z}{z_0-z} \implies \ln \left(\frac{P}{P_0}\right) = \frac {M_Az_0g}{RT_0}\ln\left(\frac{z_0-z}{z_0}\right) $$
+and
+$$ P = P_0\left( 1 - \frac{z}{z_0}\right)^{\frac {M_A{z_0}g}{RT_0}}. $$
+Also, note that $\rho_0 = \frac{P_0M_A}{RT_0} \implies \frac{M_A}{RT_0} = \frac{\rho_0}{P_0}$ and therefore:
+$$\eta = \frac{\rho_0z_0g}{P_0}$$
+\vspace{3mm}
+
+\noindent \textbf{B-i)} We can apply the method of virtual work. The work needed to change the radius by $dr$ is:
+$$\Delta P (4\pi r^2) dr$$which causes a change in energy of
+$$dU = 4\pi r_0^2\kappa RT(4\lambda -4\lambda^{-5}) dr/r_0$$Equating gives:
+$$\Delta P (4\pi r^2) dr = 4\pi r_0\kappa RT(4\lambda -4\lambda^{-5}) \implies \Delta P = \frac{4\kappa RT}{r_0}(2\lambda^{-1}+\lambda^{-7})$$The graph pretty much looks like:
+$$\Delta P = \frac{8\kappa RT}{r_0\lambda}$$except for small values, at which it increases to infinity quickly.
+\vspace{1.5mm}
+
+\noindent We can alternatively treat the energy as:
+$$U=4\pi r^2\gamma$$where $\gamma$ is a varying surface tension. Solving for $\gamma$ and dropping the constant factor, we can apply Laplace's pressure $\Delta P=4\gamma/R$ and solve for $\Delta P$.
+\vspace{3mm}
+
+\noindent \textbf{B-ii)} Initially $P_0V_0 = n_0RT_0$ where $V_0$ is the unstretched volume. Finally
+$$(P_0+\Delta P)V_0\lambda^3 = nRT_0$$as $V \propto r^3$
+using the result from part B(i) we get $\Delta P = \frac{4\kappa RT}{r_0}(\lambda^{-1}-\lambda^{-7}).$
+This gives us 
+$$ P_0V_0 \lambda^3 ( 1 + a (\lambda^{-1}-\lambda^{-7})) = nRT_0 \implies a = \frac{\left(\frac{n}{n_0}\right) \frac{1}{\lambda^3} - 1}{(\lambda^{-1}-\lambda^{-7})} = 0.11$$
+\end{solution}

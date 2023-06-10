@@ -1,0 +1,178 @@
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[margin=0.8in]{geometry} % Page Dimensions
+
+\usepackage{cancel}
+\usepackage{enumitem}
+\setlength{\parskip}{\baselineskip}%
+\usepackage[breakable,many]{tcolorbox}
+% Math
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage[inline]{asymptote}
+\usepackage{xcolor}
+\usepackage{multicol}
+% Allows for hyperlinking
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=magenta,
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%% COLORS %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\definecolor{my-blue}{RGB}{93,169,233}
+\definecolor{my-pink}{RGB}{238,118,116}
+\definecolor{my-green}{RGB}{0,191,0}
+\definecolor{my-orange}{HTML}{C78058}
+\definecolor{background}{HTML}{f2f2f2}
+\definecolor{my-yellow}{HTML}{F6BD60}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% Style Definitions %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% Simple Gray Boxes %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tcbset{simple/.style={
+    breakable,
+    enhanced,
+    outer arc=0pt,
+    arc = 0pt,
+    colback=background, % Background color
+    colframe=background, % Border Color
+    coltitle=black, % Title Color
+    fonttitle=\bfseries,
+    attach title to upper,
+    after title={:\ },
+    segmentation style={dashed, gray},
+    }
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%   Colored Boxes   %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tcbset{orange-labeled/.style={
+  breakable,
+  enhanced,
+  outer arc=0pt,
+  arc=0pt,
+  colframe=my-orange,
+  colback=my-orange!5,
+  attach title to upper,
+  coltitle=my-orange!200,
+  after title={\medbreak},
+  }
+}
+
+\tcbset{yellow-labeled/.style={
+  breakable,
+  enhanced,
+  outer arc=0pt,
+  arc=0pt,
+  colframe=my-yellow,
+  colback=my-yellow!5,
+  attach title to upper,
+  coltitle=my-yellow!200,
+  after title={\medbreak},
+  }
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%   1-Sided Boxes   %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tcbset{one-sided-green/.style={
+    breakable,
+    enhanced,
+    boxrule=0pt,
+    frame hidden,
+    borderline west={2pt}{0pt}{my-green},
+    colback=my-green!10,
+    coltitle=my-green!200,
+    after title={:\ },
+    sharp corners,
+    attach title to upper,
+    }
+}
+
+\tcbset{one-sided-blue/.style={
+    breakable,
+    enhanced,
+    boxrule=0pt,
+    frame hidden,
+    borderline west={2pt}{0pt}{my-blue},
+    colback=my-blue!10,
+    coltitle=my-blue!200,
+    after title={:\ },
+    sharp corners,
+    attach title to upper,
+    }
+}
+
+\tcbset{one-sided-pink/.style={
+    breakable,
+    enhanced,
+    boxrule=0pt,
+    frame hidden,
+    borderline west={2pt}{0pt}{my-pink},
+    colback=my-pink!10,
+    coltitle=my-pink!200,
+    after title={:\ },
+    sharp corners,
+    attach title to upper,
+    }
+}
+
+\tcbset{one-sided-yellow/.style={
+    breakable,
+    enhanced,
+    boxrule=0pt,
+    frame hidden,
+    borderline west={2pt}{0pt}{my-yellow},
+    colback=my-yellow!10,
+    coltitle=my-yellow!200,
+    after title={:\ },
+    sharp corners,
+    attach title to upper,
+    }
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%   Box Definitions %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtcolorbox[auto counter]{example}[1][]{
+  orange-labeled,
+  title=\textbf{Example \thetcbcounter \ ({#1})},
+}
+
+\newtcolorbox[auto counter]{custom-big}[1][]{
+  yellow-labeled,
+  title=\textbf{{#1}},
+}
+
+\newtcolorbox{definition}{
+    one-sided-green,
+    title=\textbf{Definition},
+}
+
+\newtcolorbox{theorem}{
+    one-sided-blue,
+    title=\textbf{Theorem},
+}
+
+\newtcolorbox{idea}{
+    one-sided-pink,
+    title=\textbf{Idea},
+}
+
+\newtcolorbox{custom-small}[1][]{
+    one-sided-yellow,
+    title=\textbf{{#1}},
+}
+
+\newtcolorbox[auto counter]{custom-simple}[1][]{
+    simple,
+    title={#1},
+    % add a `\thetcbcounter` to the end if you want to keep track of numberings.
+}

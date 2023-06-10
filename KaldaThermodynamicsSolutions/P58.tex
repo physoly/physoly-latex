@@ -1,0 +1,25 @@
+\begin{solution}{normal}\textbf{(a)} Let us start out with the definition of the molar heat capacity and apply the first law of thermodynamics:
+\[C = \frac{\partial Q}{\partial T} = C_V + P\left(\frac{\partial V}{\partial T}\right)_P.\]
+Since the process takes placed in a bubble, the thermodynamic process is polytropic. What this means is that 
+\[p^3 V = \text{const.}\]
+Let us apply the ideal gas equation for one mole:
+\[pV = RT\implies p = \frac{RT}{V}.\]
+Substituting this relation of pressure into our polytropic equation gives us 
+\[\left(\frac{RT}{V}\right)^3\cdot V = R^3 T^3 V^2 = \text{const.}\]
+We can apply implicit differentiation (note that the derivative of a constant will become zero) to this relationship to yield 
+\[3R^3 T^2 V^2 \text{d}T + 2R^3 T^3 V \text{d}V = 0\implies \frac{\text{d}V}{\text{d}T} = \frac{3V}{2T}.\]
+The heat capacity of a diatomic gas at constant volume is $C_V = \frac{5}{2}R$ so 
+\[C = \frac{5}{2}R + \frac{3PV}{2T} = \frac{5}{2}R + \frac{3}{2}R = \boxed{4R}.\]
+\vspace{3mm}
+
+\noindent \textbf{(b)} Consider a small expansion of the bubble. We can relate pressure and volume by:
+\[\frac{dp}{p} = -\frac{dV}{V}.\]
+The infintesimal change in volume is $dV = 4\pi r^2 dr$ and the volume is $V = \frac{4}{3}\pi r^3$. Also note that by Laplace's law, the pressure is given by $p = \frac{4\sigma}{r}$. This means that 
+\[dp_{\text{out}} = -\frac{p dV}{V} = -\frac{\frac{4\sigma}{r}\cdot 4\pi r^2 dr}{\frac{4}{3}\pi r^3} = -\frac{12\sigma dr}{r^2}.\]
+Note that there is also a decrease in the pressure due to surface tension 
+\[dp_{\text{in}} = \Delta \left(\frac{4\sigma}{r}\right) = \frac{4\sigma dr}{r^2}.\]
+This means that 
+\[dp_{\text{tot}} = \frac{4\sigma dr}{r^2} - \frac{12\sigma dr}{r^2} = -\frac{8\sigma dr}{r^2}.\]
+Consider a small area element $S$ that moves outward a small distance $x$. The mass of the bubble is given by $m = \rho Sh$ which means that the force is 
+\[\rho h\ddot{x} = -\frac{8\simga}{r^2}x\implies \omega = \sqrt{\frac{8\sigma}{\rho h r^2}}.\]
+\end{solution}

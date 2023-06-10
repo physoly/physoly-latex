@@ -1,0 +1,90 @@
+\begin{solution}{hard}
+\begin{center}
+    \begin{asy}
+        unitsize(0.7cm);
+        real a = 45*pi/180;
+        real l = 2.1;
+        real r = 0.12;
+        pair A0 = (r,0);
+        pair A1 = (2*l*cos(a)+r,0);
+        pair A2 = (6*l*cos(a)+r,0);
+        pair A3 = (12*l*cos(a)+r,0);
+        pair B1 = A0+(l*cos(a),l*sin(a));
+        pair B2 = A1+(2*l*cos(a),2*l*sin(a));
+        pair B3 = A2+(3*l*cos(a),3*l*sin(a));
+        pair C1 = A0+(l*cos(a),-l*sin(a));
+        pair C2 = A1+(2*l*cos(a),-2*l*sin(a));
+        pair C3 = A2+(3*l*cos(a),-3*l*sin(a));
+        filldraw((0,-8)--(0,6)--(-1.5,6)--(-1.5,-8)--cycle,lightgray,invisible);
+        draw((0,-8)--(0,6),linewidth(1));
+        filldraw(circle((r,0),r));
+        filldraw(circle(A1,r));
+        filldraw(circle(A2,r));
+        filldraw(circle(A3,r));
+        filldraw(circle(B1,r));
+        filldraw(circle(C1,r));
+        filldraw(circle(B2,r));
+        filldraw(circle(C2,r));
+        filldraw(circle(B3,r));
+        filldraw(circle(C3,r));
+        draw(shift(-r*cos(a),r*sin(a))*(A0--B1),linewidth(1));
+        draw(shift(r*cos(a),-r*sin(a))*(A0--B1),linewidth(1));
+        draw(shift(r*cos(a),r*sin(a))*(A0--C1),linewidth(1));
+        draw(shift(-r*cos(a),-r*sin(a))*(A0--C1),linewidth(1));
+        draw(shift(-r*cos(a),-r*sin(a))*(B1--C2),linewidth(1));
+        draw(shift(r*cos(a),r*sin(a))*(B1--C2),linewidth(1));
+        draw(shift(r*cos(a),-r*sin(a))*(C1--B2),linewidth(1));
+        draw(shift(-r*cos(a),r*sin(a))*(C1--B2),linewidth(1));
+        draw(shift(-r*cos(a),r*sin(a))*(B3--C2),linewidth(1));
+        draw(shift(r*cos(a),-r*sin(a))*(B3--C2),linewidth(1));
+        draw(shift(r*cos(a),r*sin(a))*(C3--B2),linewidth(1));
+        draw(shift(-r*cos(a),-r*sin(a))*(C3--B2),linewidth(1));
+        draw(shift(-r*cos(a),-r*sin(a))*(B3--A3),linewidth(1));
+        draw(shift(r*cos(a),r*sin(a))*(B3--A3),linewidth(1));
+        draw(shift(r*cos(a),-r*sin(a))*(C3--A3),linewidth(1));
+        draw(shift(-r*cos(a),r*sin(a))*(C3--A3),linewidth(1));
+        draw(A3--A3+(1.2,0),arrow=Arrow(),linewidth(1.5));
+        label("$v_0$",A3+(0.6,0.6));
+        label("$B_1$",B1,N*1.5);
+        label("$B_2$",B2,N*1.5);
+        label("$B_3$",B3,N*1.5);
+        label("$C_1$",C1,S*1.5);
+        label("$C_2$",C2,S*1.5);
+        label("$C_3$",C3,S*1.5);
+        label("$A_0$",A0,W*2);
+        label("$A_1$",A1,W*2);
+        label("$A_2$",A2,W*2);
+        label("$A_3$",A3,W*2);
+        draw("$d$",(0,-7)--(12*l*sin(a),-7),Arrows,Bars);
+        draw("$d/2$",(0,-6)--(6*l*sin(a),-6),Arrows,Bars);
+        draw("$d/6$",(0,-5)--(2*l*sin(a),-5),Arrows,Bars);
+        draw(A1--(2*l*sin(a),-5),dashed);
+        draw(A2--(6*l*sin(a),-6),dashed);
+        draw(A3--(12*l*sin(a),-7),dashed);
+    \end{asy}
+\end{center}
+
+Since each of the rhombi deform at the same rate, we can apply homothetic transformations $\mathcal{H}(A_0,d/6)$ and $\mathcal{H}(A_0,d/2)$ along line $A_0A_3$ to see that
+$$\boxed{v_{A_1}=\dfrac{v_0}{6},\;v_{A_2}=\dfrac{v_0}{2}}$$
+
+Applying Idea 35 on lines $A_1B_2$ and $A_2B_2$, we see that $v_{B_2}$ has a component of $\dfrac{v_0\cos(45^\circ)}{2}$ along $\overrightarrow{B_2A_2}$ and a component of $\dfrac{v_0\cos(45^\circ)}{6}$ along $\overrightarrow{A_1B_2}$.\vspace{3mm}
+
+Using the Pythagorean theorem, we see that
+\begin{align*}
+v_b&=\sqrt{\left(\dfrac{v_0\sqrt{2}}{4}\right)^2+\left(\dfrac{v_0\sqrt{2}}{12}\right)^2}\\
+&=\boxed{\dfrac{v_0\sqrt{5}}{6}}
+\end{align*}
+
+Since the horizontal velocities of all the points are constant, the acceleration of $B_2$ must be directed downwards.\vspace{3mm}
+
+Moving into the frame of reference of $A_2$, we can apply Idea 35 to see that $v_{B_2}=\dfrac{v_0\cos(45^\circ)}{3}$ and is directed along $\overrightarrow{B_2A_1}$.\vspace{3mm}
+
+Thus, the centripetal acceleration of $B_2$ is
+$$a_C=\dfrac{v_{B_2}^2}{2l}=\dfrac{v_0^2}{36l}$$
+directed along $\overrightarrow{B_2A_2}$.\vspace{3mm}
+
+The tangential component must balance out the centripetal component and result in a net downwards acceleration, so
+$$a_T=a_C=\dfrac{v_0^2}{36l}$$
+and
+$$a_{B_2}=\sqrt{a_T^2+a_C^2}=\boxed{\dfrac{v_0^2\sqrt{2}}{36l}}$$
+\end{solution}

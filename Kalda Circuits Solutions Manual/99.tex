@@ -1,0 +1,154 @@
+\begin{solution}{normal}
+\textbf{Using Complex Impedance}
+\\
+By fact 8, we can easily conclude that the number of degrees of freedom in the system is $2$ which means that there will be two oscillations. Let us connect an AC voltage generator between the two points labelled below and fictitously cut the terminal below. 
+\begin{center}
+\begin{tikzpicture}[transform shape]
+\ctikzset{label/align = smart}
+\draw (0, 2) to [american inductor, l=$L$] (0, 0);
+\draw (0, 2) to [capacitor, l=$C$, line width=1.5] (2, 2);
+\draw (2, 2) to [capacitor, l=$C$, line width=1.5] (2, 0);
+\draw (0, 0) -- (4, 0);
+\draw (4, 2) to [american inductor, l=$L$] (4, 0);
+\draw (4, 2) -- (2, 2);
+\draw (0, 0) to [open, *-] (0, 2);
+\draw (2, 0) to [open, *-] (0, 2);
+\end{tikzpicture}
+\end{center}
+Note that for an inductor, the impedance is given by 
+\[Z_L = i\omega L\]
+while for a capacitor, the impedance is given by 
+\[Z_C = \frac{1}{i\omega C}.\]
+At resonance frequency, the impedance between the two points approaches zero. The impedance in the both temrinals will be given as 
+\[Z = i\omega L + \frac{1}{i\omega C } + \frac{i\omega L \times 1/i\omega C}{i\omega L + 1/i\omega C}\to 0.\]
+This is a quartic equation, and we find that upon algebraic manipulation that the answer is 
+\[\omega = \frac{\sqrt{5} \pm 1}{2}\omega_0 = \frac{\sqrt{5} \pm 1}{2\sqrt{LC}}.\]
+\tcbline
+\textbf{Kirchoff's Laws}
+\\
+Let the charge on the first capacitor be $Q_1$ and the charge on the second capacitor be $Q_2$. The current flowing through both of these capacitors are $I_1$ and $I_2$ respectively, and therefore, the current flowing through the first inductor is $I_1$ and the current flowing through the second inductor is $I_1 - I_2$. 
+\begin{center}
+\begin{tikzpicture}[transform shape]
+\ctikzset{label/align = smart}
+\draw (0, 2) to [american inductor, l=$I_1$] (0, 0);
+\draw (0, 2) to [capacitor, l=$Q_1$, line width=1.5] (2, 2);
+\draw (2, 2) to [capacitor, l=$Q_2$, line width=1.5] (2, 0);
+\draw (0, 0) -- (4, 0);
+\draw (4, 2) to [american inductor, l=$I_1 - I_2$] (4, 0);
+\draw (4, 2) -- (2, 2);
+\end{tikzpicture}
+\end{center}
+By fact 2 (Kirchoff's Voltage Law), along a closed loop of an electrical circuit, the sum of voltage drops on the circuit elements (resistors, diodes, capacitors, etc) equals to the sum of the electromotive forces (of batteries and inductors). Mathematically,
+\[\sum_{\text{wire forming a closed loop}} V_{\nu} = 0.\]
+Therefore, by writing Kirchoff's Law on the first (leftmost) loop and the second (rightmost loop), we get these two equations:
+\begin{align*}
+\frac{Q_1}{C} + \frac{Q_2}{C} - L\dot{I}_1 &= 0 \\
+-\frac{Q_2}{C} - L(\dot{I}_1 - \dot{I}_2) &= 0
+\end{align*}
+Note that $I_1 = \dot{Q}_1$ and $I_2 = \dot{Q}_2$. Substituting gives us 
+\begin{align*}
+\frac{Q_1}{C} + \frac{Q_2}{C} - L\ddot{Q}_1 &= 0 \\
+-\frac{Q_2}{C} - L(\ddot{Q}_1 - \ddot{Q}_2) &= 0
+\end{align*}
+Rearranging the first equation by writing $\omega_0 = 1/\sqrt{LC}$ tells us 
+\[\ddot{Q}_1 = \frac{Q_1}{LC} + \frac{Q_2}{LC}\implies \ddot{Q_1} = \omega_0^2 (Q_1 + Q_2).\]
+We can similarly do the same thing for the second equation. First, we rearrange as shown below:
+\[\ddot{Q}_1 - \ddot{Q_2} = -\frac{Q_2}{LC}\implies \ddot{Q}_1 - \ddot{Q_2} = -\omega_0^2 Q_2.\]
+We then substitute our first equation into the second one to get 
+\[ \omega_0^2 (Q_1 + Q_2) - \ddot{Q}_2 = -\omega_0^2 Q_2\implies \ddot{Q}_2 = \omega_0^2 (Q_1 + 2Q_2).\]
+Regrouping both equations together gives us a pair of coupled differential equations:
+\begin{align*}
+\ddot{Q_1} &= \omega_0^2 (Q_1 + Q_2) \\
+\ddot{Q}_2 &= \omega_0^2 (Q_1 + 2Q_2)
+\end{align*}
+Using the definition of a normal mode 
+\[
+\begin{pmatrix}
+Q_1 \\
+Q_2 
+\end{pmatrix}
+= 
+\text{Re} \left[
+\begin{pmatrix}
+A_1 \\
+A_2 
+\end{pmatrix}
+e^{i (\omega t + \phi)}
+\right]
+\]
+we can then rearrange to find
+$$\begin{aligned}
+- \omega^{2}A_1 &= \omega_0^2 A_1 + \omega_0^2 A_2 & \Rightarrow\quad & 0=\left(\omega_0^2 + \omega^2 \right) A_{1}+ \omega_0^2 A_2 \\
+-\omega^{2}A_2 &= \omega_0^2 A_1 + 2\omega_0^2 A_2 & \Rightarrow \quad & 0= \omega_0^2 A_1 + (2\omega_0^2 + \omega^2)A_2  
+\end{aligned}$$
+Now, rewrite in matrix format
+\[
+\begin{pmatrix}
+\omega_0^2 + \omega^2 & \omega_0^2 \\
+\omega_0^2 & 2\omega_0^2 + \omega^2 
+\end{pmatrix}
+\begin{pmatrix}
+A_1 \\
+A_2 
+\end{pmatrix}
+= 
+0.\]
+To get a solution we need to solve the equation where the determinant of the left matrix is zero
+\[
+\begin{vmatrix}
+\omega_0^2 + \omega^2 & \omega_0^2 \\
+\omega_0^2 & 2\omega_0^2 + \omega^2
+\end{vmatrix}
+=
+0\]
+This can be written as 
+\[(\omega_0^2 + \omega^2)(2\omega_0^2 - \omega^2) - \omega_0^4 = 0.\]
+By writing $\omega_0^2 \equiv \Omega$ and $\omega^2 \equiv \varphi$, we can solve this equation to find that 
+\[\omega = \frac{\sqrt{5}\pm 1}{2}\omega_0 = \frac{\sqrt{5}\pm 1}{2\sqrt{LC}}.\]
+\tcbline
+\textbf{Using Lagrangian Method}
+\\
+
+Let the charge on the first capacitor be $Q_1$ and the charge on the second capacitor be $Q_2$. The current flowing through both of these capacitors are $I_1$ and $I_2$ respectively, and therefore, the current flowing through the first inductor is $I_1$ and the current flowing through the second inductor is $I_1 - I_2$. 
+\begin{center}
+\begin{tikzpicture}[transform shape]
+\ctikzset{label/align = smart}
+\draw (0, 2) to [american inductor, l=$I_1$] (0, 0);
+\draw (0, 2) to [capacitor, l=$Q_1$, line width=1.5] (2, 2);
+\draw (2, 2) to [capacitor, l=$Q_2$, line width=1.5] (2, 0);
+\draw (0, 0) -- (4, 0);
+\draw (4, 2) to [american inductor, l=$I_1 - I_2$] (4, 0);
+\draw (4, 2) -- (2, 2);
+\end{tikzpicture}
+\end{center}
+Consider the energy of the system. For a capacitor, the potential energy is given as 
+\[U = \frac{1}{2}CV^2 = \frac{1}{2}\frac{Q^2}{C}.\]
+Therefore, the total potential energy is given as 
+\[U_{\text{tot}} = \frac{1}{2}\frac{Q_1^2}{C} + \frac{1}{2}\frac{Q_2^2}{C}.\]
+Note that in this problem, we take our generalized cooordinate to be the charge. We know that $I_1 = \dot{Q}_1$ and $I_2 = \dot{Q}_2$. We also know that the energy of an inductor is 
+\[T = \frac{1}{2}LI^2 = \frac{1}{2}L\dot{Q}^2\]
+and therefore, the total kinetic energy is 
+\[T = \frac{1}{2}L\dot{Q}_1^2 + \frac{1}{2}L(\dot{Q}_1 - \dot{Q}_2)^2.\]
+The lagrangian of the system is therefore, 
+\[\mathcal{L} \equiv T - U = \frac{1}{2}L\dot{Q}_1^2 + \frac{1}{2}L(\dot{Q}_1^2 - 2\dot{Q}_1\dot{Q}_2 + \dot{Q}_2) - \frac{1}{2}\frac{Q_1^2}{C} - \frac{1}{2}\frac{Q_2^2}{C}.\]
+We now use the Euler-Lagrange equations for both generalized coordinates $Q_1$ and $Q_2$.
+\[\frac{d}{dt}\left(\frac{\partial\mathcal{L}}{\partial \dot{Q}_1}\right) \implies \frac{\partial \mathcal{L}}{\partial Q_1} = 2L\ddot{Q}_1 - L\ddot{Q}_2 = -\frac{Q_1}{C}\]and
+\[\frac{d}{dt}\left(\frac{\partial\mathcal{L}}{\partial \dot{Q}_2}\right) = \frac{\partial \mathcal{L}}{\partial Q_2} \implies L\ddot{Q}_2 - L\ddot{Q}_1 = -\frac{Q_2}{C}.\]
+Using the fact that $\omega_0 = 1/\sqrt{LC}$, we can rewrite our equations of motion to be 
+\begin{align*}
+2\ddot{Q}_1 - \ddot{Q}_2 &= -\omega_0^2 Q_1 \\
+\ddot{Q}_2 - \ddot{Q}_1 &= -\omega_0^2 Q_2
+\end{align*}
+We can isolate the first equation to get the equation 
+\[\ddot{Q}_2 = 2\ddot{Q}_1 + \omega_0^2 Q_1\]
+which means upon substitution into the secpnd equation gives us 
+\[2\ddot{Q}_1 + \omega_0^2 Q+1 - \ddot{Q}_1 = - \omega_0^2 Q_2\implies \ddot{Q}_1 = -\omega_0^2 (Q_1 + Q_2).\]
+Similarly, we can now substitute this equation into equation the first equation to get 
+\[\ddot{Q}_2 = -2\omega_0^2 (Q_1 + Q_2) + \omega_0^2 Q_1 = -\omega_0^2 (Q_1 + 2Q_2).\]
+Putting these two equations together into a coupled differential equation gives us 
+\begin{align*}
+\ddot{Q}_1 &= -\omega_0^2 (Q_1 + Q_2) \\
+\ddot{Q}_2 &= -\omega_0^2 (Q_1 + 2Q_2)
+\end{align*}
+Now, use the same approach as given in the Kirchoff's solution to get the given answer. 
+\end{solution}

@@ -1,0 +1,24 @@
+\begin{solution}{normal}
+We split up $v$ into it's vertical and horizontal components. From here we can see that each parameter $x, y$ and $z$ as a function of $t$ is 
+\begin{align}
+z &= v_0t\sin\alpha - \frac{1}{2}gt^2\\
+x &= v_0\cos\alpha t\\
+t &= \frac{x}{v_0\cos\alpha}
+\end{align}
+From here, we substitute equation 3 into equation 1 to yield 
+\[z = v_0\left(\frac{x}{v_0\cos\alpha}\right)\sin\alpha - \frac{1}{2}g\left(\frac{x}{v_0\cos\alpha}\right)^2.\]
+Simplifying with trigonometry yields 
+\begin{align*}
+z &= x\tan\alpha - \frac{gx^2}{2v_0^2}\sec^2\alpha\\
+z &= x\tan\alpha - \frac{gx^2}{2v_0^2}(\tan^2\alpha + 1)\\
+0&=\frac{gx^2}{2v_0^2}\tan^2\alpha - x\tan\alpha + \frac{gx^2}{2v_0^2}
+\end{align*}
+Here, we find a quadratic. For the region of space $\mathcal{R}$ to exist, the discriminant of this quadratic must be greater than zero. This tells us 
+\begin{align*}
+x^2 - 4\left(\frac{gx^2}{2v_0^2}\right)\left(z + \frac{gx^2}{2v_0^2}\right)&\geq 0\\
+x^2 - \frac{2gx^2}{v_0^2}z + \frac{g^2 x^4}{v_0^4} &\geq 0\\
+\frac{2gx^2}{v_0^2}z &\leq x^2 - \frac{g^2}{x^4}{v_0^4}
+\end{align*}
+Simplifying this final expression gives us the answer. The region of space of $\mathcal{R}$ is 
+\[\boxed{z\leq \frac{v_0^2}{2g} - \frac{gx^2}{2v_0^2}}\]
+\end{solution}

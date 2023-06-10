@@ -1,0 +1,71 @@
+\begin{solution}{normal}
+\textbf{a)} Consider a rectangular prism of length $l$, width $w$, and height $h$. \vspace{3mm}
+
+Assume that the volume of rain that the man receives per second is proportional to $Av_r$ by some proportionality factor $k$, where $A$ is the cross sectional area of where the rain strikes and where $v_r$ is the velocity of the rain.\vspace{3mm}
+
+Let $V$ be the critical volume of rain needed for the man to "get wet".\vspace{3mm}
+
+When the man is not moving, we find that $$V=Akv_rt_1=lwkv_rt_1$$
+
+When the man is moving at speed $v_m$, in his frame of reference, the rain falls on him at an angle $\theta=\arctan\left(\dfrac{v_m}{v_r}\right)$ to the vertical at a speed of $\sqrt{v_r^2+v_m^2}$, as shown in the following diagram:
+\begin{center}
+    \begin{asy}
+        unitsize(3cm);
+        real x = 20*pi/180;
+        draw((0,0)--(0,2)--(1,2)--(1,0)--(0,0));
+        draw((-1,0)--(2,0));
+        draw((1,0)--(1+2*cos(x)*sin(x),2*cos(x)*cos(x))--(1-cos(x)*cos(x),2+sin(x)*cos(x))--(0,2));
+        draw(arc((1,0),0.4,90,90-20));
+        draw(arc((1,2),0.3,180,180-20));
+        label("$\theta$",(1.08,0.5));
+        label("$\theta$",(0.63,2.06));
+        label("$l$",(0.5,1.9));
+        label("$h$",(0.92,1));
+        label("$l\cos\theta$",(0.6,2.3));
+        label("$h\sin\theta$",(1.5,2));
+    \end{asy}
+\end{center}
+Thus, we see that $$V=Ak\sqrt{v_r^2+v_m^2}t_2=w(l\cos\theta+h\sin\theta)k\sqrt{v_r^2+v_m^2}t_2$$
+
+Since we have $\cos\theta=\dfrac{v_r}{\sqrt{v_r^2+v_m^2}}$, $\sin\theta=\dfrac{v_m}{\sqrt{v_r^2+v_m^2}}$, the expression is equivalent to $$V=w(lv_r+hv_m)kt_2$$
+
+We now have $$lwkv_rt_1=w(lv_r+hv_m)kt_2 \implies v_r=\dfrac{hv_mt_2}{l(t_1-t_2)}$$
+
+Plugging in $v_m=\dfrac{18}{3.6}\;\text{m/s}$, $t_1=120\;\text{s}$, $t_2=30\;\text{s}$, we get that $$v_r=\dfrac{5h}{3l}\;\text{m/s}$$
+
+This gives, for $$v_m=6\;\text{km/h}, t=\dfrac{lv_rt_1}{lv_r+hv_m}=\boxed{60\;\text{s}}$$
+
+\textbf{b)} Consider a sphere of radius $R$. \vspace{3mm}
+
+Assume that the volume of rain that the man receives per second is proportional to $Av_r$ by some proportionality factor $k$, where $A$ is the cross sectional area of where the rain strikes and where $v_r$ is the velocity of the rain. \vspace{3mm}
+
+Let $V$ be the critical volume of rain needed for the man to "get wet". \vspace{3mm}
+
+When the man is not moving, we find that $$V=Akv_rt_1=\pi R^2kv_rt_1$$
+
+When the man is moving at speed $v_m$, in his frame of reference, the rain falls on him at an angle $\theta=\arctan\left(\dfrac{v_m}{v_r}\right)$ to the vertical at a speed of $\sqrt{v_r^2+v_m^2}$, as shown in the following diagram:
+\begin{center}
+    \begin{asy}
+        unitsize(3cm);
+        draw(circle((0,0),1));
+        real x = -20*pi/180;
+        draw((cos(x),sin(x))--(cos(x)-sin(x),sin(x)+cos(x))--(cos(pi+x)-sin(x),sin(pi+x)+cos(x))--(cos(pi+x),sin(pi+x)));
+        draw((cos(x),sin(x))--(0,0)--(1,0));
+        draw((-2,-1)--(2,-1));
+        draw(arc((0,0),0.3,0,-20));
+        label("$\theta$",(0.4,-0.07));
+        draw((cos(x)-sin(x),sin(x)+cos(x))--(cos(x)-sin(x),-1),dotted);
+        draw(arc((cos(x)-sin(x),sin(x)+cos(x)),0.4,270,250));
+        label("$\theta$",(1.2,0.1));
+        label("$R$",(0.5,0.1));
+        label("$2R$",(0.4,1.05));
+    \end{asy}
+\end{center}
+Thus, we see that $$V=Ak\sqrt{v_r^2+v_m^2}t_2=\pi R^2k\sqrt{v_r^2+v_m^2}t_2$$
+
+We now have $$\pi R^2kv_rt_1=\pi R^2k\sqrt{v_r^2+v_m^2}t_2\implies v_rt_1=\sqrt{v_r^2+v_m^2}t_2$$
+
+Solving the system of equations with $v_m=\dfrac{18}{3.6}\;\text{m/s}$, $t_1=120\;\text{s}$, $t_2=30\;\text{s}$, we get $$v_r=\dfrac{v_mt_2}{\sqrt{t_1^2-t_2^2}}=\dfrac{\sqrt{15}}{3}\approx1.29\;\text{m/s}$$
+
+This gives, for $v_m=6\;\text{km/h}$, $$t=30\sqrt{6}\approx\boxed{73.5\;\text{s}}$$
+\end{solution}

@@ -1,0 +1,10 @@
+\begin{solution}{hard}
+We can take $s=E$, because the only restriction is the distance between two steel balls, the angle between them can be changed. As there are $E$ edges, number of restrictions is $E$.
+By Euler’s formula,
+$$ N = E-F+2 \Rightarrow 3N = 3F-3E + 6$$
+$$3N - E = 2E - 3F + 6 \implies j = 2E - 3F + 6$$
+Every edge is part of exactly $2$ faces. Every face contains atleast $3$ edges.
+$$\therefore 2E \geq 3F\,\,\text{with equality in case of only triangles}$$
+$$\therefore j \geq 6 \,\,\text{with equality in case of only triangles}$$
+In case of rigid body 6 coordinates are needed to describe it. If the number of degrees of freedom were larger, it would be needed to use more parameters than in the case of a rigid body to describe its state, i.e. it cannot be rigid. Therefore, a convex polyhedron is rigid then and only then if all the faces of the polyhedron are triangles.
+\end{solution}

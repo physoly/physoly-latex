@@ -1,0 +1,30 @@
+\begin{solution}{normal}
+\begin{center}
+    \begin{asy}
+    size(5cm);
+    import olympiad;
+    draw(circle((0,0), 1));
+draw((-1,-1) -- (1, -1));
+dot((0,0));
+draw((0,0) -- (-sqrt(3)/2, 1/2));
+draw((-sqrt(3)/2, 1/2) -- (-1/2, sqrt(3)/2 + 0.2), red, arrow=Arrow(4));
+draw((0,0) -- (-1/2, sqrt(3)/2 + 0.2), dashed);
+label("$R'$", (-1/4, sqrt(3)/4 + 0.1), NE);
+label("$\Omega Rt$", (-1/2, sqrt(3)/2 + 0.2), N);
+label("$R$", (-sqrt(3)/4, 1/4), SW);
+draw(anglemark((-1/2, sqrt(3)/2 + 0.2), (0,0), (-sqrt(3)/2, 1/2)));
+label("$\alpha$", (0,0), 5NW);
+    \end{asy}
+\end{center}
+In the free-falling frame, all the particles move with constant velocities; each particle had initial velocity equal to the wheel’s velocity at the releasing point, i.e. tangential to the wheel and equal by modulus to $\Omega R$. Hence the ensemble of particle expands as a circle, the radius of which can be calculated from the Pythagorean theorem.
+\[R'^2 = R^2 + \Omega^2 R^2 t^2\implies R' = R\sqrt{1 + \Omega^2 t^2}\]In the lab frame, the centre of the circle performs a free fall $d = \frac{1}{2}gt^2 - R$. A droplet reaching the point A corresponds to the expanding circle touching the ground. Therefore, setting $R' = d$ gives us
+\begin{align*}
+R\sqrt{1 + \Omega^2 t^2} &= \frac{1}{2}gt^2 - R\\
+\frac{1}{4}g^2 t^2 - gR t^2 + R^2 &= R^2 + R^2 \Omega^2 t^2\\
+\frac{1}{4}g^2 t^2 - gR &= R^2\Omega^2\\
+t^2 = \frac{4\left(\Omega^2 R^2 + gR\right)}{g^2} &\implies \boxed{t = 2\sqrt{\frac{R}{g}\left(1 + \frac{R\Omega^2}{g}\right)}}
+\end{align*}
+We can also tell from the given diagram that
+\[\alpha = \arctan\left(\frac{\Omega Rt}{R}\right) \implies \boxed{\alpha = \arctan\left(\Omega t\right)}\]
+\end{solution}
+\newpage

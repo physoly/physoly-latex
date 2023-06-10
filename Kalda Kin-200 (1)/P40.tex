@@ -1,0 +1,37 @@
+\begin{solution}{normal}
+Consider the moment when the cone is right on the edge and take the reference frame of the cone. In this reference frame the corner of the table is moving to the left with velocity $v$ and has upward acceleration of $g$.\vspace{3mm}
+
+The corner of the table is essentially a projectile that is launched horizontally with velocity $v$ and has to not touch the cone. The minimum value for $v$ will then result in the trajectory where the corner touches the top of the cone.
+\vspace{3mm}
+
+\begin{center}
+    \begin{asy}
+        import graph;
+        unitsize(2cm);
+        pen p1 = gray(1);
+        pen p2 = gray(0.7);
+        axialshade(box((-1.4,0),(1.4,3.8)), p1, (-0.5,0), p2, (1.4,0));
+        filldraw((0,0)--(1.4,3.8)--(1.5,3.9)--(1.5,-0.1)--(0,0)--cycle,gray(0.949),invisible);
+        filldraw((0,0)--(-1.4,3.8)--(-1.5,3.9)--(-1.5,-0.1)--(0,0)--cycle,gray(0.949),invisible);
+        filldraw((-4.3,0)--(0,0)--(0,-0.5)--(-4.3,-0.5)--cycle,lightgrey,invisible);
+        draw((-4.3,0)--(0,0)--(0,-0.5)--(-4.3,-0.5),linewidth(1));
+        draw((-1.4,3.8)--(0,0)--(1.4,3.8)--cycle,linewidth(1));
+        filldraw(circle((0,0),0.06));
+        draw((0,0)--(-0.8,0),arrow=Arrow());
+        label("$v$",(-0.9,-0.2));
+        pair f(real x){
+        	return (x,3.8*x^2/1.96);
+        }
+        draw(graph(f,0,-1.5),blue,arrow=Arrow());
+        draw("$h$",(-1.5,3.8)--(-1.5,0.05),Arrows,Bars);
+        draw((0,0)--(0,3.8),dashed);
+        draw("$r$",(1.4,3.9)--(0,3.9),Arrows,Bars);
+    \end{asy}
+\end{center}
+
+The corner has to take time $\dfrac{r}{v}$ to reach the corner. In this time it has to travel 
+\begin{align*}
+h&=\frac{1}{2}g\left(\frac{r}{v}\right)^2\\
+v&=\boxed{r\sqrt{\frac{g}{2h}}}
+\end{align*}
+\end{solution}

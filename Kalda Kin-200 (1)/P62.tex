@@ -1,0 +1,56 @@
+\begin{solution}{normal}
+The waves move symmetrically about boat’s trajectory in river’s reference frame. In river’s reference frame trajectory of boat is on angle bisector of the wave angle.
+\begin{center}
+    \begin{asy}
+    /* Geogebra to Asymptote conversion, documentation at artofproblemsolving.com/Wiki go to User:Azjps/geogebra */
+import graph; size(14cm);
+real labelscalefactor = 0.5; /* changes label-to-point distance */
+pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps); /* default pen style */
+pen dotstyle = black; /* point style */
+real xmin = -19.2, xmax = 19.2, ymin = -8.75, ymax = 8.75; /* image dimensions */
+pen cqcqcq = rgb(0.7529411764705882,0.7529411764705882,0.7529411764705882);
+
+/* draw figures */
+draw((-3.4641016151377544,0)--(-8.660254037844386,3), linewidth(0.4));
+draw((-3.4641016151377544,0)--(-8.660254037844386,-3), linewidth(0.4));
+draw(circle((-8.304067139453629,0), 2.427550513702835), linewidth(2));
+draw((-8.660254037844386,3)--(-12.12435565298214,5), linewidth(0.4));
+draw((-8.660254037844386,-3)--(-12.12435565298214,-5), linewidth(0.4));
+draw((-6.928203230275509,2)--(-6.94,0.51), linewidth(0.4));
+draw((-3.4641016151377544,0)--(-6.94,0.51), linewidth(0.4));
+draw((-6.928203230275509,0)--(-3.4641016151377544,0), linewidth(0.4));
+draw((-6.928203230275509,0)--(-6.94,0.51), linewidth(0.4));
+draw((-6.928203230275509,2)--(-8.660254037844386,3), linewidth(0.4));
+draw((0,2)--(0,-2), linewidth(0.4));
+draw((0,-2)--(6.928203230275509,-2), linewidth(0.4));
+draw((0,2)--(6.928203230275509,-2), linewidth(0.4));
+/* dots and labels */
+dot((-3.4641016151377544,0),dotstyle);
+label("$Q$", (-3.38,0.19), NE * labelscalefactor);
+dot((-6.928203230275509,0),linewidth(4pt) + dotstyle);
+label("$R$", (-6.84,0.15), NE * labelscalefactor);
+dot((-6.94,0.51),linewidth(4pt) + dotstyle);
+label("$O$", (-6.86,0.67), NE * labelscalefactor);
+dot((-6.928203230275509,2),linewidth(4pt) + dotstyle);
+label("$P$", (-6.84,2.15), NE * labelscalefactor);
+dot((0,2),dotstyle);
+label("$O$", (0.08,2.19), NE * labelscalefactor);
+dot((0,-2),dotstyle);
+label("$R$", (0.08,-1.81), NE * labelscalefactor);
+dot((6.928203230275509,-2),dotstyle);
+label("$Q$", (7,-1.81), NE * labelscalefactor);
+clip((xmin,ymin+5)--(xmin,ymax-5)--(xmax,ymax-5)--(xmax,ymin+5)--cycle);
+/* end of picture */
+    \end{asy}
+\end{center}
+Direction of boat’s speed relative to ground is from A to B. Let $u$ be water speed. Then $v, u$ and boat’s speed relative to ground form a right triangle.
+\[\sin(\angle RQO) = \frac {u}{v} \implies 0.26 = \frac {u}{v}\implies u = 1.82 m/s\]
+We also note that 
+\[OP = \omega t\]
+and 
+\[OQ = vt\]
+Therefore, 
+\[\frac{\omega}{v} = \frac{OP}{OQ} =0.64\implies \omega = \boxed{4.48\;\mathrm{m/s}}\]
+and
+\[h =\frac{\omega^2}{g} = \boxed{2.05\;\mathrm{m}}\]
+\end{solution}

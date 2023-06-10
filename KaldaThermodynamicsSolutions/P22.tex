@@ -1,0 +1,38 @@
+\begin{solution}{hard} \textbf{a)} First off, we find the pressure at $20^\circ\;\mathrm{C}$ on the graph. At this point, the pressure is approximately given by $2.3\;\mathrm{kPa}$. We are told that the relative humidity is $90\%$ which means that the relative pressure is given by \[2.3\;\mathrm{kPa} \cdot 0.9 = 2.07\;\mathrm{kPa}.\]
+The temperature on the graph when it is approximately $2.07\;\mathrm{kPa}$ is around $18.5^\circ\;\mathrm{C}$. This then tells us that the temperature difference is 
+\[20^\circ\;\mathrm{C} - 18.5^\circ\;\mathrm{C} = \boxed{1.5^\circ\;\mathrm{C}}\]
+\vspace{3mm}
+
+\noindent \textbf{b)} We are given the equations
+\begin{align*}
+Q_c &= a(T_0 - T)\\
+Q_e &= b[p_s(T) - p_a]
+\end{align*}
+Dividing these two equations through gives us 
+\[\frac{Q_c}{Q_e} = \frac{a}{b}\frac{T_0 - T}{p_s (T) - p_a}\]
+from here, we know imediately that $a/b = 65\;\mathrm{Pa/K}$ and $T_0 = 20^\circ\;\mathrm{C}$. Because $r = 0$, then $p_a = 0$, and because $r=0$, then $Q_c = Q_e$. Therefore, our new equation is
+\[1 = 65\frac{20 - T}{p_s(T)}\implies p_s (T) = 65 (20 - T).\]
+From here, we find the intersection point with this line is $(6.5, 0.87)$, which implies the temperature is $\boxed{6.5^\circ\;\mathrm{C}}$.
+\vspace{3mm}
+
+\noindent \textbf{c)} In steady state, we have that 
+\[Q_c =Q_e\implies \frac{a}{b}(T_0 - T) = p_s(T) - p_a.\]
+Substituting  $a/b = 65\;\mathrm{Pa/K}$ and $T_0 = 20^\circ\;\mathrm{C}$ and $T\approx 2300r\;\mathrm{kPa}$ where $r$ is the relative humidity gives us 
+\[65 (20 - T) = p_s (T) - 2300r.\]
+\begin{itemize}
+\item When $r = 1$, we have the equation the line as
+\[p_s = 3600 - 65T.\]
+The intersection of this line with the given curve is at $T = 20^{\circ}\;\mathrm{C}$ and $p_s = 2300\;\mathrm{Pa}$.
+\item When $r = 0.8$, we have the equation of the line as 
+\[p_s = 3140 - 65T.\]
+The intersection of this line with the given curve is at $T = 18.75^{\circ}\;\mathrm{C}$ and $p_s = 2000\;\mathrm{Pa}$.
+\end{itemize}
+Since $p\propto r$ and we have the values of pressure at two different values of $r$, we can find a linear relation between pressure and relative humidity to get the equation
+\[p_s = 1500r + 800\implies 65\Delta T = 800 (1 - r)\implies \Delta T = \boxed{12.3 (1 - r)}.\]
+\vspace{3mm}
+
+\noindent \textbf{d)} For the boundary condition, heat dissipated through evaporation. Therefore, 
+\[k\frac{dT}{dt} = b(p_s - 2300r) = 800(1 - r) \implies \dot{T}\propto 1 - r.\]
+We then see that 
+\[\frac{\dot{T}_{80}}{\dot{T}_{35}} = \frac{1 - 0.8}{1 - 0.35} = \boxed{4}.\]
+\end{solution}

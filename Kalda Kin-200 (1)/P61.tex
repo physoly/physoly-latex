@@ -1,0 +1,41 @@
+\begin{solution}{normal}
+Consider the following diagram:
+\begin{center}
+    \begin{asy}
+        unitsize(1.5cm);
+        draw((-3,0)--(3,0));
+        draw((-1,-4)--(-1,-2));
+        draw(arc((0,-2),1,0,180));
+        draw((1,-4)--(1,-2));
+        draw((-1.5,0)--(-1.5,-2));
+        draw((-1.4,-2)--(-1.6,-2));
+        label("$L$",(-1.8,-1));
+        draw((-1,-2)--(1,-2),dotted);
+        draw((0,-2)--(cos(120*pi/180),sin(120*pi/180)-2));
+        label("$R$",(0,-1.5));
+        draw((-1.5,-2.5)--(-1.1,-2.1),arrow=Arrow());
+        label("$t=0$",(-1.6,-2.7));
+        draw((1.5,-2.5)--(1.1,-2.1),arrow=Arrow());
+        label("$t=\frac{\pi R}{v}$",(1.6,-2.7));
+        draw(arc((0,-2),0.3,180,120));
+        label("$\theta$",(-0.4,-1.8));
+    \end{asy}
+\end{center}
+At time $t$, the boat has has swept out an angle $$\theta=\dfrac{vt}{\pi R}\cdot\pi=\dfrac{tv}{R}$$
+
+Thus, at time $t$, the boat is at a distance $L-R\sin\left(\dfrac{vt}{R}\right)$ away from the shore. \vspace{3mm}
+
+Therefore, at time $t_2$, the wavefront that was emitted at time $t_1$ is at a distance $L-R\sin\left(\dfrac{vt_1}{R}\right)-u(t_2-t_1)$ away from the shore. \vspace{3mm}
+
+We wish to find the minimum possible $t_2$ such that the equation $L-R\sin\left(\dfrac{vt_1}{R}\right)-u(t_2-t_1)=0$ has a real solution for $t_1$. \vspace{3mm}
+
+To do this, we isolate $t_2$ to find that $$t_2=\dfrac{L-R\sin\left(\dfrac{vt_1}{R}\right)}{u}+t_1$$
+
+Taking the derivative with respect to $t_1$ and setting it to zero, we get that $1-\dfrac{v\cos\left(\dfrac{vt_1}{R}\right)}{u}=0$, or $$t_1=\dfrac{R}{v}\arccos\left(\dfrac{u}{v}\right)$$
+
+Since $u<v$, this is a valid solution, so we plug $t_1$ back into our expression for $t_2$ to find that $$t_2=\dfrac{L-R\sin\left(\arccos\left(\dfrac{u}{v}\right)\right)}{u}+\dfrac{R}{v}\arccos\left(\dfrac{u}{v}\right)$$
+
+We have that $$\sin\left(\arccos\left(\dfrac{u}{v}\right)\right)=\dfrac{\sqrt{v^2-u^2}}{v}$$
+
+Therefore, $$\boxed{t_2=\dfrac{R}{v}\arccos\left(\dfrac{u}{v}\right)+\dfrac{L}{u}+R\sqrt{\dfrac{1}{u^2}-\dfrac{1}{v^2}}}$$
+\end{solution}

@@ -1,0 +1,21 @@
+\begin{solution}{hard}
+Consider two nodes in the circuit indexed by $i$ and $j$. We can find an expression between the $i$-th and $j$-th node if they are connected. Let $\varphi_{k}^{(i\to j)}$ represent the potential of the $k$-th node in the circuit where $2\leq k \leq n$ with respect to current $I$ that is driven into the $i$-th node and driven out of the $j$-th node. The resistance $R_{ij}$ between these two nodes (if they are connected) can then be expressed as
+\[R_{ij} = \frac{\left(\varphi_{i}^{(i\to j)} - \varphi_{j}^{(i \to j)}\right)}{I}.\]
+The resistance between all adjacent nodes will be summed up to find the total resistance. This means that we wish to find a sum for all $i, j$-th nodes in the system. To do this, our current expression of finding the resistance is not satisfactory as we don't have terms for the resistance of the resistors. If we multiply both sides with the electrical conductance $\sigma_{ij} = 1/R$, we find that (notice how we were also able to get rid of the potentials $\varphi$ with this!)
+\[
+\frac{R_{ij}}{R} = \frac{\left(\varphi_{i}^{(i\to j)} - \varphi_{j}^{(i \to j)}\right)}{IR} \implies R_{ij} = \frac{\left(I_{i}^{(i\to j)} - I_{j}^{(i \to j)}\right)}{I}R.
+\]
+Now, the setup of current $I$ going into the $i$-th node and coming out of the $j$-th node will be the sum of a superposition of two different setups:
+\begin{itemize}
+    \item From the other $n - 1$ points, we will take a current of $I/n$ into the $j$-th node and we will put a current of $(1 - I/n)$ into the $i$-th node. 
+    \item We will take out a current of $(1 - I/n)$ out of the $j$-th node and then put a current of $I/n$ (it is $I/n$ because $(1 - I/n) = (n - 1)I/n$ which means when it goes into the other $n - 1$ nodes, only a current of $I/n$ will be needed) into the other $n -1$ points
+\end{itemize}
+This means that in our expression of resistance, each node pair will be counted twice. So, noting that $I_k^{(i \to j)} = I_k^{(i)} - I_k^{(j)}$ and the previous fact allows us to take the sum $\sum_{i, j} R_{ij} = \sum_{i}\sum_{j} R_{ij}$. Hence, 
+\begin{align*}
+    2\sum_{ij} R_{ij} &= \left(\sum_{i}\sum_{j} \frac{\left(I_{i}^{(i)} - I_{i}^{(j)} - I_{j}^{(i)} + I_{j}^{(j)}\right)}{I}\right)R \\
+    &= \left(\sum_{i} \frac{I_{i}^{(i)} - I_{i}^{(j)}}{I} + \sum_{j} \frac{I_{j}^{(i)} + I_{j}^{(j)}}{I}\right)R.
+\end{align*}
+Both sums are essentially part of the superposition argument written above. If a current of $(n - 1)I/n$ enters each point from $n$ currents entering $n$ points, then the sum essentially equals $(n - 1)$. The same argument can be said for the second sum and we yield that 
+\[\sum_{ij} R_{ij} = (n - 1)R.\]
+$\square$
+\end{solution}

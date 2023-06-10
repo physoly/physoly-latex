@@ -1,0 +1,38 @@
+\begin{solution}{normal}\textbf{(a)} The adiabatic index is defined as the ratio of $c_p$ and $c_V$ so that $\gamma = \frac{c_p}{c_V}$. Note that 
+\[c_p = c_v + R\implies c_v = c_p - R\]
+which means that upon substitution 
+\[\gamma = \frac{c_p}{c_p - R}\implies \gamma (c_p - R) = c_p\implies c_p = \frac{\gamma}{\gamma - 1}R.\]
+\vspace{3mm}
+
+\noindent \textbf{(b)} Remember that from the ideal gas law, we have that $pV = nRT$ where $n = \frac{m}{M}$. Therefore, 
+\[p_0 V = \frac{m}{M}RT\implies \rho = \frac{m}{V} = \frac{p_0 M}{RT}.\]
+\vspace{3mm}
+
+\noindent \textbf{(c)} We can conserve momentum of a cross-sectional area of air $S$ for a small interval of time $\text{d}t$ assuming that the air moves at a velocity $v$. Momentum is $p = mv = (\rho \times V)v$. So we can write for a small interval of time, velocity remains approximately constant and that $p = (\rho \times Sv\cdot \text{d}t)v$. We can also write that $p = Ft = S\Delta p \cdot \text{d}t$ where $\Delta p$ is the difference in pressure. Therefore, 
+\[S\Delta p \cdot \text{d}t = (\rho \times Sv\cdot \text{d}t)v\implies \Delta p = \rho v^2.\]
+The difference in pressure $\Delta p$ in terms of density inside the pipe of length $L$ can be written as $\Delta p = \Delta \rho gL = (\rho_0 - \rho)gL$. This means that 
+\[(\rho_0 - \rho)gL = \rho v^2 = \left(\frac{p_0 M}{RT} - \rho\right)gL = \rho v^2.\]
+\vspace{3mm}
+
+\noindent \textbf{(d)} From idea 1, we can write $P \equiv \frac{\text{d}Q}{\text{d}t}$. The process is isobaric so 
+\[P = \frac{\text{d}}{\text{d} t}\left(C_V n\Delta T\right) = C_V \Delta T\frac{\text{d}n}{\text{d}t}.\]
+From the ideal gas law:
+\[n = \frac{\rho V}{M}\implies \frac{\text{d}n}{\text{d}t} = \frac{\rho S \cdot \text{d}x}{M\cdot \text{d}t} = \frac{\rho Sv}{M}.\]
+Therefore, from part (a) we can substitute to write
+\[P = C_V \Delta T \frac{\rho Sv}{M} = \frac{\gamma}{\gamma - 1}R (T - T_0) \frac{\rho Sv}{M}.\]
+\vspace{3mm}
+
+\noindent \textbf{(e)} From part (b), we know that $\rho = \frac{p_0 M}{RT}$ which means that 
+\[(\rho_0 - \rho) = \frac{p_0 M}{R} \left(\frac{1}{T_0} - \frac{1}{T}\right) = \frac{p_0 M}{R} \left(\frac{T - T_0}{T_0 T}\right)\implies \frac{\Delta \rho}{\rho} = \frac{\Delta T}{T_0}.\]
+From part (c), we write 
+\[\frac{\Delta \rho}{\rho} = \frac{v^2}{gL}\implies \Delta T = \frac{v^2}{gL}T_0\]
+which means that when substituting into our equation in (d), we have that 
+\[P = \frac{\gamma}{\gamma - 1}R \frac{v^3}{gL}T_0\frac{\rho S}{M}.\]
+Remember that from the ideal gas law:
+\[p_0 V = \frac{m}{M}RT\implies \rho = \frac{m}{V} = \frac{p_0 M}{RT}\]
+wich means that 
+\[v^3 = \frac{\gamma}{\gamma - 1} \frac{gL}{S}\frac{P}{p_0}.\]
+Remember that 
+\[\Delta T = \frac{v^2}{gL}T_0\implies T = T_0 \left(1 + \frac{v^2}{gL}\right) = T_0 \left[1 + \frac{1}{gL}\left( \frac{\gamma}{\gamma - 1} \frac{gL}{S}\frac{P}{p_0}\right)^{2/3}\right].\]
+
+\end{solution}

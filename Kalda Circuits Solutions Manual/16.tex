@@ -1,0 +1,17 @@
+\begin{solution}{normal}
+According to idea 18,  we “cut off” the first period of the infinite chain ; the remaining part is equivalent to the original circuit of (yet unknown) resistance $R$. 
+\begin{center}
+\begin{tikzpicture}[transform shape, scale=1.5, thick]
+\ctikzset{label/align = smart}
+\draw (0, 0) to [open, *-] (0, 1);
+\draw (0, 2) to [open, *-] (0, 0);
+\draw (0, 0) -- (2, 0) to [R, l=$R_2$] (2, 2) to [R, l=$R_1$] (0, 2);
+\draw (2, 2) -- (3, 2) to [R, l=$R$, blue] (3, 0) -- (2, 0);
+\end{tikzpicture}
+\end{center}
+Because of that, we can write equality
+\[R = R_1 + \frac{R R_2}{R + R_2}\]
+which upon cross multiplying, gives us the equation 
+\[R^2 - RR_1 - R_1 R = 0\implies R = \frac{R_1}{2}\left(1 + \sqrt{1 + \frac{4R_2}{R_1}}\right)\]
+by the quadratic equation.
+\end{solution}

@@ -1,0 +1,19 @@
+\begin{solution}{hard}
+The total light emission power of the LED is $P_0 = 1 \mu W$. 
+\begin{center}
+    \begin{asy}
+    unitsize(2cm);
+    draw(circle((0,0), 0.75));
+label("LED", (0,0));
+draw((-2, 0) -- (-0.75, 0), arrow=Arrow(4));
+label("$W$", (-1.2, 0), N);
+draw((0, -2) -- (0, -0.75), arrow=Arrow(4));
+label("$Q$", (0, -1.35), E);
+draw((0, 0.75) -- (0, 2), arrow=Arrow(4));
+label("$Q'$", (0, 1.75), E);
+    \end{asy}
+\end{center}
+Since we have $$\frac{P_0}{A} = \int_{\nu_1}^{\nu_2}{I(\nu, T)} \mathrm{d}\nu$$ We substitute the well known expression for $I(\nu, T)$ from Planck's radiation law: 
+$$ \frac{P_0}{A} = \int_{\lambda_1}^{\lambda_2}{\frac{2\pi h c^2 \mathrm{d}\lambda}{\lambda^5(e^{\frac{hc}{\lambda k T}} - 1)}} = \frac{2\pi h}{c^2} \int_{\nu_1}^{\nu_2}{\frac{\nu^3}{e^{\frac{h\nu}{kT_0}}-1} \mathrm{d}\nu}$$ We can use the well known integral $$\int_{0}^{\infty}{\frac{\eta^3\text{d}\eta}{e^\eta - 1}} = 6\xi(4) = \frac{\pi^4}{15}$$ and substitute the known values and using the problem condition. We find from evaluating the integral that $T_1 \geq 1116 K$. Now, the maximum possible efficiency of the LED is just $$\eta_{\text{max}} = \frac{T_1}{T_1 - T_0} -1 = 1+ 0.354 = \boxed{1.354}$$
+
+\end{solution}

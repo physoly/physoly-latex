@@ -1,0 +1,17 @@
+\begin{solution}{normal}
+According to idea 18,  we “cut off” the first period of the infinite chain ; the remaining part is equivalent to the original circuit of (yet unknown) resistance $2R_{\infty}$. 
+\begin{center}
+\begin{tikzpicture}[transform shape, scale=1.5, thick]
+\ctikzset{label/align = smart}
+\draw (0, 0) to [open, *-] (0, 1);
+\draw (0, 2) to [open, *-] (0, 0);
+\draw (0, 0) -- (2, 0) to [R, l=$R$] (2, 2) to [R, l=$R$] (0, 2);
+\draw (2, 2) -- (3, 2) to [R, l=$2R_{\infty}$, blue] (3, 0) -- (2, 0);
+\end{tikzpicture}
+\end{center}
+Because of that, we can write equality
+\[R_{\infty} = R + \frac{2RR_{\infty}}{2R_{\infty} + R}\]
+which upon cross multiplying, gives us the equation 
+\[2R_{\infty}^2 - 3RR_{\infty} - R^2 = 0\implies R_{\infty} = \frac{1}{4}R(3 + \sqrt{17})\]
+upon taking the positive root by the quadratic equation.
+\end{solution}

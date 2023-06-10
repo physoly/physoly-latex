@@ -1,0 +1,9 @@
+\begin{solution}{normal}
+Call the balls $a_1,a_2,a_3,\dots a_N$. \vspace{3mm}
+
+When all the balls are released their comparative velocities will not change (i.e. if the velocity of $a_i$ is initially less than that of $a_j$, then it will always be less than that of $a_j$ at all times). \vspace{3mm}
+
+When two identical objects collide elastically, their velocities will switch. This is essentially the same as the two objects phasing through each other. So instead, let us assume that the balls never change direction and continue to phase through each other and instead we are trying to calculate the number of times a ball phases through another ball. \vspace{3mm}
+
+These ideas can be combined to conclude that each ball can at most only phase through each other ball exactly once, so the maximum would result from each ball phasing through every other ball exactly once for a final answer of $$\boxed{\frac{N(N-1)}{2}}$$
+\end{solution}

@@ -1,0 +1,21 @@
+\begin{solution}{hard}
+Define $T_0$ to be the air temperature, $T_1$ to be temperature supplied to the colder joint, and $T_2$ to be the temperature supplied to the warmer joint. 
+\vspace{3mm}
+
+Let temperature of colder joint be $T_0 - T_1$, and warmer joint be $T_0 + T_2$. The thermocouple acts as a reversible carnot engine in reverse, with electrical energy supplying the necessary work; therefore we can relate work done to heat in/heat out. The Carnot Cycle usually involves work/heat, but we can also look at the work per second (or power) and obtain an equivalent result. Note that the amount of power done is 
+\[P = IV = I\alpha (T_1 + T_2).\]
+The amount of heat that is supplied to the cold side of the thermocouple is $\kappa T_1$. The amount of work done is then 
+\[W = \frac{(T_0+T_2) - (T_0-T_1)}{T_0-T_1} \kappa T_1\]
+Similarly the amount of heat supplied to the warm part of the thermocouple is $\kappa T_2$. This tells us the amount of work done is 
+\[W = \frac{(T_0+T_2) - (T_0-T_1)}{T_0+T_2} \kappa T_2.\]
+We can now equate these together to get the equality of 
+\[I\alpha (T_1 + T_2) = \frac{(T_0+T_2) - (T_0-T_1)}{T_0-T_1} \kappa T_1 = \frac{(T_0+T_2) - (T_0-T_1)}{T_0+T_2} \kappa T_2\]
+simplifying gives us 
+\[I\alpha = \frac{\kappa T_1}{T_0 - T_1} = \frac{\kappa T_2}{T_0 + T_2}.\]
+We can now easily solve for $T_1$ to get 
+\begin{align*}
+I\alpha (T_0 - T_1) &= \kappa T_1\\
+I\alpha T_0 &= T_1 (\kappa + I\alpha)\\
+T_1 &= \boxed{T_0\frac{I\alpha}{\kappa + I\alpha}}
+\end{align*}
+\end{solution}

@@ -1,0 +1,69 @@
+\begin{solution}{normal}
+\textbf{a)} Let us examine an arbritary point $B$ on the road defined by the light gray color. The point of intersection of $B$ with the gas trail represents $C$. \vspace{3mm}
+
+\begin{center}
+    \begin{asy}
+        unitsize(0.8cm);
+        filldraw((-0.5,0)--(14.7,0)--(14.7,0.2)--(-0.5,0.2)--cycle,grey,invisible);
+        filldraw((0.7,0.2)--(9.5,3.7)--(9,4)--cycle,gray(0.3),invisible);
+        draw((1.5,1.4)--(0,3.9),arrow=Arrow());
+        draw((0.7,0.1)--(-0.4,0.1),arrow=Arrow());
+        filldraw(box((0.4,0.02),(0.7,0.18)));
+        label("$A$",(0.5,0.55));
+        label("$B$",(10,0.55));
+        draw("$ut$",(9.6,0.2)--(8.25,3.26),Arrows,Bars,PenMargins);
+        label("$C$",(8.8,3.1));
+        draw("$v_0t$",(0.7,-0.1)--(9.6,-0.1),Arrows,Bars,PenMargins);
+    \end{asy}
+\end{center}
+
+The smoke will have traveled a distance $|BC| = ut$, where $u$ is the speed of the wind. In the time $t$, the tractor will have travelled a distance $v_0 t$. By measuring we find that
+\[|AB| = 7.1\;\mathrm{cm},\hspace{10pt} |BC| = 3.1\;\mathrm{cm}.\]We then find that
+\[u = v_0 \frac{ut}{v_0 t} = v_0 \frac{|BC|}{|AB|} = 30\;\mathrm{km/h}\cdot\frac{3.1\;\mathrm{cm}}{7.1\;\mathrm{cm}}\approx\boxed{13\;\mathrm{km/h}}\]
+
+\textbf{b)} Label the initial point of the tractor on the left to be $A$, the origin to be $O$, and the initial point of the tractor on the right to be $B$. \vspace{3mm}
+
+\begin{center}
+    \begin{asy}
+        unitsize(0.85cm);
+        real a = 13*pi/180;
+        real b = 34.426*pi/180;
+        pair A = (0.8*cos(a),0.8*sin(a));
+        filldraw((0,0)--(14.5,3.2)--(14.5-0.2*sin(a),3.2+0.2*cos(a))--(-0.2*sin(a),0.2*cos(a))--cycle,grey,invisible);
+        filldraw((11.8+5*cos(b),-5*sin(b))--(2.9,6.1)--(2.9-0.2*sin(b),6.1-0.2*cos(b))--(11.8+5*cos(b)-0.2*sin(b),-5*sin(b)-0.2*cos(b))--cycle,grey,invisible);
+        filldraw((0.8*cos(a),0.8*sin(a))--(5.9,5.5)--(5.4,5.6)--cycle,gray(0.3),invisible);
+        filldraw((10.3,0.8)--(6.3,5.5)--(6.4,5.9)--cycle,gray(0.3),invisible);
+        draw(rotate(13)*((1,0.1)--(0,0.1)),arrow=Arrow());
+        filldraw(rotate(13)*box((0.7,0.02),(1,0.18)));
+        draw(shift(10.5,0.77)*(rotate(-33+180)*((0.5,0)--(-0.5,0))),arrow=Arrow());
+        filldraw(shift(10.1,1.05)*(rotate(-33)*box((-0.15,-0.08),(0.15,0.08))));
+        label("$A$",(0.7,0.7));
+        filldraw(circle((8.68,2.02),0.08));
+        pair O = (8.68,2.02);
+        label("$O$",(8.62,1.4));
+        label("$B$",(10.4,1.4));
+        draw("$v_0t$",(1.1,0.15)--(8.6,1.8),Arrows,Bars,PenMargins);
+        draw("$v_0t$",(8.6,1.8)--(8.6+7.679*cos(b),1.8-7.679*sin(b)),Arrows,Bars,PenMargins);
+        label("$C$",(8.9+7.679*cos(b),2.3-7.679*sin(b)));
+        pair C = (8.75+7.679*cos(b),1.97-7.679*sin(b));
+        real c = 51.127*pi/180;
+        filldraw(circle((8.75+7.679*cos(b),1.97-7.679*sin(b)),0.08));
+        draw(A--(scale(1.5)*((5.65,5.55)-A)+A));
+        draw(C--(scale(2.7)*((-5*cos(c),5*sin(c)))+C));
+        filldraw(circle((7.28,7.3),0.08));
+        pair D = (7.28,7.3);
+        label("$D$",(6.86,7.3));
+        draw(D--O,dashed);
+        draw("$ut$",O+(0.3,0.1)--D+(0.3,0.05),Arrows,Bars,PenMargins);
+    \end{asy}
+\end{center}
+
+We note that $|AO| = v_0 t$, thus if we extrapolate the line on the other road, we find that $|OC| = v_0 t$.
+
+Therefore, we find point $C$. The smoke trail of $C$ can be found to be parallel to the smoke trail at $B$. If we extrapolate both smoke trails at $A$ and $C$, we then find point $D$. \vspace{3mm}
+
+Therefore, we find that the meeting of the smoke trails of both tractors to be $|OD| = ut$. \vspace{3mm}
+
+Therefore,
+\[u = v_0 \frac{ut}{v_0 t} = v_0\frac{|OD|}{|OC|} = 30\;\mathrm{km/h}\cdot \frac{4.9\;\mathrm{cm}}{7.0\;\mathrm{cm}}\approx\boxed{21\;\mathrm{km/h}}\]
+\end{solution}

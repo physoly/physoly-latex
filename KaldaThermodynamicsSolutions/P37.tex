@@ -1,0 +1,13 @@
+\begin{solution}{normal}
+First, let us convert the temperatures from celsius to kelvin.
+\begin{align*}
+T_1 &= 20 + 273 = 293\;\mathrm{K}\\\
+T_2 &= 0 + 273 = 273\;\mathrm{K}
+\end{align*}Furthermore, converting the time from hours to seconds gives us $t = 36000\;\mathrm{s}$
+Note that the heat flux as given in Kalda’s introduction to thermoelectricity is
+\[\Phi = \frac{P}{\eta_C}\]
+where $\eta_C = 1 - \frac{T_c}{T_h}$. For a small increment of time $dt$ the mass gained is $dm$ and therefore the heat flux is $\frac{dm}{dt}\lambda$. Equating these two expressions together gives us 
+\[\frac{dm}{dt}\lambda = I^2 R\frac{T_h}{T_h - T_c}\implies \int_{0}^{m} dm = \int_{0}^{t} I^2 R \frac{T_h}{T_h - T_c}.\]
+Integrating through and dividing both sides by $\lambda$ tells us that 
+\[m = \boxed{\frac{I^2 R tT_h}{(T_h - T_c)\lambda}\approx 1.5\;\mathrm{g}}.\]
+\end{solution}

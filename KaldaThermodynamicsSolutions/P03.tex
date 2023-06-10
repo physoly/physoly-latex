@@ -1,0 +1,8 @@
+\begin{solution}{normal}
+Over one complete oscillation of the voltage, the heat lost by the filament must equal the heat gained by it. Let the resistance of the filament be $R$. The heat gained by the filament is $\frac{U_1^2}{R}\frac{T}{2}$ (because the voltage is applied only for $\frac{T}{2}$). Let the rate at which heat is lost to the surrounding be $r$. The heat lost to the surroundings is $rT$ therefore 
+$$rT = \frac{U_1^2}{R}\frac{T}{2} \implies r  =\frac{U_1^2}{2R}.$$
+From $t = 0.5T$ to $T$, the heat lost takes the temperature from the maximum temperature to the minimum temperature, a change of $2 \Delta T$ (beware, the $\Delta T$ is the amplitude of the temperature while $T$ is time period of voltage oscillations). This implies that 
+\[r\frac{T}{2} = 2mc \Delta T \implies \Delta T = \frac{U_1^2 T}{8Rmc}.\]
+However, $R = \frac{\rho_{\text{el}}\ell}{A}$ and $m = \rho \ell A$, where $A$ is cross-section area of the wire. Substituting these values gives 
+\[\Delta T = \frac{U_1^2 T}{8c \rho_{\text{el}} \rho \ell^2} = \frac{(17)^2(0.01)}{8(235)(9.95\times 10^{-7})(18200)(0.05)^2}=\boxed{33.8 \text{ K}}\]
+\end{solution}

@@ -1,0 +1,24 @@
+\begin{solution}{normal}\textbf{(a)} The wording of the temperatures $T_1, T_2$, and $T_0$ may be slightly confusing so let us clarify this before solving the problem. $T_2$ is the temperature of the cold air \textit{going} into the room while $T_0$ is the warm air from the room and $T_1$ is the cold air that is already inside the room. 
+\vspace{3mm}
+
+\noindent Let us assume that there is a constant difference of temperature across the opposite sides of the plates given by $\Delta T \equiv T_0 - T_2$. By fact 6, we note that for small tempera difference $\Delta T \equiv T_0 - T_2$, the heat flux is proportional to $\Delta T$. In other words, 
+\[\dot{Q} \propto T_0 - T_2 = \text{const}.\]
+The heat flux is also equal to 
+\[\dot{Q} = mc_p \dot{T} = \rho V c_p \dot{T} = \rho sh c_p \dot{T}\]
+where $s$ is the cross sectional area for an air element of volume $V$. We remember that the thermal conductance of the metal is $\sigma$ (the heat flux through a unit area of the plate per unit time, assuming that the temperature drops by one degree per unit thickness of the plate). This means that we can write 
+\[\dot{Q} = \frac{\sigma s (T_0 - T_2)}{d}.\]
+Since the heat flux is proportional to the difference in temeperature which is constant, this means that the temperature gradient is linear with respect to position. If the velocity of the air is $v$, we write with dimensional arguments that 
+\[\dot{T} = \frac{v (T_2 - T_1)}{x}\]
+we write $\Delta T \equiv T_2 - T_1$ here since we are looking at the temperature difference horizontally from the cold air going into the room and the cold air that is already in the room. Substitituting $\dot{T}$ into our initial expression of $\dot{Q}$ and equating that to our other expression with thermal conductance, we result in the equation 
+\[\rho s h c_p \frac{v (T_2 - T_1)}{x} = \frac{\sigma s (T_0 - T_2)}{d}.\]
+To solve this equation for $T_2$, we can cross multiply to get 
+\[\rho shc_p (T_2 - T_1) = \sigma s x(T_0 -T_2)\implies T_2(\rho hc_p v + \sigma x) = \rho shc_pd T_1 + \sigma sx T_0.\]
+Dividing over gives
+\[T_2 = \frac{x\sigma T_0 + \rho hc_pdT_1}{x\sigma + \rho hc_p vd}.\]
+\vspace{3mm}
+
+\noindent \textbf{(b)} Since the tempera difference is very large, the temperature gradient is not linear by fact 6. This is because (a) heat conductivity of the materials may depend on the temperature, (b) the heat flux due to heat radiation is a non-linear function of $T_1$ and $T_2$ (however, it can be still linearized for small values of $\Delta T$); (c) large temperature differences may cause convection of air and fluids which will enhance heat flux in a nonlinear way. Therefore, we have to rely on the graph to carry out calculations. Note that by idea 1:
+\[P \equiv \frac{\text{d}Q}{\text{d}T} = C \frac{\text{d}T}{\text{d}t}.\]
+By integrating, we find that 
+\[\int_{0}^{t} \text{d}t = \int_{T_2}^{T_1}\frac{C}{P}\text{d}T\implies t = 12C = 120\;\mathrm{s}.\]
+\end{solution}

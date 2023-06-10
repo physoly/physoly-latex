@@ -1,0 +1,42 @@
+\begin{solution}{normal}
+% Since the velocity along the rod is zero, we can equate the projected component of velocities along the rod to get
+% $$ - u\sin{\alpha} = v \cos{\alpha} \Rightarrow v = -u\tan{\alpha}$$
+\begin{center}
+    \begin{asy}
+        unitsize(1cm);
+        filldraw((0,6)--(0,0)--(4,0)--(4,-0.7)--(-0.7,-0.7)--(-0.7,6)--cycle,gray(0.75),invisible);
+        draw((0,6)--(0,0)--(4,0),linewidth(1.5));
+        draw((3,0)--(0,5),linewidth(2.5));
+        draw(arc((3,0),0.7,180,120.96));
+        label("$\alpha$",(2,0.5));
+        draw((0,5)--(0,3.5),arrow=Arrow(),red+linewidth(0.7));
+        draw((0,5)--(0,3.5),red+linewidth(1.5));
+        label("$v$",(-0.3,4.25));
+        draw((3,0)--(2,0),arrow=Arrow(),blue+linewidth(0.7));
+        draw((3,0)--(2,0),blue+linewidth(1.5));
+        label("$u$",(2.5,-0.3));
+    \end{asy}
+\end{center}
+
+Since the length of the rod is constant, we can consider the equation
+$$x^2+y^2 = L^2$$
+
+Differentiating with respect to time, this gives
+\begin{align*}
+2x\frac{dx}{dt} + 2y\frac{dy}{dt} &= 0 \\
+xu+yv &= 0 \\
+u &= -v\frac{y}{x} = \boxed{-v\tan{\alpha}}
+\end{align*}
+
+Now, we find the acceleration
+$$a = \frac{dv}{dt} = \frac{d(u\tan{\alpha})}{dt}$$
+
+Since $u$ is constant, we have
+$$a = u\frac{d\tan{\alpha}}{dt} = u \sec^2{\alpha} \frac{d\alpha}{dt}$$
+
+The angular velocity $\dfrac{d\alpha}{dt}$ is simply
+$$\frac{d\alpha}{dt} = \frac{u\cos{\alpha} + v\tan{\alpha} \sin{\alpha}}{L} = \frac{u}{L\cos{\alpha}}$$
+
+This means that
+$$a=u \sec^2{\alpha} \frac{d\alpha}{dt} = \boxed{\frac{u^2}{L\cos^3{\alpha}}}$$
+\end{solution}

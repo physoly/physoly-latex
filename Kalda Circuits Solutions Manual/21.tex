@@ -1,0 +1,8 @@
+\begin{solution}{hard}
+\textbf{Method 1.} Let us consider what happens when we drive a current $I$ through node $A$ such that there will be a current $I/20$ through every vertex including $A$. By Kirchhoff's Laws and by the symmetry of the dodecahedron, we have the current that is going in $A$ to be
+\[I_A = \frac{I-I/20}{3} = \frac{19}{60}I.\]Now, we attempt to superpose this current such that the $I/20$ vanishes from each vertex. The only way to do so is to feed the same current $I_A$ through the adjacent vertex $B$, however with a negative current. The $\pm I/20$ current through each vertex cancels out except the edge that connects $A$ and $B$. This edge will contain a current
+\[I’ = I_A - I_B = \frac{19}{30}I\]By Ohm’s Law, this implies the resistance is $\boxed{\frac{19}{30}R}$.
+\tcbline
+\textbf{Method 2.} There are $E=30$ resistors, each resistor with an effective resistance $r$. The number of vertices is $V=20$. By Foster's Theorem:
+$$Er=(V-1)R \implies r = \frac{V-1}{E}R = \frac{19}{30}R$$
+\end{solution}

@@ -1,0 +1,49 @@
+\begin{solution}{hard}
+By idea 17, the circuit is evidently, self dual. Thus, let us draw a diagram of its dual circuit; the dual circuit is obtained by putting one node inside each face of the original circuit, and connecting the new nodes with wires so that each old wire is crossed by exactly one new wire, see below.
+\begin{center}
+\begin{tikzpicture}[transform shape, scale=1.0]
+\ctikzset{bipoles/thickness=2}
+\ctikzset{label/align = smart}
+\draw (4, 0) to [C=$C$, line width=1.5] (2, 2);
+\draw (2, 2) to [inductor=$L$] (4, 4) to [C=$C$, line width=1.5] (6, 2);
+\draw (4, 0) to [inductor=$L$] (6, 2);
+\draw (4, 0) to [R=$R$, fill =white] (4,4);
+\draw (2, 2) to [open, *-] (3, 2);
+\draw (4, 4) to [open, *-] (5, 4);
+\draw (4, 0) to [open, *-] (5, 4);
+\draw (6, 2) to [open, *-] (5, 4);
+\draw (2, 2) -- (1, 2) -- (1, -0.5);
+\draw (6, 2) -- (7, 2) -- (7, -0.5);
+\draw (1, -0.5) -- (7, -0.5);
+\end{tikzpicture}
+\qquad 
+    \begin{tikzpicture}[transform shape, scale=1.0]
+\ctikzset{bipoles/thickness=2}
+\ctikzset{label/align = smart}
+\draw (4, 0) to [C=$C$, line width=1.5] (2, 2);
+\draw (2, 2) to [inductor=$L$] (4, 4) to [C=$C$, line width=1.5] (6, 2);
+\draw (4, 0) to [inductor=$L$] (6, 2);
+\draw (4, 0) to [R=$R$, fill =white] (4,4);
+\draw (2, 2) to [open, *-] (3, 2);
+\draw (4, 4) to [open, *-] (5, 4);
+\draw (4, 0) to [open, *-] (5, 4);
+\draw (6, 2) to [open, *-] (5, 4);
+\draw (2, 2) -- (1, 2) -- (1, -0.5);
+\draw (6, 2) -- (7, 2) -- (7, -0.5);
+\draw (1, -0.5) -- (7, -0.5);
+\draw [line width=0.5mm] (3, -1) -- (3, 5) -- (5, 5) -- (5, -1) -- (3, -1);
+\draw [line width=0.5mm] (4, -1) -- (4, -1.5) -- (0, -1.5) -- (0, 6) -- (4, 6) -- (4, 5);
+\draw [line width=0.5mm] (3, 1) -- (5, 1);
+\draw (3, -1) to [R=$Z_1$, fill=white] (3, 1);
+\draw (5, -1) to [R=$Z_2$, fill=white] (5, 1);
+\draw (3, 1) to [R=$Z_3$, fill=white] (3, 3);
+\draw (5, 1) to [R=$Z_4$, fill=white] (5, 3);
+\draw (3, 1) to [R, fill=white] (5, 1);
+\end{tikzpicture}
+\end{center}
+Now, the complex impedances of each circuit component are $Z_C = \frac{1}{i\omega C}, Z_L = i\omega L, Z_R = \sqrt{\frac{L}{C}}$. We would obtain exactly the same set of equations if we were considering the new circuit as a usual resistor network with resistances being equal to the conductances of the old circuit. Multiplying each circuit component by the factor $\alpha = \frac{C}{L}$ preserves symmetry as $Z^{\prime}_C = \alpha Z_C = 1/i\omega L$, $Z^{\prime}_L = \alpha Z_L = i\omega C$, and $Z^{\prime}_R = \alpha Z_R = \sqrt{C/L}$ (thus the impedances are reciprocals of the original impedance, and symmetry among the circuit components are maintained). Since
+the impedance is independent of the sinusoidal circular frequency $\omega$, it is equivalent to an active resistor.  Thus, the impedance of the original circuit can be described as 
+\[Z\frac{C}{L} = \frac{1}{Z}\implies Z = \sqrt{\frac{L}{C}}\]
+and hence, we can write 
+\[V = IZ\implies I = V_0 \sqrt{\frac{C}{L}}.\]
+\end{solution}

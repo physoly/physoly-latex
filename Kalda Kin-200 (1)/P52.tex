@@ -1,0 +1,66 @@
+\begin{solution}{hard}
+If we shift into a reference frame rotating counterclockwise with angular velocity $\omega/2$ about point $A$, we can note that the intersection point $I$ moves along a straight line in this reference frame.
+
+\begin{center}
+    \begin{asy}
+        unitsize(0.9cm);
+        pair I = (2,sqrt(5));
+        pair A = (2,-sqrt(5));
+        pair O1 = (0,0);
+        pair O2 = (4,0);
+        draw(circle(O1,3));
+        draw(circle(O2,3));
+        dot(A);
+        dot(I);
+        dot(O1);
+        dot(O2);
+        label("$A$",A,S*2);
+        label("$I$",I,N*2);
+        label("$O_1$",O1,W*2);
+        label("$O_2$",O2,E*2);
+        draw("$\omega/2$",arc(O1,3.5,110,80),arrow=Arrow(),N);
+        draw("$\omega/2$",arc(O2,3.5,70,100),arrow=Arrow(),N);
+        draw(O1--A--O2);
+        draw(O1--I--O2,dashed);
+        draw((A-(3,0))--(A+(3,0)),dashed);
+        draw(arc(A,0.7,180,132));
+        label("$\theta$",A+(-0.9,0.4));
+        draw("$2R\sin\theta$",I--A,E*0);
+    \end{asy}
+\end{center}
+
+We have that
+\begin{align*}
+AI&=2R\sin\theta\\
+\dfrac{d(AI)}{dt}&=2R\cos\theta\cdot\dfrac{d\theta}{dt}\\
+&=\omega R\cos\theta
+\end{align*}
+
+In the non-rotating reference frame, we have that
+\begin{align*}
+\vec{v}_\text{ground}&=\vec{v}_\text{rotating}+\dfrac{\vec{\omega}}{2}\times\vec{r}\\
+&=\omega R\cos\theta\;\hat{j}-\dfrac{\omega}{2}\cdot 2R\sin\theta\;\hat{i}\\
+&=\boxed{\omega R}
+\end{align*}
+
+\tcbline
+
+\textbf{Solution 2:} Let the first ring be centered in $(0, 0)$, so that its equation is $x^2+y^2=r^2$, and let the position of point $O$ be $(x_o, y_o)$. \vspace{3mm}
+
+We know that the second ring is centered at $(x_o+r\cos (\omega t), y_o+r\sin (\omega t) )$, so its equation is $$(x-(x_o+r\cos \omega t))^2 +(y-(y_o+r\sin \omega t))^2 = r^2$$
+
+The two solutions to this system of equations are $(x_o, y_o)$ and $(r\cos ( \omega t), r\sin (\omega t))$, since $x_o^2+y_o^2=1$. \vspace{3mm}
+
+But then those are the coordinates of the second intersection point, and that means that the point moves in a circle of radius $r$ with angular velocity $\omega$ and therefore its speed is constant and equal to $\boxed{\omega r}$.
+
+\tcbline
+
+\textbf{Solution 3:} The point of intersection follows the arbitrary curve $\rho=2rcos\theta$ with angular speed $\omega/2$ (we use $\rho$ here to distinguish between the radius of the circle). \vspace{3mm}
+
+The speed of the point is \begin{align*}
+\frac{ds}{dt}&=\frac{ds}{d\theta}\cdot\frac{d\theta}{dt}\\
+&=\frac{\omega}{2}\sqrt{\rho^2+\left(\frac{d\rho}{d\theta}\right)^2}\\
+&=\frac{\omega}{2}(2r)\sqrt{\cos^2\theta+\sin^2\theta}=\boxed{\omega r}
+\end{align*}
+
+\end{solution}

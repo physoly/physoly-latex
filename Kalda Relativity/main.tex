@@ -1,0 +1,125 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[english]{babel}
+\usepackage[a4paper,margin=0.6in]{geometry} % Page Dimensions
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                PACKAGES                %  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Styling Choices
+\setlength{\parskip}{\baselineskip}%
+
+% Math
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage[inline]{asymptote}
+
+% Allows for hyperlinking
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=magenta,
+}
+
+% Fancy Header
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Kalda Mechanics}
+\rhead{\thepage}
+
+% Coloured Boxes
+\usepackage{xcolor}
+\definecolor{border}{HTML}{004D4D}
+\definecolor{hard}{HTML}{ffccb3}
+\definecolor{easy}{HTML}{b3e6b3}
+\definecolor{normal}{HTML}{f2f2f2}
+
+% Syntax: \colorboxed[<color model>]{<color specification>}{<math formula>}
+\newcommand*{\colorboxed}{}
+\def\colorboxed#1#{%
+  \colorboxedAux{#1}%
+}
+\newcommand*{\colorboxedAux}[3]{%
+  % #1: optional argument for color model
+  % #2: color specification
+  % #3: formula
+  \begingroup
+    \colorlet{cb@saved}{.}%
+    \color#1{#2}%
+    \boxed{%
+      \color{cb@saved}%
+      #3%
+    }%
+  \endgroup
+}
+
+% Setup Gray Solution Boxes
+\usepackage[breakable,many]{tcolorbox}
+\newtcolorbox[auto counter]{solution}[1]{
+    enhanced, breakable,
+    arc=0pt,
+    % colback=default, % Background color
+    colframe=white, % Border Color
+    coltitle=black, % Title Color
+    fonttitle=\bfseries,
+    title=\fcolorbox{border}{#1}{\textcolor{border}{pr} \bfseries \textcolor{border}{\thetcbcounter}.},
+    attach title to upper,
+    after title={\ },
+    segmentation style={dashed, gray},
+}
+
+% Book's title and subtitle
+\title{\Huge \textbf{Solutions to Problems in Relativity Handout by Siim Ainsar \footnote{All solutions will refer to the 1.2 English version given at \newline\url{https://www.ioc.ee/~kalda/ipho/meh_ENG2.pdf}}} \\ \huge With detailed diagrams and walkthroughs}
+% Author
+\author{\textsc{Ashmit Dutta, QiLin Xue, Kushal Thaman, Arhaan Ahmed}}
+
+\begin{document}
+
+\maketitle
+
+%%%%%%%%%%%
+% Preface %
+%%%%%%%%%%%
+\subsection*{Preface}
+\vspace{-5mm}
+
+This solutions manual came as a sort of pilot project on the online database \url{artofproblemsolving.com}. Kalda's problems never did have solutions written for them, thus the idea of creating solutions to these problems were an interesting idea. The majority of the solutions seen here were written on a private forum given to those who wanted to participate in making solutions. It was an interesting idea and the forum was able to have a great start. International users from India, the US, and Canada came into the forums to give ideas and methods to create what we see today.
+
+\subsection*{Structure of The Solutions Manual}
+\vspace{-5mm}
+Each chapter in this solutions manual will be directed towards a section given in Kalda's mechanics handout. There are three major chapters: statics, dynamics, and revision problems. At the final page, we have an acknowledgments chapter. Each solution will be as detailed as possible and will usually contain a remark located in the footnote of each page. If you are stuck on a problem, and come here for reference, look at only the starting of the problem. Looking at the entire solution wastes the problem for you and ruins an opportunity for yourself to improve. Some solutions will have more than one solution to the problem.
+
+\subsection*{Contact Us}
+\vspace{-5mm}
+Despite editing, there is almost zero probability that there are \textit{no} mistakes inside this book. If there are any mistakes amiss, you want to add a remark, have a unique solution, or know the source of a specific problem, then please contact us at \url{solutionstokaldahandouts@gmail.com}. Furthermore, please feel free to contact us at the same email if you are confused on a solution. Chances are that many others have the same confusion as you.
+\newpage
+\section{Solutions to Statics Problems}
+
+This section will consist of the solutions to problems from problem 1-23 of the handout. Statics is typically the analysis of objects not in motion. However, objects travelling at constant velocity or with a uniform acceleration can be treated as a statics problem with a frame of reference change. This usually involves balancing forces, torques, and more to achieve equilibrium. 
+
+\input{P01}
+\input{P02}
+\input{P03}
+\input{P04}
+\input{P05}
+\input{P06}
+\input{P07}
+\input{P08}
+\input{P09}
+\input{P10}
+\input{P11}
+\input{P12}
+\input{P13}
+\input{P14}
+\input{P15}
+\input{P16}
+\input{P17}
+\input{P18}
+\input{P19}
+\input{P20}
+\input{P21}
+\input{P22}
+\input{P23}
+\input{P24}
+\input{P25}
+
+\end{document}

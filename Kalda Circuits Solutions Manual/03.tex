@@ -1,0 +1,83 @@
+\begin{solution}{easy}
+We first label the nodes, as the problem suggests:
+\begin{center}
+\begin{tikzpicture}[transform shape, thick]
+size(2cm);
+\ctikzset{bipoles/thickness=2}
+\ctikzset{label/align = smart}
+\coordinate  (A) at (0,0);
+\coordinate  (C) at (3,0);
+\coordinate  (A') at (6,0);
+\coordinate  (B) at (9,0);
+\coordinate  (C') at (12,0);
+\coordinate  (B') at (15,0);
+
+\draw[fill=black] (A) circle (2pt) node[above] {$A$};
+\draw[fill=black] (A') circle (2pt) node[above] {$A$};
+\draw[fill=black] (B) circle (2pt) node[above] {$B$};
+\draw[fill=black] (B') circle (2pt) node[above] {$B$};
+\draw[fill=black] (C) circle (2pt) node[below] {$C$};
+\draw[fill=black] (C') circle (2pt) node[below] {$C$};
+
+\draw (A) to [R, l=$\boxed{1}$] (C)
+          to [R, l=$\boxed{2}$] (A')
+          to [R, l=$\boxed{3}$] (B)
+          to [R, l=$\boxed{4}$] (C')
+          to [R, l=$\boxed{5}$] (B');
+          
+\draw (A) to ($(A) + (0, -1)$) to ($(A') + (0, -1)$) to (A');
+\draw (B) to ($(B) + (0, -1)$) to ($(B') + (0, -1)$) to (B');
+\draw (C) to ($(C) + (0, 1)$) to ($(C') + (0, 1)$) to (C');
+\end{tikzpicture}
+\end{center}
+Here, the same labeled nodes have the same potential as they are connected with a wire. We can redraw this to be something more convincing by considering each node one at a time. Node $A$ is directly connected to resistors $\boxed{1}$, $\boxed{2}$, and $\boxed{3}$. Node $C$ is connected directly to everything except resistor $\boxed{3}$, and node $B$ is directly connected to resistors $\boxed{3}$, $\boxed{4}$, and $\boxed{5}$. We can represent this as: 
+\begin{center}
+\begin{tikzpicture}[transform shape, thick]
+size(2cm);
+\ctikzset{bipoles/thickness=2}
+\ctikzset{label/align = smart}
+\coordinate  (A) at (0,0);
+\coordinate  (B) at (9,-2);
+\coordinate  (C) at (4,0);
+\coordinate  (D) at (8,0);
+
+\draw[fill=black] (A) circle (2pt) node[left] {$A$};
+\draw[fill=black] (B) circle (2pt) node[right] {$B$};
+\draw[fill=black] (C) circle (2pt) node[right] {$C$};
+
+\draw (A) to ($(A) + (0, 2)$) to  [R, l=$\boxed{1}$] ($(C) + (0, 2)$) to (C);
+\draw (A) to  [R, l=$\boxed{2}$] (C);
+\draw (A) to ($(A) + (0, -2)$) to  [R, l=$\boxed{3}$] ($(C) + (0, -2)$) to (B);
+
+\draw (C) to ($(C) + (0, 1)$) to  [R, l=$\boxed{4}$] ($(D) + (0, 1)$) to (D);
+\draw (C) to ($(C) + (0, -1)$) to  [R, l=$\boxed{5}$] ($(D) + (0, -1)$) to (D);
+
+\draw (D) to ($(B) + (0,2)$) to (B);
+\end{tikzpicture}
+\end{center}
+We can break up this circuit into simpler components:
+\begin{center}
+\begin{tikzpicture}[transform shape, thick]
+size(2cm);
+\ctikzset{bipoles/thickness=2}
+\ctikzset{label/align = smart}
+\coordinate  (A) at (0,0);
+\coordinate  (B) at (9,-2);
+\coordinate  (C) at (4,0);
+\coordinate  (D) at (8,0);
+
+\draw[fill=black] (A) circle (2pt) node[left] {$A$};
+\draw[fill=black] (B) circle (2pt) node[right] {$B$};
+\draw[fill=black] (C) circle (2pt) node[below] {$C$};
+
+\draw (A) to  [R, l=$0.5\Omega$] (C);
+
+\draw (C) to [R, l=$0.5\Omega$](D);
+\draw (D) to ($(B) + (0,2)$) to (B);
+
+\draw (A) to ($(A) + (0, -2)$) to  [R, l=$1\Omega$] ($(C) + (0, -2)$) to (B);
+\end{tikzpicture}
+\end{center}
+and the equivalent resistance is:
+$$R=\frac{(0.5+0.5)(1)}{1+(0.5+0.5)}=0.5\, \Omega$$
+\end{solution}

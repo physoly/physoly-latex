@@ -1,0 +1,15 @@
+\begin{solution}{normal}
+\textbf{(a)} The power dissipated by the wire is 
+\[P = \frac{U_0^2}{R} = \frac{U_0^2 S}{\rho_{\text{el}} l}.\]
+By idea 1, we can write 
+\[P \equiv \frac{\text{d}Q}{\text{d}T} = C \frac{\text{d}T}{\text{d}t} = mc \frac{\text{d}T}{\text{d}t}\]
+which means that 
+\[mc\dv{T}{t} = \frac{U_0^2 S}{\rho_{\text{el}} l}\implies \int mc\rho_{\text{el}} l \dd T = \int U_0^2 S \dd t.\]
+By integrating and solving this equation for $t$, we find 
+\[\frac {U_0^2At}{\rho_{\text{el}}l} = Al\rho_{20}c(T_1-T_2)\implies t = \frac{\rho_{20}\rho_{\text{el}}cl^2(T_1-T_0)}{U_0^2} = 25\;\mathrm{ms}.\]
+\vspace{3mm}
+
+\noindent \textbf{(b)} As $U_1$ is large, $\rho_{\text{el}}$ changes significantly with temperature. Applying the same initial equations as in part (a), we find that 
+\[\int mc\rho_{\text{el}} l \dd T = \int U_1^2 S \dd t\implies t = \frac {\rho_{20} cl^2}{U_1^2} \times (\text{Area under}\,\rho_{\text{el}}-T\,\text{graph}).\]
+The area under the graph is approximately $\frac {11.6 + 0.4}{2}\times 3400\cdot 10^{-7}$ and therefore $t \approx 1.6\,\text{ms}$.
+\end{solution}

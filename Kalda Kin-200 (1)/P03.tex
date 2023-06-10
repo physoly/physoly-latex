@@ -1,0 +1,53 @@
+\begin{solution}{hard}
+Consider the following diagram:
+\begin{center}
+    \begin{asy}
+        size(7cm);
+        draw(circle((0,0), 1));
+        draw(circle((1.5, 0), 1));
+        draw((0,0)--(1.5,0));
+        dot((0,0));
+        draw((-0.5, 0.3)--(0, 0.3), arrow=Arrow(4));
+        label("$v$", (0,0.3), N);
+        dot((1.5, 0));
+    \end{asy}
+\end{center}
+Moving into the reference frame moving leftward at velocity $v/2$ gives us the following diagram (where $u$ is the velocity of intersection):
+\begin{center}
+    \begin{asy}
+        size(7cm);
+        import olympiad;
+        draw(circle((0,0), 1));
+        draw(circle((1.5, 0), 1));
+        dot((1.5, 0));
+        draw((1.5,0)--(sqrt(2)/2+0.05, sqrt(2)/2-0.05)--(sqrt(2)/2+0.05, 0)--cycle);
+        draw(anglemark((sqrt(2)/2+0.05, sqrt(2)/2-0.05), (1.5,0), (sqrt(2)/2+0.05, 0)));
+        draw((sqrt(2)/2+0.05, sqrt(2)/2-0.05)--(sqrt(2)/2+0.8, sqrt(2)/2+0.75), Arrow(TeXHead));
+        draw((sqrt(2)/2+0.05, sqrt(2)/2-0.05)--(sqrt(2)/2+0.05, sqrt(2)/2+0.75));
+        draw((sqrt(2)/2+0.05, sqrt(2)/2+0.75)--(sqrt(2)/2+0.8, sqrt(2)/2+0.75), Arrow(TeXHead));
+        draw(anglemark((sqrt(2)/2+0.8, sqrt(2)/2+0.75), (sqrt(2)/2+0.05, sqrt(2)/2-0.05), (sqrt(2)/2+0.05, sqrt(2)/2+0.75)));
+        label("$u$", (sqrt(2)/2+0.8, sqrt(2)/2+0.75), SE);
+        label("$v/2$", (sqrt(2)/2+0.8, sqrt(2)/2+0.75), NW);
+        label("$a/2$", (1.2, 0), S);
+        label("$r$", ((sqrt(2)/2+1.5)/2, (sqrt(2)/2-0.05)/2), NE);
+        markscalefactor=0.02;
+        draw(rightanglemark((sqrt(2)/2+0.05, sqrt(2)/2-0.05), (sqrt(2)/2+0.05, sqrt(2)/2+0.75), (sqrt(2)/2+0.8, sqrt(2)/2+0.75)));
+        draw(rightanglemark((sqrt(2)/2+0.05, sqrt(2)/2-0.05), (sqrt(2)/2+0.05, 0), (1.5,0)));
+    \end{asy}
+\end{center}
+Using SAS similarity we find that 
+\begin{align*}
+\frac{u}{v/2} &= \frac{r}{\sqrt{r^2 - (a/2)^2}}\\
+u &= \frac{v}{2r\sqrt{r^2 - (a/2)^2}} = \boxed{\frac{v}{2\sqrt{1-(a/2r)^2}}}
+\end{align*}
+\tcbline 
+\textbf{Solution 2:} We start similarly to Solution 1 and move into a reference frame moving left at $v/2$.\vspace{3mm}
+
+Let $y = \sqrt{r^2 - a^2/4}$ be the height of of the intersection above the centers of the hoop. We then see that 
+\[\frac{dy}{dt} = \frac{dy}{da}\cdot \frac{da}{dt} =  \frac{1}{\sqrt{(2r/a)^2 - 1}}\cdot \frac{v}{2}\]
+Therefore,
+\begin{align*}
+u = \sqrt{u_x^2 + u_y^2} &= \sqrt{\frac{v^2}{4} + \frac{v^2}{4}\cdot\frac{1}{(2r^2/a) - 1}}\\
+u &= \boxed{\frac{v}{2\sqrt{1-(a/2r)^2}}}
+\end{align*}
+\end{solution}

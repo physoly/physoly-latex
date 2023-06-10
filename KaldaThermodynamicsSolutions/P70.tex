@@ -1,0 +1,21 @@
+\begin{solution}{normal}
+\textbf{(a)} We essentially apply the same process as problem 69. Note that 
+\[p^{1 - \gamma} T^{\gamma} = \text{const.}\]
+and therefore, 
+\[(1 - \gamma) \frac{\dd p}{p} + \gamma \frac{\dd T}{T} = 0.\]
+This means that 
+\[\frac{\dd T}{T} = (1 - \gamma^{-1})\frac{\dd p}{p}.\]
+\vspace{3mm}
+
+\noindent \textbf{(b)} Let us analyze a small section $dz$ in the atmosphere with density $\rho$. The relation between pressure and density is then given by 
+\[dp = - \rho g dz.\]
+We know that $p = n k_B T$ and $\rho = nm$ where $m$ is the mass of a single molecule and therefore, 
+\[\frac{dp}{dz} = - \frac{mg p}{k_B T}\implies T \frac{dp}{p} = - \frac{mg}{k_B}dz.\]
+\vspace{3mm}
+
+\noindent \textbf{(c)} From parts a and b we can substitute to give us 
+\[\frac{\dd T}{\dd z} = -\left(\frac{\gamma - 1}{\gamma}\right) \frac{mg}{k_B} \implies \dd T =  -(1 - \gamma^{-1}) \frac{\mu g}{R}\dd z.\]
+Integrating from $T_0$ to $T$ gives us 
+\[\int_{T_0}^{T} \dd T = \int_{0}^{z} -(1 - \gamma^{-1}) \frac{\mu g}{R}\dd z \implies T = T_0 - (1 - \gamma^{-1}) \frac{\mu g z}{R} = \boxed{20.6\;\mathrm{C}^{\circ}}.\]
+
+\end{solution}

@@ -1,0 +1,131 @@
+\begin{solution}{hard}
+First, we make the following claim: \vspace{3mm}
+
+\boldclaim{Claim:} The optimal-velocity trajectory must contain both endpoints of the roof along its path.
+\begin{center}
+    \rule{7cm}{0.4pt}
+\end{center}
+
+\textit{Proof:}
+Assume for the sake of contradiction that the optimal-velocity trajectory hits neither one of the two endpoints of the roof. Then, we can clearly see that reducing the velocity by an small amount would still result in the stone clearing the roof.\vspace{3mm}
+
+Now assume that the optimal-velocity trajectory hits only one of the two endpoints of the roof. In both cases, the thrower can displace themself horizonally by an small amount, resulting the stone hitting neither one of the two endpoints.\vspace{3mm}
+
+Thus, the optimal-velocity trajectory must contain both endpoints of the roof.
+\begin{center}
+    \rule{7cm}{0.4pt}
+\end{center}
+
+By idea 28, we can set the rightmost point of the roof (point $F$) to be the focus of the region $\mathcal{R}$ of all possible trajectories. Optimally, this parabola should pass through the left end of the roof.
+
+\begin{center}
+    \begin{asy}
+        import graph;
+        unitsize(8mm);
+        filldraw((-7,0)--(-7,-0.6)--(12.2,-0.6)--(12.2,0)--cycle,gray(0.6),invisible);
+        filldraw((2,0)--(2,6.8)--(9.6,4.7)--(9.6,0)--cycle,gray(0.8));
+        draw((-7,0)--(12.2,0),linewidth(2));
+        draw((2,0)--(2,6.8)--(9.6,4.7)--(9.6,0),linewidth(2));
+        draw((0.7,7.2)--(10.7,4.4),linewidth(4));
+        draw((0.6,0)--(0.6,7.2),Arrows);
+        draw((10.8,0)--(10.8,4.4),Arrows);
+        draw((0.7,7.5)--(10.7,4.7),Arrows,Bars);
+        label("$a$",(0.3,3.6));
+        label("$b$",(5.7,6.5));
+        label("$c$",(11.1,2.2));
+        pair f(real x){
+        	return (x,-0.0379*x^2+0.81106*x+6.65083);
+        }
+        draw(graph(f,0,13.7),red);
+        pair g(real x){
+        	return (x,-0.101*x^2+0.87*x+6.639);
+        }
+        draw(graph(f,-6.3,13.7),red);
+        draw(graph(g,-4.9,12.5),blue);
+        draw((10.7,4.4)--(10.7,4.4)+(1.5,-1.5*1.29),arrow=Arrow());
+        label("$v$",(11.8,3.5));
+        draw((10.8,4.5)--(10.8,10.95),Arrows,Bars);
+        label("$h$",(11.1,7.8));
+        label("$F$",(11.2,4.5));
+        draw((-4.9,0)--(-4.9,0)+(2,2*1.86),arrow=Arrow());
+        label("$v_0$",(-3.5,1.5));
+    \end{asy}
+\end{center}
+
+By fact 9, we have that
+$$h=\dfrac{a+b-c}{2}$$
+
+We know that if the projectile is thrown straight up, it hits the top of the red parabola, so
+\begin{align*}
+\dfrac{1}{2}v^2&=gh\\
+v&=\sqrt{g(a+b-c)}
+\end{align*}
+
+By idea 32, we have that
+\begin{align*}
+\dfrac{1}{2}v^2+gh&=\text{constant}\\
+\dfrac{1}{2}v_0^2&=\dfrac{1}{2}v^2+gc\\
+v_0&=v_{\text{min}}=\boxed{\sqrt{g\left(a+b+c\right)}}
+\end{align*}
+\tcbline
+\textbf{Solution 2:}
+We begin this solution by also proving that the optimal-velocity trajectory must pass through the two endpoints of the roof.\vspace{3mm}
+
+Then, we set of coordinates of $F$ to be $(0,0)$, so the coordinates of the left end of the roof are $\left(\sqrt{b^2-(a-c)^2},a-c\right)$, where we have taken the absolute value of the x-coordinate to make calculations easier.\vspace{3mm}
+
+Let $\theta=\arctan\left(\dfrac{a-c}{\sqrt{b^2-(a-c)^2}}\right)$, let the initial launch angle (to the horizontal) be $\alpha$, and let the initial velocity of the stone be $v_0$.
+
+\begin{center}
+    \begin{asy}
+        unitsize(3cm);
+        draw((0,0)--(1/sin(25*pi/180),0)--(1/sin(25*pi/180),1)--cycle);
+        draw(arc((0,0),0.4,0,24));
+        label("$\theta$",(0.5,0.1));
+        label("$b$",(1.2,0.65));
+        label("$a-c$",(2.6,0.5));
+        label("$\sqrt{b^2-(a-c)^2}$",(1.2,-0.2));
+    \end{asy}
+\end{center}
+
+The equation for the slope of the roof is given by
+$$y=x\tan\theta$$
+
+Along the slope of the roof, we have that
+\begin{align*}
+x&=v_0t\cos\alpha\\
+y&=v_0\sin\alpha t-\dfrac{gt^2}{2}\\
+v_0\sin\alpha t-\dfrac{gt^2}{2}&=v_0t\cos\alpha\tan\theta\\
+t&=\dfrac{2v}{g}\left(\sin\alpha-\cos\alpha\tan\theta\right)\\
+\end{align*}
+
+It suffices to maximize the horizontal distance travelled, which is
+$$x=\dfrac{2v^2\cos\alpha}{g}\left(\sin\alpha-\cos\alpha\tan\theta\right)$$
+
+Taking the derivative with respect to $\alpha$, we get that
+\begin{align*}
+\dfrac{dx}{d\alpha}&=\dfrac{2v^2}{g}\left(2\tan\theta\sin\alpha\cos\alpha-\sin^2\alpha+\cos^2\alpha\right)\\
+&=\dfrac{2v^2}{g\cos\theta}\cos\left(\theta-2\alpha\right)\\
+\implies\alpha&=\dfrac{\pi}{4}+\dfrac{\theta}{2}
+\end{align*}
+
+From this, we can find that
+\begin{align*}
+\sin\alpha&=\sqrt{\dfrac{a+b-c}{2b}}\\
+\cos\alpha&=\sqrt{\dfrac{-a+b+c}{2b}}\\
+\cos\theta&=\dfrac{\sqrt{b^2-(a-c)^2}}{b}\\
+\tan\theta&=\dfrac{a-c}{\sqrt{b^2-(a-c)^2}}
+\end{align*}
+
+Then, we must have that
+\begin{align*}
+vt\cos\alpha&=b\cos\theta\\
+\dfrac{2v^2\cos\alpha\left(\sin\alpha-\cos\alpha\tan\theta\right)}{g}&=b\cos\theta\\
+v&=\sqrt{\dfrac{gb\cos\theta}{2\cos\alpha(\sin\alpha-\cos\alpha\tan\theta)}}
+\end{align*}
+
+Plugging everything in, this simplifies (quite miraculously) to
+$$v=\sqrt{g(a+b-c)}$$
+
+Applying conservation of energy to find the velocity at the ground, we see that
+$$\boxed{v_0=\sqrt{g(a+b+c)}}$$
+\end{solution}

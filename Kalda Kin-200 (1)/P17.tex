@@ -1,0 +1,104 @@
+\begin{solution}{normal}
+\begin{center}
+\begin{asy}
+import olympiad;
+unitsize(3.8cm);
+real a = 45*pi/180;
+real p = 35*pi/180;
+pair O = (0,0);
+real r = 2;
+pair M = (-r*cos(pi/2-a/2),r*sin(pi/2-a/2));
+pair P = (r*cos(pi/2-a/2),r*sin(pi/2-a/2));
+pair A = (r/2*cos(p),r/1.5*sin(p))*1.5;
+dot(A);
+draw(P--O--M);
+filldraw(P--O--M--cycle,gray(0.8),invisible);
+label("$\alpha$",(0,r/6));
+draw(arc((0,0),r/8,67.5,112.5));
+dot(O);
+dot(P);
+dot(M);
+label("$O$",O-(0,0.15));
+label("$P$",P+(0.15,0));
+label("$M$",M-(0.15,0));
+label("$A$",A+(0.15,0));
+draw(O+(0.15,-0.07)--A+(-0.69*cos(a/2),0.69*sin(a/2))+(0.15,-0.07),Arrows,Bars);
+label("$l$",A/2+(-0.08,0.03));
+draw(A+(-0.69*cos(a/2),0.69*sin(a/2))+(0.1*cos(pi/2-a/2),0.1*sin(pi/2-a/2))--A+(0.1*cos(pi/2-a/2),0.1*sin(pi/2-a/2)),Arrows,Bars);
+label("$h$",(A+(-0.69*cos(a/2),0.69*sin(a/2))+(0.1*cos(pi/2-a/2),0.1*sin(pi/2-a/2))+A+(0.1*cos(pi/2-a/2),0.1*sin(pi/2-a/2)))/2+(0.05,0.1));
+draw(A--A+(-0.69*cos(a/2),0.69*sin(a/2)),dashed);
+draw(scale(1/3)*rightanglemark(3*P*0.4/cos(a),3*(A+(-0.69*cos(a/2),0.69*sin(a/2))),3*A));
+\end{asy}
+\end{center}
+
+One extreme case that we must consider first is directly travelling along the path $AO$, which gives
+$$t=\dfrac{\sqrt{l^2+h^2}}{v}$$
+
+We'll deal with this later, but we first use fact 5, as shown in the following diagram:
+\begin{center}
+\begin{asy}
+import olympiad;
+unitsize(3.8cm);
+real a = 45*pi/180;
+real p = 35*pi/180;
+pair O = (0,0);
+real r = 2;
+pair M = (-r*cos(pi/2-a/2),r*sin(pi/2-a/2));
+pair P = (r*cos(pi/2-a/2),r*sin(pi/2-a/2));
+pair A = (r/2*cos(p),r/1.5*sin(p))*1.5;
+dot(A);
+draw(P--O--M);
+filldraw(P--O--M--cycle,gray(0.8),invisible);
+label("$\alpha$",(0,r/6));
+draw(arc((0,0),r/8,65,115));
+dot(O);
+dot(P);
+dot(M);
+label("$O$",O-(0,0.15));
+label("$P$",P+(0.15,0));
+label("$M$",M-(0.15,0));
+label("$A$",A+(0.15,0));
+draw(M*0.4--P*0.4/cos(a)--A);
+draw(A--A+(-0.69*cos(a/2),0.69*sin(a/2)),dashed);
+draw(scale(1/3)*rightanglemark(3*P*0.4/cos(a),3*M*0.4,O));
+draw(scale(1/3)*rightanglemark(3*P*0.4/cos(a),3*(A+(-0.69*cos(a/2),0.69*sin(a/2))),3*A));
+draw(arc(A,r/10,180-45/2,187));
+label("$\phi$",A+(-0.3,0.04));
+draw(P*0.4/cos(a)+(-0.69*cos(a/2),0.69*sin(a/2))--P*0.4/cos(a)-(-0.69*cos(a/2),0.69*sin(a/2)),dotted);
+draw(arc(P*0.4/cos(a),r/10,-45/2,7));
+label("$\phi$",A+(-0.5,-0.13));
+draw(arc(P*0.4/cos(a),r/10,180-45/2,200));
+label("$\alpha$",A+(-1.1,-0.1));
+draw(O+(-0.15*cos(a/2),-0.15*sin(a/2))--M*0.4+(-0.15*cos(a/2),-0.15*sin(a/2)),Arrows,Bars);
+label("$x$",(O+M*0.4)/2+(-0.25*cos(a/2),-0.25*sin(a/2)));
+draw(O+(0.15*cos(a/2),-0.15*sin(a/2))--P*0.4/cos(a)+(0.15*cos(a/2),-0.15*sin(a/2)),Arrows,Bars);
+label("$x'$",(O+P*0.4/cos(a))/2+(0.25*cos(a/2),-0.25*sin(a/2)));
+\end{asy}
+\end{center}
+
+We use $\phi$ as defined above to make calculations easier and we get that
+\begin{align*}
+\dfrac{\sin\phi}{\sin\alpha}&=\dfrac{v}{u}\\
+\phi&=\arcsin\left(\dfrac{v\sin\alpha}{u}\right)
+\end{align*}
+
+Since
+\begin{align*}
+x'&=l-h\tan\phi\\
+x&=\left(l-h\tan\phi\right)\cos\alpha
+\end{align*}
+
+We also have that
+\begin{align*}
+t&=\dfrac{h}{v\cos\phi}+\dfrac{x\tan\alpha}{u}\\
+&=\dfrac{h}{v\cos\phi}+\dfrac{\left(l-h\tan\phi\right)\sin\alpha}{u}\\
+&=\dfrac{h}{v\cos\phi}-\dfrac{h\sin\phi\sin\alpha}{u\cos\phi}+\dfrac{l\sin\alpha}{u}\\
+&=\dfrac{h}{v\cos\phi}-\dfrac{h\sin^2\phi}{v\cos\phi}+\dfrac{l\sin\alpha}{u}\\
+&=\dfrac{h\cos\phi}{v}+\dfrac{l\sin\alpha}{u}
+\end{align*}
+
+However, we must also note that, when $\phi\geq\arctan\left(\dfrac{l}{h}\right)$, the boy never actually reaches side $OP$. Therefore, our answer is
+\begin{empheq}[box=\widefbox]{align*}
+x&=\left(l-h\tan\phi\right)\cos\alpha,\;t=\dfrac{h\cos\phi}{v}+\dfrac{l\sin\alpha}{u}&\text{ if }\phi<\arctan\left(\dfrac{l}{h}\right)\\x&=0,\;t=\dfrac{\sqrt{l^2+h^2}}{v}&\text{ otherwise}
+\end{empheq}
+\end{solution}

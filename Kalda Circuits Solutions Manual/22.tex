@@ -1,0 +1,24 @@
+\begin{solution}{hard}
+We use the idea of "negative resistance". In this case, the edge connecting vertices $\text{A}$ and $\text{B}$ is cut off. We can represent the missing wire as a parallel connection of $R$ and $-R$. This is because idea 22 tells us that a resistor and a negative resistor in parallel corresponds to infinite resistance which is what $\text{AB}$ essentially is since no current can flow through. From problem 21, we note that
+\[R = \frac{19}{30}R\]and since we have a $R$ and $-R$ resistor in parallel (as shown below)
+\begin{center}
+\begin{asy}
+size(6cm);
+draw((0,0) -- (0.5, 0));
+dot((0.5, 0));
+draw((0.5, 0) -- (0.5, 0.25));
+draw((0.5, 0) -- (0.5, -0.25));
+draw((0.5, 0.25) -- (1.5, 0.25), purple + blue);
+label("$R$", (1, 0.25), N);
+draw((0.5, -0.25) -- (1.5, -0.25), purple + red);
+draw((1.5, -0.25) -- (1.5, 0.25));
+dot((1.5, 0));
+draw((1.5, 0) -- (2, 0));
+label("$-R$", (1, -0.25), S);
+label("A", (0.5, 0), NW);
+label("B", (1.5, 0), NE);
+\end{asy}
+\end{center}
+We can reduce the equivalent resistance by idea 1:
+\[\frac{1}{R_{\text{eq}}} = \sum_{i} \frac{1}{R_{i}} = \frac{1}{R} + \frac{1}{-R}\implies R_{\text{eq}} = \frac{(\frac{19}{30}R)(-R)}{\frac{19}{30}R - R} = \frac{19}{11}R.\]
+\end{solution}

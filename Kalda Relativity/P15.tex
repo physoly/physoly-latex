@@ -1,0 +1,31 @@
+\begin{solution}{normal}
+We know that the position four vectors are given by 
+\[x^\mu = (ct, x, y, z).\]
+From fact 15, the velocity four vector is given by (the particle is only moving in the $x$ direction so $y$ and $z$ are constant)
+\[v^\mu = \frac{dx^\mu}{d\tau} = \left(c\frac{dt}{d\tau}, \frac{dx}{d\tau}, 0, 0\right)\]
+where $\tau = \gamma t$. Considering small displacements of $\tau = \gamma t$ gives us 
+\[dt = \gamma d\tau\implies \gamma = \frac{dt}{d\tau}\]
+Substituting this back into our four velocity vector gives
+\[v^\mu = \left(\gamma c, \frac{dx}{d\tau}, 0, 0\right)\]
+We have yet to prove that $\frac{dx}{d\tau} = \gamma v$. We can do this by looking back at the equation 
+\[\tau = \gamma dt.\]
+Squaring both sides gives us 
+\[\tau^2 = \frac{\gamma^2}{1-v^2/c^2}t^2\]
+multiplying across gives
+\[\tau^2 (c^2 - v^2) = c^2t^2 \implies c^2\tau^2 - v^2\tau^2 = c^2t^2\]
+We know from basic kinematic relations that $v=x\tau\implies v^2 = x^2\tau^2$, therefore, by substituting this into our expression we find that
+\[c^2\tau^2 - x^2= c^2t^2.\]
+Differentiating both sides with respect to $\tau$ yields in
+\[c^2\cdot 2\tau - 2x\frac{dx}{d\tau} = c^2\cdot 2\gamma t\]
+Moving terms 
+\[x\frac{dx}{d\tau} = c^2(\gamma t - \tau).\]
+Dividing both sides by $t$,
+\[v\frac{dx}{d\tau} = c^2\left(\gamma - \frac{1}{\gamma}\right) = c^2\left(\frac{\gamma^2 -1}{\gamma}\right)\]
+To get $\frac{dx}{d\tau}$, we first simplify the numerator
+\[\gamma^2 - 1 = \frac{c^2}{c^2 - v^2} - 1 = \frac{v^2}{c^2 - v^2}\]
+Going back into our previous equation, and dividing both sides by $v$ gives us 
+\[\frac{dx}{d\tau} = \frac{1}{\gamma}\frac{c^2v}{c^2 - v^2} = \frac{1}{\gamma}v\gamma^2 = \gamma v.\]
+Going back and substituting $\gamma v$ gives us 
+\[\boxed{v^\mu = (\gamma c, \gamma v, 0, 0)}\]
+
+\end{solution}

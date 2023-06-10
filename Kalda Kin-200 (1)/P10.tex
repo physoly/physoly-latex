@@ -1,0 +1,80 @@
+\begin{solution}{easy}
+Consider the following graph:
+
+\begin{center}
+    \begin{asy}
+        import graph;
+        unitsize(5mm);
+        for(int j=-3; j<8; ++j){
+        	draw((0,j)--(20,j),grey+linewidth(0.4));
+        }
+        for(int j=1; j<21; ++j){
+        	draw((j,-3)--(j,7),grey+linewidth(0.4));
+        }
+        draw((0,0)--(3,6)--(4,-3)--(6,2)--(8,-2)--(10,5)--(14,-3)--(17,2)--(20,-3));
+        draw((0,-3)--(0,8),arrow=Arrow());
+        draw((0,0)--(21,0),arrow=Arrow());
+        label("$-2$",(-0.8,-2));
+        label("$0$",(-0.5,0));
+        label("$2$",(-0.5,2));
+        label("$4$",(-0.5,4));
+        label("$6$",(-0.5,6));
+        label("$5$",(5,0.5));
+        label("$10$",(10,0.5));
+        label("$15$",(15,0.5));
+        label("$t$ (s)",(21.5,1));
+        label("$v$ (m/s)",(2,8));
+    \end{asy}
+\end{center}
+
+Since the particle starts from the origin, the distance graph is simply the area under the velocity graph:
+
+\begin{center}
+    \begin{asy}
+        import graph;
+        unitsize(5mm);
+        for(int j=1; j<20; ++j){
+        	draw((0,j)--(20,j),grey+linewidth(0.4));
+        }
+        for(int j=1; j<21; ++j){
+        	draw((j,0)--(j,19),grey+linewidth(0.4));
+        }
+        real F(real x){
+        	if(x<=3){return 2*x;}
+            if(x<=4){return -9*x+33;}
+            if(x<=6){return 5/2*x-13;}
+            if(x<=8){return -2*x+14;}
+            if(x<=10){return 7/2*x-30;}
+            if(x<=14){return -2*x+25;}
+            if(x<=17){return 5/3*x-79/3;}
+            return -5/3*x+91/3;
+        }
+        pair f(real x){
+        	return (x,simpson(F,0,x));
+        }
+        draw(graph(f,0,19.9999));
+        draw((0,0)--(0,20),arrow=Arrow());
+        draw((0,0)--(21,0),arrow=Arrow());
+        label("$0$",(-0.5,0));
+        label("$2$",(-0.5,2));
+        label("$4$",(-0.5,4));
+        label("$6$",(-0.5,6));
+        label("$8$",(-0.5,8));
+        label("$10$",(-0.7,10));
+        label("$12$",(-0.7,12));
+        label("$14$",(-0.7,14));
+        label("$16$",(-0.7,16));
+        label("$18.75$",(-1.2,18.75));
+        label("$5$",(5,-0.5));
+        label("$10$",(10,-0.5));
+        label("$15$",(15,-0.5));
+        label("$20$",(20,-0.5));
+        label("$t$ (s)",(21.5,1));
+        label("$d$ (m)",(1.5,20));
+        draw((12.5,0)--(12.5,18.75),dashed);
+        draw((0,18.75)--(12.5,18.75),dashed);
+    \end{asy}
+\end{center}
+
+We need to find the maximum displacement, so our answer is $\boxed{18.75\;\text{m}}$
+\end{solution}

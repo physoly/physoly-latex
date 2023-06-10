@@ -1,0 +1,27 @@
+\begin{solution}{normal}
+\begin{center}
+\begin{asy}
+import olympiad;
+size(5cm);
+draw((0,0)--(1,0), arrow=Arrow(4));
+draw((0,0)--(0,1), arrow=Arrow(4));
+draw((0,0)--(1,0.2), arrow=Arrow(4));
+draw((0,0)--(0.2,1), arrow=Arrow(4));
+label("$ict$", (0,1), N);
+label("$x$", (1,0), E);
+label("$ict'$", (0.2, 1), NE);
+label("$x'$", (1, 0.2), NE);
+draw((0,0)--(0.9,0.9), dashed);
+draw(anglemark((1, 0), (0,0), (1,0.2)));
+label("$\alpha$", (0.3,0), NE);
+dot((0.75,0.15));
+\end{asy}
+\end{center}
+Let us look at the dot given in the diagram. At this point, the dot has the coordinates 
+\[(x', ct') = (1,0)\]
+Lorentz transformations tells us that at this point 
+\[(x, ct) = (i\gamma, \beta\gamma)\]
+where $\beta = v/c$. This then tells us that the angle betwee these two points are 
+\[\tan\alpha = \frac{ct}{ix} = \frac{v}{ic}\implies \alpha = \arctan\frac{\beta}{i}\]
+
+\end{solution}

@@ -1,0 +1,69 @@
+\begin{solution}{hard}
+Consider the moment when the angle of the dog-fox line relative to the horizontal is $\theta$.
+
+\begin{center}
+    \begin{asy}
+        import olympiad;
+        unitsize(1.5cm);
+        pair A = (0,0);
+        pair B = (3,2);
+        dot(A);
+        dot(B);
+        draw(A--B,dashed);
+        draw(A--(3,0)--B,dashed);
+        draw(A--B*0.4,arrow=Arrow());
+        draw(B--B+(0,0.4*sqrt(13)),arrow=Arrow());
+        draw(arc(A,0.7,0,33.69));
+        label("$\theta$",(0.9,0.3));
+        label("$v$",(3.3,2.6));
+        label("$v$",(0.5,0.6));
+        draw(rightanglemark(A,(3,0),B));
+        label("$r$",(1.5,1.3));
+        label("$r_x$",(1.5,-0.3));
+        label("$r_y$",(3.4,1));
+    \end{asy}
+\end{center}
+
+By splitting the velocity of the dog into is $x$ and $y$ components, we can see that
+\begin{align*}
+\dfrac{dr_x}{dt}&=-v\cos\theta=-\dfrac{vr_x}{r}\\
+\dfrac{dr_y}{dt}&=v-v\sin\theta=v-\dfrac{vr_y}{r}
+\end{align*}
+
+By the Pythagorean Theorem, we have that
+$$r_x^2+r_y^2=r^2$$
+
+Differentiating with respect to time, we see that
+\begin{align*}
+2r_x\dfrac{dr_x}{dt}+2r_y\dfrac{dr_y}{dt}&=2r\dfrac{dr}{dt}\\
+r_x\left(-\dfrac{vr_x}{r}\right)+r_y\left(v-\dfrac{vr_y}{r}\right)&=r\dfrac{dr}{dt}\\
+vr_y-v\cdot\dfrac{r_x^2+r_y^2}{r}&=r\dfrac{dr}{dt}\\
+\dfrac{dr}{dt}&=\dfrac{vr_y}{r}-v
+\end{align*}
+
+Note that
+$$\dfrac{dr}{dt}+\dfrac{dr_y}{dt}=\left(\dfrac{vr_y}{r}-v\right)+\left(v-\dfrac{vr_y}{r}\right)=0$$
+
+Integrating with respect to time, we see that $r+r_y=C$, where $C$ is a constant.\vspace{3mm}
+
+Taking the initial conditions of the system we can see that $C=L$.\vspace{3mm}
+
+Since $\dfrac{dr}{dt}$ is always nonnegative, we can consider the limit as $t\rightarrow \infty$, at which point $r=r_y$. Therefore,
+$$r_\text{min}=\boxed{\dfrac{L}{2}}$$
+
+\tcbline
+
+\textbf{Solution 2:} Notice that at any moment,
+$$-\frac{dr}{dt} = v (1-\cos{\alpha}) = \frac{dx}{dt}$$
+
+This is because the relative velocity of the fox with respect to the fox at any moment along the horizontal or along the curve the dog follows is the same. \vspace{3mm}
+
+Hence, we have
+\begin{align*}
+-v \;dr &= v \;dx\\
+dr &= -dx \\
+\int_{\sqrt{L^2+0^2}}^{r_{\text{min}}}{dr} &= -\int_{r_{\text{min}}}^{0}{dx}\\
+r_{\text{min}} - L &= - r_{\text{min}} \\
+r_{\text{min}} &= \boxed{\dfrac{L}{2}}
+\end{align*}
+\end{solution}

@@ -1,0 +1,35 @@
+\begin{solution}{hard}
+\textbf{a)} We notice that there is no image of the orange pulse, hence it must have taken place immediately before the shutter release. So the blue pulse is first, then red, then green, and finaly yellowl. As $4$ pulses are recorded exposure time must be between $300\;\mathrm{ms}$ and $500\;\mathrm{ms}$.
+\vspace{5mm}
+
+\textbf{b)} In the frame of disk’s centre, the displacement vector $\vec d$ between neighbouring flashes has always the same modulus 
+\[d = 2R\sin(\omega \tau/2),\]
+ and neighbouring displacement vectors are always rotated by the same angle $\omega\tau$. In the lab frame, additional constant displacement vector $\vec v \tau$ is to be added due to the translational motion of the frame: 
+\[\vec d’ = \vec d + \vec v \tau.\] 
+Because of that, if we bring all the displacement vectors to such positions that their starting points coincide, the endpoints will lie on a circle of radius $d$. So, we redraw the displacement vectors $\vec {br}$, $\vec {rg}$, and $\vec {gy}$ draw the circumcircle of the triangle formed by the endpoints of the vectors
+\begin{center}
+    \begin{asy}
+    size(8cm);
+draw(circle((0,0), 1));
+dot("O", (0,0), S);
+dot("B", (-sqrt(3)/2, -1/2), SW);
+dot("A", (-sqrt(3)/2 + 0.1, -1/2 +0.2), NW);
+draw((-sqrt(3)/2, -1/2) --  (-sqrt(3)/2 + 0.1, -1/2 +0.2));
+dot("C", (1/2, sqrt(3)/2), NE);
+dot("D", (1/2, -sqrt(3)/2), SE);
+draw((-sqrt(3)/2 + 0.1, -1/2 +0.2) -- (1/2, sqrt(3)/2));
+draw((-sqrt(3)/2 + 0.1, -1/2 +0.2) -- (1/2, -sqrt(3)/2));
+draw((-sqrt(3)/2 + 0.1, -1/2 +0.2) -- (0,0), dashed);
+draw((-sqrt(3)/2, -1/2) -- (1/2, -sqrt(3)/2), dashed);
+draw((1/2, sqrt(3)/2) -- (0,0));
+draw((1/2, -sqrt(3)/2) -- (0,0));
+draw((-sqrt(3)/2, -1/2) -- (0,0));
+    \end{asy}
+\end{center}
+From the figure we measure rotation angle 
+\[\omega\tau = 2.2\;\mathrm{rad} \Rightarrow \omega = 22\;\mathrm{rad/s}.\] 
+The constant displacement 
+\[a = v\tau = 6.55\;\mathrm{cm} \Rightarrow v = 65.5\;\mathrm{cm/s}\]
+and the circle’s radius 
+\[d = 2R\sin(\omega\tau/2) = 8.27\;\mathrm{cm} \Rightarrow R = \boxed{4.6\;\mathrm{cm}}.\]
+\end{solution}

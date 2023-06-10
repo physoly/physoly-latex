@@ -1,0 +1,22 @@
+\begin{solution}{normal}
+\textbf{Solution 1:} Note that the internal energy is given by $c_V T$ and when this goes to the rocket nozzel, part of this turns into kinetic energy $\mu v^2/2$. Since the gas is monoatomic, part of it transfers into work $pV = RT$. Therefore, we have our conservation of energy equation to be 
+\[c_V T_0 + RT_0 = c_V T_1 + RT_1 + \frac{1}{2}\mu v_{\text{exit}}^2.\]
+Using the fact that $c_v = \frac{5}{2}R$, we can simplify this to solve for the final exit velocity
+\[\frac{5}{2}RT_0 + RT_0 = \frac{5}{2}RT_1 + RT_1 + \frac{1}{2}\mu v_{\text{exit}}^2\implies v_{\text{exit}}^2 = \sqrt{\frac{7 (T_0 - T_1)}{\mu}}.\]
+The force is then given by the exit velocity or 
+\[F = mv = \rho_1 A v_{\text{exit}}^2 = \rho_1 A \frac{7 (T_0 - T_1)}{\mu}.\]
+We can attempt to use the approximation that $T_0 \gg T_1$ to simplify this problem:
+\[F = \frac{7A\rho T_1}{\mu} \left(\frac{T_0}{T_1} - 1\right)\approx \frac{7Ap_1}{\mu}\frac{T_0}{T_1}.\]
+
+\tcbline 
+
+\textbf{Solution 2:} Applying Bernoulli's principle for the gas between the nozzle and the chamber exit,
+$$\frac{v^2}{2}+\frac{C_p T}{M}=\textup{const.}\implies 0+\frac{C_p T_0}{M}=\frac{v_{exit}^2}{2}+\frac{C_p T_1}{M}$$
+Now, the thrust applied equals
+$$F=\rho S v_{exit}^2$$
+and $\rho = \frac{P_1 M}{RT_1}, v_{exit}^2=\frac{2C_p (T_0-T_1)}{M}$. This means that 
+$$F=\frac{2C_p(T_0-T_1)P_1 S}{RT_1}$$
+Given that: $T_0 \gg T_1 \implies T_0-T_1 \approx T_0$ and $C_p =C_v+R=\frac{7R}{2}$
+$$\therefore F\approx \frac{7T_0P_1 S}{T_1} $$
+
+\end{solution}

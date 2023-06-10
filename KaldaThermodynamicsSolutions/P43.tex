@@ -1,0 +1,31 @@
+\begin{solution}{normal}
+\textbf{(a)} Note that the total force on a cross-sectional area of the cylinder is given by 
+\[F = p_0 \pi r^2 + mg\implies p = p_0 + \frac{mg}{\pi r^2}.\]
+By ideal gas law we note that 
+\[p\Delta V = nR\Delta T \implies \Delta T = \frac{p\Delta V}{nR} = \frac{p_0 (\pi r^2\Delta s)}{nR} = \frac{(p_0\pi r^2+ mg)\Delta s}{nR}.\]
+The total temperature after collision will then be given as 
+\[T = T_0 + \Delta T = T_0 + \frac{(p_0 \pi r^2 + mg)\Delta s}{nR}.\]
+\vspace{3mm}
+
+\noindent \textbf{(b)} Note that work is given by $p\Delta V$. The change in volume is $\pi r^2 \Delta S$ so all in all, we have $W = (p_0\pi r^2 + mg)\Delta s$.
+\vspace{3mm}
+
+\noindent \textbf{(c)} The process is isobaric since it occurs at a constant pressure which means that the energy is given by the heat converted to the system or $Q = c_p n \Delta T$. We know from part (a) that
+\[\Delta T =  \frac{(p_0\pi r^2 + mg)\Delta s}{nR}\]
+which means that
+\[Q = c_p n \frac{(p_0\pi r^2 + mg)\Delta s}{nR} = \frac{c_V + R}{R} n\frac{(p_0\pi r^2 + mg)\Delta s}{n} = \Delta (p_0 \pi r^2 + mg)\left(\frac{c_V}{R} + 1\right).\]
+\vspace{3mm}
+
+\noindent \textbf{(d)} The power is given by $P = \frac{\text{d}Q}{\text{d}t}$ which means that for a unit time $\Delta t$ it is 
+\[P = \left(\frac{c_V}{R} + 1\right) \frac{\Delta s}{\Delta t} (p_0 \pi r^2 + mg).\]
+The number of molecules for a unit time is given by power over energy (this is justified as it is dimensionally correct). The energy of a single photon will be $E_p = h\nu = \frac{hc}{\lambda}$ which means 
+\[\dot{n} = \frac{P}{E_p} = P \frac{\lambda}{hc}.\]
+\vspace{3mm}
+
+\noindent \textbf{(e)} The efficiency of the process is given by $\eta = \frac{W}{Q}$. The change in mechanical energy of the gas $mg\Delta s$ serves as the change in work so therefore, 
+\[\eta = \frac{mg\Delta s}{\left(1 + \frac{c_V}{R}\right)(p_0 \pi r^2 + mg)\Delta s} = \frac{1}{\left(\frac{p_0 \pi r^2}{mg} + 1\right) \left(1 + \frac{c_V}{R}\right)}.\]
+\vspace{3mm}
+
+\noindent \textbf{(f)} When the cylinder is rotated, the gas undergoes adiabatic expansion to a new pressure $p_0$ due to the lack of pressure from external surroundings. Noting that $T^{\gamma}P^{1 - \gamma} = \text{const}$ the new temperature of the gas is 
+\[T_f = T_0 \left(\frac{p_0}{p}\right)^{\frac{\gamma - 1}{\gamma}}.\]
+\end{solution}

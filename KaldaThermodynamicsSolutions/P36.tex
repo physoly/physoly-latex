@@ -1,0 +1,17 @@
+\begin{solution}{normal}
+The Clausius-Clapeyron equation for water is:
+\[\dv{p_s}{T} = p_s \frac{L\mu}{RT^2}.\]
+Separating variables gives:
+$$\frac{1}{p_s} \frac{\text {d}p_s}{\text {d}T}= \frac{L\mu}{RT^2}.$$
+Integrating this gives us
+\[\int_{p_{s_1}}^{p_{s_2}} \frac{\text{d}p_s}{p_s}= \int_{T_1}^{T_2} L\mu \frac{\text{d}T}{RT^2} \implies \ln \frac{p_{s_2}}{p_{s_1}} = \frac{Lm_v}{R}\left(\frac{1}{T_1}-\frac{1}{T_2}\right).\]Simplifying this result finally gives us
+\[p_{s_2} = p_{s_1}\text{exp}\left[\frac{Lm_v}{R}\left(\frac{1}{T_1} - \frac{1}{T_2}\right)\right].\]where $p_{s_1}$ and $T_1$ are the initial points of integration. We are given, $p_s = p_0 \text{e}^{-U/k_B T}$ and therefore, 
+\[ p_{s_2} = p_0 \text{e}^{-U/k_B T_2}\,\,\,,\,\,\,p_{s_1} = p_0 \text{e}^{-U/k_B T_1}.\]
+This mean that 
+\[p_{s_2} = p_{s_1} \exp \left[\frac{U}{k_B} \left(\frac{1}{T_1}-\frac{1}{T_2}\right)\right].\]
+Comparing the 2 equations gives, $\boxed{U=L\mu/N_A}\,\,\, \text{as} \,\,k_B=R/N_A$. 
+\vspace{3mm}
+
+\noindent To interpret this equation, note that we can rewrite it as the latent heat of evaporation per mole. We can imagine the gas phase to have an energy of zero and thus the latent heat of evaporation represents the energy "stored" inside the bonds in the water molecules. Thus, it represents the work that needs to be done to evaporate one mole of water
+
+\end{solution}

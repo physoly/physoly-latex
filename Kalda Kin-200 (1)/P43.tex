@@ -1,0 +1,74 @@
+\begin{solution}{normal}
+Consider the following setup:
+\begin{center}
+    \begin{asy}
+        unitsize(1.2cm);
+        pair A = (0,0);
+        pair B = (8,0);
+        real a = 25*pi/180;
+        real b = 60*pi/180;
+        real v1 = 4;
+        real v2 = 3;
+        dot(A);
+        dot(B);
+        label("$A$",(-0.3,0));
+        label("$B$",(8.3,0));
+        draw("$l$",(0,-0.2)--(8,-0.2),Arrows,Bars);
+        label("$\vec{v_1}$",(v1+0.3)*(cos(a),sin(a)));
+        label("$\vec{v_2}$",B+(v2+0.3)*(-cos(b),sin(b)));
+        draw(A--B);
+        draw(A--v1*(cos(a),sin(a)),arrow=Arrow());
+        draw(B--B+v2*(-cos(b),sin(b)),arrow=Arrow());
+        draw(arc(A,0.7,0,a*180/pi));
+        draw(arc(B,0.7,180,180-b*180/pi));
+        label("$\alpha$",(cos(a/2),sin(a/2)));
+        label("$\beta$",B+(-cos(b/2),sin(b/2)));
+    \end{asy}
+\end{center}
+Now, we move into the reference frame of the boat that departed from harbour $A$.
+\begin{center}
+    \begin{asy}
+        import olympiad;
+        unitsize(1.2cm);
+        pair A = (0,0);
+        pair B = (8,0);
+        real a = 25*pi/180;
+        real b = 60*pi/180;
+        real v1 = 4;
+        real v2 = 3;
+        dot(A);
+        dot(B);
+        label("$A$",(-0.3,0));
+        label("$B$",(8.3,0));
+        // draw("$l$",(0,-0.2)--(8,-0.2),Arrows,Bars);
+        label("$\vec{v_1}$",B+(v1+0.3)*(-cos(a),-sin(a)));
+        label("$\vec{v_2}$",B+(v2+0.3)*(-cos(b),sin(b)));
+        draw(A--B);
+        draw(B--B+v1*(-cos(a),-sin(a)),arrow=Arrow());
+        draw(B--B+v2*(-cos(b),sin(b)),arrow=Arrow());
+        draw(B--B+(v2*(-cos(b),sin(b))+v1*(-cos(a),-sin(a)))*1.7,dashed);
+        draw(A--B+(v2*(-cos(b),sin(b))+v1*(-cos(a),-sin(a)))*1.508,dashed);
+        draw(B--B+v2*(-cos(b),sin(b))+v1*(-cos(a),-sin(a)),arrow=Arrow());
+        draw(arc(B,0.7,180,180+a*180/pi));
+        draw(arc(B,0.7,180,180-b*180/pi));
+        draw(arc(B,3.2,180,170));
+        label("$\alpha$",B+(-cos(a/2),-sin(a/2)));
+        label("$\beta$",B+(-cos(b/2),sin(b/2)));
+        label("$\phi$",B+3.5*(-cos(5*pi/180),sin(5*pi/180)));
+        label("$v_{rel}$",(B+v2*(-cos(b),sin(b))+v1*(-cos(a),-sin(a)))*1.2);
+        draw(rightanglemark(A,B+(v2*(-cos(b),sin(b))+v1*(-cos(a),-sin(a)))*1.508,B));
+        label("$d$",(-0.2,0.75));
+    \end{asy}
+\end{center}
+Since $\vec{v_{rel}}=\vec{v_2}-\vec{v_1}$, we can separate them into components to find that
+$$\tan\phi=\dfrac{\left| v_1\sin\alpha-v_2\sin\beta\right|}{\left| v_1\cos\alpha+v_2\cos\beta\right|}$$
+
+From this, we can find that
+$$\sin\phi=\dfrac{\left| v_1\sin\alpha-v_2\sin\beta\right|}{\sqrt{v_1^2+v_2^2+2v_1v_2\cos(\alpha+\beta)}}$$
+
+We then have
+\begin{align*}
+d&=l\sin\phi\\
+&=\boxed{\dfrac{l\cdot\left| v_1\sin\alpha-v_2\sin\beta\right|}{\sqrt{v_1^2+v_2^2+2v_1v_2\cos(\alpha+\beta)}}}
+\end{align*}
+\end{solution}

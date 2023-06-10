@@ -1,0 +1,76 @@
+\begin{solution}{normal}
+\begin{center}
+    \begin{asy}
+/* Geogebra to Asymptote conversion, documentation at artofproblemsolving.com/Wiki go to User:Azjps/geogebra */
+import graph; usepackage("amsmath"); size(12cm);
+real labelscalefactor = 0.5; /* changes label-to-point distance */
+pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps); /* default pen style */
+pen dotstyle = black; /* point style */
+real xmin = -0.8860362915535339, xmax = 10.195219297936417, ymin = -0.028752442281231375, ymax = 7.618229720713907; /* image dimensions */
+
+/* draw figures */
+draw((3,5)--(9,5));
+draw((3,2)--(9,2));
+draw((6,2)--(5,4),EndArrow(6));
+draw((6,4)--(5,4),EndArrow(6));
+draw((6,2)--(6,4),EndArrow(6));
+label("$v$",(5.169732517165664,3.056702469065482),SE*labelscalefactor);
+label("$v\sin\varphi$",(5.204075251430613,4.350278793045199),SE*labelscalefactor);
+label("$v\cos\varphi$",(6.028300873789369,3.216968562301907),SE*labelscalefactor);
+draw(shift((6,2))*xscale(0.48971473714830527)*yscale(0.48971473714830527)*arc((0,0),1,90,116.56505117707799));
+label("$\varphi$",(5.730663843493152,2.7590654387692643),SE*labelscalefactor);
+/* dots and labels */
+clip((xmin,ymin)--(xmin,ymax)--(xmax,ymax)--(xmax,ymin)--cycle);
+/* end of picture */
+    \end{asy}
+\end{center}
+Since we have $u>v>v\sin{\varphi} \ \forall  \ 90^\circ > \varphi \geq 0^\circ$, this means that the fast-flowing river carries the boy a lateral distance of $a = (u-v\sin{\varphi})T$ (where $T$ is the time it takes to reach the other shore) from point B. \vspace{3mm}
+
+Since the time taken to cross the river is simply $T = \dfrac{L}{v\cos{\varphi}}$, this means that $$a = \frac{(u-v\sin{\varphi})L}{v\cos{\varphi}} = \frac{(2-\sin{\varphi})L}{\cos{\varphi}}$$ where the last expression is achieved by substituting the given values.\vspace{3mm}
+
+Now, for minimising $a$, we have $$\frac{\text{d}a}{\text{d}\varphi} =  L\frac{\text{d}}{\text{d}\varphi}\left(\frac{2-\sin{\varphi}}{\cos{\varphi}}\right) = \frac{L(2\sin{\varphi} - 1)}{\cos^2{\varphi}}$$ which clearly vanishes at $\sin{\varphi} = \frac{1}{2}$ or $\varphi = 30^\circ$.\vspace{3mm}
+
+Substituting this in the expression for $a$, we have $$a_{\text{min}} = \frac{L(2- \frac{1}{2})}{\sqrt{3}/2} = \boxed{L\sqrt{3}}$$ 
+\tcbline 
+\newpage
+\textbf{Solution 2:} Let the velocity of the boy with respect to the ground be $\vec{w}=\vec{u}+\vec{v}$. Since $\vec{u}$, the velocity of the water is fixed and the magnitude of $\vec{v}$ is fixed, we can only change the orientation.
+\begin{center}
+    \begin{asy}
+    import graph; size(10cm); 
+real labelscalefactor = 0.5; /* changes label-to-point distance */
+pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps); /* default pen style */ 
+pen dotstyle = black; /* point style */ 
+real xmin = -10.194991692355861, xmax = 9.869014624902043, ymin = -4.997678398452476, ymax = 4.799658019623726;  /* image dimensions */
+pen xfqqff = rgb(0.4980392156862745,0,1); 
+ /* draw figures */
+draw(circle((0,0), 3),  linetype("2 2")); 
+draw((-6,0)--(0,0),  red,EndArrow(6)); 
+draw((0,0)--(-1.3956412397187756,2.6555951366871113),  blue,EndArrow(6)); 
+draw((0,0)--(0,3),  blue,EndArrow(6)); 
+draw((0,0)--(-2.583184425515349,1.5255026134933156),  blue,EndArrow(6)); 
+draw((0,0)--(1.3176303960148275,2.695153082757603),  blue,EndArrow(6)); 
+draw((0,0)--(2.640750554328599,1.423529595692761),  blue,EndArrow(6)); 
+draw((0,0)--(3,0),  blue,EndArrow(6)); 
+draw((0,0)--(2.6955138280127677,-1.3168922518535657),  blue,EndArrow(6)); 
+draw((0,0)--(1.5864742001929164,-2.5461931608034467),  blue,EndArrow(6)); 
+draw((0,0)--(0,-3),  blue,EndArrow(6)); 
+draw((0,0)--(-1.373869769022932,-2.666923669279808),  blue,EndArrow(6)); 
+draw((0,0)--(-2.5898903823572463,-1.514089761993468),  blue,EndArrow(6)); 
+draw((-6,0)--(-1.3956412397187759,2.6555951366871113),  xfqqff,EndArrow(6)); 
+label("$v$",(-0.7643220563932647,1.7543237904219548),SE*labelscalefactor,blue); 
+label("$u$",(-3.3456562024732293,-0.17965656499198404),SE*labelscalefactor,red); 
+label("$w$",(-4.108323109269582,1.7103237765683192),SE*labelscalefactor,xfqqff); 
+draw(shift((-6,0))*xscale(0.5863431464058904)*yscale(0.5863431464058904)*arc((0,0),1,0,29.974490165312012)); 
+label("$\theta$",(-5.3696568397404745,0.2943233748128856),SE*labelscalefactor); 
+ /* dots and labels */
+clip((xmin,ymin)--(xmin,ymax)--(xmax,ymax)--(xmax,ymin)--cycle); 
+ /* end of picture */
+ \end{asy}
+\end{center}
+The superposition of all possible orientations fill up a circle as shown. We want the velocity relative to the ground to make as large an angle as possible. To achieve this, $w$, $u$, and $v$ must be the three sides of a right angled triangle such that:
+$$w^2=u^2-v^2 \implies w = \sqrt{3} \text{ m/s}$$
+The time to cross is given by:
+$$t=\frac{L}{w\sin\theta}$$
+and the horizontal distance traveled during this time is:
+$$a=w\cos\theta t = \frac{L}{\tan\theta} = \boxed{L\sqrt{3}}$$
+\end{solution}

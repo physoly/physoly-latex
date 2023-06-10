@@ -1,0 +1,73 @@
+\begin{solution}{normal}
+First, note that by idea 9, this circuit can be turned into a $\Delta$ transform by merging the end nodes on both sides of the resistors as shown below 
+\begin{center}
+\begin{tikzpicture}[transform shape, thick]
+size(2cm);
+\ctikzset{bipoles/thickness=2}
+\ctikzset{label/align = smart}
+\draw (1, 4) -- (1, -1) to [battery1, l=$\mathcal{E}$] (11, -1) -- (11, 4);
+\draw (1, 4) to [R, l=$3\Omega$] (6, 1) to [R, l=$3\Omega$] (6, 7) to [R, l=$3\Omega$] (1, 4);
+\draw (6, 1) to [R, l=$2\Omega$] (11, 4);
+\draw (11, 4) to [R, l=$3\Omega$] (6, 7);
+\draw (6, 7) to [open, *-] (0, 0);
+\draw (1, 4) to [open, *-] (0, 0);
+\draw (6, 1) to [open, *-] (0, 0);
+\draw (11, 4) to [open, *-] (0, 0);
+\end{tikzpicture} 
+\end{center}
+We now apply a $\Delta$-to-$y$ transform on the lefthand $\Delta$ circuit. The resistances will change to 
+\[R_A = \frac{R_{AB}R_{AC}}{R_{AB} + R_{AC} + R_{BC}} = \frac{9}{9}\Omega = 1\Omega.\]
+Similarly, repeating this procedure for other indices, we see that our $y$ transform is simply just a $y$ transform with resistors of $1\Omega$ resistance. This can be represented as 
+\begin{center}
+\begin{tikzpicture}[transform shape, thick]
+size(2cm);
+\ctikzset{bipoles/thickness=2}
+\ctikzset{label/align = smart}
+\draw (1, 4) -- (1, -1) to [battery1, l=$\mathcal{E}$] (11, -1) -- (11, 4);
+\draw (6, 1) to [R, l=$2\Omega$] (11, 4);
+\draw (11, 4) to [R, l=$3\Omega$] (6, 7);
+\draw (4.5, 4) to [open, *-] (0, 0);
+\draw (4.5, 4) to [R, l=$1\Omega$] (1, 4);
+\draw (4.5, 4) to [R, l=$1\Omega$] (6, 1);
+\draw (4.5, 4) to [R, l=$1\Omega$] (6, 7);
+\draw (6, 7) to [open, *-] (0, 0);
+\draw (1, 4) to [open, *-] (0, 0);
+\draw (6, 1) to [open, *-] (0, 0);
+\draw (11, 4) to [open, *-] (0, 0);
+\end{tikzpicture} 
+\end{center}
+This circuit can be thought of as a connection between a resistor and two parallel resistors created by the top and bottom resistors added in series. In other words,
+\begin{center}
+\begin{tikzpicture}[transform shape, thick]
+size(2cm);
+\ctikzset{bipoles/thickness=2}
+\ctikzset{label/align = smart}
+\draw (1, 4) -- (1, -1) to [battery1, l=$\mathcal{E}$] (11, -1) -- (11, 4);
+\draw (1, 4) to [open, *-] (0, 0);
+\draw (11, 4) to [open, *-] (0, 0);
+\draw (1, 4) to [R, l=$1\Omega$] (6, 4);
+\draw (6, 4) -- (6, 6) to [R, l=$4\Omega$] (10, 6) -- (10, 4) -- (11, 4);
+\draw (6, 4) to [open, *-] (0, 0);
+\draw (10, 4) to [open, *-] (0, 0);
+\draw (6, 4) -- (6, 2) to [R, l=$3\Omega$] (10, 2) -- (10, 4);
+\end{tikzpicture} 
+\end{center}
+By idea 1, 
+\[\frac{1}{R_{\text{par}}} = \sum_i \frac{1}{R_i}\implies R_{\text{par}} = \frac{12}{7}\Omega.\]
+Adding this to the $1\Omega$ resistor in series, we find that 
+\[R_{\text{series}} = \sum_i R_i = \frac{19}{7}\Omega.\]
+Our final circuit simply looks like 
+\begin{center}
+\begin{tikzpicture}[transform shape, scale=1.0,thick]
+size(2cm);
+\ctikzset{bipoles/thickness=2}
+\ctikzset{label/align = smart}
+\draw (1, 4) -- (1, -1) to [battery1, l=$\mathcal{E}$] (6, -1) -- (6, 4);
+\draw (1, 4) to [open, *-] (0, 0);
+\draw (6, 4) to [open, *-] (0, 0);
+\draw (1, 4) to [R, l=$19/7\Omega$] (6, 4);
+\end{tikzpicture} 
+\end{center}
+The current flowing through will then be given by fact 1 (Ohm's law):
+\[R = V/I\implies I = V/R = \frac{3}{19/7} = \frac{21}{19}\;\mathrm{A}.\]
+\end{solution}

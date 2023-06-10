@@ -1,0 +1,23 @@
+\begin{solution}{normal}
+Let us consider a sound wave which propagates in the direction of $x$-axis; then, the air density $\rho = \rho (x - c_s t)$. Following the idea 16, we consider a frame which moves with speed $c_s$, with coordinate axis $x' = x - c_s t$. In that frame, the density perturbation remains constant in time, $\rho = \rho (x')$. This means that we can use idea 14, so that we obtain two equations:
+\begin{align*}
+(\rho + \Delta \rho) (v + c_s) &= \rho c_s\\
+\frac{1}{2} (v + c_s)^2 + c_p T &= \frac{1}{2}c_s^2 + c_p T
+\end{align*}
+where $v\ll c_s$ is the speed of the gas in the laboratory frame. Note that we also have our momentum equation to be 
+\[P + (\rho_0 + \Delta \rho)(v + c_s)^2 + c_p T = P_0 + \rho_0 c_s^2.\]
+From the problem statement, we have that $\Delta \rho_0 = \rho_0$ which means that from our first equation we have 
+\[2\rho_0 (v + c_s) = \rho_0 c_s\implies v = -\frac{c_s}{2}.\]
+Going into our momentum equation, we have that 
+\[P + 2\rho_0 \left(c_s - \frac{c_s}{2}\right)^2 = P_0 + \rho_0 c_s^2\implies P = P_0 + \frac{\rho_0 c_s^2}{2}.\]
+Also, note that by the ideal gas law, we have:
+$$PV=nRT \implies P\mu=\rho RT\implies T = \frac{P\mu}{\rho R}.$$
+We can now use these results to go into our second equation (energy) to find that 
+\[\frac{1}{2}\left(c_s - \frac{c_s}{2}\right)^2 + c_p \left(\frac{P_0 + \rho_0 c_s^2/2}{2R\rho}\right) = \frac{1}{2}c_s^2 + c_p T.\]
+We can simplify further to get 
+\[\frac{1}{8}c_s^2 + c_p \left(\frac{P_0\mu}{2R\rho_0} + \frac{c_s^2 \mu}{4R}\right) = \frac{1}{2}c_s^2 + c_p T\]
+then expanding tells us 
+\[\frac{c_s^2}{8} + \frac{c_p T_0}{2} + \frac{c_p c_s^2\mu}{4R} = \frac{1}{2}c_s^2 + c_p T.\]
+From the problem, we see that $c_p = 5R/2\mu$ and solving gives us the equation 
+\[c_s = \sqrt{\frac{5RT_0}{2\mu}} = \sqrt{\frac{5}{2}\left(\frac{\gamma RT_0}{\mu}\right)} \implies \text{the speed of the wave becomes } \sqrt{2.5} \text{ times faster.}\]
+\end{solution}

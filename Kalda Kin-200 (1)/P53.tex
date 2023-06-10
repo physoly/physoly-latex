@@ -1,0 +1,36 @@
+\begin{solution}{hard}
+Note that a point on a spoke will appear motionless (i.e. sharp) if it's velocity is directed along (or parallel to) the spoke. \vspace{3mm}
+
+Let the horizontal velocity of the bike be $\vec{v}$, with $\left|\vec{v}\right|=\omega R$.
+\begin{center}
+    \begin{asy}
+        unitsize(2cm);
+        real r = 2;
+        draw(circle((0,0),r));
+        dot((0,0));
+        draw((0,0)--(0,r));
+        label("$R$",(r/15,r/2));
+        label("$(0,0)$",(r/6,0));
+        draw((0,0)--(-r/2.05,-r/2.5));
+        draw((0,0)--(0,-r),dotted);
+        // draw(circle((0,-r/2),r/2));
+        draw(arc((0,0),r/8,270,220));
+        label("$\theta$",(-r/12,-r/6));
+        draw((-r/2.05,-r/2.5)--(-r/9,-r/2.5),arrow=Arrow());
+        label("$\vec{v}$",(-r/20,-r/2.5));
+        // draw(circle((0,0),sqrt((r/2.05)*(r/2.05)+(r/2.5)*(r/2.5))));
+        draw((-r/2.05,-r/2.5)--(-r/1.6,-r/4.3),arrow=Arrow());
+        label("$r$",(-r/3.4,-r/6));
+        label("$\omega r$",(-r/1.6,-r/2.4));
+        draw((-r/9,-r/2.5)--(-r/9-r/1.6+r/2.05,-r/2.5-r/4.3+r/2.5),dotted);
+        label("$\theta$",(-r/4,-r/3));
+    \end{asy}
+\end{center}
+Since the tangential velocity is perpendicular to the radial distance vector, we need $\omega r=\left|\vec{v}\right|\cos\theta=\omega R\cos\theta$, or $r=R\cos\theta$\vspace{3mm}
+
+Labelling the center of the wheel as $(0,0)$ we can determine that the set of points can be represented as the parametric equation $$x=-R\cos\theta\sin\theta,\;y=-R\cos^2\theta$$
+
+Note that $$x^2+(y+R/2)^2=R^2\cos^2\theta\sin^2\theta+R^2\cos^4\theta-R^2\cos^2\theta+\dfrac{R^2}{4}=\dfrac{R^2}{4}$$
+
+Since we have $x^2+(y+R/2)^2=\left(\dfrac{R}{2}\right)^2$, the set of points on the spokes that appear sharp is described by $\boxed{\text{a circle of radius }\dfrac{R}{2}\text{ centered at }\dfrac{R}{2}\text{ below the center of the wheel}}$
+\end{solution}

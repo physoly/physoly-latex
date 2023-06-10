@@ -1,0 +1,33 @@
+\begin{solution}{normal}
+\begin{center}
+    \begin{asy}
+        unitsize(1.2cm);
+        filldraw((0,0)--(6.8,0)--(6.8,-0.3)--(0,-0.3)--cycle,gray(0.65));
+        filldraw(circle((5.3,1.3),1.3),gray(0.85));
+        filldraw((-0.4,1.9)--(0.3,1.9)--(0.3,4.1)--(-0.4,4.1)--cycle,gray(0.65),invisible);
+        draw((0.3,1.9)--(0.3,4.1),linewidth(2));
+        draw((0.3,3.6)--(5.55,2.58));
+        draw(arc((0.3,3.6),1,270,348));
+        label("$\alpha$",(0.7,3.1));
+        draw((7.2,-0.15)--(8.2,-0.15),arrow=Arrow());
+        label("$v$",(7.7,0.1));
+        draw((5.3,1.3)--(6.6,1.3));
+        dot((5.3,1.3));
+        label("$R$",(5.3/2+6.6/2,1));
+    \end{asy}
+\end{center}
+
+From constraints on the thread we can determine that
+$$\omega R = v_{\text{CM}}\sin{\alpha}$$
+
+For a no-slipping condition, we have
+$$v_{\text{CM}} = v_0 - \omega R \Rightarrow v_{\text{CM}} = \boxed{\dfrac{v_0}{1+\sin{\alpha}}}$$
+\tcbline
+
+\textbf{Solution 2:} We move into the frame moving left with velocity $v$
+$$\sin\alpha=\dfrac{v_0dt}{(v-v_0)dt}=\dfrac{v_0}{v-v_0}$$
+$$v_0=\dfrac{v\sin\alpha}{1+\sin\alpha}$$
+
+Moving back into the reference frame of the wall, we get
+$$v_0=v-\dfrac{v\sin\alpha}{1+\sin\alpha}=\boxed{\dfrac{v}{1+\sin\alpha}}$$
+\end{solution}

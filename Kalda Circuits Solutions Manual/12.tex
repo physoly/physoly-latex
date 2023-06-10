@@ -1,0 +1,44 @@
+\begin{solution}{normal}
+We make use of idea 12 and start by short-circuiting $\mathcal{E}_2$. This leads to the following equivalent circuit:
+\begin{center}
+\begin{tikzpicture}[transform shape, thick]
+\ctikzset{bipoles/thickness=2}
+\ctikzset{label/align = smart}
+\coordinate  (A) at (0,0);
+\coordinate  (B) at (3,0);
+\coordinate  (C) at (6,0);
+\coordinate  (D) at (9,0);
+
+\draw (B) to [battery1, l=$\mathcal{E}_1$] (C) to ($(C) + (0,1)$) to [R, l=$R_3$] ($(D) + (0,1)$) to ($(D) + (0,-2)$) to ($(A) + (0,-2)$) to ($(A) + (0,1)$) to [R, l=$R_1$] ($(B) + (0,1)$) to (B);
+
+\draw ($(A) + (0,-1)$) to [R, l=$R_2$] ($(B) + (0,-1)$) to (B);
+\draw (C) to ($(C) + (0,-1)$) to [R, l=$R_4$] ($(D) + (0,-1)$);
+\end{tikzpicture}
+\end{center}
+Since all resistors have a resistance of $R$, this leads to the following currents in each resistor (going back to the original diagram):
+\begin{align*}
+    R_1 &\rightarrow \frac{\mathcal{E}}{2R} \, \text{(downwards)} \\ 
+    R_2 &\rightarrow \frac{\mathcal{E}}{2R} \, \text{(rightwards)} \\ 
+    R_3 &\rightarrow \frac{\mathcal{E}}{2R} \, \text{(downwards)} \\
+    R_4 &\rightarrow \frac{\mathcal{E}}{2R} \, \text{(leftwards)}
+\end{align*}
+and similarly if we short $\mathcal{E}_1$, we get the following currents:
+\begin{align*}
+    R_1 &\rightarrow \frac{\mathcal{E}}{2R} \, \text{(downwards)} \\ 
+    R_2 &\rightarrow \frac{\mathcal{E}}{2R} \, \text{(leftwards)} \\ 
+    R_3 &\rightarrow \frac{\mathcal{E}}{2R} \, \text{(downwards)} \\
+    R_4 &\rightarrow \frac{\mathcal{E}}{2R} \, \text{(rightwards)}
+\end{align*}
+By considering the superposition of these currents, we get after adding them together:
+\begin{align*}
+    R_1 &\rightarrow \frac{\mathcal{E}}{R} \, \text{(downwards)} \\ 
+    R_2 &\rightarrow 0 \\ 
+    R_3 &\rightarrow \frac{\mathcal{E}}{R} \, \text{(downwards)} \\
+    R_4 &\rightarrow 0
+\end{align*}
+\tcbline
+Alternatively we can solve this problem via symmetry. Note that there is reflection symmetry across the vertical line. This means that the current does not have a preferred direction of going either right or left, so that the current in $R_2$ and $R_4$ will be zero. As a result, we can simply replace these two resistors with an open gap, which results in the other four circuit elements in series:
+$$    I = \frac{2\mathcal{E}}{2R} = \frac{\mathcal{E}}{R}
+$$
+which travels in a ``zigzag'' pattern.
+\end{solution}

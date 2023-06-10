@@ -1,0 +1,45 @@
+\begin{solution}{normal}
+From the first two collisions, we can deduce that all three bodies lie on the same plane. For simplicity, let this be the x-y plane.\vspace{3mm} 
+
+Additionally, we can assume that all three bodies lie on the x-axis, with body $a$ at the origin $O$. We can then plot the motion of the bodies in three dimensions (with time as the third dimension) as follows:
+\begin{center}
+    \begin{asy}
+        settings.render=0;
+        import three;
+        unitsize(6cm);
+        currentprojection=perspective(0.5,-1.1,0.7);
+        draw((0,0,0)--(1,1,1),blue);
+        draw((0.5,0,0)--(2/3,1,1),green);
+        draw((1,0,0)--(0,2/3,2/3),red);
+        draw((0,0,0)--(1,0,0)--(1,1,0)--(0,1,0)--cycle);
+        draw((0,0,0)--(1.2,0,0),arrow=Arrow3());
+        draw((0,0,0)--(0,1.6,0),arrow=Arrow3());
+        draw((0,0,0)--(0,0,1.2),arrow=Arrow3());
+        draw((0,0,0)--(0,0,1));
+        draw((0,1,0)--(0,1,1));
+        draw((1,1,0)--(1,1,1));
+        draw((1,0,0)--(1,0,1));
+        draw((0,0,1)--(1,0,1)--(1,1,1)--(0,1,1)--cycle);
+        label("$x$",(1.2,0,0),SE);
+        label("$y$",(0,1.6,0),NE);
+        label("$t$",(0,0,1.2),N);
+        dot((0,0,0));
+        dot((0.5,0,0));
+        dot((1,0,0));
+        dot((0.6,0.6,0.6));
+        dot((0.4,0.4,0.4));
+        dot((0.55,0.3,0.3));
+        label("$A$",(0,0,0),SW);
+        label("$B$",(0.5,0,0),SW);
+        label("$C$",(1,0,0),SW);
+    \end{asy}
+\end{center}
+
+Since body $a$ collides with body $b$, both the trajectories of $a$ and $b$ must lie on some unique plane $\mathcal{P}$ in our 3-D plot.\vspace{3mm}
+
+Since body $a$ collides with body $b$, both the trajectories of $a$ and $c$ must lie on some unique plane $\mathcal{P'}$ in our 3-D plot.\vspace{3mm}
+
+However, both $\mathcal{P}$ and $\mathcal{P'}$ contain the trajectory of $A$ and the x-axis, so they must be the same plane.\vspace{3mm}
+
+Therefore, $\boxed{\text{yes}}$, $b$ and $c$ would collide if $a$ is missing.
+\end{solution}

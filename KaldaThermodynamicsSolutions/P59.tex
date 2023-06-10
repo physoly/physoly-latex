@@ -1,0 +1,99 @@
+\begin{solution}{normal}\textbf{(a)} From $E\to A$, the gas is undergoing an isothermal expansion. Since $PV=\text{constant}$ and $V$ is increasing, then $P$ must be decreasing. Therefore, $p_E>p_A$. From $B \to D$ it is again an isothermal process. However, there is both a heating component and a cooling component to it. We need to determine what is the overall effect. This can be easily done by assuming that in one cycle, the net heat gain is zero (or else it would continuously cool down/warm up). Therefore, since energy is already gained from $E\to A$, it must be lost from $B \to D$ so $p_D>p_B$. Finally, we can rank them based off of their relative heights:
+$$p_E>p_A>p_D>p_B>p_C$$
+\vspace{3mm}
+
+\noindent \textbf{(b)} Note that we will use a different notation than the problem text, and let the subscript represent the lettered state. From $D \to E$, it is an isothermal process so:
+$$P_D^{1-\gamma}T_D^\gamma = P_E^{1-\gamma}T_E^\gamma$$
+where
+$$C_P = C_V + R \implies 1 = \frac{C_V}{C_P}+\kappa \implies \gamma = \frac{1}{1-\kappa} = \frac{7}{5}$$
+Solving for $T_D$ gives:
+\begin{align*}
+T_D &= T_E \left(\frac{P_E}{P_D}\right)^{(1-\gamma)/\gamma}\\&=T_E \left(\frac{P_A+20}{P_D}\right)^{(1-\gamma)/\gamma}\\&=194.8 \text{ K}
+\end{align*}
+\vspace{3mm}
+
+\noindent \textbf{(c)} Again, the process from $A \to B$ is adiabatic and we have $T_B=T_D$. Therefore:
+\begin{align*}
+P_B^{1-\gamma}T_B^\gamma &= P_A^{1-\gamma}T_A^\gamma \\
+P_B &= P_A\left(\frac{T_A}{T_B}\right)^{\gamma/(1-\gamma)} \\
+&= 220.6 \text{ hPa}
+\end{align*}
+\vspace{3mm}
+
+\noindent Alternate Solution: Writing out the adiabatic compression and expansion equations, we get:
+\begin{align*}
+P_D^{1-\gamma}T_D^\gamma &= P_E^{1-\gamma}T_E^\gamma \\
+P_B^{1-\gamma}T_B^\gamma &= P_A^{1-\gamma}T_A^\gamma \\
+\end{align*}
+By noting that $T_A=T_E$ and $T_B=T_D$, we can divide the two equations and get:
+\begin{align*}
+\frac{P_D}{P_B} &= \frac{P_E}{P_A} \\
+P_B &= \frac{P_DP_A}{P_E} \\
+&= 220.6 \text{ hPa}
+\end{align*}
+\vspace{3mm}
+
+\noindent \textbf{(d)} (i) There are four processes, an isothermal expansion, an adiabatic expansion, an isothermal cooling, and an adiabatic compression. Let us first deal with the adiabatic processes. For an adiabatic process, we have $Q=0$ so the net work done by the gas is equal to the change in energy:
+$$W = -nC_V\Delta T$$
+The net work due to the two adiabatic processes will be zero since $\Delta T_1+\Delta T_2=0$. Therefore, we only need to focus on the isothermal processes. The work done at the top is:
+\begin{align*}
+W_{B\to D} &= \int P dV  \\
+&= -nRT \int_{P_B}^{P_D} \frac{1}{P} dP \\
+&= nRT_B\ln\left(\frac{P_B}{P_D}\right)
+\end{align*}
+At the bottom, the work done is:
+$$W_{E \to A} = nRT_E\ln\left(\frac{P_E}{P_A}\right)$$
+so the net work per mole is:
+\begin{align*}
+W_\text{net}/n &= RT_B\ln\left(\frac{P_B}{P_D}\right) + RT_E\ln\left(\frac{P_E}{P_A}\right) \\
+&= -RT_B\ln\left(\frac{P_E}{P_A}\right) + RT_E\ln\left(\frac{P_E}{P_A}\right) \\
+&= R(T_E-T_B)\ln\left(\frac{P_E}{P_A}\right)
+\end{align*}
+where we have used:
+$$\frac{P_D}{P_B} = \frac{P_E}{P_A}$$
+from earlier.
+\vspace{3mm}
+
+\noindent (ii) From the first law of thermodynamics:
+$$U = Q - W$$
+Since $U=0$, the heat loss must equal the work done. The heat loss at the top must be equal to the work done at the top, or:
+$$Q_\text{loss}/n = -W_{C \to D} = RT_B\ln\left(\frac{P_D}{P_C}\right)$$
+\vspace{3mm}
+
+\noindent \textbf{(e)} The Hadley Circulation is just a modified Carnot Cycle so the efficiency is just:
+$$\eta = 1 - \frac{194.8}{300} = 35.1\%$$
+\vspace{3mm}
+
+\noindent \textbf{(f)} The efficiency is:
+$$\eta = \frac{W_\text{net}}{Q_\text{gained}} = \frac{W_\text{net}}{W_\text{net}+Q_\text{loss}}$$
+Substituting in the expressions from part (D) gives: 
+\begin{align*}
+\eta &= \frac{R(T_E-T_B)\ln\left(\frac{P_E}{P_A}\right)}{R(T_E-T_B)\ln\left(\frac{P_E}{P_A}\right)+RT_B\ln\left(\frac{P_D}{P_C}\right)} \\
+&= \frac{(T_E-T_B)\ln\left(\frac{P_E}{P_A}\right)}{T_E\ln\left(\frac{P_E}{P_A}\right)-T_B\ln\left(\frac{P_E}{P_A}\right)+T_B\ln\left(\frac{P_BP_E}{P_AP_C}\right)} \\
+&= \frac{(T_E-T_B)\ln\left(\frac{P_E}{P_A}\right)}{T_E\ln\left(\frac{P_E}{P_A}\right)-T_B\ln\left(\frac{P_C}{P_B}\right)}
+\end{align*}
+This is smaller than $\eta_\text{ideal}$ if:
+\begin{align*}
+\frac{(T_E-T_B)\ln\left(\frac{P_E}{P_A}\right)}{T_E\ln\left(\frac{P_E}{P_A}\right)-T_B\ln\left(\frac{P_C}{P_B}\right)} &< \frac{T_E-T_B}{T_E} \\
+T_E\ln\left(\frac{P_E}{P_A}\right) &< T_E\ln\left(\frac{P_E}{P_A}\right)-T_B\ln\left(\frac{P_C}{P_B}\right)\\
+\ln\left(\frac{P_C}{P_B}\right) &> 0 \\
+P_C &> P_B
+\end{align*}
+Since from part (A) we have stated that $P_C>P_B$, then that means even under ideal conditions, the system cannot reach Carnot efficiency. It can only reach Carnot efficiency if $P_C=P_B$, which will simply not be the case.
+\vspace{3mm}
+
+\noindent \textbf{(g)} $\text{(I)}$ cannot be true. In an isothermal process $W \neq 0$. In fact, friction is even necessary to keep it at a constant temperature as the gas will be absorbing energy.
+\vspace{2mm}
+
+\noindent $\text{(II)}$ By having condensation only occur at a higher temperature, this implies the process is irreversible. See (III) for why this lowers the efficiency.
+\vspace{2mm}
+
+\noindent $\text{(III)}$ is true. An engine can only achieve Carnot efficiency when $\Delta S=0$, that is the process is reversible. The evaporation is irreversible as the condensation only occurs at a much higher altitude. This means that the efficiency is lowered.
+\vspace{2mm}
+
+\noindent $\text{(IV)}$ is not necessarily true. Although generally phase shifts involve a change in energy, if the transition is kept at constant volume, entropy can be kept constant.
+\vspace{2mm}
+
+\noindent Therefore the answer is $\boxed{\text{(II)} \& \text{(III)}}$ 
+
+\end{solution}

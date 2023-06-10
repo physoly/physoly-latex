@@ -1,0 +1,25 @@
+\begin{solution}{normal}
+The photon moves in a zig zag where it hits the ceiling then rebounds back down. If the distance between the floor and ceiling is $l$, and the total time is $t$, then we find that we have a triangle shaped as 
+\begin{center}
+\begin{asy}
+size(10cm);
+draw((0,0)--(2,1)--(4,0)--cycle);
+draw((2,0)--(2,1));
+label("$l$", (2, 0.5), E);
+label("$ct/2$", (1,0.7), N);
+label("$vt$", (2,0), S);
+\end{asy}
+\end{center}
+Therefore, we find that we have a right triangle with legs $l$, and $vt/2$ and hypotenuse $ct/2$. Using Pythagorean theorem, we have that 
+\[\left(\frac{ct}{2}\right)^2 = \left(\frac{vt}{2}\right)^2 + l^2\]
+Expanding both squares gives 
+\[\frac{c^2t^2}{4} +- \frac{v^2t^2}{4} = l^2\]
+Simplifying gives 
+\[\boxed{t = \frac{4l^2}{c^2 - v^2}}\]
+To verify this claim, we can consider what's happening in the first scenario. When the reference frame doesn't move with a velocity perpendicular to the velocity of the photon. The total distance the photon travels is $2l$, thus the total time in the first scenario is $t' = \frac{2l}{c}$. In this problem we found that 
+\[t^2 = \frac{4l^2}{c^2 - v^2}.\]
+Substituting our value for $t$ into this problem gives 
+\[t^2 = \frac{c^2 t'^2}{c^2 - v^2}\implies t = t'\sqrt{\frac{c^2}{c^2 - v^2}} = \boxed{t'\frac{1}{\sqrt{1-v^2/c^2}}}.\]
+From fact 1, we see that this is the same as if the time interval between two events happening at a stationary point is $t$, then in a reference frame where the speed of the point is $v$ the time interval is $\gamma t$ , where the Lorentz factor
+\[\gamma = \frac{1}{\sqrt{1-v^2/c^2}}.\]
+\end{solution}

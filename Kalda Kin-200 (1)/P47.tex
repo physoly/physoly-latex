@@ -1,0 +1,66 @@
+\begin{solution}{normal}
+If the velocity of the box is represented by the vector $v_3$, then the projection of $v_3$ onto $v_1$ must be equivalent to $v_1$ and the projection of $v_3$ onto $v_2$ must be equivalent to $v_2$.\vspace{3mm}
+
+Essentially this means that $v_3$ must be composed of the sum of $v_1$ and a vector perpendicular to $v_1$ and likewise for $v_2$. This gives us the following diagram: 
+\begin{center}
+    \begin{asy}
+    /* Geogebra to Asymptote conversion, documentation at artofproblemsolving.com/Wiki go to User:Azjps/geogebra */
+import graph; usepackage("amsmath"); size(9cm);
+real labelscalefactor = 0.5; /* changes label-to-point distance */
+pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps); /* default pen style */
+pen dotstyle = black; /* point style */
+real xmin = -1.5532606317668722, xmax = 8.835780467660939, ymin = -0.7315550874084362, ymax = 4.341456209680555; /* image dimensions */
+
+/* draw figures */
+draw((1,1)--(5,1), red,EndArrow(6));
+draw((1,1)--(2,4), blue,EndArrow(6));
+draw((2,4)--(5,3), blue,EndArrow(6));
+draw((5,1)--(5,3), red,EndArrow(6));
+draw((1,1)--(5,3),EndArrow(6));
+draw((4.8,1)--(4.8,1.2));
+draw((4.8,1.2)--(5,1.2));
+draw((1.9477341752980104,3.843202525894031)--(2.1158723954262184,3.785753600795995));
+draw((2.1158723954262184,3.785753600795995)--(2.1786596080429605,3.940446797319013));
+label("$v_1$",(1.3705557595194635,2.759288461072476),SE*labelscalefactor,blue);
+label("$v_2$",(3.0261193265335447,0.8986780302539092),SE*labelscalefactor,red);
+label("$\alpha$",(1.25,1.35),SE*labelscalefactor);
+draw(shift((1,1))*xscale(0.3325841180741864)*yscale(0.3325841180741864)*arc((0,0),1,0,71.56505117707802));
+draw(circle((3,2), 2.23606797749979), dashed);
+draw((2,4)--(5,1), dashed);
+/* dots and labels */
+dot((1,1),dotstyle);
+label("$A$", (0.7478208398169193,1.0151404190743), NE * labelscalefactor);
+dot((5,1),dotstyle);
+label("$D$", (5.091776621156618,0.8252822118479157), NE * labelscalefactor);
+dot((2,4),dotstyle);
+label("$B$", (2.031262320667285,4.075654719563616), NE * labelscalefactor);
+dot((5,3),dotstyle);
+label("$C$", (5.031021994844175,3.073203385408307), NE * labelscalefactor);
+label("$v$",(2.9273930587758246,2.07895921308088),NE*labelscalefactor);
+clip((xmin,ymin)--(xmin,ymax)--(xmax,ymax)--(xmax,ymin)--cycle);
+/* end of picture */
+    \end{asy}
+\end{center}
+
+We want to find the magnitude of $AC$. Since this quadrilateral is formed by two right triangles, it is a cyclic quadrilateral.\vspace{3mm}
+
+Since $\angle BDA$ and $\angle BCA$ are inscribed angles of the same arc, they are congruent. Using the law of sines, we get that $$\dfrac{BD}{\sin\alpha}=\dfrac{AB}{\sin\angle BDA},\;\dfrac{AB}{\sin\angle BCA}=AC$$\vspace{3mm}
+
+Since $$\angle BDA=\angle BCA,\;\dfrac{BD}{\sin\alpha}=AC$$
+
+Using the law of cosines, $BD=\sqrt{v_1^2+v_2^2-2v_1v_2\cos\alpha}$, so $$AC=\boxed{\dfrac{\sqrt{v_1^2+v_2^2-2v_1v_2\cos\alpha}}{\sin\alpha}}$$
+
+\tcbline
+\textbf{Solution 2:} Similar to above, but let us denote $\angle CAD=\theta$ such that we have $v_2=v\cos\theta$ and $v_1=v\cos(\alpha-\theta)$. We can rewrite $v_1$, using the cosine addition formula as:
+$$v_1=v\left(\cos\alpha\cos\theta-\sin\theta\sin\alpha\right)=v_2\cos\alpha-v\sin\theta\sin\alpha$$
+We can solve for $\sin\theta$ to be:
+$$\sin\theta = \frac{CD}{AD}=\frac{\sqrt{v^2-v_2^2}}{v}$$
+Substituting this in, we get:
+\begin{align*}
+v_1 &= v_2\cos\alpha-v\left(\frac{\sqrt{v^2-v_2^2}}{v}\right) \\
+(v_2\cos\alpha-v_1)^2&=(v^2-v_2^2)\sin^2\alpha \\
+v_2^2\cos^2\alpha+v_1^2-2v_1v_2\cos\alpha &= v^2\sin^2\alpha-v_2^2\sin^2\alpha \\
+\end{align*}
+Rearranging and solving for $v$ gives:
+$$v=\boxed{\frac{\sqrt{v_1^2+v_2^2-2v_1v_2\cos\alpha}}{\sin\alpha}}$$
+\end{solution}

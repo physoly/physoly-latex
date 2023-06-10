@@ -1,0 +1,30 @@
+\begin{solution}{normal}
+According to idea 18,  we “cut off” the first period of the infinite chain ; the remaining part is equivalent to the original circuit of (yet unknown) resistance $R'$ and an electromotive force of $\mathcal{E}'$. 
+\begin{center}
+\begin{tikzpicture}[transform shape, scale=1.5, thick]
+\ctikzset{label/align = smart}
+\coordinate (A) at (0,0);
+\coordinate (B) at (3,0);
+\coordinate (C) at ($(B) + (2,0)$);
+\coordinate (D) at ($(C) + (0,4)$);
+\coordinate (E) at ($(B) + (0,4)$);
+\coordinate (F) at (0,4);
+\draw (F) to [R, l=$R$] (E) to [battery1, l=$\mathcal{E}$] ($(E)!0.5!(B)$) to [R, l=$r$] (B) to (A);
+\draw (E) to (D) to [battery1, l=$\mathcal{E}'$] ($(D)!0.5!(C)$) to [R, l=$r'$] (C) to (B);
+\end{tikzpicture}
+\end{center}
+We apply Thevenin's theorem to solve this. First, we remove all voltage and current sources and write the effective resistance $r'$ to be:
+\begin{align*}
+    r' &= R + \frac{rr'}{r+r'} \\ 
+    0 &= {r'}^2-Rr'-Rr \\ 
+    r' &= \frac{R}{2} \left(1+\sqrt{1-\frac{4r}{R}}\right)
+\end{align*}
+We can also calculate the effective Thevenin voltage by letting $\mathcal{E}'$ be the voltage across the gap. No current will be flowing through $R$, so this will be the current that flows through the $\mathcal{E}$ battery. We can determine the current to be (assuming it moves clockwise):
+$$
+    I_\text{th} = \frac{\mathcal{E}-\mathcal{E}'}{r+r'}
+$$
+and the effective voltage to be:
+$$
+\mathcal{E}' = \mathcal{E} - I_\text{th}r \implies \mathcal{E}' = \mathcal{E}
+$$
+\end{solution}

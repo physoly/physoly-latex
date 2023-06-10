@@ -1,0 +1,51 @@
+\begin{solution}{hard}
+\begin{proof}
+We analyze 4 processes on a Carnot cycle working in phase:
+\begin{itemize}
+    \item We have our substance undergo an isothermal expansion at a constant temperature $T$. The substance undergoes isothermal expansion since it becomes in contact with a reservoir at a temperature $T$. A bit of the mass of the liquid evaporates during this process and as a result, the total volume that the substance works on changes from $V_1$ to $V_2$. We can approximate this change in volume by a straight line.
+    \item We have our substance undergo adiabatic expansion where the temperature and pressure increase to $T + dT$ and $p + dp$.
+    \item The substance is compressed isothermally at temperature $T + dT$ when it is put in thermal contact with a reservoir of temperature $T + dT$. In this process, the vapour mass condenses and therefore, the pressure of this process is constant at $p + dp$.
+    \item The substance is compressed adiabatically and it's pressure and temperature goes to $(p + dp, T + dT)\to (p, T)$.
+\end{itemize}
+The graph that this cycle creates is a parallelogram with height $-dp$ and edges of lengths $m \Delta V$. The work done by this Carnot cycle is then $–m\Delta V dp$. Furthermore, this substance receives heat during the first process which is of value of $mL$. We then can write the efficiency $\eta$ of this thermodynamic process as:
+\[\eta = \frac{W}{Q} = \frac{-m\Delta V dp}{mL} = -\frac{\Delta V dp}{L}.\]
+Assuming all reversible processes means that this in turn must equal to the efficiency of a Carnot cycle or
+\[\eta_{\text{Carnot}} = \frac{T_h}{T_h - T_{\ell}} = \frac{T + dT}{dT} = - \frac{dT}{T}.\]
+Therefore, equating both of these together gives us 
+\[- \frac{dT}{T} = -\frac{\Delta V dp}{L} \implies \frac{dp}{dT} = \frac{L}{T \Delta V} = p_s \frac{\lambda \mu}{RT^2}.\]
+\end{proof}
+Solving the differential equation, we have:
+$$\ln\left(\frac{p}{p_0}\right)=\frac{\lambda \mu}{R}\left(\frac{1}{T_i}-\frac{1}{T_f}\right)$$
+We can assume that $\Delta T = T_f-T_i \ll T$, allowing us to simplify our relationship to:
+$$P=P_0\exp\left(\frac{\lambda\mu\Delta T}{RT^2}\right) \implies \Delta P = P_0\left(\exp\left(\frac{\lambda\mu\Delta T}{RT^2}\right)-1\right)$$
+Using the first order expansion, we get:
+$$\Delta P=\frac{P_0\lambda\mu\Delta T}{RT^2}\approx 350 \text{ Pa.}$$
+
+\tcbline 
+
+Let's consider one mole of some material at the phase boundary so that it is equally stable as a liquid and gas alike. Therefore, its Gibbs free energy must be the same at the phase boundary. Let us denote $\dd G_l$ by the Gibb’s free energy of the liquid state and $\Delta G_g$ by the Gibb’s free energy of the gas. We require that $G_l = G_g$. Consider raiseing the temperature by $\dd T$ and the pressure by $\dd P$ such that both phases remain equally stable therefore we require $\dd G_l = \dd G_g$. Also, since 
+\[\text{d}G = -S\text{d}T + V\text{d}p\]
+We have that 
+\[-S_l \dd T + V_l \dd P = -S_g \dd T + V_g \dd P.\]
+Where $(V_1, S_1)$ is the volume and entropy of the liquid and $(V_2, S_2)$ is the volume and entropy of the gas. We then have 
+\[\dd p (V_2 - V_1) = \dd T (S_2 - S_1)\implies \dv{p}{T} = \frac{S_g - S_l}{V_g - V_l}.\]
+It is easier to write the difference in entropies as $S_g - S_l = \lambda\mu /T$ and $V = \frac{RT}{p}$ from the ideal gas law. Therefore,
+\[\frac{\text{d}p_s}{\text{d}T} = p_s \frac{\lambda \mu}{RT^2}.\]
+
+\tcbline 
+
+Let us expand on entropy $S = S(V, T)$ as a function of state with the multivariable chain rule:
+\[\text{d}S = \left(\frac{\partial S}{\partial V}\right)_T \text{d}V + \left(\frac{\partial S}{\partial T}\right)_V \text{d}T.\]
+In a closed system, temperature and pressure remain constant and therefore, $\left(\frac{\partial S}{\partial T}\right)_V \text{d}T = 0$. We are then left with 
+\[\text{d}S = \left(\frac{\partial S}{\partial V}\right)_T \text{d}V.\]
+We then use Maxwell’s relations:
+\[\left(\frac{\partial S}{\partial V}\right)_T = \left(\frac{\partial p}{\partial T}\right)_V\implies \text{d}S = \left(\frac{\partial p}{\partial T}\right)_V \text{d}V.\]
+Next, note that by using the multivariable chain rule on $P = P(V, T)$ we have:
+\[\text{d}P = \left(\frac{\partial p}{\partial T}\right)_V \text{d}T + \left(\frac{\partial p}{\partial V}\right)_T \text{d}V\]
+and $\left(\frac{\partial p}{\partial V}\right)_T = 0$ as a change in phase transition does not change the pressure with constant parameters. Therefore, 
+\[\text{d} P = \left(\frac{\partial p}{\partial T}\right)_V \text{d} T\implies \frac{\text{d}p}{\text{d}T} = \left(\frac{\partial p}{\partial T}\right)_V.\]
+This means that - after going back to the expression of entropy - we have 
+\[\text{d} S = \frac{\text{d}p}{\text{d}T} \text{d}V\implies \frac{\text{d}p}{\text{d}T} = \frac{\Delta S}{\Delta V} = \frac{\Delta H}{T V}.\]
+Note that $\Delta H = \lambda \mu$ and $V = \frac{RT}{p}$ from the ideal gas law. Therefore, 
+\[\frac{\text{d}p_s}{\text{d}T} = p_s \frac{\lambda \mu}{RT^2}.\]
+\end{solution}

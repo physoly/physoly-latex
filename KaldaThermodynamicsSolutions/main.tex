@@ -1,0 +1,291 @@
+\documentclass[11pt]{article}
+\usepackage{titling}
+\usepackage[english]{babel}
+\usepackage[margin=0.6in]{geometry} % Page Dimension
+\usepackage{physics}
+\usepackage{enumerate}
+\usepackage{physoly}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                PACKAGES                %  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Styling Choices
+\setlength{\parskip}{\baselineskip}%
+
+% Math
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage[inline]{asymptote}
+\usepackage{xcolor}
+\usepackage{cancel}
+
+% Allows for hyperlinking
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=magenta,
+}
+
+% Blind Footnote
+\newcommand\blfootnote[1]{%
+  \makeatletter{\footnotetext{#1}\makeatother}
+}
+
+% Fancy Header
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Kalda Thermodynamics}
+\rhead{\thepage}
+
+% Coloured Boxes
+\usepackage{xcolor}
+\definecolor{border}{HTML}{004D4D}
+\definecolor{hard}{HTML}{ffccb3}
+\definecolor{easy}{HTML}{b3e6b3}
+\definecolor{normal}{HTML}{f2f2f2}
+
+% Syntax: \colorboxed[<color model>]{<color specification>}{<math formula>}
+\newcommand*{\colorboxed}{}
+\def\colorboxed#1#{%
+  \colorboxedAux{#1}%
+}
+\newcommand*{\colorboxedAux}[3]{%
+  % #1: optional argument for color model
+  % #2: color specification
+  % #3: formula
+  \begingroup
+    \colorlet{cb@saved}{.}%
+    \color#1{#2}%
+    \boxed{%
+      \color{cb@saved}%
+      #3%
+    }%
+  \endgroup
+}
+
+% Setup Gray Solution Boxes
+\usepackage[breakable,many]{tcolorbox}
+\newtcolorbox[auto counter]{solution}[1]{
+    enhanced, breakable,
+    arc=0pt,
+    % colback=default, % Background color
+    colframe=white, % Border Color
+    coltitle=black, % Title Color
+    fonttitle=\bfseries,
+    title=\fcolorbox{border}{#1}{\textcolor{border}{pr} \bfseries \textcolor{border}{\thetcbcounter}.},
+    attach title to upper,
+    after title={\ },
+    segmentation style={dashed, gray},
+}
+
+% Title and front page
+\title{Solutions to Problems in Thermodynamics Handout by Jaan Kalda With detailed diagrams and walkthroughs}
+% Author
+\author{\textsc{Ashmit Dutta,  Kushal Thaman, Rakshit, QiLin Xue }}
+
+\begin{document}
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+ 
+        \Huge
+        \textbf{Solutions to Jaan Kalda's Problems in Thermodynamics}
+ 
+        \vspace{0.5cm}
+        \LARGE
+        \textbf{With detailed diagrams and walkthroughs}
+        \author{\textsc{Ashmit Dutta,  Kushal Thaman, Rakshit, QiLin Xue }}
+        
+        \vspace{0.1cm}
+        Edition 1.2.1
+        
+        \vspace{1.2cm}
+        
+        Rakshit, Ashmit Dutta, QiLin Xue, Kushal Thaman
+        \vspace{1cm}
+ \begin{center}
+\begin{asy}
+unitsize(2.5cm);
+import graph;
+draw((0, 0)--(0, 4), arrow=Arrow(TeXHead), linewidth(1));
+draw((0, 0)--(4,0), arrow=Arrow(TeXHead), linewidth(1));
+
+label("$P$", (0, 4), NW);
+label("$V$", (4, 0), SE);
+
+draw((0.5, 3.5).. (2, 2.5).. (3.5, 2));
+label("$T_2$", (3.5, 2), E);
+draw((0.5, 2.1).. (2, 1.1).. (3.5, 0.6));
+label("$T_1$", (3.5, 0.6), E);
+draw((1, 1.71) -- (1, 3.1), linewidth(1));
+draw((1, 1.71)..(2, 1.1)..(3, 0.72), linewidth(1));
+draw((1, 3.1)..(2, 2.5)..(3, 2.13), linewidth(1));
+draw((3, 0.72) -- (3, 2.13), linewidth(1));
+
+label("2", (1, 1.71), SW);
+label("1", (3, 0.72), S);
+label("3", (1, 3.1), NE);
+label("4", (3, 2.13), N);
+
+draw((0.2, (1.71 + 3.1)/1.9) -- (0.7, (1.71 + 3.1)/1.9), arrow=Arrow(8));
+label("$Q_1$", (0.7, (1.71 + 3.1)/1.9), N);
+draw((3.2, 1.2) -- (3.7, 1.2), arrow=Arrow(8));
+label("$Q_3$", (3.7, 1.2), N);
+draw((2, 3.3) -- (2, 2.7), arrow=Arrow(8));
+label("$Q_2$", (2, 2.7), E);
+draw((2, 1.3) -- (2, 0.8), arrow=Arrow(8));
+label("$Q_4$", (2, 0.8), W);
+
+draw((1, 0) -- (1, 0.1));
+draw((3, 0) -- (3, 0.1));
+
+label("$V_1$", (1, 0), S);
+label("$V_2$", (3, 0), S);
+\end{asy}
+\end{center}
+         
+        \vspace{10mm}
+        \vfill
+        
+        \Large
+        Updated
+        \today
+ 
+    \end{center}
+\end{titlepage}
+\newpage
+%%%%%%%%%%%
+% Preface %
+%%%%%%%%%%%
+\section*{Preface}
+\vspace{-5mm}
+\indent Jaan Kalda's \href{https://www.ioc.ee/~kalda/ipho/}{handouts} are beloved by physics students both in for a quick challenge, to students preparing for international Olympiads. As of writing, the current \href{https://www.ioc.ee/~kalda/ipho/Thermodyn.pdf}{thermodynamics} handout has 84 unique problems and 20 main `ideas'.
+
+This solutions manual came as a pilot project from the online community at \url{artofproblemsolving.com}. Although there were detailed hints provided, full solutions have never been written. The majority of the solutions seen here were written on a private forum given to those who wanted to participate in making solutions. In an amazing show of an online collaboration, students from around the world came together to discuss ideas and methods and created what we see today.
+
+This project would not have been possible without the countless contributions from members of the community. Online usernames were used for those who did not wish to be named: 
+
+\textit{Jonathan Qin, Anant Lunia, Ameya Deshmukh and Hermab Podar.}
+\subsection*{Structure of The Solutions Manual}
+\vspace{-5mm}
+Each chapter in this solutions manual will be directed towards a section given in Kalda's mechanics handout. There are three major chapters: statics, dynamics, and revision problems. If you are stuck on a problem, cannot make progress even with the hint, and come here for reference, look at only the start of the solution, then try again. Looking at the entire solution wastes the problem for you and ruins an opportunity for yourself to improve.
+
+\subsection*{Contact Us}
+\vspace{-5mm}
+Despite editing, there is almost zero probability that there are \textit{no} mistakes inside this book. If there are any mistakes, you want to add a remark, have a unique solution, or know the source of a specific problem, then please contact us at \url{hello@physoly.tech}. The most current and updated version can be found on our website \url{physoly.tech}
+
+Please feel free to contact us at the same email if you are confused on a solution. Chances are that many others will have the same question as you.
+
+\newpage
+\section{Solutions to Heat and Motion Problems}
+\vspace{-5mm}
+This section will consist of the solutions to problems from problem 1-8 of the handout. Heat and temperature is typically the analysis of objects interacting with each other via thermal energy. These problems usually involve conservation of energy, heat flux, Stefan-Boltzmann's Law, analysis of graphs, and more. 
+
+\input{P01}
+\input{P02}
+\input{P03}
+\input{P04}
+\input{P05}
+\input{P06}
+\input{P07}
+\input{P08}
+
+\newpage
+\section{Solutions to Gases}
+
+This chapter will focus on problems 9-14 of the handout.
+
+\input{P09}
+\input{P10}
+\input{P11}
+\input{P12}
+\input{P13}
+\input{P14}
+
+\newpage
+\section{Solutions to Adiabatic processes}
+
+This chapter will focus on problems 15-24 of the handout.
+
+\input{P15}
+\input{P16}
+\input{P17}
+\input{P18}
+\input{P19}
+\input{P20}
+\input{P21}
+\input{P22}
+\input{P23}
+\input{P24}
+\input{P25}
+\input{P26}
+\input{P27}
+\input{P28}
+\input{P29}
+\input{P30}
+\input{P31}
+\input{P32}
+\input{P33}
+\input{P34}
+\input{P35}
+\input{P36}
+\input{P37}
+\input{P38}
+
+\newpage
+\section{Solutions to Revision Problems}
+This section will contain problem 38-86 of the handout. Revision problems take concepts and ideas from earlier problems and places them in a new context. As a result, many of the problems in this section will seem familiar. This however, does not mean that all the problems in this section are easy. Some of the hardest problems originate in this section.
+\input{P39}
+\input{P40}
+\input{P41}
+\newpage
+\input{P42}
+\input{P43}
+\input{P44}
+\input{P45}
+\input{P46}
+\input{P47}
+\input{P48}
+\input{P49}
+\input{P50}
+\input{P51}
+\input{P52}
+\input{P53}
+\input{P54}
+\input{P55}
+\input{P56}
+\input{P57}
+\input{P58}
+\input{P59}
+\input{P60}
+\input{P61}
+\input{P62}
+\input{P63}
+\input{P64}
+\input{P65}
+\input{P66}
+\input{P67}
+\input{P68}
+\input{P69}
+\input{P70}
+\input{P71}
+\input{P72}
+\input{P73}
+\input{P74}
+\input{P75}
+\input{P76}
+\input{P77}
+\input{P78}
+\input{P79}
+\input{P80}
+\input{P81}
+\input{P82}
+\input{P83}
+\input{P84}
+\input{P85}
+\input{P86}
+\input{P87}
+\input{P88}
+
+
+\end{document}

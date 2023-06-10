@@ -1,0 +1,32 @@
+\begin{solution}{normal}
+First, note that $L=2\pi rk$
+\vspace{3mm}
+
+By idea 21 (tension is perpendicular to direction of motion), the velocity $v$ of the block remains constant throughout the motion. \vspace{3mm}
+
+Let $l$ be the length of the portion of the string not in contact with the cylinder. \vspace{3mm}
+
+The angular velocity about the point of tangency with the cylinder is $\omega=\dfrac{v}{l}$. \vspace{3mm}
+
+Note that $r\dfrac{d\theta}{dt}=\dfrac{dl}{dt}$.
+
+$$r\omega=\dfrac{dl}{dt}\implies \dfrac{rv}{l}=\dfrac{dl}{dt} \implies rv=l\dfrac{dl}{dt}$$
+$$rv=\dfrac{1}{2}\dfrac{d(l^2)}{dt}\implies l^2=2rvt\text{ since }l_0=0$$
+$$t=\dfrac{l^2}{2rv}=\dfrac{2\pi^2 rk^2}{v}$$
+
+Note that the string also completes an additional semicircle without changing length before starting to wrap back around again.
+\begin{center}
+    \begin{asy}
+        unitsize(8mm);
+        real r = 1.5;
+        draw(circle((0,0),r));
+        draw((0,0)--(0,r));
+        label("$r$",(0.2*r,r/2));
+        filldraw((0,r)--(-4*r,r)--(-4*r,1.05*r)--(0,1.05*r)--cycle, grey);
+        label("$L$",(-2*r,1.4*r));
+        draw(arc((0,r),4*r,0,180),dashed);
+    \end{asy}
+\end{center}
+Therefore, our final time is $t=2\cdot\dfrac{2\pi^2rk^2}{v}+\dfrac{\pi(2\pi rk)}{v}$, or
+$$\boxed{t=\dfrac{2\pi^2 kr(2k+1)}{v}}$$
+\end{solution}

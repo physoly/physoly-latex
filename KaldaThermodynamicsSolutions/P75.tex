@@ -1,0 +1,16 @@
+\begin{solution}{normal}
+We follow the same sign notation as in problem 6, since they are parts of the same problem. 
+\vspace{3mm}
+
+\noindent Since we clearly have the constant corresponding to the cutoff frequency $\eta_0 = \frac{1200\ \textbf{K}}{6000\ \textbf{K}}$, thus$$\gamma = \frac{\int_{0}^{\eta_0}{\frac{\eta^3\text{d}\eta}{e^\eta - 1}}}{\int_{0}^{\infty}{\frac{\eta^3\text{d}\eta}{e^\eta - 1}}}$$ follows from Planck's radiation law.  To simplify this result, we use the approximation for small $\eta$ $$e^\eta \approx 1+ \eta \ \forall \  \eta \ll 1$$ Also since we have $$\int_{0}^{\infty}{\frac{\eta^3\text{d}\eta}{e^\eta - 1}} = 6\xi(4) = \frac{\pi^4}{15}$$ $\gamma$ is simplified to $$\gamma =  \frac{\int_{0}^{\eta_0}{\frac{\eta^3\text{d}\eta}{e^\eta - 1}}}{\tfrac{\pi^4}{15}} \approx 4.106 \times 10^{-4}$$ Now by definition of $\gamma$, we have the relation $P_{\text{in}} = \gamma P_{\text{out}}$, which gives us
+\begin{align*}
+P_\text{output} &= P_\odot \gamma_\text{eff}\\
+\epsilon_ \times 4\pi R_\oplus^2\sigma T^4 &=
+a \times \sigma T_\odot^4 (4\pi R_\odot^2)\left(\frac{R_\oplus}{2L}\right)^2 \\
+\cancel\epsilon_ \times 4\pi R_\oplus^2\sigma T^4 &=
+\cancel a \times \sigma T_\odot^4 (4\pi R_\odot^2)\left(\frac{R_\oplus}{2L}\right)^2 \\
+\end{align*}
+$$\pi {R_{\odot}}^2 \times \left(\frac{\sigma T_\odot^4 (4\pi R_\odot^2)}{4\pi L^2}\right) \times \gamma = 4\pi {R_{\oplus}}^2 (\sigma {T_S}^4)$$
+$$T_S = {\left( \frac{\gamma {T_{\odot}}^4 {R_{\odot}}^2}{4L^2}\right)}^{\frac{1}{4}}  = T_\odot \sqrt{\frac{\sqrt{\gamma}R_\odot}{2L}} $$ 
+Note that the temperature of the satellite is independent of the size of the satellite, as long as the size is not large. Thus, substituting the value of $\gamma$, we get $$T_S = T_\odot \sqrt{\frac{\sqrt{\gamma}R_\odot}{2L}}  \approx \boxed{41 \ \textbf{K}}$$ 
+\end{solution}

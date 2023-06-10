@@ -1,0 +1,49 @@
+\begin{solution}{normal}
+Assume you are at $(0,0)$, and let the target be at $(x_0,y_0)$, $x_0>0$.
+\vspace{3mm}
+
+The trajectory of the projectile is defined by $$y=x\tan(\theta)-\dfrac{gx^2}{2v^2\cos^2(\theta)}$$
+
+the slope of the projectile (as a function of $x$) is thus $$\dfrac{dy}{dx}=\tan(\theta)-\dfrac{gx}{v^2\cos^2(\theta)}.$$
+
+It suffices to prove that $$\tan(\theta)\left(\tan(\theta)-\dfrac{gx_0}{v^2\cos^2(\theta)}\right)=-1$$
+
+since $v^2\cos^2(\theta)=\dfrac{gx_0^2}{2(x_0\tan(\theta)-y_0)}$, it suffices to prove that $$\tan(\theta)\left(\tan(\theta)-\dfrac{2(x_0\tan(\theta)-y_0)}{x_0}\right)=-1$$
+
+we know that $$v=\sqrt{\dfrac{gx_0^2}{2\cos^2(\theta)(x_0\tan(\theta)-y_0)}}.$$
+
+Minimizing $v$ means maximizing $$\cos^2(\theta)(x_0\tan(\theta)-y_0)=x_0\sin(\theta)\cos(\theta)-y_0\cos^2(\theta)$$
+
+therefore, taking the derivative, we get that we need $-\cot(2\theta)=\dfrac{y_0}{x_0}$.
+
+Plugging this in, we can verify that $$\tan(\theta)\left(\tan(\theta)-2\tan(\theta)+\dfrac{2y_0}{x_0}\right)=\tan(\theta)(-\cot(\theta))=-1$$
+\tcbline
+\textbf{Solution 2:}
+
+\begin{center}
+    \begin{asy}
+        size(10cm);
+        import graph;
+        pair f(real x){
+            return (x,-0.3x^2);
+        }
+        draw(graph(f, -5, 5), red);
+        pair g(real x){
+            return (x, x-2);
+        }
+        draw(graph(g, -5, 3));
+        pair z(real x){
+            return (x, -x+0.81302);
+        }
+        draw(graph(z, -1, 7));
+        draw((0,-8) -- (0, -2) -- (2.813, -2) -- (2.813, -8), blue);
+        draw((2.813, -2) -- (1.406, -3.406) -- (0,-2), dashed);
+    \end{asy}
+\end{center}
+
+Due to idea 28, together with facts 6, 7, and 9, a vertical ray directed at the target is reflected by the projectile’s trajectory to the focus, i.e. to the cannon.\vspace{3mm}
+
+When making use of idea 26, we see that this projectile’s trajectory is also optimal for shooting the cannon’s position from the location of the target; hence, the projectile’s trajectory reflects a vertical ray directed to the cannon towards the target.\vspace{3mm}
+
+If we combine these two observations we see that a vertical ray directed to the cannon is rotated after two reflections from the trajectory by $180\degree$, which means that the reflecting surfaces must have been perpendicular to each other.
+\end{solution}

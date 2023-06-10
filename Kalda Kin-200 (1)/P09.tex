@@ -1,0 +1,30 @@
+\begin{solution}{easy}
+We move into the reference frame that is rotating clockwise at $\omega$ about the center of the mirror (i.e. the mirror is stationary).\vspace{3mm}
+
+\begin{center}
+    \begin{asy}
+        unitsize(2cm);
+        real a = 38.66*pi/180;
+        real r = 1.92;
+        dot((0,0),linewidth(5));
+        dot((r*cos(a),-r*sin(a)),linewidth(5));
+        draw((-2,0)--(2,0));
+        draw((0,0)--(r*cos(a),-r*sin(a)));
+        label("$a$",(0.85,-0.5));
+        label("$S$",(1.6,-1.4));
+        draw(arc((0,0),r,-38.66,-15),arrow=Arrow());
+        label("$\omega$",(1.85,-1));
+        draw(arc((0,0),r,38.66,15),arrow=Arrow());
+        label("$\omega$",(1.85,1));
+        draw((0,0)--(-r*cos(a),-r*sin(a)));
+        draw((0,0)--(r*cos(a),r*sin(a)),dashed);
+        dot((r*cos(a),r*sin(a)),linewidth(5));
+        label("$S'$",(1.6,1.4));
+    \end{asy}
+\end{center}
+
+In this frame of reference, the image $S'$ has angular velocity $\omega$ clockwise about the center of the mirror. \vspace{3mm}
+
+Moving back into the reference frame where $S$ is stationary, we see that $S'$ is moving with angular velocity $2\omega$ about the center of the mirror, so the image has speed
+$$v=\boxed{2\omega a}$$
+\end{solution}

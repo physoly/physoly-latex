@@ -1,0 +1,10 @@
+\begin{solution}{normal}
+\textbf{Long Way:} We can set arbitrary values for the voltage $U$, and the resistance $R_1$, so we will pick $U=5 \text{ V}$ and $R_1=4\,\Omega$. From the relationship relating $R_1$ and $R_2$, we also have $R_2 = 1\,\Omega$. Initially, the two resistors are in series, so the current $I_0$ running through the entire circuit is:
+$$U = I_0(R_1+R_2) \implies I_0 = \frac{U}{R_1+R_2} = 1 \text{ A}.$$After the lightbulb is added, the current increases to $I'=1.1 \text{ A}$. The resistor $R_2$ is now in parallel with the lamp, which has a resistance of $r$. We can determine the equivalent resistance $R'_\text{eff}$ of the circuit to be:
+$$R'_\text{eff} = R_1 + \frac{rR_2}{r+R_2} = 4 + \frac{r}{1+r}$$Using Kirchoff's voltage loop rule on the equivalent circuit, we can determine the value for $r$ given our initial setup to be:
+$$U - I'R'_\text{eff} = 0 \implies 5 = 1.1\left(4 + \frac{r}{1+r}\right) \implies r = 1.2\,\Omega$$We can then use Kirchoff's voltage loop rule again, but on the loop which contains the voltage source, $R_1$, and $r$, such that:
+$$U - I'R_1 - I_\text{lamp}r = 0 \implies 5 - (1.1)(4) - I_\text{lamp}(1.2) = 0 \implies \boxed{I_\text{lamp} = 0.5\text{ A}}.$$
+\tcbline
+\textbf{Short Way:} Let $I_1$ be the current through $R_1$ and let $I_2$ be the current through $R_2$. We know that$$I_1R_1+I_2R_2=\text{constant} \implies \Delta I_1 R_1 + \Delta I_2 R_2 = 0$$so we can compare the initial and final state of the system. If $I_1$ increases by $0.1 \text{ A}$, then $I_2$ must decrease by $0.4\text{ A}$. However, by Kirchhoff's junction rule, the sum of the currents must be zero:
+$$I_\text{in} = I_\text{out}$$Since $I_1$ is increasing by $0.1\text{ A}$ and $I_2$ is decreasing by $0.4 \text{ A}$, then in order for this to be valid, the current through the lamp must increase (from zero) to be $\boxed{I_\text{lamp} = 0.5\text{ A}}$.
+\end{solution}

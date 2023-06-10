@@ -1,0 +1,33 @@
+\begin{solution}{hard}
+Consider a circular frustum with radii $r_1$ and $r_2$. Let $\theta_1$ and $\theta_2$ be the angles the tangents at these two circular sections make with the vertical. Therefore, balancing forces in the horizontal direction, we must have:
+$$\sigma (2\pi r_1)\cos\theta_1 = \sigma (2\pi r_2)\cos\theta_2$$
+Since this applies for any arbitrary $r$ and $\theta$, we can say that:
+$$r\cos\theta=\text{constant}$$ 
+An alternative way of phrasing this is:
+$$\frac{d}{dx} r\cos\theta = 0 \implies \frac{dr}{dx}\cos\theta -r\sin\theta \frac{d\theta}{dx} =0\implies \frac{dr}{d\theta} = r\tan\theta$$
+Separating variables:
+\begin{align*}
+\int \frac{1}{r} dr &= \int \tan\theta d\theta \\
+\ln(r) &= \ln(\sec\theta)+C \\
+r &= r_0\sec\theta \\
+r &= r_0\sqrt{1+\tan^2\theta} \\
+r &= r_0\sqrt{1+\left(\frac{dr}{dx}\right)^2}
+\end{align*}
+Solving for $\frac{dr}{dx}$, we can separate variables again and integrating:
+$$x=r_0\cosh^{-1}\left(\frac{r}{r_0}\right) \implies r = r_0\cosh\left(\frac{x}{r_0}\right)$$
+If the separation is $L$, we get:
+$$R = r_0\cosh(L/2r_0) \implies L = 2r_0\cosh^{-1}\left(R/r_0\right)$$
+where $R$ is the radius of the ends. Finding the maximum value of $L$ by using a calculator gives us $13.3\;\mathrm{cm}$
+\tcbline
+\textbf{Solution 2.} We want to minimize the energy of the soap film $E=S\gamma$. This is achieved when the area $S$ is at a minimum. The area is:
+$$S=\int_{-L/2}^{L/2} 2\pi r\sqrt{1+r'^2} dr$$
+We want to minimize $r\sqrt{1+r'^2}$ which we can take to be our Lagrangian. We can apply the Euler Lagrange equations, except instead of $r$ being dependent on time, it's dependent on $x$. This equivalent is:
+\begin{align*}
+\frac{d}{dx}\left(\frac{\partial L}{\partial r'}\right)&=\frac{\partial L}{\partial r} \\
+\frac{d}{dx}\left(2\pi r \frac{r'}{\sqrt{1+r'^2}}\right) &= 2\pi\sqrt{1+r'^2}
+\end{align*}
+which can be simplified to:
+$$1+r'^2=Ar^2$$
+where $A=1/r_0^2$. The solution is well known. Motivated by the fact that $1+\sinh^2x=\cosh^2x$, we can guess the solution:
+$$r(x)=r_0\cosh (x/r_0)$$
+\end{solution}

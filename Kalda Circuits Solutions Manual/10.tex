@@ -1,0 +1,11 @@
+\begin{solution}{normal}
+By idea $10$, any circuit which consists of only resistors and batteries and has two ports $A$ and $B$ is equivalent to a series connection of a battery and a resistance. In other words, we consider the Thevenin equivalent of the circuit. The equivalent internal resistance can be found easily replacing the battery by a wire and using series and parallel connections.
+$$R_{\text{eq}} = \frac{R_2\times (R_1+r)}{R_2 + (R_1+r)}$$The equivalent emf $\mathcal{E}_{\text{eq}}$ is the potential drop across $R_2$. The net resistance about the battery is $R_2 + (R_1+r)$, so the current through the battery is by idea 10,
+\[ I = \mathcal{E}/r\implies I = \frac{\mathcal{E}}{R_1+R_2+r}.\]The potential drop about $R_2$ is then
+\[V = IR_2 = \mathcal{E}\frac{R_2}{R_1+R_2+r}.\]This means that entire circuit in the figure can be substituted with an equivalent battery with
+$$\mathcal{E}_{\text{eq}} = \mathcal{E}\frac{R_2}{R_1+R_2+r}.$$By fact $7$ the maximal power that can be dissipated is given as $P_{\text{max}} = \mathcal{E}^2/4r$. This means that
+\begin{align*}
+P_{\text{max}} = \frac{\mathcal{E}_{\text{eq}}^2}{4R_{\text{eq}}} &= \frac{1}{4}\mathcal{E}^2 \left(\frac{R_2}{R_1+R_2+r}\right)^2 \cdot \frac{R_2 + (R_1+r)}{R_2\times (R_1+r)} \\
+&= \frac{1}{4}\frac{R_2}{(r + R_1 + R_2)(R_1 + r)}\mathcal{E}^2
+\end{align*}
+\end{solution}

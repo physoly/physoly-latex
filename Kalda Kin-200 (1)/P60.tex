@@ -1,0 +1,41 @@
+\begin{solution}{normal}
+\begin{center}
+    \begin{asy}
+        unitsize(2cm);
+        real l = 1;
+        draw(circle((0,0),0.094*l/2));
+        draw(circle((0,0),0.394*l/2));
+        draw(circle((0,0),0.898*l/2));
+        draw(circle((0,0),1.606*l/2));
+        draw(circle((0,0),2.516*l/2));
+        draw(circle((0,0),3.526*l/2));
+        draw(circle((0,0),4.556*l/2));
+        draw((1.5*l,2.4*l)--(2.5*l,2.4*l));
+        label("$L$",(2*l,2.2*l));
+    \end{asy}
+\end{center}
+Measuring the diameters of the wave fronts, we get approximately:
+\begin{align*}
+    d_1=0.09L \\
+    d_2=0.39L \\
+    d_3=0.90L \\
+    d_4=1.61L \\
+    d_5=2.52L \\
+    d_6=3.53L \\
+    d_7=4.54L
+\end{align*}
+
+Let the time between successive snapshots be $\Delta t$. \vspace{3mm}
+
+According to the question, the wavecrest initally moves out with acceleration $a=\dfrac{g}{\pi}$. \vspace{3mm}
+
+This gives $$x=\dfrac{gt^2}{2\pi}\implies t=\sqrt{\dfrac{2\pi x}{g}}$$
+
+Plugging in the first couple values of $d$, we find that $$\Delta t\approx \sqrt{\dfrac{0.1\pi L}{g}}$$
+
+Also according to the question, the wavecrest approaches a terminal velocity $v_{\infty}=\sqrt{hg}$. \vspace{3mm}
+
+We can approximate this equation as $$\dfrac{1.01L}{\Delta t}=\dfrac{1.01L}{\sqrt{\dfrac{0.1\pi L}{g}}}=\sqrt{hg}$$
+
+Simplifying, this gives $\boxed{h\approx{3.2L}}$.
+\end{solution}

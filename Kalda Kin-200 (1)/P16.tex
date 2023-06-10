@@ -1,0 +1,16 @@
+\begin{solution}{hard}
+Note that
+\[dk = \frac {ds}{L(t)} = \frac {vdt}{L+ut}.\]
+Integrating both sides gives us
+\[\int_{0}^{1} dk = \int_{0}^{T} \frac {vdt}{L+ut}\] 
+Using a $s$ substitution $s = L+ut \Rightarrow dx = udt$ and rearranging the integral gives us 
+\begin{align*}
+1 = \frac {v}{u} \int_{0}^{T} \frac {dx}{s} \implies \frac {u}{v} &= \ln(ut+L)\mid_{0}^{T}\\
+\frac {u}{v} &= \ln\left(\frac {uT+L}{L}\right)
+\end{align*}
+Substituting the values given in the problem tells us 
+\begin{align*}
+100 = \ln\left(\frac {uT+L}{L}\right) \implies e^{100} &= \frac {uT}{L}+1 \\
+ T &= \boxed{e^{100}-1}
+\end{align*}
+\end{solution}

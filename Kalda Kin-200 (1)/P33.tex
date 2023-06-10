@@ -1,0 +1,48 @@
+\begin{solution}{hard}
+\textbf{i)} Assume that we have stuck paper strips with sinusoidal waves on both the combs such that the crests correspond with the teeth.\vspace{3mm}
+
+For the black comb, teeth exist when
+$$\sin \left(\vec{k_1}\cdot\vec{r}\right)=1, \;k_1=\frac{2 \pi}{\Delta l_1}$$
+
+For the gray comb, teeth exist when
+$$\sin\left(\vec{k_2}\cdot\vec{r}-\omega t\right)=1, \;k_2=\frac{2 \pi}{\Delta l_2}, \;\frac{\omega}{k_2}=v$$ 
+($r=0$ where the teeth coincide at $t=0$, $k_1 > k_2$).\vspace{3mm}
+
+We will see dark regions when 
+\begin{align*}
+\sin \left(\vec{k_1}\cdot\vec{r}\right)\sin\left(\vec{k_2}\cdot\vec{r}-\omega t\right)&=1\\
+\implies\vec{k_1}\cdot\vec{r}&=2n\pi +\frac{\pi}{2},\\
+\vec{k_2}\cdot\vec{r}-\omega t &= 2m\pi+\frac{\pi}{2}\\
+\implies \left(\vec{k_1}-\vec{k_2}\right)\cdot\vec{r}&=2k\pi -\omega t
+\end{align*}
+and 
+\begin{align*}
+\vec{k_2}\cdot\vec{r}-\omega t &= 2m\pi+\frac{\pi}{2}\\
+(\vec{k_1}-\vec{k_2})\cdot\vec{r}&=2k\pi -\omega t
+\end{align*}
+
+following a constant phase (i.e. a constant $k$).\vspace{3mm}
+
+For the first part,
+$$v_{\text{stripes}}=\dfrac{-\omega}{\left | \vec{k_1}-\vec{k_2} \right |}=\dfrac{\dfrac{-\omega }{k_2}}{\dfrac{k_1}{k_2}-1}=\dfrac{-v}{\dfrac{l_2}{l_1}-1}=-7v=\boxed{-7\;\text{cm/s}}$$
+\tcbline
+
+\textbf{Solution 2 to i)} Let $\Delta l_1$ be the gap between the teeth of the black comb and let $\Delta l_2=$ be the gap between the teeth of the gray comb.\vspace{3mm}
+
+From the gap between 2 transparent spaces in the given image we can observe that
+$$7\Delta l_2 = 8 \Delta l_1$$
+
+If we observe the teeth of both the combs just before where they coincide, the gap between their centres will be
+$$\Delta l_2 - \Delta l_1 = \frac{8}{7}\Delta l_1 - l_1 = \frac{\Delta l_1}{7}$$
+
+When this gap is covered, the transparent, and hence dark, stripes move by an entire black comb's gap (i.e. $\Delta l_1$) backwards
+$$\therefore v_{\text{stripes}}=-\frac{\Delta l_1}{\frac{\Delta l_1}{7v}}=-7v=\boxed{-7 \;\text{cm/s}}$$
+\tcbline 
+\textbf{ii)} For the second part,
+$$\left | \vec{k_1}-\vec{k_2} \right | \approx  \sqrt{(k_2 \alpha)^2 + (k_1-k_2)^2}$$
+\begin{align*}
+\therefore v_{\text{stripes}}&=\frac{-\omega}{\left | \vec{k_1}-\vec{k_2} \right |} \\
+&\approx \dfrac{\dfrac{-\omega }{k_2}}{\sqrt{ \alpha ^2 + \left (\dfrac{k_1}{k_2}-1  \right )^2}}\\
+&=\dfrac{-v}{\sqrt{\alpha^2+\dfrac{1}{49}}} = \boxed{-5.73 \;\text{cm/s}}
+\end{align*}
+\end{solution}

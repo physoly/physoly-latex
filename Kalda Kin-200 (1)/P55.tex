@@ -1,0 +1,17 @@
+\begin{solution}{easy}
+Let the distance between the minor gridlines provided be $d$.\vspace{3mm}
+
+We note that $d$ is also (approximately) the diameter of the water jet.\vspace{3mm}
+
+We can use the points $(0,0)$, $(20d,-5.5d)$, and $(30d,-12.5d)$ to find the equation of the water trajectory, which we determine to be $$y=-\dfrac{0.014}{d}x^2$$
+
+The trajectory of the water is also given by the parametric equation $x=vt,\;y=-\dfrac{g}{2}t^2$, which gives $$y=-\dfrac{g}{2v^2}x^2$$
+
+Thus, we have $$\dfrac{0.014}{d}=\dfrac{g}{2v^2}\implies v=\sqrt{\dfrac{gd}{0.028}}$$
+
+Since the pipe outflow rate must be the same as the bucket inflow rate,
+
+$$\dfrac{\pi d^2v}{4}=\dfrac{\pi d^2\sqrt{\dfrac{gd}{0.028}}}{4}=\dfrac{V}{t}$$
+
+This equation gives $$d=\left(\dfrac{4V}{\pi t}\sqrt{\dfrac{0.028}{g}}\right)^{2/5}=\boxed{1.03\;\text{mm}}$$
+\end{solution}

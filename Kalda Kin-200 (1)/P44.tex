@@ -1,0 +1,23 @@
+\begin{solution}{hard}
+Because the ropes are constantly being unwinded at a rate of $\omega{R}$ , the disk has to move in the direction of the strings to keep the strings in tension the whole time. Using this information we can create a diagram
+\begin{center}
+    \begin{asy}
+        import olympiad;
+        size(5cm);
+        real a = 15*pi/180;
+        draw((-2,2)--(2,-2),arrow=Arrow());
+        draw((-2,2)--(-sqrt(8)*cos(a),-sqrt(8)*sin(a)),arrow=Arrow());
+        draw((-2,2)--(sqrt(8)*sin(a),sqrt(8)*cos(a)),arrow=Arrow());
+        draw((-sqrt(8)*cos(a),-sqrt(8)*sin(a))--(2,-2),arrow=Arrow(4));
+        draw((sqrt(8)*sin(a),sqrt(8)*cos(a))--(2,-2),arrow=Arrow(4));
+        label("$\omega R$",((-2,2)+(-sqrt(8)*cos(a),-sqrt(8)*sin(a)))/2,NW*1.5);
+        label("$\omega R$",((-2,2)+(sqrt(8)*sin(a),sqrt(8)*cos(a)))/2,N*1.5);
+        draw(rightanglemark((-2,2),(-sqrt(8)*cos(a),-sqrt(8)*sin(a)),(2,-2)));
+        draw(rightanglemark((-2,2),(sqrt(8)*sin(a),sqrt(8)*cos(a)),(2,-2)));
+        label("$v$",(0,0),N*3);
+        draw(arc((-2,2),0.5,-45,15));
+        label("$\alpha/2$",(-1,1.8));
+    \end{asy}
+\end{center}
+Now using trig we can see that $\cos\dfrac{\alpha}{2}=\dfrac{\omega{R}}{v}$ or $v=\boxed{\dfrac{\omega{R}}{\cos\frac{\alpha}{2}}}$.
+\end{solution}

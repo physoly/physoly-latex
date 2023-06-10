@@ -1,0 +1,88 @@
+\begin{solution}{normal}
+\textbf{Solution 1 (Fermat's Principle):}
+\begin{center}
+    \begin{asy}
+    import graph; usepackage("amsmath"); size(8cm);
+real labelscalefactor = 0.5; /* changes label-to-point distance */
+pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps); /* default pen style */
+pen dotstyle = black; /* point style */
+real xmin = -1.5632637297864649, xmax = 9.151155022717113, ymin = -0.5171984163958577, ymax = 4.7146961206453595; /* image dimensions */
+
+/* draw figures */
+draw((0,1)--(7,1), dotted);
+draw((6,3)--(5,1), EndArrow(6));
+draw((5,1)--(1,1), EndArrow(6));
+draw((5,3)--(5,1), linetype("4 4"));
+draw(shift((5,1))*xscale(0.5636418909092603)*yscale(0.5636418909092603)*arc((0,0),1,63.43494882292203,90));
+label("$\alpha$",(5.070590570922987,1.8794478835062567),SE*labelscalefactor);
+label("$n_1=1$",(1.0526835387341456,0.9004257021736936),SE*labelscalefactor);
+label("$n_2=\frac{v+w}{u}$",(1.0213548289315035,1.605321672733139),SE*labelscalefactor);
+label("$a$",(4.749471295445906,2.3180498207432447),SE*labelscalefactor);
+/* dots and labels */
+dot((6,3),dotstyle);
+label("$A$", (6.03394839735423,3.077771033457314), NE * labelscalefactor);
+clip((xmin,ymin)--(xmin,ymax)--(xmax,ymax)--(xmax,ymin)--cycle);
+/* end of picture */
+    \end{asy}
+\end{center}
+Let us move into the reference frame of the river such that everywhere in the water, the boy is travelling at a constant speed $u$. This might seem troublesome at first because his destination would be moving, but that doesn't trouble us at all. As it will soon be made clear, the angle $\alpha$ the boy makes with the shore-line will be independent of how far away the target is.
+\vspace{3mm}
+
+Consider a light beam that starts off from $A$ and ends up travelling with a speed of $v+w$ parallel to the shoreline. Since it will take the fastest path, the boy will need to mimic this behavior. Snell's Law gives:
+$$n_1\sin(90^\circ)=n_2\sin\alpha\implies \sin\alpha= \frac{u}{v+w}\implies \alpha = \boxed{\arcsin\left(\frac{u}{v+w}\right)}$$
+The total time the boy spends swimming is:
+$$t=\frac{d}{u}=\frac{a}{u\cos\alpha}$$
+Relative to the water, the boy swims a horizontal distance $a\tan\alpha$. The water during this time flows a distance $wt=\frac{wa}{u\cos\alpha}$ in the opposite direction. Therefore, the horizontal distance $x$ is:
+$$x=\boxed{a\left(\frac{w}{u\cos\alpha}-\tan\alpha\right)}$$
+\tcbline
+\textbf{Solution 2 (Huygens Principle):}
+\begin{center}
+\begin{asy}
+import graph; usepackage("amsmath"); size(15cm);
+real labelscalefactor = 0.5; /* changes label-to-point distance */
+pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps); /* default pen style */
+pen dotstyle = black; /* point style */
+real xmin = -1.531389179276628, xmax = 8.739966310314328, ymin = -0.6821467300835635, ymax = 4.333398201968155; /* image dimensions */
+pen ffvvqq = rgb(1,0.3333333333333333,0);
+/* draw figures */
+draw((0,1)--(7,1), dotted);
+draw(shift((1.5,1))*xscale(1.5)*yscale(1.5)*arc((0,0),1,0,180), red);
+draw((6.5,1)--(1.8897513627889582,2.4484798497749805), ffvvqq);
+draw(shift((2.78,1))*xscale(1.12)*yscale(1.12)*arc((0,0),1,0,180), linetype("2 2") + ffvvqq);
+draw(shift((4,1))*xscale(0.75)*yscale(0.75)*arc((0,0),1,0,180), linetype("2 2") + ffvvqq);
+draw(shift((5,1))*xscale(0.45)*yscale(0.45)*arc((0,0),1,0,180), linetype("2 2") + ffvvqq);
+draw(shift((5.9,1))*xscale(0.18)*yscale(0.18)*arc((0,0),1,0,180), linetype("2 2") + ffvvqq);
+draw(shift((5.52,1))*xscale(0.29)*yscale(0.29)*arc((0,0),1,0,180), linetype("2 2") + ffvvqq);
+
+draw((1.5,1)--(6.5,1), EndArrow(6));
+draw((1.5,1)--(1.8897513627889582,2.4484798497749805),EndArrow(6));
+draw((5.473004399908306,1.3226685911327103)--(6,3),EndArrow(6));
+draw((5.473004399908306,1.3226685911327103)--(5.797358687698693,1.31986423587117), linetype("2 2"));
+draw(shift((1.5,1))*xscale(0.2835256223713305)*yscale(0.2835256223713305)*arc((0,0),1,0,74.93977312613941));
+draw(shift((5.473004399908306,1.3226685911327103))*xscale(0.16755590172928692)*yscale(0.16755590172928692)*arc((0,0),1,-0.49536486265956525,72.55796302253563));
+label("$\theta$",(1.6596386592293344,1.3802438993040037),SE*labelscalefactor);
+label("$\theta$",(5.58647997579079,1.6054929231985418),SE*labelscalefactor);
+label("$(w+v)t$",(3.2513984280840735,0.9198454610727424),SE*labelscalefactor);
+label("$ut$",(1.4193730337418267,1.7607751502790185),SE*labelscalefactor);
+/* dots and labels */
+dot((6,3),dotstyle);
+label("$A$", (6.029469722783382,3.072003668158741), NE * labelscalefactor);
+dot((1.5,1),dotstyle);
+label("$O$", (1.3292734241840112,0.8270217300098428), NE * labelscalefactor);
+dot((6.5,1),linewidth(4pt) + dotstyle);
+label("$B$", (6.3598349578287054,0.7969885268239043), NE * labelscalefactor);
+clip((xmin,ymin)--(xmin,ymax)--(xmax,ymax)--(xmax,ymin)--cycle);
+/* end of picture */
+\end{asy}
+\end{center}
+Consider the same setup as before by moving into the frame of the river. This time however, the path is reversed. The boy starts running from point $O$ along the shore and eventually starts swimming to location $A$. Imagine the boy emitting Chernenko radiation as he moves as shown in the diagram. The wave speed is $u$ while the speed of the boy is $w+v>u$. Physically, the outlines of all the circles represent the superposition of all the points in which the boy can be at after a time $t$.
+\vspace{3mm}
+
+Due to Huygen's Principle, we can see that this forms a wavefront that is moving towards $A$ at a speed of $u$. We can let this wavefront evolve until a part of it eventually reaches the point $A$. The path that this part of the wave takes will represent the optimal path of the boy, that is, perpendicular to the wavefront. We can determine the angle $\theta$ by considering two extreme paths the boy can take.
+\vspace{3mm}
+
+First, the boy can start swimming immediately and reach a distance $ut$ after a time $t$. During this period, the boy can also run a distance $(w+v)t$. The angle $\theta$ is thus given by:
+$$\cos\theta=\frac{u}{w+v}$$and thus the angle $\alpha=90^\circ-\theta$ normal to the shore is
+$$\alpha=\boxed{\arcsin\left(\frac{u}{w+v}\right)}$$
+This is the same angle found in the first solution and as a result we can copy the exact steps to determine $x$.
+\end{solution}

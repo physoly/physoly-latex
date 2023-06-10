@@ -1,0 +1,57 @@
+\begin{solution}{normal}
+For the sake of contradiction, let there be 2 reversible engines $A$ and $B$ with different efficiencies $\eta_A$ and $\eta_B$ where $\eta_A>\eta_B$. Although they will be working with the same hot and cold baths, suppose this different efficiency is achieved through using a different design or using a different gas. We will prove that this cannot be the case and that the efficiencies must be the same no matter how it is designed.
+\vspace{3mm}
+
+\noindent Let engine $A$ takes a heat $Q_A$ from the hot bath and delivers a heat $q_A$ to the cold bath and engine $B$ takes a heat $Q_B$ and delivers a heat $q_B$ to the cold bath. Since the Carnot Cycle is reversible, we will use engine $A$ to drive engine $B$ backwards so that $B$ acts like a heat pump, as depicted below. 
+\begin{center}
+    \begin{asy}
+    import graph; usepackage("amsmath"); size(8cm);
+real labelscalefactor = 0.5; /* changes label-to-point distance */
+pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps); /* default pen style */
+pen dotstyle = black; /* point style */
+real xmin = -1, xmax = 12, ymin = -0.8839173706231761, ymax = 12.186671302471275; /* image dimensions */
+
+/* draw figures */
+draw((2,11)--(2,9));
+draw((2,9)--(9,9));
+draw((9,9)--(9,11));
+draw((9,11)--(2,11));
+draw((2,7)--(2,5));
+draw((2,7)--(4,7));
+draw((4,7)--(4,5));
+draw((4,5)--(2,5));
+draw((7,7)--(7,5));
+draw((7,7)--(9,7));
+draw((9,7)--(9,5));
+draw((9,5)--(7,5));
+draw((2,3)--(2,1));
+draw((2,1)--(9,1));
+draw((9,1)--(9,3));
+draw((9,3)--(2,3));
+draw((3,9)--(3,7), EndArrow(6));
+draw((3,5)--(3,3), EndArrow(6));
+draw((4,6)--(7,6), EndArrow(6));
+draw((8,7)--(8,9), EndArrow(6));
+draw((8,3)--(8,5), EndArrow(6));
+label("$\text{Hot Bath}$",(4.553625164879686,10.527782084547153-0.3),SE*labelscalefactor);
+label("$\text{Cold Bath}$",(4.535395613034367,2.3974019615344266-0.3),SE*labelscalefactor);
+label("$A$",(2.748899532193004,6.51728067857675-0.3),SE*labelscalefactor);
+label("$Q_A$",(2.2749311842146835,8.449613174180671-0.3),SE*labelscalefactor);
+label("$q_A=(1-\eta_A)Q_A$",(3.2,4.584948182972829-0.3),SE*labelscalefactor);
+label("$Q_B$",(8.18130598209837,8.431383622335352-0.3),SE*labelscalefactor);
+label("$q_B$",(8.12661732656241,4.584948182972829-0.3),SE*labelscalefactor);
+label("$B$",(7.76202628965601,6.53551023042207-0.3),SE*labelscalefactor);
+label("$\eta_AQ_A$",(4.9,6.53551023042207),SE*labelscalefactor);
+/* dots and labels */
+/* clip((xmin,ymin)--(xmin,ymax)--(xmax,ymax)--(xmax,ymin)--cycle); */
+/* end of picture */
+    \end{asy}
+\end{center}
+The efficiency of engine $A$ is:
+$$\eta_A=1-\frac{q_A}{Q_A}$$
+so the heat delivered to the cold bath is $q_A=(1-\eta_A)Q_A$. Let us assume the leftover work this produces $W=\eta_AQ_A$ goes into driving engine $B$ backwards. Due to conservation of energy:
+$$q_B+\eta_AQ_A=Q_B$$
+Coupled with the efficiency equation for engine $B$ we get:
+$$Q_B=\frac{\eta_A}{\eta_B}Q_A$$
+Therefore, since $\eta_A > \eta_B$, the hot bath is gaining heat and the cold bath is getting colder. This clearly violates the second law of thermodynamics which states that for a reversible process $\Delta S=0$. The only way for this analysis to be true is if our assumption that the efficiencies are different is incorrect and that $Q_B=Q_A$. Therefore, no matter how the engines are constructed as long as they are reversible, their efficiencies can only depend on the temperatures of the hot and cold baths.
+\end{solution}

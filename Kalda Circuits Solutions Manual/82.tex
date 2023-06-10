@@ -1,0 +1,26 @@
+\begin{solution}{hard}
+We neglect $L_d$ and $C_d$. By idea 31, assume the departure from the stationary state is very small, and a perturbation current $\widetilde{I}$ is described by a circuit obtained by substituting the diode with a resistance $R_{\text{diff}}$ and removing the electromotive force. To find stabilizing conditions, we can use idea 41 or write a DE with KVL. 
+\\
+\\
+In the steady state, let the deviation of charge of the capacitor in a period be $\delta q$. By KVL in the smaller loop, $\delta I (R_{\text{diff}} + r) = \delta q/C$. By differentiating, we can see that $\delta \dot q = \delta \dot I (R_{\text{diff}} + r)C$. Both these currents combine or superimpose at the end nodes which means that the current through $R$ and $L$ is $\delta I + \delta \dot q$. We can now write KVL for the whole circuit as 
+\[(\delta I + \delta \dot q) R + L \frac{\text{d}}{\text{d}t}\left( \delta I + \delta \dot q\right) + \delta I (R_{\text{diff}} + r) = 0.\]
+Rearranging and substituting 
+\begin{align*}\delta \ddot I(R_{\text{diff}} + r)LC + \delta \dot I\left(L +  (R_{\text{diff}} + r)RC\right) + \delta I(R_{\text{diff}} + r + R) &= 0 \\
+\delta \ddot I + \delta \dot I \left(\frac{1}{(R_{\text{diff}} + r)C} + \frac{R}{L}\right) + \delta I \left(\frac{R_{\text{diff}} + r + R}{(R_{\text{diff}} + r)LC}\right) &= 0 
+\end{align*}
+Thus, we can write the differential equation in the form of $\delta \ddot I + \delta \dot I \xi + \delta I \eta = 0$. We can solve this differential equation by finding the characteristic equation using the general solution of:
+\[\delta I = A \exp (\lambda_1 t) + B \exp (\lambda_2 t)\]
+where $\lambda$ is the solution to the characteristic equation $\lambda^2 + \xi \lambda + \eta = 0$, when $\lambda_1 \neq \lambda_2$. It is apparent that the solutions to this characteristic equation follows the quadratic equation or 
+\[\lambda_{1, 2} = -\frac{\xi}{2} \pm \sqrt{\frac{\xi^2}{4} - \eta}.\]
+Depending on the value of the discriminant, the solution to this equation can be either real or complex. Generally, we can write that $\lambda_i = \gamma_i \pm i\omega_i$ such that $\omega_i = 0$ if $\lambda_i \in \mathbb R$. Thus, by superimposing both real and complex solutions, we have that 
+\[\delta I = \sum_{i = 1}^{2} \delta I_{0i} e^{\gamma_i t} \left( \cos (\omega_i t) + i\sin (\omega_i t)\right).\]
+From this, $\gamma < 0$ for the solution to be exponentially decaying to reach a steady state. This will stabilize the diode. Since $\gamma < 0$ and $\gamma = -\xi/2$, then $\xi > 0$. This means that 
+\[\frac{1}{(R_{\text{diff}} + r)C} + \frac{R}{L} > 0\implies \frac{L}{C} < R |R_{\text{diff}}| + rR.\]
+By applying the condition of $\eta > 0$, it is found that $R_{\text{diff}} + r + R > 0$. 
+\\
+\\
+For very fast perturbations, the impedance of the inductance $L$ can be considered infinitely large, hence no current can enter the inductor $L$ and resistor $R$: this part of the circuit can be “cut off”. Similarly, for such fast processes, the impedance of the capacitor $C$ is negligibly small, so it can be short-circuited in the equivalent circuit. Now rewriting the circuit, we can once again procede in the same way as part (a) by writing Kirchoff's laws. This gives us a similar condition of $L_d < r|R_{\text{difff}}|C_d$. 
+\\
+\\
+Refer to the tunnel diode problem from the 2020 NBPhO for a problem with a quite similar analysis. 
+\end{solution}

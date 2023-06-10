@@ -1,0 +1,40 @@
+\begin{solution}{normal}
+\begin{center}
+    \begin{asy}
+        unitsize(3cm);
+        pair O = (0,0);
+        pair A = (1,1);
+        pair B = (2,-0.5);
+        draw(O--A--A+B--B--O--B--B+(1,0.3)--A+B);
+        draw(arc(B,0.3,16,45));
+        label("$\alpha$",B+(0.38,0.22));
+        draw(B/2-(1,0)--B/2,arrow=Arrow());
+        draw(arc(B/2,0.5,180,166));
+        label("$\beta$",B/2-(0.8,-0.08));
+        draw(ellipse(B/2-(1.2,0.05),0.2,0.2/3));
+        filldraw(B/2-(1,0.05)--B/2-(1.4,0.05)--B/2-(1.4,-0.05)--B/2-(1,-0.05)--cycle,gray(0.949),invisible);
+        draw(ellipse(B/2-(1.2,-0.05),0.2,0.2/3));
+        draw(B/2-(1,-0.05)--B/2-(1,0.05));
+        draw(B/2-(1.4,-0.05)--B/2-(1.4,0.05));
+        label("$v_0$",B/2+(-0.6,-0.1));
+    \end{asy}
+\end{center}
+
+When on the plane, the puck experiences no change in its x-velocity, which is
+$$v_0\cos\beta=5\;\text{m/s}$$
+
+However, it experiences an acceleration parallel to the plane with magnitude
+$$a=g\sin\alpha$$
+
+We note from the trajectory given that the puck drops $2.5\;\text{m}$ below the apex of its trajectory while undergoing a horizontal displacement of $x=5\;\text{m}$.
+
+The time it takes to complete this motion is
+$$t=\dfrac{x}{v_0\cos\beta}=1\;\text{s}$$
+
+Therefore, we have that
+\begin{align*}
+\dfrac{gt^2\sin\alpha}{2}&=2.5\\
+\sin\alpha&=\dfrac{5}{gt^2}\\
+\alpha&\approx \boxed{30\degree}
+\end{align*}
+\end{solution}

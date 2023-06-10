@@ -1,0 +1,14 @@
+\begin{solution}{hard}
+\textbf{(a)} Since the temperature is constant, we have an isothermal compression where:
+$$P_0V_0=P_1V_1 \implies P_0r_0^3 = P_1r_1^3$$Since $r_1=\frac{1}{2}r_0$, we have $P_1=8P_0$.
+\vspace{2mm}
+
+\textbf{(b)} The heat generated is equal to the negative work done:
+$$Q=-W=-\int P dV$$Using $PV=nRT$, we get:
+$$Q=-nRT\ln\left(\frac{V_0}{V_3}\right)=\frac{3mRT_0}{\mu}\ln\left(\frac{r_0}{r_3}\right)$$
+\textbf{(c)} We now have an adiabatic compression since not heat is exiting the system:
+$$PV^\gamma=\text{constant} \implies TV^{\gamma-1}=\text{constant} \implies T_3=T_0\left(\frac{r_3}{r_0}\right)^{3\gamma-3}.$$
+\textbf{(d)} The final radius refers to the point in which the gravitational potential energy is comparable to the thermal energy:
+$$\frac{GM\mu}{r_4}=RT_0\left(\frac{r_3}{r_4}\right)^{3\gamma-3}\implies r_4=r_3\left(\frac{RT_0r_3}{\mu Gm}\right)^\frac{1}{4-3\gamma}$$and using the relationship from part (c), we get:
+$$T_4=T_0\left(\frac{RT_0r_3}{\mu Gm}\right)^\frac{3\gamma-3}{4-3\gamma}$$
+\end{solution}

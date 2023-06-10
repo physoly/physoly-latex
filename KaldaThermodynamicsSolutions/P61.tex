@@ -1,0 +1,28 @@
+\begin{solution}{normal}
+\textbf{(a)} Let the exitance and luminosities be $M_1$ and $J_1$ and $M_2$ and $J_2$ for the inner and outer sphere respectively. Assume that the spheres have different emmistivities $\varepsilon_1$ and $\varepsilon_2$ respectively. We then can write that 
+\[J_1 = M_1 + (1 - \varepsilon_1)F_{11} J_1 + (1 - \varepsilon_1)F_{12}J_2\]
+and 
+\[J_2 = M_2 + (1 - \varepsilon_2) F_{21} J_2 + (1 - \varepsilon_2)F_{22}J_1\]
+as the equations of heat radiation through each sphere respectively (note that $F$ is the view factor). All the radiation emmited by one sphere will reach the other sphere so $F_{11} = 0$ and $F_{12} = 1$. We also note that 
+\[A_1 = F_{21} A_2 \implies F_{21} = \left(\frac{R_1}{R_2}\right)^2.\]
+This also means that 
+\[F_{22} = 1 -  \left(\frac{R_1}{R_2}\right)^2.\]
+Substituting these values of the view factor into our expressions of radiosities tells us:
+\begin{align*}
+J_1 &= M_1  + (1 - \varepsilon_1)J_2 \\ 
+J_2 &= M_2 + (1 - \varepsilon_2) \left(\frac{R_1}{R_2}\right)^2 J_2 + (1 - \varepsilon_2)\left(1 -  \left(\frac{R_1}{R_2}\right)^2\right)J_1
+\end{align*}
+Using the fact that $M_2 = \varepsilon_2 \sigma T_2^4$ we can solve for $J_1$ in terms of $J_2$ in the second expression:
+\[J_1 = \frac{J_2 - \varepsilon_2 \sigma T_2^4 - (1 - \varepsilon_2) \left(\frac{R_1}{R_2}\right)^2 J_2}{(1 - \varepsilon_2)\left(1 -  \left(\frac{R_1}{R_2}\right)^2\right)}\]
+We can solve for $J_2$ in terms of $J_1$ in the first expression to get 
+\[J_1 = \frac{\frac{J_1 - \varepsilon_1 \sigma T_1^4}{1 - \varepsilon_1} - \varepsilon_2 \sigma T_2^4 - (1 - \varepsilon_2) \left(\frac{R_1}{R_2}\right)^2 \frac{J_1 - \varepsilon_1 \sigma T_1^4}{1 - \varepsilon_1}}{(1 - \varepsilon_2)\left(1 -  \left(\frac{R_1}{R_2}\right)^2\right)}\]
+Isolating for only $J_1$ finally gives us 
+\[J_1 = \frac{\left(\varepsilon_1\varepsilon_2 - \varepsilon_1 \left(\frac{R_1}{R_2}\right)^2 - \varepsilon_1 \varepsilon_2 \left(\frac{R_1}{R_2}\right)^2\right)\sigma T_1^4 + (1 - \varepsilon_1)\varepsilon_2 \sigma T_2^4}{\varepsilon_2 + \varepsilon\left(\frac{R_1}{R_2}\right)^2 - \varepsilon_1 \varepsilon_2 \left(\frac{R_1}{R_2}\right)^2}.\]
+The net heat flux between the cylinders is the heat flux from the inner cylinder or
+\[\dot{Q} = \frac{A_1\varepsilon_1}{1 - \varepsilon_1} (\sigma T_1^4 - J_1) = \frac{4\pi R_1^2 \sigma (T_1^4 - T_2^4)}{\frac{1}{\varepsilon_1} + \frac{1 - \varepsilon_2}{\varepsilon_2} \left(\frac{R_1}{R_2}\right)^2} = \frac{\varepsilon \sigma 4\pi R_1^2 (T_2^4 - T_1^4)}{1 + (1 - \varepsilon)R_1^2/R_2^2}.\]
+The last step was done by noting $\varepsilon = \varepsilon_1 = \varepsilon_2$.
+\vspace{3mm}
+
+\noindent \textbf{(b)} Note that $\tau P = \lambda m$ and $m = \frac{4}{3}\pi\rho R^3$. Therefore, 
+\[\tau = \frac{4}{3}\pi \rho R^3\lambda\mu/P.\]
+\end{solution}

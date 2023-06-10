@@ -1,0 +1,57 @@
+\begin{solution}{normal}
+An ideal-gas cycle consisting of two isotherms at temperatures $T_1$ and $T_2$, and two isochores joining them will look like:
+\begin{center}
+\begin{asy}
+unitsize(2cm);
+import graph;
+draw((0, 0)--(0, 4), arrow=Arrow(TeXHead), linewidth(1));
+draw((0, 0)--(4,0), arrow=Arrow(TeXHead), linewidth(1));
+
+label("$P$", (0, 4), NW);
+label("$V$", (4, 0), SE);
+
+draw((0.5, 3.5).. (2, 2.5).. (3.5, 2));
+label("$T_2$", (3.5, 2), E);
+draw((0.5, 2.1).. (2, 1.1).. (3.5, 0.6));
+label("$T_1$", (3.5, 0.6), E);
+draw((1, 1.71) -- (1, 3.1), linewidth(1));
+draw((1, 1.71)..(2, 1.1)..(3, 0.72), linewidth(1));
+draw((1, 3.1)..(2, 2.5)..(3, 2.13), linewidth(1));
+draw((3, 0.72) -- (3, 2.13), linewidth(1));
+
+label("2", (1, 1.71), SW);
+label("1", (3, 0.72), S);
+label("3", (1, 3.1), NE);
+label("4", (3, 2.13), N);
+
+draw((0.2, (1.71 + 3.1)/1.9) -- (0.7, (1.71 + 3.1)/1.9), arrow=Arrow(8));
+label("$Q_1$", (0.7, (1.71 + 3.1)/1.9), N);
+draw((3.2, 1.2) -- (3.7, 1.2), arrow=Arrow(8));
+label("$Q_3$", (3.7, 1.2), N);
+draw((2, 3.3) -- (2, 2.7), arrow=Arrow(8));
+label("$Q_2$", (2, 2.7), E);
+draw((2, 1.3) -- (2, 0.8), arrow=Arrow(8));
+label("$Q_4$", (2, 0.8), W);
+
+draw((1, 0) -- (1, 0.1));
+draw((3, 0) -- (3, 0.1));
+
+label("$V_1$", (1, 0), S);
+label("$V_2$", (3, 0), S);
+\end{asy}
+\end{center}
+Since there are no adiabatic processes, heat will be lost on every step. For isochoric processes on $2\to 3$ and $1\to 4$, the heat released will be 
+\begin{align*}
+Q_1 &= C_V R (T_2 - T_1) \\
+Q_3 &= C_V R (T_1 - T_2)
+\end{align*}
+For isothermal processes on $1 \to 2$ and $3 \to 4$, the heat released will be 
+\begin{align*}
+Q_2 &= RT_2 \ln \frac{V_2}{V_1} \\
+Q_4 &= -RT_1 \ln \frac{V_1}{V_2}
+\end{align*}
+The heat released during cooling feeds the heating isochore. Therefore, the work done is the change in heat along both isotherms or:
+\[W = Q_2 - Q_4.\]
+The efficiency of the cycle will be given by 
+\[\eta = \frac{W}{Q_2} = \frac{Q_2 - Q_4}{Q_2} = 1 + \frac{T_1 \ln \frac{V_1}{V_2}}{T_2 \ln \frac{V_2}{V_1}} = \boxed{1 - \frac{T_1}{T_2}}.\]
+\end{solution}

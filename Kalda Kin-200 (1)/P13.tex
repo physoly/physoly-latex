@@ -1,0 +1,71 @@
+\begin{solution}{normal}
+\begin{center}
+    \begin{asy}
+    size(5cm);
+    draw((0,0)--(3,0));
+draw(circle((1,2), 0.5));
+draw((1,2)--(1,1), arrow=Arrow(4));
+draw((1,2)--(2.3,2), arrow=Arrow(4));
+draw((2.5, 2)--(2.6,2));
+draw((2.5, 0.05)--(2.6,0.05));
+draw((2.55, 0.05)--(2.55, 2));
+label("$d$", (2.55, 1), E);
+label("$g\sin\alpha$", (2.3, 2), N);
+label("$g\cos\alpha$", (1,1), S);
+    \end{asy}
+\end{center}
+Let $t$ be the time it takes the ball to hit the ramp. Therefore, we find that
+\[d = \frac{1}{2}at^2 \implies d = \frac{1}{2}g\cos\alpha t^2\implies t = \sqrt{\frac{2d}{g\cos\alpha}}.\]
+
+Now, we note that the total time $T=3t$ because the ball travels a distance $d$ to collide with the ramp, bounces up a distance $d$ to the vertex of its parabolic trajectory, and then falls back down for the final distance $d$. \vspace{3mm}
+
+This means that the distance between both bouncing points $s$ is found by
+\begin{align*}
+s &= \frac{1}{2}g\sin\alpha(T^2 - t^2)\\
+s &= \frac{1}{2}g\sin\alpha(8t^2) = 4g\sin\alpha\left(\frac{2d}{g\cos\alpha}\right)\\
+s &= \boxed{8d\tan\alpha}
+\end{align*}
+
+\newpage\tcbline
+\textbf{Solution 2:} Consider the following diagram:
+
+\begin{center}
+    \begin{asy}
+        import graph;
+        unitsize(12cm);
+        real a = 20*pi/180;
+        real g = 9.81;
+        real v = 2.7;
+        draw((-0.9,0.7)--(-0.9,0.33),dashed);
+        draw((-0.9,0.7)--(-0.9,0.7)-(0.5*sin(a),0.5*cos(a)),dashed);
+        pair f(real x){
+        	return (x-0.9,x*tan(pi/2-a)-g*x^2/(2*v^2*(cos(pi/2-a))^2)+0.33);
+        }
+        draw(graph(f,0,0.56),dashed);
+        filldraw((0,0)--(-1.1,0)--(-1.1,1.1*tan(a))--cycle,lightgrey);
+        filldraw(circle((-0.9,0.7),0.04),grey);
+        draw(arc((0,0),0.15,180,160));
+        label("$\alpha$",(-0.17,0.03));
+        draw(arc((-0.9,0.33),0.05,90,160));
+        label("$90-\alpha$",(-1,0.33));
+        draw("$d$",(-0.935,0.665)--(-1.035,0.38),Arrows,Bars,PenMargins);
+        draw("$L$",(-0.9,0.31)--(-0.36,0.36*tan(a)-0.015),Arrows,Bars,PenMargins);
+    \end{asy}
+\end{center}
+
+We rotate the plane by $\alpha$ counterclockwise such that gravity now has acceleration $g\cos\alpha$ in the y-direction and $g\sin\alpha$ in the x-direction. \vspace{3mm}
+
+When the ball hits the plane, it strikes with velocity $v_0=\sqrt{\dfrac{2gd}{\sin\left(90-\alpha\right)}}$ at an angle $90-\alpha$ to the inclined plane. \vspace{3mm}
+
+Then, we use modified projectile motion to get that
+$$t=\dfrac{2v_0\sin\left(90-\alpha\right)}{g\cos\left(\alpha\right)}=\dfrac{2v_0}{g}$$
+
+We also have that
+\begin{align*}
+L&=v_0\cos\left(90-\alpha\right)t+\dfrac{1}{2}g\sin\left(\alpha\right) t^2 \\
+&=\dfrac{2v_0^2\cos\left(90-\alpha\right)}{g}+\dfrac{4v_0^2g\sin\left(\alpha\right)}{2g^2}\\
+&=\dfrac{2v_0^2\sin\left(\alpha\right)}{g}+\dfrac{2v_0^2\sin\left(\alpha\right)}{g}\\
+&=\boxed{8gd\tan\alpha}
+\end{align*}
+\end{solution}
+\newpage

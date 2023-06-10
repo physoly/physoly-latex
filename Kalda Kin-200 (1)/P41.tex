@@ -1,0 +1,18 @@
+\begin{solution}{normal}
+The rope will intuitively be something like a spiral.\vspace{3mm} 
+
+Since the rope can go up to infinity, let's consider the last point instead. We set the point where all the shockwaves coincide at the origin and we use polar coordinates since we are going to be dealing with distances.\vspace{3mm}
+
+The rope lies along the curve $r(\theta)$, where $r(0)$ is the last point to be ignited. It takes time $r(0)/c$ for the shockwave from the last ignition point to reach the origin. If we go back an angle $d\theta$ along the rope, then it takes time $$\dfrac{r(d\theta)}{c}-\dfrac{ds}{v}$$
+for that shockwave to reach the origin, where $ds$ is the infinitesimal arc length. Note that \[ds=\sqrt{r^2d\theta^2+dr^2}.\] 
+
+We can set up our differential equation from this knowledge. For each $r(\theta)$, we want \[\dfrac{r(\theta+d\theta)-r(\theta)}{c}=\dfrac{ds}{v}\]
+
+Divide both sides by $d\theta$ to get \[r'/c=\sqrt{r^2+r'^2}/v\]
+
+Square both sides to get \[\dfrac{r'^2}{c^2}=\dfrac{r^2}{v^2}+\dfrac{r'^2}{v^2}\]
+
+Combining like terms and simplifying gives us \[\frac{dr}{d\theta}=r\sqrt{\frac{c^2}{v^2-c^2}}\]
+
+This is a separable differential equation which gives us solution \[r=\boxed{Ce^{\sqrt{\dfrac{c^2}{v^2-c^2}}\theta}}\]
+\end{solution}

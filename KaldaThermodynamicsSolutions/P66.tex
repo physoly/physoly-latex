@@ -1,0 +1,32 @@
+\begin{solution}{normal}
+\textbf{(a)} The total heat energy will be given by $Q = nq$ where $n$ is the number of moles and $q$ is the heat. Note that for a heat differential, $\text{d}q = C_v \text{d}T$ holds true. By integrating over we find that 
+\[q = \int C_v \text{d}T \approx 550R.\]
+The number of moles will be given by the mass over the molar mass or 
+\[n = \frac{a^3 \rho}{M} \approx 0.1 \;\mathrm{mol}.\]
+Multiplying these two values together gives us approximately $520\;\mathrm{J}$.
+\vspace{3mm}
+
+\noindent \textbf{(b)} Consider a photon radiated from the cube. It caries a momentum $p = E_{\perp}/c$ where $E = hf$. Let us assume that the photon initially imparts at an angle $\theta$. The parallel momentum is given by 
+\[p_{\parallel} = \frac{E_{\perp}}{c}\cos\theta.\]
+Note that the intensity of light is proportional to $\cos \theta$ by Lambert's law. Since intensity is proportional to frequency, the momentum averaged over all directions is 
+\[\left<p_{\parallel}\right> = \int_{0}^{\pi} \frac{E_{\perp}}{c}\cos^2\theta \text{d}\Omega\]
+where $\text{d}\Omega = 2\pi \sin \theta \text{d}\theta$ is the solid angle. Integrating this tells us that 
+\[\left<p_{\parallel}\right> = \frac{E_{\perp}}{3c} = \frac{Q}{3c}.\]
+The mass of the cube is $a^3 \rho$ so, the velocity is given by 
+\[v = \frac{Q}{3a^3 \rho c}.\]
+\vspace{3mm}
+
+\noindent \textbf{(c)} By Stefan-Boltzmann Law, we have that 
+\[\frac{P}{A} = \sigma T^4\]
+and by idea 1:  
+\[P \equiv \frac{\text{d} Q}{\text{d} T} = C\frac{\text{d} T}{\text{d} t}.\]
+This means that 
+\[ C \text{d} T = \sigma T^4 \text{d} t\implies T^3 \text{d} T = \sigma T^4 \text{d} t.\]
+Separating the differential equation tells us 
+\[\frac{\text{d} T}{T} = -Bt \implies T = A\cdot e^{-B t}.\]
+\vspace{3mm}
+
+\noindent \textbf{(d)} We can estimate the momentum imparted upon the cube will be equal to the heat energy over the average velocity of the hydrogen molecules. In other words, 
+\[a^3 \rho v = \frac{Q}{v_H} = Q\sqrt{\frac{M_H}{RT}}\implies v = \frac{Q}{a^3 \rho}\sqrt{\frac{M_H}{RT}}.\]
+
+\end{solution}

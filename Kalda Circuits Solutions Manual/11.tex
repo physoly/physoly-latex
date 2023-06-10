@@ -1,0 +1,6 @@
+\begin{solution}{normal}
+We apply idea 11 and we treat the batteries as $n$ current sources providing a current of $I_i = \dfrac{\mathcal{E}_i}{r_i}$. When determining an equivalent circuit, all the current sources add up to a total current of:
+$$I_\text{total} = \sum_{i=1}^n \frac{\mathcal{E}_i}{r_i}$$and applying idea 11 again, this is equivalent to an effective voltage source of $\mathcal{E}_\text{eff} = I_\text{total}R_\text{eff}$ with the effective resistance being:
+$$R_\text{eff} = \left(\sum_{i=1}^nr_i^{-1}\right)^{-1}$$since we are adding resistors in parallel. Putting everything together gives:
+$$\mathcal{E}_\text{eff} = \left(\sum_{i=1}^nr_i^{-1}\right)^{-1}\sum_{i=1}^n \frac{\mathcal{E}_i}{r_i}$$
+\end{solution}

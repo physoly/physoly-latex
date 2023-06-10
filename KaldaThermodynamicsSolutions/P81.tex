@@ -1,0 +1,68 @@
+\begin{solution}{normal}
+\textbf{(a)} Since the process happens in a pipe, we apply bernoulli's law:
+\[P + \frac{1}{2}\rho v^2 + \rho gh = \text{const.}\]
+The two places we apply Bernoulli's law is at the bottom of the furnace and at a height $h$. Using the assumption that smoke temperature can be assumed to be constant throughout the entire length of the chimney we find that 
+\[P_h + \frac{1}{2}\rho_{\text{smoke}}v^2 + \rho_{\text{smoke}} gh  = P_{\text{atm}}\]
+from taking the reference point to be at the bottom of the furnace. We write that 
+\[P_h = P_{\text{atm}} + P_{\text{air}}\implies P_{\text{atm}} - P_h = -P_{\text{air}} = \rho_{\text{air}} gh.\]
+This then means that 
+\[\frac{1}{2}\rho_{\text{smoke}} v^2 = gh (\rho_{\text{air}} - \rho_{\text{smoke}})\implies v = \sqrt{2gh \left(\frac{\rho_{\text{air}}}{\rho_{\text{smoke}}} - 1\right)}.\]
+If we want efficient withdrawal of all the gas, we then need for $v \geq \frac{B}{A}$ so all the gas can leave. In other word, we can create an inequality:
+\[\sqrt{2gh \left(\frac{\rho_{\text{air}}}{\rho_{\text{smoke}}} - 1\right)} \geq \frac{B}{A}\implies h \geq \frac{B^2}{2gA^2} \left(\frac{\rho_{\text{air}}}{\rho_{\text{smoke}}} - 1\right)^{-1}\]
+and by the ideal gas law 
+\[\frac{\rho_{\text{air}}}{\rho_{\text{smoke}}} = \frac{T_{\text{smoke}}}{T_{\text{air}}}\]
+which gives us 
+\begin{align*}
+h &\geq \frac{B^2}{2gA^2} \left(\frac{T_{\text{air}}}{T_{\text{smoke}}} - 1\right)^{-1} \\
+&\geq \frac{B^2}{A^2}\frac{1}{2g}\frac{T_{\text{air}}}{\Delta T}.
+\end{align*}
+\vspace{3mm}
+
+\noindent \textbf{(b)} We simply analyze the ratios of $h(30)$ and $h(-30)$:
+\[\frac{h (30)}{h(-30)} = \frac{\frac{T(30)}{T_{\text{smoke}} - T(30)}}{\frac{T(-30)}{T_{\text{smoke}} - T(-30)}}\implies \frac{h(30)}{100} = 1.45\implies h(30) = 145\;\mathrm{m}.\]
+\vspace{3mm}
+
+\noindent \textbf{(c)} Note that 
+\[ v = \sqrt{2gh \left(\frac{\rho_{\text{air}}}{\rho_{\text{smoke}}} - 1\right)} = \sqrt{2gh \left(\frac{T_{\text{air}}}{T_{\text{smoke}}} - 1\right)} = \sqrt{2gh \frac{\Delta T}{T_{\text{air}}}}.\]
+This means that the velocity is constant. 
+\vspace{3mm}
+
+\noindent \textbf{(d)} Consider the gas at a height $z$. From the bernoulli equation in part (a), we find that the pressure is given by 
+\[P_z + \frac{1}{2}\rho_{\text{smoke}}v^2 + \rho_{\text{smoke}} gz = P_{\text{atm}}.\]
+Using the fact that 
+\[\frac{1}{2}\rho_{\text{smoke}} v^2 = gh (\rho_{\text{air}} - \rho_{\text{smoke}}),\]
+we can then say that 
+\[P_z = P_{\text{atm}} - gh (\rho_{\text{air}} - \rho_{\text{smoke}}) - \rho_{\text{smoke}} gz.\]
+\vspace{3mm}
+
+\noindent \textbf{(e)} In a time $\Delta T$, the mass of air that is released is given by $m = \rho\cdot Av\Delta t$ which means the kinetic energy of the air is 
+\[ T= \frac{1}{2}mv^2 = \frac{1}{2}(\rho\cdot Av\Delta t)v^2.\] 
+Substituting our expression of $v^2$ from before yields, 
+\[T = \rho av\Delta t gh\frac{\Delta T}{T_{\text{air}}}.\]
+Note that $P = \Delta E/\Delta t$ which means that 
+\[P_{\text{air}} = \rho A v gh \frac{\Delta T}{T_{\text{air}}}.\]
+The power produced by the sun is equal to (note the mass here is per unit time) 
+\[P_{\text{sun}} = mc \Delta T = \rho Avc \Delta T\]
+which means that we can then divide both expresions to result in the efficiency of the system or 
+\[\eta = \frac{P_{\text{air}}}{P_{\text{sun}}} = \frac{gh}{cT_{\text{air}}}.\]
+\vspace{3mm}
+
+\noindent \textbf{(f)} Since $\eta \propto h$, the relationship is linear. 
+\vspace{3mm}
+
+\noindent \textbf{(g)} By plugging in numbers to our efficiency in (e), we find that $\eta = 0.64\%$.
+\vspace{3mm}
+
+\noindent \textbf{(h)} The power produced can be given by 
+\[P_{\text{sun}} = \eta GS \approx 45\;\mathrm{kW}.\]
+\vspace{3mm}
+
+\noindent \textbf{(i)} If there are 8 sunny hours per each day, we simply multiply our result from (h) to get $360\;\mathrm{kW}$.
+
+\noindent \textbf{(j, k)} The mass flow rate will be given by 
+\[w = \rho Av = \rho A\sqrt{2gh \frac{\Delta T}{T_{\text{air}}}}.\]
+We also know that 
+\[P = wc\Delta T = GS\implies w = \frac{GS}{c\Delta T}.\]
+Therefore, by equating both expressions we have the equation 
+\[\rho A\sqrt{2gh \frac{\Delta T}{T_{\text{air}}}} = \frac{GS}{c\Delta T}\implies \Delta T = \left(\frac{G^2 S^2 T_{\text{atm}}}{A^2 c^2\rho^2 2gh}\right)^{1/3}.\]
+\end{solution}

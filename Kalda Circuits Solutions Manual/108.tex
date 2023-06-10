@@ -1,0 +1,97 @@
+\begin{solution}{normal}
+According to idea 52, we draw a phasor diagram of the circuit. The current $I$ through the circuit components remains the same through all the components. By idea 44, the voltage in the circuit will be $V = IZ$ where $Z$ is the circuit's complex impedance. First, we note that the impedance of a capacitor is given as 
+\[Z_C = \frac{1}{i\omega C}\]
+while the impedance of an inductor is given as 
+\[Z_L = i\omega L.\]
+For a resistor of resistance $R$, the impedance is the same as it's regular resistance $Z_R = R$. Second, note that current and voltage have no lag or lead in terms of resistors. 
+\vspace{3mm}
+
+\noindent Let us write that $A$ is the node between the inductor $L_1$ and the resistor $R_1$ while $B$ is the node between the capacitor $C$ and the resistor $R_2$. 
+\vspace{3mm}
+
+\begin{center}
+\begin{asy}
+import olympiad;
+size(7cm);
+pair A = dir(80);
+pair B = dir(180);
+pair C = dir(360);
+
+pair X = dir(250);
+pair Y = dir(40);
+draw(B--A, blue, arrow=Arrow(8));
+draw(B--C, arrow=Arrow(8));
+draw(A--C, purple, arrow=Arrow(8));
+
+draw(B--X, heavygreen, arrow=Arrow(8));
+draw(X--C, purple, arrow=Arrow(8));
+
+markscalefactor = 0.02;
+draw(anglemark(C, B, A));
+markscalefactor = 0.025;
+draw(anglemark(X, B, C));
+label("$\frac{\pi}{2} - \varphi$", (-0.6, 0), N);
+
+draw(A--X, heavycyan);
+
+pair O = origin;
+
+pair I = extension(A, X, B, Y);
+
+dot("$A$", A, dir(A));
+dot("$O$", B, dir(B));
+dot("$C$", C, dir(C));
+dot("$B$", X, dir(X));
+\end{asy}
+\end{center}
+In the problem, it says the phase shift between the inductor current and the input voltage is $\varphi$. We know that an inductor voltage leads the current by $\pi/2$ radians which means that the phase between the inductor voltage and input voltage is $\pi/2 + \varphi$ radians. Graphically, we can represent the phasor of the inductor $L_1$ with the blue vector shown in the figure below and write that $\angle AOC = \pi/2 - \varphi$ since $\angle AOC$ has to be acute which implies that the phase is negative. 
+\vspace{3mm}
+
+\noindent Let us represent the phasor of the capacitor as the green vector. We note that it's impedance is negative since the complex voltage amplitude is $I/i\omega C$ which rotates the vector clockwise. 
+\vspace{3mm}
+
+\noindent Similarly, the current through $R_1$ is the same as $L$ and the current through $R_2$ is the same as $C$. There is no lead/lag through these resistors but there is lag of $\pi/2$ in the inductor and a lead of $\pi/2$ in the capacitor which allows us to combine them together as shown below with the two purple arrows. We can now inscribe these phasors into a circle $\Gamma$ as shown below. 
+\begin{center}
+\begin{asy}
+import olympiad;
+size(7cm);
+pair A = dir(80);
+pair B = dir(180);
+pair C = dir(360);
+
+pair X = dir(250);
+pair Y = dir(40);
+filldraw(unitcircle, opacity(0.1)+lightblue, lightblue);
+fill(A--B--C--cycle, opacity(0.1)+mediumcyan);
+
+fill(B--X--C--cycle, opacity(0.1)+mediumcyan);
+
+markscalefactor = 0.02;
+draw(anglemark(C, B, A));
+markscalefactor = 0.025;
+draw(anglemark(X, B, C));
+label("$\frac{\pi}{2} - \varphi$", (-0.6, 0), N);
+
+draw(A--X, heavycyan);
+
+pair O = origin;
+
+pair I = extension(A, X, B, Y);
+
+draw(B--C, arrow=Arrow(8));
+draw(B--A, blue, arrow=Arrow(8));
+draw(B--C, arrow=Arrow(8));
+draw(A--C, purple, arrow=Arrow(8));
+draw(B--X, heavygreen, arrow=Arrow(8));
+draw(X--C, purple, arrow=Arrow(8));
+
+dot("$A$", A, dir(A));
+dot("$O$", B, dir(B));
+dot("$C$", C, dir(C));
+dot("$B$", X, dir(X));
+dot("$\Gamma$", O, dir(315));
+\end{asy}
+\end{center}
+Now, finally note that we want to find $\angle ABO$. Since $\angle AOC = \pi/2 - \varphi$, this means that $\angle ACO = \varphi$ and since arc $\overset{\large\frown}{OA}$ is subtended by the same angles $\angle ABO$ and $\angle ACO$, we can say that $\angle ABO = \angle ACO = \varphi$.
+
+\end{solution}

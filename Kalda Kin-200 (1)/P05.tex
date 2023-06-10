@@ -1,0 +1,15 @@
+\begin{solution}{easy}
+\begin{center}
+    \begin{asy}
+    size(5cm);
+draw((0,0)--(0,1)--(1,1)--(1,0)--cycle);
+draw((0.5,0.5)--(0.25,0.5), arrow=Arrow(4));
+label("$v$", (0.25, 0.5), W);
+draw((0.5,0.5)--(0.5,0.75), arrow = Arrow(4));
+label("$u$", (0.5, 0.75), E);
+draw((0.5,0.5)--(0.75,0.25), arrow=Arrow(4));
+label("$F_f$", (0.75, 0.25), SE);
+    \end{asy}
+\end{center}
+In the board's frame of reference, there is only a horizontal force (the friction force), which has a constant direction that is anti-parallel to the velocity. Thus, the chalk moves in a $\boxed{\text{straight line}}$.
+\end{solution}

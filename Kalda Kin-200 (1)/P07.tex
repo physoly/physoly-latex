@@ -1,0 +1,36 @@
+\begin{solution}{hard}
+\begin{center}
+    \begin{asy}
+    size(8.5cm);
+        import olympiad;
+        pair A, B, C, D;
+        A = (0,0);
+        B = (2, 1);
+        C = (2, 0);
+        D = (2, -0.5);
+        
+        dot(A);
+        draw(A -- B, arrow = Arrow(4));
+        draw(A -- C, arrow = Arrow(4));
+        draw("$v\cos\alpha$", A -- (1, 0), 2SE, arrow = Arrow(4));
+        draw(B -- D, dashed);
+        draw(anglemark(C, A, B));
+        draw((2.6, 1) -- (2.6, -0.5), arrow=Arrow(4));
+        
+        /*labels and dots*/
+        label("$\alpha$", (0.3, 0.01) , NE);
+        label("$v$", B, N);
+        label("$\frac{uL}{v\cos\alpha}$", (2, 0.6), E);
+        label("$ut$", (2.6, 0.25), E);
+        label("$s$", (2, -0.25), E);
+    \end{asy}
+\end{center}
+Denote the dashed line by the wall which is a distance $L$ away from the point source.\vspace{3mm}
+
+We express the lateral displacement of the ball as the sum of two components: lateral displacement in the air’s frame of reference, and the lateral displacement of the moving frame.\vspace{3mm}
+
+In the air's frame the displacement is given by 
+\[ut_{\text{air}} = \frac{uL}{v\cos\alpha}\]
+and the lateral displacement in the moving frame is given by $s$. This gives us 
+\[ut = \frac{uL}{v\cos\alpha} + s\implies t = \boxed{\frac{s}{u} + \frac{L}{v\cos\alpha}}\]
+\end{solution}

@@ -1,0 +1,16 @@
+\begin{solution}{normal}
+Since an ideal heat engine has practically zero heat and friction losses, it takes some amount of heat from one object and delivers  heat to another object having the same thermal capacity. Say $Q_A$ amount of heat was initially withdrawn from A and $Q_B$ heat given to B, and let $T_B<T_C<T_A$, where $T_C$ is the common temperature reached. By second law of thermodynamics, entropy is equal or:
+$$\frac{Q_A}{T_1} = \frac{Q_B}{T_2}$$ 
+Also, by definition 
+\begin{align*}
+    \dd Q_A &= -C  \dd T_1 \\
+    \dd Q_B &= C \dd T_2
+\end{align*}
+From these we have $$-C\frac{\dd T_1}{T_1} = C \frac{\dd T_2}{T_2} \Rightarrow -C\int_{T_A}^{T_C}{\frac{\dd T_1}{T_1}} = C \int_{T_B}^{T_C}{\frac{\dd T_2}{T_2}} \Rightarrow \ln{\frac{T_C}{T_B}} = \ln{\frac{T_A}{T_C}} \Rightarrow T_C = \sqrt{T_A T_B}$$
+We can also apply relations for differential quantities of $Q_A$ and $Q_B$ as we wrote earlier in the solution. For $\dd Q_A$, we have:
+$$\dd Q_A = -C\dd T_1 \Rightarrow Q_A = C\int_{T_A}^{T_C}{\dd T_1} = C (T_A - T_C) = C(T_A - \sqrt{T_A T_B}).$$
+For $\dd Q_B$:
+$$\dd Q_B = -C\dd T_2 \Rightarrow Q_B = C\int_{T_C}^{T_B}{\dd T_2} = C (T_C - T_B) = C(\sqrt{T_A T_B} - T_B)$$
+Now clearly by the first law of thermodynamics, we have 
+$$\Delta{W} = Q_A - Q_B = C (T_A - T_B - 2\sqrt{T_A T_B}) = C {(\sqrt{T_A} - \sqrt{T_B})}^2.$$
+\end{solution}

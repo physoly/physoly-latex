@@ -1,0 +1,40 @@
+\begin{solution}{hard}
+\textbf{a)}
+\begin{center}
+    \begin{asy}
+    /* Geogebra to Asymptote conversion, documentation at artofproblemsolving.com/Wiki go to User:Azjps/geogebra */
+import graph; usepackage("amsmath"); size(8cm);
+real labelscalefactor = 0.5; /* changes label-to-point distance */
+pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps); /* default pen style */
+pen dotstyle = black; /* point style */
+real xmin = -1.5395423835621844, xmax = 5.398121620529888, ymin = 0.8527051483855022, ymax = 4.240394881377825; /* image dimensions */
+
+/* draw figures */
+draw((0,3)--(2,3), blue);
+draw((2,3)--(3.0080524944021874,1.2726233275485257), blue);
+draw((2,3)--(2,4),EndArrow(6));
+draw((3.0080524944021874,1.2726233275485257)--(3.000646490520676,2.1963043984455384), EndArrow(6));
+draw((2,3)--(2.004993331044513,1.2118383531207941), dotted);
+draw((0,2.207491512596956)--(2,3), dotted);
+draw(shift((2,3))*xscale(0.5991108331320352)*yscale(0.5991108331320352)*arc((0,0),1,180,201.61615703520053));
+draw(shift((2,3))*xscale(0.38972232340088553)*yscale(0.38972232340088553)*arc((0,0),1,270.15999451248246,300.2667337952296));
+label("$v$",(2.0408602384327015,3.5977559570811507),SE*labelscalefactor);
+label("$v$",(3.06528138523577,1.797411862451997),SE*labelscalefactor);
+label("$30^\circ$",(2.045931630248558,2.5429064593829423),SE*labelscalefactor);
+label("$30^\circ$",(1.2040805888163328,2.8877611028612026),SE*labelscalefactor);
+label("$2L$",(0.8440117698905015,3.1413306936540414),SE*labelscalefactor,blue);
+label("$2L$",(2.502356893675668,2.284265476774247),SE*labelscalefactor,blue);
+/* dots and labels */
+clip((xmin,ymin)--(xmin,ymax)--(xmax,ymax)--(xmax,ymin)--cycle);
+/* end of picture */
+    \end{asy}
+\end{center}
+First we can find that the horizontal projection of the acceleration is $\dfrac{v_0^2}{2l}$.\vspace{3mm}
+
+Then, since the velocity of the joint and the end are equal, there can be no centripetal acceleration, so the direction of the total acceleration must be perpendicular to the right rod, thus
+$$\dfrac{v_0^2}{2l} = a\cos 30^{\circ}\implies a= \boxed{\dfrac{v_0^2}{\sqrt{3}l}}$$
+\vspace{5mm}
+
+\textbf{b)} If we take the frame of reference moving upward at $v_0$, it is essentially the same setup and thus
+$$a  =\boxed{\dfrac{v_0^2}{\sqrt{3}l}}$$
+\end{solution}

@@ -1,0 +1,78 @@
+\begin{solution}{normal}
+Consider the following diagram:
+\begin{center}
+\begin{asy}
+unitsize(1.5mm);
+path star;
+star = expi(0)--(scale((3-sqrt(5))/2)*expi(pi/5))--expi(2*pi/5)--(scale((3-sqrt(5))/2)*expi(3*pi/5))--expi(4pi/5)--(scale((3-sqrt(5))/2)*expi(5*pi/5))--expi(6*pi/5)--(scale((3-sqrt(5))/2)*expi(7*pi/5))--expi(8*pi/5)--(scale((3-sqrt(5))/2)*expi(9*pi/5))--cycle;
+draw((-40,20)--(40,20));
+draw((-40,-20)--(40,-20));
+filldraw((-40,20)--(40,20)--(40,-20)--(-40,-20)--cycle,mediumgrey);
+filldraw(shift(-40+0.05*80,0.66*20)*(rotate(185)*polygon(3)));
+filldraw(shift(-40+0.1*80,-0.09*40)*(rotate(185)*polygon(4)));
+filldraw(shift(-40+0.223*80,-0.066*40)*(rotate(0)*star));
+filldraw(shift(-40+0.271*80,20-0.265*40)*(rotate(10)*star));
+filldraw(shift(-40+0.343*80,-0.343*40)*(rotate(30)*star));
+filldraw(circle((0.735*80-40,-20),0.8));
+label("$A$",(19,-23));
+\end{asy}
+\end{center}
+Since the velocity of both the boat and river are constant, the litter must lie on the same line as the boat it fell from, so we can deduce that the bottom two pieces of litter are from the boat marked with a triangle.\vspace{3mm}
+
+Thus, the boat marked with a triangle must have come from point $A$ and the boat marked with a square must have come from the other side of the river (or else the other boat would not have been able to drop its litter above itself)
+Then, we can draw the following lines:
+\begin{center}
+\begin{asy}
+unitsize(1.5mm);
+path star;
+star = expi(0)--(scale((3-sqrt(5))/2)*expi(pi/5))--expi(2*pi/5)--(scale((3-sqrt(5))/2)*expi(3*pi/5))--expi(4pi/5)--(scale((3-sqrt(5))/2)*expi(5*pi/5))--expi(6*pi/5)--(scale((3-sqrt(5))/2)*expi(7*pi/5))--expi(8*pi/5)--(scale((3-sqrt(5))/2)*expi(9*pi/5))--cycle;
+draw((-40,20)--(40,20));
+draw((-40,-20)--(40,-20));
+filldraw((-40,20)--(40,20)--(40,-20)--(-40,-20)--cycle,mediumgrey);
+filldraw(shift(-40+0.05*80,0.66*20)*(rotate(185)*polygon(3)));
+filldraw(shift(-40+0.1*80,-0.09*40)*(rotate(185)*polygon(4)));
+filldraw(shift(-40+0.223*80,-0.066*40)*(rotate(0)*star));
+filldraw(shift(-40+0.271*80,20-0.265*40)*(rotate(10)*star));
+filldraw(shift(-40+0.343*80,-0.343*40)*(rotate(30)*star));
+filldraw(circle((0.735*80-40,-20),0.8));
+label("$A$",(19,-23));
+draw((30,0)--(20,0),arrow=Arrow());
+label("river flow direction",(25,3));
+draw((-40,-1.14846*-40-28.1447)--((-20+28.1447)/(-1.14846),-20));
+draw((-40,0.950292*(-40)+26.8094)--((20-26.8094)/(0.950292),20));
+draw((18.8,-20)--(-40,-0.605839*(-40)-8.61022));
+filldraw(circle((-26.2,1.9),0.5));
+label("$P$",(-29,1.9));
+\end{asy}
+\end{center}
+Since the river flow velocity is only directed horizontally, the boats meet at a point on the line parallel to the banks and passing through point $P$. Since we already have the path of the boat marked with a triangle, we can connect that intersection point with the square and extend it to the opposite bank to get the departure point of the boat marked with a square:
+\begin{center}
+\begin{asy}
+unitsize(1.5mm);
+path star;
+star = expi(0)--(scale((3-sqrt(5))/2)*expi(pi/5))--expi(2*pi/5)--(scale((3-sqrt(5))/2)*expi(3*pi/5))--expi(4pi/5)--(scale((3-sqrt(5))/2)*expi(5*pi/5))--expi(6*pi/5)--(scale((3-sqrt(5))/2)*expi(7*pi/5))--expi(8*pi/5)--(scale((3-sqrt(5))/2)*expi(9*pi/5))--cycle;
+draw((-40,20)--(40,20));
+draw((-40,-20)--(40,-20));
+filldraw((-40,20)--(40,20)--(40,-20)--(-40,-20)--cycle,mediumgrey);
+filldraw(shift(-40+0.05*80,0.66*20)*(rotate(185)*polygon(3)));
+filldraw(shift(-40+0.1*80,-0.09*40)*(rotate(185)*polygon(4)));
+filldraw(shift(-40+0.223*80,-0.066*40)*(rotate(0)*star));
+filldraw(shift(-40+0.271*80,20-0.265*40)*(rotate(10)*star));
+filldraw(shift(-40+0.343*80,-0.343*40)*(rotate(30)*star));
+filldraw(circle((0.735*80-40,-20),0.8));
+label("$A$",(19,-23));
+draw((30,0)--(20,0),arrow=Arrow());
+label("river flow direction",(25,3));
+draw((-40,-1.14846*-40-28.1447)--((-20+28.1447)/(-1.14846),-20));
+draw((-40,0.950292*(-40)+26.8094)--((20-26.8094)/(0.950292),20));
+draw((18.8,-20)--(-40,-0.605839*(-40)-8.61022));
+filldraw(circle((-26.2,1.9),0.5));
+label("$P$",(-29,1.9));
+draw((-40,1.9)--(0,1.9),dotted);
+draw((-40,0.375381*(-40)+8.41218)--((20-8.41218)/0.375381,20));
+filldraw(circle(((20-8.41218)/0.375381,20),0.8));
+label("$B$",((20-8.41218)/0.375381,23));
+\end{asy}
+\end{center}
+And so $\boxed{\text{Point }B}$ is the departure point of the second boat.
+\end{solution}

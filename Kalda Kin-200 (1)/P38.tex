@@ -1,0 +1,27 @@
+\begin{solution}{normal}
+The ball will have an acceleration $a$ along the wedge to keep the length of the string constant.\vspace{3mm}
+
+Therefore, by drawing the acceleration vectors, we can obtain the following diagram:
+\begin{center}
+    \begin{asy}
+    import olympiad;
+    size(7cm);
+    draw((0,0) -- (-2, 2), arrow = Arrow(4));
+label("$a$", (-2, 2), NW);
+draw((0,0) -- (2, 0), arrow = Arrow(4));
+label("$a$", (2, 0), E);
+draw((0,0) -- (1,-1), dashed);
+draw(anglemark((2,-2), (0,0), (2, 0)));
+label("$\alpha$", (0.2, 0), 2SE);
+markscalefactor=0.04;
+draw("$180 - \alpha$", anglemark((2, 0), (0,0), (-2, 2)), 2NE);
+    \end{asy}
+\end{center}
+We then find from law of cosines that 
+\begin{align*}
+a_{\text{net}} &= \sqrt{2a^2 - 2a^2\cos\alpha}\\
+&= a\sqrt{2(1 - \cos\alpha)}\\
+&= a\sqrt{4\sin^2\left(\frac{\alpha}{2}\right)}\\
+&= \boxed{2a\sin\left(\frac{\alpha}{2}\right)}
+\end{align*}
+\end{solution}

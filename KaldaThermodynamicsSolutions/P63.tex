@@ -1,0 +1,14 @@
+\begin{solution}{hard}\textbf{(a)} By idea 1, note that 
+\[P \equiv \frac{\text{d}Q}{\text{d}t} = C\frac{\text{d}T}{\text{d}t}.\]
+Therefore, by rearranging, we have that 
+\[T = \int_{T_0}^{T_1} \text{d}T = \int_{0}^{\tau} \frac{P}{C} \text{d}t\implies C = \frac{P\tau}{T_0 - T_1} = 360\;\mathrm{J/^{\circ}C}.\]
+\vspace{3mm}
+
+\noindent \textbf{(b)} The delay in the change of temperature reading and the inital rise in temperature is due to the sensor's surroundings not initially heating up. By the definition of heat capacity, an infintesimal amount of heat that is transfered to the system is 
+\[\text{d}Q = -C\text{d}\bar{T}.\]
+After the temperature of the sensor's surroundings and the plate become equal, the heat dissipated by the plate is given by 
+\[\kappa (T - T_{\text{amb}}) = -C \frac{\text{d}T}{\text{d}t}\implies \ln (T - T_{\text{amb}}) = -\frac{\kappa t}{C} + m\]
+where $m$ is an arbritary constant. Before the sink recieves heat $Q$, it's temperature must be be the ambient temperature as the electrical component has been switched off for a long time. Theoretically, we assume that the temperature of the whole plate and sensor is the same right after $t = 0$ for our equation to be valid for the entire duration (although realistically it is valid only after some time). Let this temperature be $T_2$.  Then we have that 
+\[Q = C (T_2 - T_{\text{amb}})\]
+and therefore our goal is to determine the value of $m$ from the graph given. Our solution of $\Delta T \equiv T_2 - T_{\text{amb}}$ will be exponential or $e^m$. From the table, it is clear that $T_{\text{amb}} = 20^{\circ}\;\mathrm{C}$. Therefore, we plot our graph with $y \equiv \ln (T - T_{\text{amb}})$ and $x \equiv t$. From the graph drawn, we find $m = 4.73$ and therefore, $Q = 41\;\mathrm{kJ}$.
+\end{solution}

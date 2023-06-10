@@ -1,0 +1,8 @@
+\begin{solution}{normal}
+Since the segments marked by the streaks are originally the same volume, the volume of each of the segments must remain constant. Therefore, we have $A_0a_0 = Aa$, so $A = \dfrac{A_0a_0}{a}$. We know the resistance $\Delta R$ of a small segment of length $\Delta \ell$ is given by:
+$$\Delta R = \dfrac{\rho}{A_0a_0/a}\Delta \ell = \dfrac{\rho a}{A_0a_0}\Delta \ell .$$By considering infinitesimally small segments, our total resistance is given by
+$$R = \dfrac{\rho}{A_0a_0}\int_0^4a \, d\ell.$$We can estimate this value off of the graph, there are approximately 10 large boxes (visible) under the curve, plus the 4 more that aren't shown corresponds to $0.014 m^2$. So we have
+$$R \approx \dfrac{(1.0\times 10^{-6})(0.014 m^2)}{1.0\times 10^{-9}} = \boxed{14 \, \mathrm{\Omega}}$$Additionally, we can also avoid a lot of the guesswork by approximating the curve as a sinusoidal curve. We can read off the coordinates of the minimum and maximum separation to be $(0.75, 1.78)$ and $(3.05, 4.93)$, which gives:
+$$a(\ell) = 1.58\cos(1.37\ell - 4.15) + 3.36$$We can integrate this to get:
+$$\int_0^4 a \text{ d}\ell = 13.6 \approx 0.014 \text{ m}^2$$which agrees with the estimate.
+\end{solution}

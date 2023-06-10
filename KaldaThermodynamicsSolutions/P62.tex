@@ -1,0 +1,18 @@
+\begin{solution}{hard}\textbf{a)} After each pumping cycle, the amount of gas inside, reduces by a factor of $1-\alpha$. This means that after $N$ pumping cycles, the pressure inside the bulb decreases by a factor of $\beta = (1-\alpha)^N$. When $N\to\infty$, the factor $\beta$ can be approximated by $\beta = e^{-N\alpha}$. This means that 
+\[\beta = e^{-N\alpha}\implies N = \boxed{\frac{1}{\alpha}\ln\beta}.\]
+\vspace{3mm}
+
+\noindent\textbf{b)} We know that work is generally defined by 
+\[W = -pV.\]
+However, since the volume in the cylinder is given by $\alpha V$, then after $N$ cycles, the work is defined by 
+\[W = -N\alpha p_0 V\implies W = \boxed{p_0 V \ln\beta}.\]
+\vspace{3mm}
+
+\noindent \textbf{c)} We know that the adiabatic law gives us the proportion $pV^\gamma\propto T^\gamma$ and the ideal gas law tells us $pV\propto T\implies (pV)^\gamma \propto T^\gamma.$ Substituting these in, gives us $p^{\gamma - 1} \propto T^\gamma$. When the pressure in the bulb becomes $\beta p_0$, the pressure in the cylinder, will in proportion, be increased by a factor of $1/\beta$. Therefore, 
+\[T = \boxed{T_0\beta^{1/\gamma -1}}.\]
+\vspace{3mm}
+
+\noindent \textbf{d)} The trick to this part is that the only time energy is lost is in the heating up of the released air since everywhere else the work is "reused". There is two places work is done. Actually creating the vacuum and then heating the air. To actually create the vacuum takes $PV$ energy and to heat up the air takes the sum of all the temperature heating. We calculate the second part by sum of 
+\[C_v \cdot \beta \cdot PV \alpha \frac{\beta^{(1/\gamma-1)}-1}{1+\alpha}.\]
+Since $\beta = 1/(1+\alpha)^{(n/\gamma)}$ where $n$ is the pump number we just use a geometric series to sum these up and replace $C_v = 1/\gamma - 1$. Thus, multiplying out everything cancels and you just end up with another $PV$ so the answer is $2PV$.
+\end{solution}

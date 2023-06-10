@@ -1,0 +1,21 @@
+\begin{solution}{hard}
+Let us divide the displacement into tiny pieces, $s=\sum\Delta s$ where $\Delta s = v\Delta t$. \vspace{3mm} 
+
+If the function $v(t)$ were known, the last formula would have been completed our task, because $\sum v(t)\Delta t$ is the sum of rectangles making up the area under the $v-t$-graph. \vspace{3mm}
+
+However, the acceleration is given to us as a function of $v$, hence we need to substitute $\Delta t$ with $\Delta v$. \vspace{3mm}
+
+While trying to do that, we can introduce the acceleration (which is given to as a function of $v$):
+\[\Delta t = \Delta v\cdot \frac{\Delta t}{\Delta v} = \frac{\Delta v}{\Delta v/\Delta t} = \frac{\Delta v}{a}.\]
+In other words
+\[s = \sum \frac{v}{a}\Delta v = \int \frac{v}{a(v)}dv.\]This tells us that the answer is equal to the area under a graph which depicts $\dfrac{v}{a(v)}$ as a function of $v$.\vspace{3mm}
+
+Applying a \href{https://www.wolframalpha.com/input/?i=fit+\%7B0\%2C0\%7D\%2C\%7B2\%2C0.2\%7D\%2C\%7B3.1\%2C0.4\%7D\%2C\%7B4\%2C0.8\%7D\%2C\%7B3.3\%2C0.46\%7D\%2C\%7B2.3\%2C0.24\%7D\%2C\%7B2.4\%2C0.26\%7D\%2C\%7B0.7\%2C0.06\%7D\%2C\%7B1.7\%2C0.16\%7D\%2C\%7B0.5\%2C0.04\%7D}{quartic least-squares} fit to some of the discernible data points, we can see that the curve $a(v)$ is well approximated by the function $0.00617211 v^4 - 0.0301639 v^3 + 0.0581573 v^2 + 0.0546369 v + 0.000715828$.\vspace{3mm}
+
+Taking the \href{https://www.wolframalpha.com/input/?i=integral+from+0+to+4+of+x\%2F\%280.00617211+x\%5E4+-+0.0301639+x\%5E3+\%2B+0.0581573+x\%5E2+\%2B+0.0546369+x+\%2B+0.000715828\%29}{integral}, we can see that
+\begin{align*}
+    \int_0^4\dfrac{v}{a(v)}dv&\approx\int_0^4\dfrac{v}{0.00617211 v^4 - 0.0301639 v^3 + 0.0581573 v^2 + 0.0546369 v + 0.000715828}dv\\
+    &\approx \boxed{39\;\text{m}}
+\end{align*}
+\blfootnote{Don't worry if your answer isn't exactly the same as ours, as this result may be difficult to determine by hand with the graph provided. A rough approximation (within reasonable limits) would suffice.}
+\end{solution}

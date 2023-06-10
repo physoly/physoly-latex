@@ -1,0 +1,38 @@
+\begin{solution}{normal}
+\begin{center}
+    \begin{asy}
+        import olympiad;
+        unitsize(2.5cm);
+        filldraw((0,0)--(5,0)--(5,0.2)--(0,0.2)--cycle,mediumgrey);
+        filldraw((0,-4.5)--(5,-4.5)--(5,-4.3)--(0,-4.3)--cycle,mediumgrey);
+        draw((2.5,0)--(3.2,0),arrow=Arrow(),red);
+        draw((2.5,-4.3)--(1.55,-4.3),arrow=Arrow(),blue);
+        label("$v_1$",(3.4,-0.1));
+        label("$v_2$",(1.4,-4.2));
+        filldraw((2.5,0)..(2.8,-0.2)..(3.1,-0.3)..(3.3,-0.4)..(3.5,-0.5)..(3.7,-0.8)..(3.9,-1.1)..(4,-1.3)..(4.1,-1.5)..(4.2,-1.8)..(4.3,-2.2)..(4.4,-2.5)..(4.5,-2.7)..(4.6,-2.8)..(4.5,-3.3)..(4.3,-3.2)..(4.1,-3.1)..(3.9,-3)..(3.7,-2.9)..(3.5,-2.8)..(3.2,-2.7)..(3.1,-2.7)..(3,-2.9)..(3.2,-3.2)..(3.2,-3.4)..(3.1,-3.8)..(3,-3.9)..(2.8,-4.2)..(2.5,-4.3)..(2.2,-4)..(1.9,-3.9)..(1.6,-3.8)..(1.4,-3.7)..(1.2,-3.6)..(1.1,-3.5)..(1,-3.4)..(0.9,-3.1)..(0.9,-3)..(1,-2.8)..(1.2,-2.5)..(1.3,-2.2)..(1.1,-1.9)..(0.9,-1.7)..(0.7,-1.6)..(0.5,-1.5)..(0.4,-1.3)..(0.45,-1)..(0.6,-0.8)..(0.7,-0.8)..(1,-0.9)..(1.3,-0.8)..(1.8,-0.5)..(2.1,-0.2)..(2.4,-0.02)..cycle,lightgrey);
+        draw((2.5,0)--(2.5,-4.3),dashed);
+        draw((3.2,0)--(1.55,-4.3),dashed);
+        dot((2.5,-1.8));
+        draw(scale(0.5)*rightanglemark((5,-0.1),(5,0),(5.2,0)));
+        draw(scale(0.5)*rightanglemark((5,-0.1),(5,-8.6),(4.8,-8.6)));
+        label("$O$",(2.8,-1.8));
+        label("$l_1$",(2.3,-0.9));
+        label("$l_2$",(2.7,-3));
+        draw(circle((2.5,-1.8),1.8),dotted);
+        draw(arc((2.5,-1.8),1.8,-41,-10),red);
+        draw(arc((2.5,-1.8),1.8,214,292),red);
+        draw(arc((2.5,-1.8),1.8,174,150),red);
+        dot((2.5,0),red);
+        draw(circle((2.5,-1.8),2.5),dotted);
+        draw(arc((2.5,-1.8),2.5,-36.5,-28),blue);
+        dot((2.5,-4.3),blue);
+    \end{asy}
+\end{center}
+We know by idea 33 that the instantaneous axis of rotation $O$ of the object exists. \vspace{3mm}
+
+Let $l_1$ and $l_2$ be the distance from $O$ to the top and bottom boards, respectively. \vspace{3mm}
+
+In fact, we have that $$\dfrac{l_1}{l_2}=\dfrac{|v_1|}{|v_2|}$$
+
+By the properties of the instantaneous axis of rotation, we know that all points with speed $|v_1|$ lie on a circle centered at $O$ with radius $l_1$, and all points with speed $|v_2|$ lie on a circle centered at $O$ with radius $l_2$.
+\end{solution}

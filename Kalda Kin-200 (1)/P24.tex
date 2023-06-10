@@ -1,0 +1,25 @@
+\begin{solution}{normal}
+\begin{center}
+    \begin{asy}
+    size(5cm);
+    draw(circle((0,0), 1));
+draw((0,1)--(1.5,1), arrow=Arrow(4));
+label("$2v$", (1.5, 1), N);
+draw((0,0) -- (0.75,0), arrow=Arrow(4));
+label("$v$", (0.75, 0), N);
+dot((0,0));
+    \end{asy}
+\end{center}
+As the wheel is rolling, we have that $\omega = \dfrac{v}{R}$.\vspace{3mm}
+
+The speed of the highest point in the lab frame is $$v + \omega R = 2v$$
+
+Therefore, we find that the centripetal force at the highest point is $$a_c = \frac{(2v)^2}{r}$$
+
+The speed of highest point in frame of wheel’s centre is $\omega R = v$. \vspace{3mm}
+
+Therefore, the centripetal force in the wheels center is $$a_c = \omega^2 R = \frac{v^2}{R}$$
+
+As both frames are inertial frames, 
+\[\frac {v^2}{R} = \frac {4v^2}{r}\implies \boxed{r = 4R}\]
+\end{solution}

@@ -1,0 +1,22 @@
+\begin{solution}{normal}
+\textbf{(a)} The energy for spin up dipole is given by $\mu_BB$ while the energy for spin down dipole $-\mu_BB$. Note that by Boltzmann’s law
+\[\text{Probability:}\,\,p = Ae^{-E/k_BT}\,\,\,\,\text{where A is a constant}.\]
+As there are only 2 possible states for the dipoles. The total sum of both states must add up to $1$ by the rule of probability. 
+$$p_{\mu_B} + p_{-\mu_B} = 1\implies A = \frac{1}{e^{-\mu_BB/k_BT} + e^{\mu_BB/k_BT}}$$
+Therefore, $ p_{\mu_B} = \frac{e^{-\mu_BB/k_BT}}{e^{-\mu_BB/k_BT} + e^{\mu_BB/k_BT}}$ and $ p_{-\mu_B} = \frac{e^{\mu_BB/k_BT}}{e^{-\mu_BB/k_BT} + e^{\mu_BB/k_BT}}$. The average energy will be the weighted average of both states which is the multiplied by $N$ or in other words:
+$$E_s = \left(\frac{\mu_BBp_{\mu_B}+\left(-\mu_BBp_{-\mu_B}\right)}{p_{\mu_B}+p_{-\mu_B}}\right)N$$
+Therefore,
+$$E_s = N\mu_BB\left(\frac{e^{-\mu_Bb/k_BT}- e^{\mu_Bb/k_BT}}{e^{-\mu_Bb/k_BT}+e^{\mu_Bb/k_BT}}\right) = -N\mu_BB \tanh \left(\frac{\mu_Bb}{k_BT}\right) $$'
+
+\textbf{(b)} For $1\gg \frac{\mu_BB}{k_BT}$, we can approximate the energy to be 
+$$E_s \approx \frac{-N\left(\mu_BB\right)^2}{k_BT}$$
+We then find that $C = \frac{\text{d}E_s}{\text{d}T} = \frac{N\left(\mu_BB\right)^2}{k_BT^2}$
+\tcbline
+Here is a purely statistical analysis of this problem. Suppose there are $N_\uparrow$ states and $N_\downarrow$ states such that $N_\uparrow+N_\downarrow=N$ and the total energy is $U=\mu B(N-2N_\uparrow)$. Then, the multiplicity of having $N_\uparrow$ states is given by:
+$$\Omega = \frac{N!}{N_\uparrow!N_\downarrow!}$$The entropy of this is thus:
+$$S=k\ln\Omega=k\left[\ln(N!)-\ln(N_\uparrow!)-\ln\left((N-N_\uparrow)!\right)\right]$$Applying Stirling's approximation, we get:
+$$S/k=N\ln N-N_\uparrow \ln(N_\uparrow)-(N-N_\uparrow)\ln(N-N_\uparrow)$$The definition of temperature is given by:
+$$\frac{1}{T}=\frac{\partial S}{\partial U} = \frac{\partial N_{\uparrow}}{\partial U} \frac{\partial S}{\partial N_{\uparrow}}=-\frac{1}{2\mu B}\frac{\partial S}{\partial N_\uparrow}$$where
+$$\frac{\partial S}{\partial N_\uparrow}=-\ln\left(\frac{N_\uparrow}{N-N_\uparrow}\right)=\ln\left(\frac{N-U/\mu B}{N+U/\mu B}\right)$$where we have substituted $N_\uparrow = \frac{N}{2}-\frac{U}{2\mu B}$. Solving for $U$, we get the desired:
+$$U=-N\mu B\tanh\left(\frac{\mu B}{kT}\right)$$
+\end{solution}

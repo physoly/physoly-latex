@@ -1,0 +1,29 @@
+\begin{solution}{normal}
+Due to symmetry the turtles meet at the centroid of the triangle formed, and form an equilateral triangle at any instant. The velocity of the first turtle with respect to the other is obviously $$0.1 \cos\left(60\degree\right) \;\text{m/s}$$
+
+Thus, the relative velocity of separation is
+$$v(1+\cos\left(60\degree\right)) = \frac{3v}{2}$$
+
+Since this is constant, the time taken for the turtles to meet is
+$$t = \frac{d}{\tfrac{3v}{2}} = \frac{2d}{3v} = \boxed{6.7\;\text{s}}$$
+
+\tcbline
+
+\textbf{Solution 2:} The path length of any turtle in the motion is simply
+$$ds = dr\sqrt{1+\left(\frac{rd\theta}{dr}^2\right)}$$
+
+Using polar coordinates, one can deduce that
+\begin{align*}
+\frac{dr}{dt} &= -10\sin\left(60\degree\right)\\
+v\frac{d\theta}{dt} &= \frac{10}{2}=5
+\end{align*}
+
+Hence we have
+$$\frac{d\theta}{dr} = -\frac{1}{r\sqrt{3}} \Rightarrow ds = \frac{2dr}{\sqrt{3}}$$
+
+Since $t = \dfrac{ds}{10} $, we find the total time by integrating this expression:
+\begin{align*}
+\int_{0}^{T}{dt} &= -\frac{2}{\sqrt{3}v}\int_{\frac{1}{\sqrt{3}}}^{0}{dr}\\
+T &=  \frac{2d}{3v} = \boxed{6.7\;\text{s}}
+\end{align*}
+\end{solution}

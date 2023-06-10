@@ -1,0 +1,31 @@
+\begin{solution}{hard}
+\textbf{(a)} We know that $$C_v = \frac{\text{d}E_{\text{avg}}}{\text{d}T}$$
+A free electron has $3$ degrees of freedom. Therefore: $$E_{\text{avg}} = \frac{3}{2} k_BT\implies C_v = \frac{3}{2} k_B$$
+\vspace{3mm}
+
+\noindent \textbf{(b)} The total energy is 
+$$U = \int_0^S Ef(E) dS = CV\int_0^{\infty}E^{3/2}f(E) dE.$$
+From the graph
+$$ f(E) =
+\begin{cases}
+1 &\quad 0 \leq E \leq E_{\text{F}}- 2k_BT \\
+\frac{E}{4k_BT} + \frac{E_{\text{F}}+ 2k_BT}{4k_BT} &\quad E_{\text{F}}- 2k_BT\leq E \leq E_{\text{F}}+ 2k_BT\\
+0 &\quad E \geq E_{\text{F}}+ 2k_BT \\
+\end{cases} $$
+Therefore, by integrating from all cases we have:
+$$ \int_0^{\infty} E^{3/2} f(E) dE = \int_0^{E_{\text{F}}- 2k_BT} E^{3/2} \cdot 1 \cdot dE + \int _{E_{\text{F}}- 2k_BT}^{E_{\text{F}}+2k_BT} E^{3/2}\frac{E_{\text{F}}- 2k_BT-E}{4k_BT} dE + \int_{E_{\text{F}}+2k_BT}^{\infty} E^{3/2}\cdot 0 \cdot dE$$
+Simplifying and evaluating the integral tells us 
+\begin{align*}\int_0^{\infty} E^{3/2} f(E) dE = \frac{2\left(E_{\text{F}}- 2k_BT\right)^{5/2}}{5} &+ \frac{2\left(E_{\text{F}}+ 2k_BT\right)\left(\left(E_{\text{F}}+2k_BT\right)^{5/2}-\left(E_{\text{F}}- 2k_BT\right)^{5/2}\right)}{5\times 4k_BT} \\
+&- \frac{2\left(\left(E_{\text{F}}+2k_BT\right)^{7/2} - \left(E_{\text{F}}- 2k_BT\right)^{7/2}\right)}{4k_BT}.\end{align*}
+As $k_BT \ll E_{\text{F}}$
+$$\int_0^{\infty} E^{3/2}f(E)dE = \frac{2E_{\text{5/2}}}{5} \left( 1 - \frac{5k_BT}{E_{\text{F}}} + \frac{15}{2} \left(\frac{k_BT}{E_{\text{F}}}\right)^2\right) + E_{\text{F}}^{5/2}\left(1+ \frac{2k_BT}{E_{\text{F}}}\right)- E_{\text{F}}^{5/2} = \frac{2E_{\text{F}}^{5/2}}{5} + 3 \left(\frac{k_BT}{E_{\text{F}}}\right)^2E_{\text{F}}^{5/2}.$$
+Therefore:
+$$U = CVE_{\text{F}}^{5/2} \left( \frac{2}{5} + 3 \left( \frac{k_BT}{E_{\text{F}}}\right)^2\right)$$
+and
+$$E_{\text{avg}} = \frac{U}{N}$$ where $ N = \int dS = CV \int_0^{E_{\text{F}}^0} E^{1/2} dE$ as electrons are below energy below $E_{\text{F}}^0$ at $T = 0$K. It is given that fermi level is not dependent on temperature. Finally, we note that
+ $E_{\text{F}}^0= E_{\text{F}} \implies N = \frac{2CV E_{\text{F}}^{3/2}}{3}$
+ which means
+$$E_{\text{avg}} = \frac{3}{2} E_{\text{F}} \left( \frac{2}{5} + 3 \left( \frac{k_BT}{E_{\text{F}}}\right)^2\right).$$
+The heat capacity is then:
+$$C_v = \frac{\text{d}E_{\text{avg}}}{\text{d}T} = \frac{9k_B^2T}{E_{\text{F}}}.$$
+\end{solution}

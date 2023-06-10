@@ -1,0 +1,11 @@
+\begin{solution}{normal}
+The handout describes how to solve this problem. To summarize, the load is the $3\;\mathrm{V}$ battery, so we can remove it and then short the voltage source to calculate the Thevenin resistance. We then get $1 \Omega$ resistors in parallel connected in series to $2 \Omega$ resistors in parallel. The effective resistance is then $R_{\text{eq}} = 1.5 \Omega$. Now, the current through the $3\;\mathrm{V}$ battery can be calculated to be $\frac{3\;\mathrm{V}}{1.5 \Omega} = \boxed{2\;\mathrm{A}}.$
+\tcbline
+Alternatively, we can apply idea 12. We can set up the following systems of equations:
+\begin{align*}
+3 &= 1\left(I-I_1\right) + 2\left(I-I_1+I_2\right) & \text{(top loop)} \\ 
+3 &= 1\left(I_1\right) + 2\left(I_1-I_2\right) & \text{(bottom loop)} \\ 
+3 + 4 &= 1\left(I_1\right) +  2\left(I-I_1+I_2\right) & \text{(zig zag from bottom left)}
+\end{align*}
+Here, $I$ is the current through the battery of interest, $I_1$ is the current through the $1\Omega$ resistor in the bottom branch, and $I_2$ is the current through the bridge. Solving this system of equations gives $I=2\text{ A}$. The reason why the voltage of the bridge battery does not matter is that this value of $I$ allows the first two equations to be exactly identical.
+\end{solution}

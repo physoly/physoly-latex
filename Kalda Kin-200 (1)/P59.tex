@@ -1,0 +1,19 @@
+\begin{solution}{normal}
+The length of the trails is defined by the time interval during which the droplet’s image remains within the gap between the curtains. \vspace{3mm}
+
+This, in turn, is inversely proportional to that component of the image’s relative velocity which is perpendicular to the curtain’s edge. \vspace{3mm}
+
+In first case, the velocity of the curtains $\vec{v}$ and the velocity of the droplet’s image $\vec{u}$ are parallel, in the second case antiparallel, and in the third case perpendicular. In the antiparallel case there are two possibilities as we don’t know which is faster, the curtain or the image. \vspace{3mm}
+
+Thus, the time of appearance of a sufficient trail is $\dfrac{d}{|u\pm v|}$and trace length $l = \dfrac{vd}{|u\pm v|}$  \vspace{3mm}
+
+Let $u \geq v$; then 
+$$l_1 = \frac{vd}{u + v} ,\;\; l_2 = \frac{vd}{u - v}$$
+By dividing the second equation by the first one, we get $ \dfrac{u + v}{u - v} = \dfrac{l_2}{l_1} = \dfrac{5}{3}$, of which $$3u+3v = 5u-5v \Rightarrow u = 4v $$
+
+If the camera is in portrait position, then a sufficient image is present in the slit during $d/u$, so the trail length is
+$$l_3 = \frac{vd}{u}$$
+$$\frac{l_3}{l_1} = 1 + \frac{v}{u} = \frac{5}{4} \implies l_3 = \frac{5}{4}l_1 = \boxed{150\;\text{pixels}}$$
+If $u <v$, only the second equation changes, $l_2 = \dfrac{vd}{v-u}$, so $3u+3v = 5v-5u$ and $u = v/4$, so 
+$$l_3 = 5l_1 = \boxed{600\;\text{pixels}}$$
+\end{solution}

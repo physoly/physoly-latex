@@ -1,0 +1,18 @@
+\begin{solution}{normal}
+\begin{enumerate}[label = (\alph*)]
+\item Due to idea 38, inductors can be considered as a short circulating wire while the capacitator charge is almost constant. Because of that, there will be no current going through the capacitator and we can effectively remove them from the circuit. This also implies that there will be no current going through $R_1$, which then implies that the voltometer will show $R_2 = \boxed{\mathcal{E}}$.
+
+\item After the switch is opened, there is immediately a current of $\mathcal{E}/R$ flowing through the inductors. This means that the current through $R_1$ and $R_2$ is $\mathcal{E}/R$ as well. Thus the voltage through $R_1$ will be $3R\frac{\mathcal{E}}{R}$ while the voltage through $R_2$ will be $R\frac{\mathcal{E}}{R}$. The voltometer will then read the difference as $-2\mathcal{E}$.
+
+\item Using the hint, we apply energy conservation (notice that the circuit breaks down into two independent circuits, so that the power dissipation can be calculated separately for each of the circuits).
+
+After opening both switches, the capacitator $C_1$ has no charge (since it is connected to $R_1$ which contains no current) and the capacitator $C_2$ has a charge $\mathcal{E}$. Since the voltometer has a large resistance, we can effectively disonnect it from the system. Also, note that $L_1$ and $L_2$ carry a current $\mathcal{E}/R_2$. This means that, as we said, the circuit breaks down into two independent circuits. 
+\begin{itemize}
+\item Circuit 1: $R_1L_1C_1$
+\item Circuit 2: $R_2L_2C_2$
+\end{itemize}
+Remember that the energy of a capacitor is $E_c = \frac{1}{2}C\mathcal{E}^2$ while the energy through the inductor will be $E_{L} = \frac{1}{2}LI^2 = \frac{1}{2}L\frac{\mathcal{E}^2}{R^2}$. Note that the circuit can be split into two individual triangles of components $C_1, R_1, L_1$ and $R_2, C_2, L_2$. 
+
+Thus, we can sum up the energies in each individual circuit. For circuit 1, the energy dissipated is simply $\frac{1}{2}L\frac{\mathcal{E}^2}{R^2}$ while in the second circuit, $\mathcal{E}^2 \left(\frac{C}{2} + \frac{L}{2R^2}\right)$. 
+\end{enumerate}
+\end{solution}

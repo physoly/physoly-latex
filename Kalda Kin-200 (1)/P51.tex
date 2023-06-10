@@ -1,0 +1,105 @@
+\begin{solution}{easy}
+\textbf{i)} Note that the total time is $\dfrac{2a}{v}$, so the cars can each only travel along 2 segments. \vspace{3mm}
+
+Since $v_{dist}$ is never positive, the two cars are always approaching each other (aside from a brief instant at $t=\dfrac{a}{v}$). \vspace{3mm}
+
+From this, we note that both cars must end up at city $O$. \vspace{3mm}
+
+If the two cars started from cities $A$ and $B$, then their initial $v_{dist}$ would have been $0$. \vspace{3mm}
+
+If the two cars started from cities $B$ and $C$, then their initial $v_{dist}$ would have been $v_0\sqrt{2}$. \vspace{3mm}
+
+This leaves only the option that $\boxed{\text{the two cars started from }A\text{ and }C\text{ and both ended at }O}$. \vspace{3mm}
+
+\textbf{ii)} Since the area under a velocity graph is just distance, the area under this velocity graph is the difference between the distance between the two cars at time $t=0$ and time $t=\dfrac{a}{v}$. \vspace{3mm}
+
+Thus, our answer is $$2a-\sqrt{2}a=\boxed{(2-\sqrt{2})a}$$
+
+\textbf{iii)}
+$A-B:$\vspace{3mm}
+
+For the first segment, the cars have the same velocity, so $v_{dist}=0$. \vspace{3mm}
+
+For the second segment, the cars face each other, so $v_{dist}=-2v$.
+\begin{center}
+    \begin{asy}
+        unitsize(3cm);
+        import graph;
+        real v = 0;
+        pair f (real t){
+        	return (t,-v);
+        }
+        draw((0,-1.1)--(0,1.3), arrow=Arrow(TeXHead));
+        draw((0,0)--(2.25,0), arrow=Arrow(TeXHead));
+        label("$v_{dist}$",(-0.25,1.1));
+        draw(graph(f,0,1),red);
+        v = 0.7;
+        draw(graph(f,1,2),red);
+        draw((1,0)--(1,-v),red);
+        draw((0,-v)--(1,-v),dotted);
+        label("$-2v$",(-0.3,-0.7));
+        label("$t$",(2.4,0));
+        label("$\frac{a}{v}$",(1,0.2));
+        label("$\frac{2a}{v}$",(2,0.2));
+        draw((2,0.05)--(2,-0.05));
+        draw((1,0.05)--(1,-0.05));
+    \end{asy}
+\end{center}
+$B-C:$\vspace{3mm}
+
+For the entire course of the motion, the velocity vectors of the two cars are perpendicular to each other and both cars approach each other, so $$v_{dist}=-\sqrt{2}v$$
+\begin{center}
+    \begin{asy}
+        unitsize(3cm);
+        import graph;
+        real v = 0.7;
+        pair f (real t){
+        	return (t,-v);
+        }
+        draw((0,-1.1)--(0,1.3), arrow=Arrow(TeXHead));
+        draw((0,0)--(2.25,0), arrow=Arrow(TeXHead));
+        label("$v_{dist}$",(-0.25,1.1));
+        draw(graph(f,0,2),red);
+        label("$-\sqrt{2}v$",(-0.35,-0.7));
+        label("$t$",(2.4,0));
+        label("$\frac{a}{v}$",(1,0.2));
+        label("$\frac{2a}{v}$",(2,0.2));
+        draw((2,0.05)--(2,-0.05));
+        draw((1,0.05)--(1,-0.05));
+    \end{asy}
+\end{center}
+
+\textbf{iv)}
+$B-C:$\vspace{3mm}
+
+As they turn, the cars face each other and then turn to perpendicular again, so $v_{dist}$ goes from $-\sqrt{2}v$ to $-2v$ and back to $-\sqrt{2}v$.
+\begin{center}
+    \begin{asy}
+        unitsize(3cm);
+        import graph;
+        real v = sqrt(2);
+        pair f (real t) {
+        	return (t,-v);
+        }
+        draw((0,-2.5)--(0,0.5), arrow=Arrow(TeXHead));
+        draw((0,0)--(2.25,0), arrow=Arrow(TeXHead));
+        label("$v_{dist}$",(-0.25,0.2));
+        draw(graph(f,0,0.9),red);
+        draw(graph(f,1.1,2),red);
+        label("$-\sqrt{2}v$",(-0.35,-sqrt(2)));
+        label("$-2v$",(-0.35,-2));
+        label("$t$",(2.4,0));
+        label("$\frac{a}{v}$",(1,0.2));
+        label("$\frac{2a}{v}$",(2,0.2));
+        draw((2,0.05)--(2,-0.05));
+        draw((1,0.05)--(1,-0.05));
+        pair g (real t) {
+        	return (t,-2.7183^(-(t-1)^2/(2*0.025^2))*1/1.7-sqrt(2));
+        }
+        draw(graph(g,0.9,1.1),red);
+        draw((-0.05,-2)--(0.05,-2));
+        draw((-0.05,-sqrt(2))--(0.05,-sqrt(2)));
+    \end{asy}
+\end{center}
+\end{solution}
+\newpage

@@ -1,0 +1,33 @@
+\begin{solution}{hard}
+Let us assume that the block is originally pushed leftwards in the frame of the ground and the conveyor is travelling upwards.\vspace{3mm}
+
+In the frame of the conveyor belt, the block is moving with a speed of $\sqrt{5} \text{ m/s}$. This is represented by the red vector. Due to friction opposing the motion, the direction of motion relative to the belt will be constant. The magnitude will steadily decrease to zero. \vspace{3mm}
+
+To move back to the frame of the ground, we can add back the velocity of the conveyor belt, as shown below.
+\begin{center}
+    \begin{asy}
+        import graph; usepackage("amsmath"); size(8cm); 
+        real labelscalefactor = 0.5; /* changes label-to-point distance */
+        pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps); /* default pen style */ 
+        pen dotstyle = black; /* point style */ 
+        real xmin = -0.8531816466581964, xmax = 3.7162671423358375, ymin = 0.38609633034332036, ymax = 3.7706983775630696;  /* image dimensions */
+        
+         /* draw figures */
+        draw((3,2)--(1,3),red,EndArrow(6)); 
+        draw((3,2)--(1,2),blue,EndArrow(6)); 
+        draw((1,3)--(1,2),EndArrow(6)); 
+        draw((1.41,2.78)--(1,2),blue+dotted,EndArrow(6));
+        label("$1 \text{ m/s}$",(0.6809824612168666,2.4716901209468683),SE*labelscalefactor); 
+        label("$2 \text{ m/s}$",(1.7997421337288357,1.93355255695377),SE*labelscalefactor); 
+        label("$\sqrt{5} \text{ m/s}$",(1.861108698043838,2.7),SE*labelscalefactor); 
+        draw(shift((1,2.99181506125727))*xscale(0.21714322757616245)*yscale(0.21714322757616245)*arc((0,0),1,270,335.210989393152)); 
+        label("$\theta$",(1.0916663916326528,2.8),SE*labelscalefactor); 
+    clip((xmin,ymin)--(xmin,ymax)--(xmax,ymax)--(xmax,ymin)--cycle); 
+    \end{asy}
+\end{center}
+The blue vector shows the velocity of the block relative to the ground. Initially, it is $2 \text{ m/s}$ but as friction reduces the magnitude of the red vector (which represents the velocity relative to conveyor belt), the blue vector will decrease to a minimum. This minimum occurs when it forms a right angled triangle (represented by the dotted lines). \vspace{3mm}
+
+Therefore, the minimum velocity of the block relative to the ground is
+$$v=1\sin\theta=\boxed{\frac{2}{\sqrt{5}}}$$
+\end{solution}
+\newpage

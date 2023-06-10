@@ -1,0 +1,68 @@
+\begin{solution}{hard} \textbf{(a)} Consider a cross-section with width $\text{d}h$. The pressure is then given by 
+\[\dd P = - \rho g \dd h.\]
+From the ideal gas law, we have that 
+\[\rho = \frac{PM}{RT}\]
+which means that 
+\[\int_{0}^{H} -\frac{Mg}{RT}\dd h = \int_{P}^{P/e} \frac{\dd P}{P}\implies - \frac{MgH}{RT} = \ln \left(\frac{1}{e}\right) = -1.\]
+This means that 
+\[MgH = RT\implies \bar{M} = \frac{RT}{gH} = 14.5\;\mathrm{g/mol}.\]
+\vspace{3mm}
+
+\noindent \textbf{(b)} By the ideal gas law 
+\[\frac{n}{N_A}RT = P_0\implies n = \frac{N_A P_0}{RT}.\]
+The mean free path $\lambda$ is given by 
+\[\lambda = (\sigma n)^{-1}\implies \lambda = \frac{RT}{N_A \sigma P_0} = 3286.67\;\mathrm{m}.\]
+\vspace{3mm}
+
+\noindent \textbf{(c)} We are given in part (a) that 
+\[\lambda_{\text{EB}} = H \implies n_{\text{EB}} = \frac{1}{\lambda_{\text{EB}} \sigma} = \frac{1}{\sigma H}.\]
+This means that from the ideal gas law:
+\[P_{\text{EB}} = \frac{n_{\text{EB}} RT}{N_A}.\]
+Now, once again integrating and doing the same steps as in part (a), we have that 
+\[-\int_{h_0}^{h_{\text{EB}}} \frac{Mg \dd h}{RT} = \int_{P_0}^{P_{\text{EB}}} \frac{\dd P}{P}\implies -(h_{\text{EB}} - h )\frac{Mg}{RT} = \ln \left(\frac{P_{\text{EB}}}{P_0}\right)\implies h_{\text{EB}} = 425\;\mathrm{km}.\]
+\vspace{3mm}
+
+\noindent \textbf{(d)} Note that Maxwell's distribution in spherical form is given by 
+\[f(v) dv = v^2 \left(\frac{m}{2\pi k_B T}\right)^{3/2} \exp \left(-\frac{mv^2}{2k_B T}\right) \sin\theta d\theta d\varphi.\]
+The probability of the particle having a velocity more than the escape velocity will then be given by $\int_{v_{\text{esc}}}^{\infty} f(v) dv$ or in other words, integrating over all spaces gives us 
+\begin{align*}
+P(v) &= \left(\frac{m}{2\pi k_B T}\right)^{3/2} \int_{v_{\text{esc}}}^{\infty} v^2 \exp \left(-\frac{mv^2}{2k_B T}\right) \int_{0}^{\pi/2} \sin\theta d\theta \int_{0}^{2\pi} d\varphi\\
+&= \sqrt{\frac{2m^3}{\pi k_B^3T^3}} \int_{v_{\text{esc}}}^{\infty} v^2 \exp \left(-\frac{mv^2}{2k_B T}\right)
+\end{align*}
+We need to calculate the escape velocity at the exobase which can be done with the equation 
+\[v_{\text{esc}} = \sqrt{\frac{2GM}{R + h}} = 1.08\times 10^4 \;\mathrm{m/s}\]
+and therefore, the integral gives us
+\[P(v) = \sqrt{\frac{2m^3}{\pi k_B^3T^3}} \int_{1.08\times 10^4}^{\infty} v^2 \exp \left(-\frac{mv^2}{2k_B T}\right) = \boxed{2.6\cdot 10^{-3}}.\]
+\vspace{3mm}
+
+\textbf{(e)} Note that flux is given by $\Phi = \frac{dN}{dA\cdot dt}$. We can calculate $dN$ first using the spherical Maxwell's distrubution and using the fact that the number of molecules coming in at a certain time is given by $nv\cos\theta dAdt$ where $dA$ is a surface element. Therefore, expanding $N$ gives us
+\[dN = \sum n_H v\cos\theta dAdt \cdot f(v, \theta, \varphi) dv d\theta d\varphi\]
+which tells us 
+\[dN = n_H \left(\frac{m}{2\pi k_B T}\right)^{3/2} \exp \left(-\frac{mv^2}{2k_B T}\right) v^3 dv \cdot \sin\theta \cos\theta d\theta \cdot d\varphi \cdot dA dt.\]
+Integrating over $\theta$ and $\varphi$ tells us 
+\[dN = n_H \left(\frac{m}{2\pi k_B T}\right)^{3/2} \exp \left(-\frac{mv^2}{2k_B T}\right) v^3 dA dt\]
+and therefore, 
+\[d\Phi = \frac{dN}{dA dt} = n_H \left(\frac{m}{2\pi k_B T}\right)^{3/2} \exp \left(-\frac{mv^2}{2k_B T}\right) v^3 dv.\]
+The flux of the escaping atoms are then given as 
+\[\Phi = \int_{v_{\text{esc}}}^{\infty} n_H \left(\frac{m}{2\pi k_B T}\right)^{3/2} \exp \left(-\frac{mv^2}{2k_B T}\right) v^3 dv = \boxed{7.5\times 10^{11}\;\mathrm{1/m^2}}.\]
+\vspace{3mm}
+
+\textbf{(f)} Note that the atmosphere produces a force of $F = PA = 4\pi R_{\odot}^2 P$. Equating this force to the mass of the atmosphere tells us that 
+\[mg = 4\pi R_{\odot}^2 P\implies m = \frac{4\pi R_{\odot}^2 P}{g}.\]
+We then write 
+\[N = \frac{N_A m}{M_{\text{Atm}}} = \frac{4\pi N_A R_{\odot}^2 P}{M_{\text{Atm}} g}.\]
+Then note that since Nitrogen is diatomic, we have $N_H = 2\chi_H N = 1.2\times 10^{38}$ which gives us our answer.
+\vspace{3mm}
+
+\textbf{(g)} The number of molecules escaping after a unit time is 
+\[\dot{N}_H = \Phi (R_{\odot} + h_{EB})^2 = 4.35\times 10^{26}\;\mathrm{1/s}.\]
+The total time required for half the atmosphere to evaporate is then given by the characteristic time interval:
+\[\tau = \frac{N_H/2}{\dot{N}_H} \approx \boxed{4500\;\mathrm{years}}.\]
+\vspace{3mm}
+
+\textbf{(h)} Redoing the calculations from the other parts for hydrogen gives us our new answer of $9.6\times 10^{11}\;\mathrm{years}.$
+\vspace{3mm}
+
+\textbf{(i)} One possible reason of why there is currently still some hydrogen in the Earth’s atmosphere is that the hydrogen inside the Earth's water gets cycled through the hydrologic cycle.
+
+\end{solution}

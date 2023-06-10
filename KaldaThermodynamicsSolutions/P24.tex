@@ -1,0 +1,20 @@
+\begin{solution}{normal}
+\textbf{a)} We are given that$$\ln \frac{p_i}{p_0} = \frac{a_i}{T} + b_i$$Substittuing the values from the table for $A$ we get,
+$$\ln 0.284 = \frac{a_A}{313} + b_{A}$$and$$\ln 1.476 = \frac{a_A}{363} + b_{A}.$$
+Solving these we get $a_A = -3748.49K$ and $b_A = 10.72$.
+The boiling temperature is the temperature at which the saturated vapour pressure equals the atmospheric pressure, i.e. $\frac{p_A}{p_0} = 1$
+This gives$$\ln 1 = \frac{a_A}{T_{A}} + b_A \implies \boxed{T_{A} = \frac{a_A}{b_A}\approx 350K}$$Similarly solving for $B$ gives,
+$$a_B = -5121.64$$$$b_B = 13.735$$$$\boxed{T_B \approx 373K}$$
+\textbf{b)} Firstly, evaporation will start at the interface.
+We use fact 15 to conclude that $\frac{p_A}{p_0} + \frac{p_B}{p_0} = 1$, at the time $t_1$
+$$\implies e^{\frac{a_A}{t_1} + b_A}+e^{\frac{a_B}{t_1} + b_B}-1 =0.$$
+Bisection method (or you could just randomly put some values less than 370 K, to zero in on the root) can be used to find the root of this equation, which gives $\boxed{t_1 \approx340 K =  67^{\circ}}$
+The saturated vapour pressures for the two liquids at his temperature are$$p_A \approx 0.734 p_0$$$$p_B \approx 0.267p_0$$.
+
+Now let $m_A$ and $m_B$ be the mass of liquid $A$ and $B$ that escape in a bubble. We have $\frac{m_A}{\rho_A} = \frac{m_B}{\rho_B} \implies\frac{m_A}{m_B} =  \frac{p_AM_A}{p_BM_B} \implies \frac{m_A}{m_B} = 22$. Here $\rho_A$ and $\rho_B$ are the densities of the vapours of $A$ and $B$.
+Thus the rate at which $A$ evaporates is $22$ times that of $B$.
+Therefore the temperature starts increasing again when $A$ is completely evaporated. The amount of $B$ that has evaporated during this time is $\frac{100}{22}= \ 4.5g$.
+Thus at $\tau_1$, there will be no $A$ left, while $95.56g$ of $B$ will be left.
+Also, the temperature $t_2$ is the boiling point of $B$.
+$$\boxed{t_2 = 373K=100^{\circ} \text{ C}}$$
+\end{solution}

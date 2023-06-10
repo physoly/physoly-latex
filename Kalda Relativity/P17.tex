@@ -1,0 +1,24 @@
+\begin{solution}{normal}
+We know that 
+\[v^\mu = (\gamma c, \gamma , 0, 0)\]
+from problem 16. Thus by differentiating with respect to $\tau$ we find that 
+\[a^\mu = \frac{dv^\mu}{d\tau} = \left(\frac{d}{d\tau}\gamma c, \frac{d}{d\tau} \gamma v, 0, 0\right)\]
+From here we note 
+\[\frac{d}{d\tau}\gamma c = c\frac{d\gamma}{d\tau} = c\frac{d\gamma}{dv}\frac{dv}{d\tau}.\]
+Since 
+\[\gamma \equiv \frac{1}{\sqrt{1-v^2/c^2}}\]
+then by differentiating this with respect to $v$ will in turn give us 
+\[\frac{d\gamma}{dv} = -\frac{1}{2}\left(1 - \frac{v^2}{c^2}\right)^{-3/2} \cdot -\frac{2v}{c^2} = \frac{\gamma^3 v}{c^2}.\]
+From here it follows that 
+\[\frac{d\gamma}{d\tau} = \frac{a\gamma^4v}{c^2}.\]
+We now look at the $a_x$th vector in the four acceleration vector. We see that 
+\[\frac{d}{d\tau}\gamma v = v\frac{d\gamma}{d\tau} + \gamma\frac{dv}{d\tau}\]
+Since $\frac{dv}{d\tau} = a\gamma$, we can simplify the vector to be 
+\[\frac{d}{d\tau}\gamma v = v\frac{d\gamma}{d\tau} + a\gamma^2.\]
+Also noting that from before that $\frac{d\gamma}{d\tau} = \frac{a\gamma^4v}{c^2}$, we find that 
+\[v\frac{d\gamma}{d\tau} + \gamma\frac{dv}{d\tau} = \frac{a\gamma^4v^2}{c^2} + a\gamma^2 = \gamma^4a\]
+Also noting that in the $a_t$th vector 
+\[c\frac{d\gamma}{d\tau} = c\frac{a\gamma^4 v}{c^2} = \beta\gamma^4 a.\] 
+This tells us that 
+\[\boxed{a^\mu = (\beta\gamma^4 a, \gamma^4 a, 0, 0)}\]
+\end{solution}

@@ -1,0 +1,16 @@
+\begin{solution}{normal}
+We use idea 6 and transform the circuit into two pairs of parallel resistors, with the pairs in series. The current $I$ that passes through the entire circuit is given by:
+$$3 = I\left(\frac{(2)(2)}{2+2} + \frac{(3)(2)}{2+3}\right) \implies I = \frac{15}{11} \text{ A}$$As the current passes through the first pair of parallel resistors, the current is split half and half (since the two resistors are both $2\, \Omega$, such that a current of $i_1=\frac{15}{22} \text{ A}$ passes through the top left resistor.
+
+As the current passes through the second pair of parallel resistors, the current is split in a ratio of $2:3$, so a current of $i_2=\frac{15}{11}\cdot \frac{2}{5} = \frac{6}{11}\text{ A}$ passes through the top right resistor.
+
+The difference between these two currents is what passes through the bridge, which is:
+$$I = \Delta i = \boxed{\frac{3}{22} \text{ A}}.$$
+\tcbline
+We can also approach this in a traditional way. We set up equations using Kirchoff's laws. Denote $I_1$ as the current through the bottom branch, $I_2$ as the current through the top branch and $I$ as the current through the ammeter. Then we can write out three loop equations which contain the voltage source:
+\begin{align*}
+2I_2+2(I+I_2) &= 3 & \text{(bottom loop)}\\
+2I_2+3(I_2-I) &= 3 & \text{(top loop)}\\
+2I_2 + 2(I+I_2) &= 3 & \text{(zig zag from top left)}
+\end{align*}Here, we have let the current $I$ flow downwards in the bridge as the lower branch has a smaller resistance. Note that even if we had selected the wrong direction, our answer would be negative, so it can still be interpreted correctly. After solving this system of three equations, we find that $\boxed{I = \dfrac{3}{22}\,\mathrm{A}}$.
+\end{solution}

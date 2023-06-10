@@ -1,0 +1,51 @@
+\begin{solution}{normal}
+Let us denote the node $\text{O}$ to be where the resistor of resistance $R_2$ and inductor of inductance $L_1$ meet. Similarly, let us label the node $\text{C}$ to be where the resistor $R_1$ and inductor $L_2$ meet. We can use similar reasoning to conclude that $V_{OB}\perp V_{BC}$. Note that inductors lead the current by $\pi/2$ degrees while resistors have neither lag nor lead. This means that when drawing a voltage phasor, $V_{OA}$ is orthogonal to $V_{AC}$. Since there is a phase shift $\varphi$ between currents through nodes $\text{A}$ and $\text{B}$, then we can say that $\angle ABC = \varphi$. We can then inscribe the vectors inside a circle $\Gamma$ as shown below:
+\begin{center}
+\begin{asy}
+import olympiad;
+size(7cm);
+pair A = dir(80);
+pair B = dir(180);
+pair C = dir(360);
+
+pair X = dir(250);
+pair Y = dir(40);
+filldraw(unitcircle, opacity(0.1)+lightblue, lightblue);
+fill(A--B--C--cycle, opacity(0.1)+mediumcyan);
+
+fill(B--X--C--cycle, opacity(0.1)+mediumcyan);
+
+markscalefactor = 0.02;
+draw(anglemark(C, B, A));
+markscalefactor = 0.025;
+draw(anglemark(X, B, C));
+
+draw(A--X, heavycyan);
+
+pair O = origin;
+draw(A--O, heavygreen);
+draw(anglemark(C, O, A));
+markscalefactor = 0.02;
+draw(anglemark(C, X, A));
+
+pair I = extension(A, X, B, Y);
+
+draw(B--C, arrow=Arrow(8));
+draw(B--A, blue, arrow=Arrow(8));
+draw(B--C, arrow=Arrow(8));
+draw(A--C, purple, arrow=Arrow(8));
+draw(B--X, purple, arrow=Arrow(8));
+draw(X--C, blue, arrow=Arrow(8));
+
+dot("$A$", A, dir(A));
+dot("$O$", B, dir(B));
+dot("$C$", C, dir(C));
+dot("$B$", X, dir(X));
+dot("$D$", O, dir(315));
+\end{asy}
+\end{center}
+\noindent \textbf{(a)} In $\Delta OAC$, $AD$ is the median to the hypotenuse and by Thale's theorem, it is half the length of $OC$. Since $OC = V_0$, this means that $AD = V_0/2$. 
+\vspace{3mm}
+
+\noindent \textbf{(b)} Since $\angle CBA = \varphi$, we then can say by inscribed angle theorem that $\angle CDA = 2\varphi$ which is the phase shift between $V_{AD}$ and $V_{DB}$.
+\end{solution}
