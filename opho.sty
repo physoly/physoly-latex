@@ -1,0 +1,110 @@
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[margin=0.6in]{geometry} % Page Dimensions
+\usepackage{physics}
+\usepackage{cancel}
+\usepackage{enumitem}
+\setlength{\parskip}{\baselineskip}%
+\usepackage[breakable,many]{tcolorbox}
+% Math
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage[inline]{asymptote}
+\usepackage{xcolor}
+
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{asymptote}
+\definecolor{h-blue}{RGB}{13,13,182}
+\definecolor{h-lightblue}{RGB}{0,0,179}
+\usepackage{sectsty}
+\subsectionfont{\color{h-blue}}
+\subsubsectionfont{\color{h-lightblue}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Online Physics Olympiad 2023 - Invitational Round}
+\lhead{August 5 - 6, 2023}
+
+% Allows for hyperlinking
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=magenta,
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%% COLORS %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\definecolor{background}{HTML}{ffffff}
+\definecolor{l-blue}{RGB}{0,0,179}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% Style Definitions %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tcbset{simple/.style={
+    breakable,
+    enhanced,
+    outer arc=0pt,
+    arc = 0pt,
+    boxrule=0.8pt,
+    colback=background, % Background color
+    colframe=l-blue, % Border Color
+    coltitle=black, % Title Color
+    fonttitle=\bfseries,
+    attach title to upper,
+    after title={:\ },
+    segmentation style={dashed, gray},
+    }
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%   Box Definitions %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtcolorbox[auto counter]{example}[1][]{
+  color-labeled=my-orange,
+  title=\textbf{Example \thetcbcounter \ ({#1})},
+}
+
+\newtcolorbox[auto counter]{custom-big}[1][]{
+  color-labeled=my-yellow,
+  title=\textbf{{#1}},
+}
+
+\newtcolorbox{definition}{
+    one-sided-color=my-green,
+    title=\textbf{Definition},
+}
+
+\newtcolorbox{theorem}{
+    one-sided-color=my-blue,
+    title=\textbf{Theorem},
+}
+
+\newtcolorbox[auto counter]{lemma}{
+    one-sided-color=gray,
+    title=\textbf{Lemma  \thetcbcounter},
+}
+
+\newtcolorbox{prooof}{
+    one-sided-color=gray,
+    title=\textbf{Proof},
+}
+
+\newtcolorbox{custom-small}[1][]{
+    one-sided-color=my-yellow,
+    title=\textbf{{#1}},
+}
+
+\newtcolorbox[auto counter]{custom-simple}[1][]{
+    simple,
+    title={#1},
+    % add a `\thetcbcounter` to the end if you want to keep track of numberings.
+}
+
+\newtcolorbox[auto counter]{sol}{
+    simple,
+    title={Solution \thetcbcounter},
+}
